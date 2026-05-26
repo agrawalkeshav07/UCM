@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-26T18:33:59.258Z",
-  "note": "Team logo database. sourceLogo stores the exact uploaded PNG; logo/exactLogo use resized JPG derivatives for fast UI rendering across franchise selection, auction, lobby, match, and stats screens.",
+  "updatedAt": "2026-05-26T19:31:34.964Z",
+  "note": "Team logo database. The app uses one optimized JPG per team for fast rendering across franchise selection, auction, lobby, match, and stats screens.",
   "teams": [
     {
       "name": "Mumbai Mavericks",
@@ -19,10 +19,9 @@
       "exactLogo": "assets/team-logos/optimized/mumbai mavericks.jpg",
       "fallbackLogo": "assets/team-logos/optimized/mumbai mavericks.jpg",
       "exactLogos": [
-        "assets/team-logos/optimized/mumbai mavericks.jpg",
-        "assets/team-logos/mumbai mavericks.png"
+        "assets/team-logos/optimized/mumbai mavericks.jpg"
       ],
-      "sourceLogo": "assets/team-logos/mumbai mavericks.png"
+      "sourceLogo": "assets/team-logos/optimized/mumbai mavericks.jpg"
     },
     {
       "name": "Delhi Strikers",
@@ -40,10 +39,9 @@
       "exactLogo": "assets/team-logos/optimized/delhi strikers.jpg",
       "fallbackLogo": "assets/team-logos/optimized/delhi strikers.jpg",
       "exactLogos": [
-        "assets/team-logos/optimized/delhi strikers.jpg",
-        "assets/team-logos/delhi strikers.png"
+        "assets/team-logos/optimized/delhi strikers.jpg"
       ],
-      "sourceLogo": "assets/team-logos/delhi strikers.png"
+      "sourceLogo": "assets/team-logos/optimized/delhi strikers.jpg"
     },
     {
       "name": "Bengaluru Blazers",
@@ -61,10 +59,9 @@
       "exactLogo": "assets/team-logos/optimized/bengaluru blazers.jpg",
       "fallbackLogo": "assets/team-logos/optimized/bengaluru blazers.jpg",
       "exactLogos": [
-        "assets/team-logos/optimized/bengaluru blazers.jpg",
-        "assets/team-logos/bengaluru blazers.png"
+        "assets/team-logos/optimized/bengaluru blazers.jpg"
       ],
-      "sourceLogo": "assets/team-logos/bengaluru blazers.png"
+      "sourceLogo": "assets/team-logos/optimized/bengaluru blazers.jpg"
     },
     {
       "name": "Chennai Chargers",
@@ -82,10 +79,9 @@
       "exactLogo": "assets/team-logos/optimized/chennai chargers.jpg",
       "fallbackLogo": "assets/team-logos/optimized/chennai chargers.jpg",
       "exactLogos": [
-        "assets/team-logos/optimized/chennai chargers.jpg",
-        "assets/team-logos/chennai chargers.png"
+        "assets/team-logos/optimized/chennai chargers.jpg"
       ],
-      "sourceLogo": "assets/team-logos/chennai chargers.png"
+      "sourceLogo": "assets/team-logos/optimized/chennai chargers.jpg"
     },
     {
       "name": "Kolkata Knightsmen",
@@ -103,10 +99,9 @@
       "exactLogo": "assets/team-logos/optimized/kolkata knightsmen.jpg",
       "fallbackLogo": "assets/team-logos/optimized/kolkata knightsmen.jpg",
       "exactLogos": [
-        "assets/team-logos/optimized/kolkata knightsmen.jpg",
-        "assets/team-logos/kolkata knightsmen.png"
+        "assets/team-logos/optimized/kolkata knightsmen.jpg"
       ],
-      "sourceLogo": "assets/team-logos/kolkata knightsmen.png"
+      "sourceLogo": "assets/team-logos/optimized/kolkata knightsmen.jpg"
     },
     {
       "name": "Rajasthan Riders",
@@ -124,10 +119,9 @@
       "exactLogo": "assets/team-logos/optimized/rajasthan riders.jpg",
       "fallbackLogo": "assets/team-logos/optimized/rajasthan riders.jpg",
       "exactLogos": [
-        "assets/team-logos/optimized/rajasthan riders.jpg",
-        "assets/team-logos/rajasthan riders.png"
+        "assets/team-logos/optimized/rajasthan riders.jpg"
       ],
-      "sourceLogo": "assets/team-logos/rajasthan riders.png"
+      "sourceLogo": "assets/team-logos/optimized/rajasthan riders.jpg"
     },
     {
       "name": "Hyderabad Hawks",
@@ -145,10 +139,9 @@
       "exactLogo": "assets/team-logos/optimized/hyderabad hawks.jpg",
       "fallbackLogo": "assets/team-logos/optimized/hyderabad hawks.jpg",
       "exactLogos": [
-        "assets/team-logos/optimized/hyderabad hawks.jpg",
-        "assets/team-logos/hyderabad hawks.png"
+        "assets/team-logos/optimized/hyderabad hawks.jpg"
       ],
-      "sourceLogo": "assets/team-logos/hyderabad hawks.png"
+      "sourceLogo": "assets/team-logos/optimized/hyderabad hawks.jpg"
     },
     {
       "name": "Punjab Panthers",
@@ -166,10 +159,9 @@
       "exactLogo": "assets/team-logos/optimized/punjab panthers.jpg",
       "fallbackLogo": "assets/team-logos/optimized/punjab panthers.jpg",
       "exactLogos": [
-        "assets/team-logos/optimized/punjab panthers.jpg",
-        "assets/team-logos/punjab panthers.png"
+        "assets/team-logos/optimized/punjab panthers.jpg"
       ],
-      "sourceLogo": "assets/team-logos/punjab panthers.png"
+      "sourceLogo": "assets/team-logos/optimized/punjab panthers.jpg"
     },
     {
       "name": "Gujarat Gladiators",
@@ -187,10 +179,9 @@
       "exactLogo": "assets/team-logos/optimized/gujrat gladiators.jpg",
       "fallbackLogo": "assets/team-logos/optimized/gujrat gladiators.jpg",
       "exactLogos": [
-        "assets/team-logos/optimized/gujrat gladiators.jpg",
-        "assets/team-logos/gujrat gladiators.png"
+        "assets/team-logos/optimized/gujrat gladiators.jpg"
       ],
-      "sourceLogo": "assets/team-logos/gujrat gladiators.png"
+      "sourceLogo": "assets/team-logos/optimized/gujrat gladiators.jpg"
     },
     {
       "name": "Lucknow Lions",
@@ -208,10 +199,9 @@
       "exactLogo": "assets/team-logos/optimized/lucknow lions.jpg",
       "fallbackLogo": "assets/team-logos/optimized/lucknow lions.jpg",
       "exactLogos": [
-        "assets/team-logos/optimized/lucknow lions.jpg",
-        "assets/team-logos/lucknow lions.png"
+        "assets/team-logos/optimized/lucknow lions.jpg"
       ],
-      "sourceLogo": "assets/team-logos/lucknow lions.png"
+      "sourceLogo": "assets/team-logos/optimized/lucknow lions.jpg"
     }
   ]
 }
