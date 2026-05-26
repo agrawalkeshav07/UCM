@@ -46,9 +46,21 @@ test('team logo database is complete', () => {
   const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   assert.equal(db.teams.length, 10);
   for (const team of db.teams) {
-    assert.match(team.logo, /^assets\/team-logos\/.+\.svg$/);
-    assert(fs.existsSync(path.join(root, team.logo)), 'Missing logo asset for ' + team.name);
+    assert.match(team.logo, /^assets\/team-logos\/.+\.png$/);
+    assert(fs.existsSync(path.join(root, team.logo)), 'Missing exact PNG logo asset for ' + team.name);
+    assert.equal(team.exactLogo, team.logo);
+    assert.equal(team.fallbackLogo, team.logo);
+    assert.deepEqual(team.exactLogos, [team.logo]);
   }
   assert.match(html, /TEAM_LOGO_DB_URL/);
   assert.match(html, /teamLogoImgHtml/);
+});
+
+
+test('franchise selection uses logo tiles in two columns', () => {
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert(html.includes('.team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,clamp(68px,11vh,88px));'), 'Team grid should stay compact at two columns and five rows');
+  assert.match(html, /team-card-logo-art/);
+  assert.match(html, /preferredTeamLogoSrc/);
+  assert(!html.includes('.team-grid{grid-template-columns:1fr'), 'Team grid should not collapse to one column');
 });
