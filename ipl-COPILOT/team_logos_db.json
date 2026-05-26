@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-26T18:07:50.897Z",
-  "note": "Team logo database. These entries point to the exact PNG logo files saved in assets/team-logos and are used across franchise selection, auction, lobby, match, and stats screens.",
+  "updatedAt": "2026-05-26T18:33:59.258Z",
+  "note": "Team logo database. sourceLogo stores the exact uploaded PNG; logo/exactLogo use resized JPG derivatives for fast UI rendering across franchise selection, auction, lobby, match, and stats screens.",
   "teams": [
     {
       "name": "Mumbai Mavericks",
@@ -9,18 +9,20 @@
       "brand": "mumbai",
       "city": "MUMBAI",
       "nickname": "MAVERICKS",
-      "logo": "assets/team-logos/mumbai mavericks.png",
+      "logo": "assets/team-logos/optimized/mumbai mavericks.jpg",
       "colors": {
         "primary": "#082f73",
         "secondary": "#d9a928",
         "accent": "#38bdf8",
         "dark": "#051429"
       },
-      "exactLogo": "assets/team-logos/mumbai mavericks.png",
-      "fallbackLogo": "assets/team-logos/mumbai mavericks.png",
+      "exactLogo": "assets/team-logos/optimized/mumbai mavericks.jpg",
+      "fallbackLogo": "assets/team-logos/optimized/mumbai mavericks.jpg",
       "exactLogos": [
+        "assets/team-logos/optimized/mumbai mavericks.jpg",
         "assets/team-logos/mumbai mavericks.png"
-      ]
+      ],
+      "sourceLogo": "assets/team-logos/mumbai mavericks.png"
     },
     {
       "name": "Delhi Strikers",
@@ -28,18 +30,20 @@
       "brand": "delhi",
       "city": "DELHI",
       "nickname": "STRIKERS",
-      "logo": "assets/team-logos/delhi strikers.png",
+      "logo": "assets/team-logos/optimized/delhi strikers.jpg",
       "colors": {
         "primary": "#12225b",
         "secondary": "#c82737",
         "accent": "#e8d7a1",
         "dark": "#070b18"
       },
-      "exactLogo": "assets/team-logos/delhi strikers.png",
-      "fallbackLogo": "assets/team-logos/delhi strikers.png",
+      "exactLogo": "assets/team-logos/optimized/delhi strikers.jpg",
+      "fallbackLogo": "assets/team-logos/optimized/delhi strikers.jpg",
       "exactLogos": [
+        "assets/team-logos/optimized/delhi strikers.jpg",
         "assets/team-logos/delhi strikers.png"
-      ]
+      ],
+      "sourceLogo": "assets/team-logos/delhi strikers.png"
     },
     {
       "name": "Bengaluru Blazers",
@@ -47,18 +51,20 @@
       "brand": "bengaluru",
       "city": "BENGALURU",
       "nickname": "BLAZERS",
-      "logo": "assets/team-logos/bengaluru blazers.png",
+      "logo": "assets/team-logos/optimized/bengaluru blazers.jpg",
       "colors": {
         "primary": "#6e111b",
         "secondary": "#cf9d28",
         "accent": "#ff7a1a",
         "dark": "#0b1118"
       },
-      "exactLogo": "assets/team-logos/bengaluru blazers.png",
-      "fallbackLogo": "assets/team-logos/bengaluru blazers.png",
+      "exactLogo": "assets/team-logos/optimized/bengaluru blazers.jpg",
+      "fallbackLogo": "assets/team-logos/optimized/bengaluru blazers.jpg",
       "exactLogos": [
+        "assets/team-logos/optimized/bengaluru blazers.jpg",
         "assets/team-logos/bengaluru blazers.png"
-      ]
+      ],
+      "sourceLogo": "assets/team-logos/bengaluru blazers.png"
     },
     {
       "name": "Chennai Chargers",
@@ -66,18 +72,20 @@
       "brand": "chennai",
       "city": "CHENNAI",
       "nickname": "CHARGERS",
-      "logo": "assets/team-logos/chennai chargers.png",
+      "logo": "assets/team-logos/optimized/chennai chargers.jpg",
       "colors": {
         "primary": "#f0c927",
         "secondary": "#134b9a",
         "accent": "#f97316",
         "dark": "#07152b"
       },
-      "exactLogo": "assets/team-logos/chennai chargers.png",
-      "fallbackLogo": "assets/team-logos/chennai chargers.png",
+      "exactLogo": "assets/team-logos/optimized/chennai chargers.jpg",
+      "fallbackLogo": "assets/team-logos/optimized/chennai chargers.jpg",
       "exactLogos": [
+        "assets/team-logos/optimized/chennai chargers.jpg",
         "assets/team-logos/chennai chargers.png"
-      ]
+      ],
+      "sourceLogo": "assets/team-logos/chennai chargers.png"
     },
     {
       "name": "Kolkata Knightsmen",
@@ -85,18 +93,20 @@
       "brand": "kolkata",
       "city": "KOLKATA",
       "nickname": "KNIGHTSMEN",
-      "logo": "assets/team-logos/kolkata knightsmen.png",
+      "logo": "assets/team-logos/optimized/kolkata knightsmen.jpg",
       "colors": {
         "primary": "#28124f",
         "secondary": "#d6a72e",
         "accent": "#8b5cf6",
         "dark": "#090711"
       },
-      "exactLogo": "assets/team-logos/kolkata knightsmen.png",
-      "fallbackLogo": "assets/team-logos/kolkata knightsmen.png",
+      "exactLogo": "assets/team-logos/optimized/kolkata knightsmen.jpg",
+      "fallbackLogo": "assets/team-logos/optimized/kolkata knightsmen.jpg",
       "exactLogos": [
+        "assets/team-logos/optimized/kolkata knightsmen.jpg",
         "assets/team-logos/kolkata knightsmen.png"
-      ]
+      ],
+      "sourceLogo": "assets/team-logos/kolkata knightsmen.png"
     },
     {
       "name": "Rajasthan Riders",
@@ -104,18 +114,20 @@
       "brand": "rajasthan",
       "city": "RAJASTHAN",
       "nickname": "RIDERS",
-      "logo": "assets/team-logos/rajasthan riders.png",
+      "logo": "assets/team-logos/optimized/rajasthan riders.jpg",
       "colors": {
         "primary": "#243a8f",
         "secondary": "#d8b25f",
         "accent": "#9cc3e8",
         "dark": "#f6f1e4"
       },
-      "exactLogo": "assets/team-logos/rajasthan riders.png",
-      "fallbackLogo": "assets/team-logos/rajasthan riders.png",
+      "exactLogo": "assets/team-logos/optimized/rajasthan riders.jpg",
+      "fallbackLogo": "assets/team-logos/optimized/rajasthan riders.jpg",
       "exactLogos": [
+        "assets/team-logos/optimized/rajasthan riders.jpg",
         "assets/team-logos/rajasthan riders.png"
-      ]
+      ],
+      "sourceLogo": "assets/team-logos/rajasthan riders.png"
     },
     {
       "name": "Hyderabad Hawks",
@@ -123,18 +135,20 @@
       "brand": "hyderabad",
       "city": "HYDERABAD",
       "nickname": "HAWKS",
-      "logo": "assets/team-logos/hyderabad hawks.png",
+      "logo": "assets/team-logos/optimized/hyderabad hawks.jpg",
       "colors": {
         "primary": "#cf4d14",
         "secondary": "#0f2a44",
         "accent": "#ffb13b",
         "dark": "#07152b"
       },
-      "exactLogo": "assets/team-logos/hyderabad hawks.png",
-      "fallbackLogo": "assets/team-logos/hyderabad hawks.png",
+      "exactLogo": "assets/team-logos/optimized/hyderabad hawks.jpg",
+      "fallbackLogo": "assets/team-logos/optimized/hyderabad hawks.jpg",
       "exactLogos": [
+        "assets/team-logos/optimized/hyderabad hawks.jpg",
         "assets/team-logos/hyderabad hawks.png"
-      ]
+      ],
+      "sourceLogo": "assets/team-logos/hyderabad hawks.png"
     },
     {
       "name": "Punjab Panthers",
@@ -142,18 +156,20 @@
       "brand": "punjab",
       "city": "PUNJAB",
       "nickname": "PANTHERS",
-      "logo": "assets/team-logos/punjab panthers.png",
+      "logo": "assets/team-logos/optimized/punjab panthers.jpg",
       "colors": {
         "primary": "#9f1022",
         "secondary": "#d9b25f",
         "accent": "#f97316",
         "dark": "#0b1118"
       },
-      "exactLogo": "assets/team-logos/punjab panthers.png",
-      "fallbackLogo": "assets/team-logos/punjab panthers.png",
+      "exactLogo": "assets/team-logos/optimized/punjab panthers.jpg",
+      "fallbackLogo": "assets/team-logos/optimized/punjab panthers.jpg",
       "exactLogos": [
+        "assets/team-logos/optimized/punjab panthers.jpg",
         "assets/team-logos/punjab panthers.png"
-      ]
+      ],
+      "sourceLogo": "assets/team-logos/punjab panthers.png"
     },
     {
       "name": "Gujarat Gladiators",
@@ -161,18 +177,20 @@
       "brand": "gujarat",
       "city": "GUJARAT",
       "nickname": "GLADIATORS",
-      "logo": "assets/team-logos/gujrat gladiators.png",
+      "logo": "assets/team-logos/optimized/gujrat gladiators.jpg",
       "colors": {
         "primary": "#07152b",
         "secondary": "#b79343",
         "accent": "#f6d36b",
         "dark": "#0b1118"
       },
-      "exactLogo": "assets/team-logos/gujrat gladiators.png",
-      "fallbackLogo": "assets/team-logos/gujrat gladiators.png",
+      "exactLogo": "assets/team-logos/optimized/gujrat gladiators.jpg",
+      "fallbackLogo": "assets/team-logos/optimized/gujrat gladiators.jpg",
       "exactLogos": [
+        "assets/team-logos/optimized/gujrat gladiators.jpg",
         "assets/team-logos/gujrat gladiators.png"
-      ]
+      ],
+      "sourceLogo": "assets/team-logos/gujrat gladiators.png"
     },
     {
       "name": "Lucknow Lions",
@@ -180,18 +198,20 @@
       "brand": "lucknow",
       "city": "LUCKNOW",
       "nickname": "LIONS",
-      "logo": "assets/team-logos/lucknow lions.png",
+      "logo": "assets/team-logos/optimized/lucknow lions.jpg",
       "colors": {
         "primary": "#0c4a6e",
         "secondary": "#e5b44f",
         "accent": "#38bdf8",
         "dark": "#061421"
       },
-      "exactLogo": "assets/team-logos/lucknow lions.png",
-      "fallbackLogo": "assets/team-logos/lucknow lions.png",
+      "exactLogo": "assets/team-logos/optimized/lucknow lions.jpg",
+      "fallbackLogo": "assets/team-logos/optimized/lucknow lions.jpg",
       "exactLogos": [
+        "assets/team-logos/optimized/lucknow lions.jpg",
         "assets/team-logos/lucknow lions.png"
-      ]
+      ],
+      "sourceLogo": "assets/team-logos/lucknow lions.png"
     }
   ]
 }

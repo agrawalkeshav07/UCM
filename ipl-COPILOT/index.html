@@ -311,12 +311,16 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 #matchScreen{display:none;min-height:100vh;padding:20px;background:var(--bg-deep);position:relative;z-index:1;}
 #matchScreen.active{display:block;}
 
-.match-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);}
+.match-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:10px;padding-bottom:14px;border-bottom:1px solid var(--border);}
 .match-header h2{font-family:var(--font-display);font-size:1.7rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;}
 .match-header p{font-family:var(--font-ui);font-size:0.72rem;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.1em;margin-top:2px;}
 .match-meta-pills{display:flex;gap:8px;flex-wrap:wrap;}
 .match-pill{padding:6px 14px;border-radius:8px;background:var(--bg-panel);border:1px solid var(--border);font-family:var(--font-display);font-size:0.9rem;font-weight:600;letter-spacing:0.06em;}
 .match-pill.gold{border-color:var(--border-hi);color:var(--gold);}
+.match-actions-top{justify-content:flex-start;margin-bottom:16px;padding:10px 0 14px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.match-actions-top .btn{min-height:38px;}
+.match-actions-top .panel-active{border-color:var(--border-hi);color:var(--gold);box-shadow:0 0 0 1px rgba(255,215,0,0.08) inset;}
+.match-actions-top .btn[disabled]{opacity:0.46;cursor:not-allowed;}
 
 /* Year draw card */
 .year-draw-card{background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;text-align:center;margin-bottom:20px;animation:fadeUp 0.4s ease both;}
@@ -373,7 +377,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .commentary-line{padding:7px 9px;border-radius:8px;background:rgba(255,255,255,0.045);font-family:var(--font-body);font-size:0.82rem;color:var(--text-dim);}
 .commentary-line.big{color:var(--gold);background:rgba(255,215,0,0.08);}
 .bowling-card{margin-top:14px;}
-@media(max-width:720px){.match-engine-top,.innings-summary{grid-template-columns:1fr}.scorecards-grid{grid-template-columns:1fr}.season-stats-grid{grid-template-columns:1fr}.match-vs-banner{grid-template-columns:1fr}.match-vs{font-size:1rem}.match-team-score{font-size:2rem}}
+@media(max-width:720px){.match-engine-top,.innings-summary{grid-template-columns:1fr}.scorecards-grid{grid-template-columns:1fr}.season-stats-grid{grid-template-columns:1fr}.match-vs-banner{grid-template-columns:1fr}.match-vs{font-size:1rem}.match-team-score{font-size:2rem}.match-actions-top{gap:8px}.match-actions-top .btn{flex:1 1 145px;padding-left:10px;padding-right:10px}}
 /* Match log / history */
 .match-log{background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;margin-bottom:20px;}
 .match-log-title{font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:0.1em;color:var(--gold);margin-bottom:10px;}
@@ -413,6 +417,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 
 /* Match actions row */
 .match-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:12px 0;}
+.match-actions .btn{white-space:nowrap;}
 
 /* Spinning year animation */
 @keyframes spinYear{0%{opacity:0;transform:scale(0.5) rotateY(90deg)}60%{transform:scale(1.1) rotateY(-5deg)}100%{opacity:1;transform:scale(1) rotateY(0deg)}}
@@ -645,6 +650,9 @@ let roomEventSource = null;
 let roomStartedEntered = false;
 let roomActionCursor = 0;
 let pendingMatchAutoScroll = false;
+let matchSimulationBusy = false;
+let matchHistoryPanelOpen = false;
+let seasonLeadersPanelOpen = false;
 
 function closeRoomLiveConnection() {
   if (roomEventSource) { roomEventSource.close(); roomEventSource = null; }
@@ -688,16 +696,16 @@ const TEAM_NAMES = [
 ];
 const TEAM_LOGO_DB_URL = "team_logos_db.json";
 const DEFAULT_TEAM_LOGOS = {
-  "Mumbai Mavericks": { logo:"assets/team-logos/mumbai mavericks.png", exactLogo:"assets/team-logos/mumbai mavericks.png", exactLogos:["assets/team-logos/mumbai mavericks.png"], fallbackLogo:"assets/team-logos/mumbai mavericks.png", brand:"mumbai" },
-  "Delhi Strikers": { logo:"assets/team-logos/delhi strikers.png", exactLogo:"assets/team-logos/delhi strikers.png", exactLogos:["assets/team-logos/delhi strikers.png"], fallbackLogo:"assets/team-logos/delhi strikers.png", brand:"delhi" },
-  "Bengaluru Blazers": { logo:"assets/team-logos/bengaluru blazers.png", exactLogo:"assets/team-logos/bengaluru blazers.png", exactLogos:["assets/team-logos/bengaluru blazers.png"], fallbackLogo:"assets/team-logos/bengaluru blazers.png", brand:"bengaluru" },
-  "Chennai Chargers": { logo:"assets/team-logos/chennai chargers.png", exactLogo:"assets/team-logos/chennai chargers.png", exactLogos:["assets/team-logos/chennai chargers.png"], fallbackLogo:"assets/team-logos/chennai chargers.png", brand:"chennai" },
-  "Kolkata Knightsmen": { logo:"assets/team-logos/kolkata knightsmen.png", exactLogo:"assets/team-logos/kolkata knightsmen.png", exactLogos:["assets/team-logos/kolkata knightsmen.png"], fallbackLogo:"assets/team-logos/kolkata knightsmen.png", brand:"kolkata" },
-  "Rajasthan Riders": { logo:"assets/team-logos/rajasthan riders.png", exactLogo:"assets/team-logos/rajasthan riders.png", exactLogos:["assets/team-logos/rajasthan riders.png"], fallbackLogo:"assets/team-logos/rajasthan riders.png", brand:"rajasthan" },
-  "Hyderabad Hawks": { logo:"assets/team-logos/hyderabad hawks.png", exactLogo:"assets/team-logos/hyderabad hawks.png", exactLogos:["assets/team-logos/hyderabad hawks.png"], fallbackLogo:"assets/team-logos/hyderabad hawks.png", brand:"hyderabad" },
-  "Punjab Panthers": { logo:"assets/team-logos/punjab panthers.png", exactLogo:"assets/team-logos/punjab panthers.png", exactLogos:["assets/team-logos/punjab panthers.png"], fallbackLogo:"assets/team-logos/punjab panthers.png", brand:"punjab" },
-  "Gujarat Gladiators": { logo:"assets/team-logos/gujrat gladiators.png", exactLogo:"assets/team-logos/gujrat gladiators.png", exactLogos:["assets/team-logos/gujrat gladiators.png"], fallbackLogo:"assets/team-logos/gujrat gladiators.png", brand:"gujarat" },
-  "Lucknow Lions": { logo:"assets/team-logos/lucknow lions.png", exactLogo:"assets/team-logos/lucknow lions.png", exactLogos:["assets/team-logos/lucknow lions.png"], fallbackLogo:"assets/team-logos/lucknow lions.png", brand:"lucknow" }
+  "Mumbai Mavericks": { logo:"assets/team-logos/optimized/mumbai mavericks.jpg", sourceLogo:"assets/team-logos/mumbai mavericks.png", exactLogo:"assets/team-logos/optimized/mumbai mavericks.jpg", exactLogos:["assets/team-logos/optimized/mumbai mavericks.jpg","assets/team-logos/mumbai mavericks.png"], fallbackLogo:"assets/team-logos/optimized/mumbai mavericks.jpg", brand:"mumbai" },
+  "Delhi Strikers": { logo:"assets/team-logos/optimized/delhi strikers.jpg", sourceLogo:"assets/team-logos/delhi strikers.png", exactLogo:"assets/team-logos/optimized/delhi strikers.jpg", exactLogos:["assets/team-logos/optimized/delhi strikers.jpg","assets/team-logos/delhi strikers.png"], fallbackLogo:"assets/team-logos/optimized/delhi strikers.jpg", brand:"delhi" },
+  "Bengaluru Blazers": { logo:"assets/team-logos/optimized/bengaluru blazers.jpg", sourceLogo:"assets/team-logos/bengaluru blazers.png", exactLogo:"assets/team-logos/optimized/bengaluru blazers.jpg", exactLogos:["assets/team-logos/optimized/bengaluru blazers.jpg","assets/team-logos/bengaluru blazers.png"], fallbackLogo:"assets/team-logos/optimized/bengaluru blazers.jpg", brand:"bengaluru" },
+  "Chennai Chargers": { logo:"assets/team-logos/optimized/chennai chargers.jpg", sourceLogo:"assets/team-logos/chennai chargers.png", exactLogo:"assets/team-logos/optimized/chennai chargers.jpg", exactLogos:["assets/team-logos/optimized/chennai chargers.jpg","assets/team-logos/chennai chargers.png"], fallbackLogo:"assets/team-logos/optimized/chennai chargers.jpg", brand:"chennai" },
+  "Kolkata Knightsmen": { logo:"assets/team-logos/optimized/kolkata knightsmen.jpg", sourceLogo:"assets/team-logos/kolkata knightsmen.png", exactLogo:"assets/team-logos/optimized/kolkata knightsmen.jpg", exactLogos:["assets/team-logos/optimized/kolkata knightsmen.jpg","assets/team-logos/kolkata knightsmen.png"], fallbackLogo:"assets/team-logos/optimized/kolkata knightsmen.jpg", brand:"kolkata" },
+  "Rajasthan Riders": { logo:"assets/team-logos/optimized/rajasthan riders.jpg", sourceLogo:"assets/team-logos/rajasthan riders.png", exactLogo:"assets/team-logos/optimized/rajasthan riders.jpg", exactLogos:["assets/team-logos/optimized/rajasthan riders.jpg","assets/team-logos/rajasthan riders.png"], fallbackLogo:"assets/team-logos/optimized/rajasthan riders.jpg", brand:"rajasthan" },
+  "Hyderabad Hawks": { logo:"assets/team-logos/optimized/hyderabad hawks.jpg", sourceLogo:"assets/team-logos/hyderabad hawks.png", exactLogo:"assets/team-logos/optimized/hyderabad hawks.jpg", exactLogos:["assets/team-logos/optimized/hyderabad hawks.jpg","assets/team-logos/hyderabad hawks.png"], fallbackLogo:"assets/team-logos/optimized/hyderabad hawks.jpg", brand:"hyderabad" },
+  "Punjab Panthers": { logo:"assets/team-logos/optimized/punjab panthers.jpg", sourceLogo:"assets/team-logos/punjab panthers.png", exactLogo:"assets/team-logos/optimized/punjab panthers.jpg", exactLogos:["assets/team-logos/optimized/punjab panthers.jpg","assets/team-logos/punjab panthers.png"], fallbackLogo:"assets/team-logos/optimized/punjab panthers.jpg", brand:"punjab" },
+  "Gujarat Gladiators": { logo:"assets/team-logos/optimized/gujrat gladiators.jpg", sourceLogo:"assets/team-logos/gujrat gladiators.png", exactLogo:"assets/team-logos/optimized/gujrat gladiators.jpg", exactLogos:["assets/team-logos/optimized/gujrat gladiators.jpg","assets/team-logos/gujrat gladiators.png"], fallbackLogo:"assets/team-logos/optimized/gujrat gladiators.jpg", brand:"gujarat" },
+  "Lucknow Lions": { logo:"assets/team-logos/optimized/lucknow lions.jpg", sourceLogo:"assets/team-logos/lucknow lions.png", exactLogo:"assets/team-logos/optimized/lucknow lions.jpg", exactLogos:["assets/team-logos/optimized/lucknow lions.jpg","assets/team-logos/lucknow lions.png"], fallbackLogo:"assets/team-logos/optimized/lucknow lions.jpg", brand:"lucknow" }
 };
 let teamLogoDatabase = { ...DEFAULT_TEAM_LOGOS };
 function logoTextEscape(value) { return String(value || "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch])); }
@@ -2416,6 +2424,16 @@ setInterval(syncFriendsRoom, 1000);
       </div>
     </div>
 
+    <!-- Top action buttons -->
+    <div class="match-actions match-actions-top" id="matchActions">
+      <button class="btn btn-ghost btn-sm" id="matchBackXI">CHANGE XI</button>
+      <button class="btn btn-primary" id="simMatchBtn">SIMULATE MATCH</button>
+      <button class="btn btn-gold" id="nextMatchBtn" style="display:none;">NEXT MATCH</button>
+      <button class="btn btn-ghost btn-sm" id="nextMyMatchBtn" style="display:none;">NEXT MY MATCH</button>
+      <button class="btn btn-ghost btn-sm" id="matchHistoryBtn">MATCH HISTORY</button>
+      <button class="btn btn-ghost btn-sm" id="seasonLeadersBtn">SEASON LEADERS</button>
+    </div>
+
     <!-- Year draw card -->
     <div class="year-draw-card" id="yearDrawCard" style="display:none;">
       <div class="year-draw-label">UCM YEAR DRAWN FOR THIS MATCH</div>
@@ -2469,12 +2487,6 @@ setInterval(syncFriendsRoom, 1000);
       </table>
     </div>
 
-    <!-- Action buttons -->
-    <div class="match-actions" id="matchActions">
-      <button class="btn btn-ghost btn-sm" id="matchBackXI">CHANGE XI</button>
-      <button class="btn btn-primary" id="simMatchBtn">SIMULATE MATCH</button>
-      <button class="btn btn-gold" id="nextMatchBtn" style="display:none;">NEXT MATCH</button>
-    </div>
   </div>`);
 
   function getAvailableHistoricalYears() {
@@ -2482,10 +2494,12 @@ setInterval(syncFriendsRoom, 1000);
     return years.length ? years : Array.from({ length: 18 }, (_, i) => 2008 + i);
   }
 
-  function drawYearForCurrentMatch() {
+  function drawYearForCurrentMatch(options = {}) {
     const validYears = getAvailableHistoricalYears();
     tournState.drawnYear = validYears[Math.floor(Math.random() * validYears.length)];
     const yearCard = document.getElementById("yearDrawCard");
+    if (!yearCard) return;
+    if (options.quiet) { yearCard.style.display = "none"; return; }
     yearCard.style.display = "block";
     const ydEl = document.getElementById("drawnYearDisplay");
     ydEl.classList.remove("year-spin");
@@ -2496,6 +2510,48 @@ setInterval(syncFriendsRoom, 1000);
     if (ydSub) ydSub.textContent = STATS_DB
       ? "Player performances from this match year will be used"
       : "Historical stats DB not found; using simulated season conditions";
+  }
+
+  function currentFixtureHasSelectedTeam() {
+    const fixture = getCurrentFixture();
+    return !!(fixture && selectedTeam && (fixture.home === selectedTeam || fixture.away === selectedTeam));
+  }
+
+  function setMatchSimulationBusy(isBusy) {
+    matchSimulationBusy = !!isBusy;
+    ["simMatchBtn", "nextMatchBtn", "nextMyMatchBtn"].forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) btn.disabled = matchSimulationBusy;
+    });
+  }
+
+  function updateMatchActionButtons() {
+    const fixture = getCurrentFixture();
+    const isSolo = playMode !== "friends";
+    const isMine = currentFixtureHasSelectedTeam();
+    const nextMine = document.getElementById("nextMyMatchBtn");
+    if (nextMine) {
+      const canShow = isSolo && !!selectedTeam && tournState.phase !== "done";
+      nextMine.style.display = canShow ? "inline-flex" : "none";
+      nextMine.textContent = isMine ? "MY MATCH READY" : "NEXT MY MATCH";
+      nextMine.disabled = matchSimulationBusy || !canShow || !fixture || isMine;
+    }
+    const historyBtn = document.getElementById("matchHistoryBtn");
+    if (historyBtn) historyBtn.classList.toggle("panel-active", matchHistoryPanelOpen);
+    const leadersBtn = document.getElementById("seasonLeadersBtn");
+    if (leadersBtn) leadersBtn.classList.toggle("panel-active", seasonLeadersPanelOpen);
+    const simBtn = document.getElementById("simMatchBtn");
+    if (simBtn) simBtn.disabled = matchSimulationBusy || simBtn.style.display === "none";
+    const nextBtn = document.getElementById("nextMatchBtn");
+    if (nextBtn) nextBtn.disabled = matchSimulationBusy || nextBtn.style.display === "none";
+  }
+
+  function applyMatchInfoPanelVisibility() {
+    const log = document.getElementById("matchLogWrap");
+    const stats = document.getElementById("seasonStatsWrap");
+    if (log) log.style.display = matchHistoryPanelOpen ? "block" : "none";
+    if (stats) stats.style.display = seasonLeadersPanelOpen ? "block" : "none";
+    updateMatchActionButtons();
   }
   // ---- Match screen functions ----
   async function openMatchScreen() {
@@ -2518,14 +2574,13 @@ setInterval(syncFriendsRoom, 1000);
 
     renderMatchHeader();
     renderPointsTable();
+    renderMatchLog();
     renderSeasonStats();
     document.getElementById("pointsTableWrap").style.display = "block";
-    document.getElementById("matchLogWrap").style.display =
-      tournState.matchHistory.length ? "block" : "none";
 
     document.getElementById("championScreen").style.display =
       tournState.phase === "done" && tournState.champion ? "block" : "none";
-    renderMatchLog();
+    applyMatchInfoPanelVisibility();
     scrollToScreenTop("matchScreen");
   }
 
@@ -2548,6 +2603,56 @@ setInterval(syncFriendsRoom, 1000);
     advanceToNextMatch();
     if (roomHostActive()) await publishRoomGameSnapshot("match");
   };
+
+  document.getElementById("nextMyMatchBtn").onclick = async function () {
+    sendAnalytics("game_action", "next_my_match");
+    await advanceToNextUserMatch();
+  };
+
+  document.getElementById("matchHistoryBtn").onclick = function () {
+    matchHistoryPanelOpen = !matchHistoryPanelOpen;
+    renderMatchLog();
+    applyMatchInfoPanelVisibility();
+    if (matchHistoryPanelOpen) document.getElementById("matchLogWrap")?.scrollIntoView({ block:"start", behavior:"smooth" });
+  };
+
+  document.getElementById("seasonLeadersBtn").onclick = function () {
+    seasonLeadersPanelOpen = !seasonLeadersPanelOpen;
+    renderSeasonStats();
+    applyMatchInfoPanelVisibility();
+    if (seasonLeadersPanelOpen) document.getElementById("seasonStatsWrap")?.scrollIntoView({ block:"start", behavior:"smooth" });
+  };
+
+  async function advanceToNextUserMatch() {
+    if (playMode === "friends") return;
+    if (matchSimulationBusy) { showToast("Match simulation is already running."); return; }
+    if (currentFixtureHasSelectedTeam()) { showToast("Your next match is already on screen."); return; }
+    setMatchSimulationBusy(true);
+    let simulated = 0;
+    try {
+      for (let guard = 0; guard < 200; guard++) {
+        const fixture = getCurrentFixture();
+        if (!fixture || tournState.phase === "done" || currentFixtureHasSelectedTeam()) break;
+        await simulateNextMatch({ quiet:true, skipBusy:true });
+        simulated++;
+        if (tournState.phase === "done") break;
+        advanceToNextMatch({ quiet:true });
+      }
+      clearMatchResultPanels();
+      tournState.lastMatchView = null;
+      tournState.drawnYear = null;
+      renderMatchHeader();
+      renderPointsTable();
+      renderMatchLog();
+      renderSeasonStats();
+      applyMatchInfoPanelVisibility();
+      showToast(simulated ? "Auto-simulated " + simulated + " match" + (simulated === 1 ? "" : "es") + ". Your next match is ready." : "No earlier matches needed simulation.");
+      scrollToScreenTop("matchScreen");
+    } finally {
+      setMatchSimulationBusy(false);
+      updateMatchActionButtons();
+    }
+  }
 
   function currentTournamentMatchNumber() {
     return tournState.phase === "league"
@@ -2609,6 +2714,7 @@ setInterval(syncFriendsRoom, 1000);
     renderMatchHeader();
     renderPointsTable();
     renderSeasonStats();
+    applyMatchInfoPanelVisibility();
   }
 
   function playoffFixtureByKind(kind) {
@@ -2648,7 +2754,8 @@ setInterval(syncFriendsRoom, 1000);
     }
   }
 
-  function advanceToNextMatch() {
+  function advanceToNextMatch(options = {}) {
+    const quiet = !!options.quiet;
     document.getElementById("nextMatchBtn").style.display = "none";
     document.getElementById("simMatchBtn").style.display = "inline-flex";
     tournState.lastMatchView = null;
@@ -2665,7 +2772,8 @@ setInterval(syncFriendsRoom, 1000);
         renderMatchHeader();
         renderSeasonStats();
         renderPointsTable();
-        scrollToScreenTop("matchScreen");
+        applyMatchInfoPanelVisibility();
+        if (!quiet) scrollToScreenTop("matchScreen");
         return;
       }
       tournState.playoffStep++;
@@ -2677,13 +2785,24 @@ setInterval(syncFriendsRoom, 1000);
     }
 
     document.getElementById("simMatchBtn").textContent = tournState.phase === "playoffs" ? "SIMULATE PLAYOFF" : "SIMULATE MATCH";
-    renderMatchHeader();
-    renderPointsTable();
-    renderSeasonStats();
-    scrollToScreenTop("matchScreen");
+    if (!quiet) {
+      renderMatchHeader();
+      renderPointsTable();
+      renderMatchLog();
+      renderSeasonStats();
+      applyMatchInfoPanelVisibility();
+      scrollToScreenTop("matchScreen");
+    } else {
+      updateMatchActionButtons();
+    }
   }
 
-  async function simulateNextMatch() {
+  async function simulateNextMatch(options = {}) {
+    const quiet = !!options.quiet;
+    const manageBusy = !options.skipBusy;
+    if (matchSimulationBusy && manageBusy) { showToast("Match simulation is already running."); return; }
+    if (manageBusy) setMatchSimulationBusy(true);
+    try {
     const fixture = getCurrentFixture();
     if (!fixture) {
       if (tournState.phase === "league") startPlayoffs();
@@ -2702,8 +2821,8 @@ setInterval(syncFriendsRoom, 1000);
     const xiA = teamA.xi.length ? teamA.xi : autoGetXI(teamA);
     const xiB = teamB.xi.length ? teamB.xi : autoGetXI(teamB);
     await loadStatsDB();
-    drawYearForCurrentMatch();
-    renderMatchHeader();
+    drawYearForCurrentMatch({ quiet });
+    if (!quiet) renderMatchHeader();
 
     const tournamentMatchNo = currentTournamentMatchNumber();
     const matchNoInYear = getMatchNoForTournMatch(tournamentMatchNo, tournState.drawnYear);
@@ -2760,28 +2879,36 @@ setInterval(syncFriendsRoom, 1000);
     updateSeasonStats(match, fixture);
     if (tournState.phase === "playoffs") completePlayoffMatch(match, fixture, winnerName);
 
-    renderVsBanner(teamA.name, teamB.name, formatTeamScore(innA), formatTeamScore(innB), resultForA);
-    renderScorecards(teamA.name, teamB.name, innA, innB, match);
-    document.getElementById("matchVsBanner").style.display = "grid";
-    document.getElementById("scorecardsGrid").style.display = "grid";
+    if (!quiet) {
+      renderVsBanner(teamA.name, teamB.name, formatTeamScore(innA), formatTeamScore(innB), resultForA);
+      renderScorecards(teamA.name, teamB.name, innA, innB, match);
+      document.getElementById("matchVsBanner").style.display = "grid";
+      document.getElementById("scorecardsGrid").style.display = "grid";
+    }
 
     renderMatchLog();
     renderPointsTable();
     renderSeasonStats();
-    document.getElementById("matchLogWrap").style.display = "block";
-    document.getElementById("seasonStatsWrap").style.display = "block";
-    document.getElementById("simMatchBtn").style.display = "none";
-    document.getElementById("nextMatchBtn").style.display = "inline-flex";
+    applyMatchInfoPanelVisibility();
 
-    const nextBtn = document.getElementById("nextMatchBtn");
-    if (tournState.phase === "league" && tournState.matchNo >= tournState.schedule.length) nextBtn.textContent = "VIEW PLAYOFFS";
-    else if (tournState.phase === "playoffs" && tournState.champion) nextBtn.textContent = "VIEW CHAMPION";
-    else nextBtn.textContent = tournState.phase === "playoffs" ? "NEXT PLAYOFF" : "NEXT MATCH";
+    if (!quiet) {
+      document.getElementById("simMatchBtn").style.display = "none";
+      document.getElementById("nextMatchBtn").style.display = "inline-flex";
 
-    pendingMatchAutoScroll = false;
-    scrollToScreenTop("matchScreen");
+      const nextBtn = document.getElementById("nextMatchBtn");
+      if (tournState.phase === "league" && tournState.matchNo >= tournState.schedule.length) nextBtn.textContent = "VIEW PLAYOFFS";
+      else if (tournState.phase === "playoffs" && tournState.champion) nextBtn.textContent = "VIEW CHAMPION";
+      else nextBtn.textContent = tournState.phase === "playoffs" ? "NEXT PLAYOFF" : "NEXT MATCH";
 
-    if (roomHostActive()) await publishRoomGameSnapshot("match");
+      pendingMatchAutoScroll = false;
+      scrollToScreenTop("matchScreen");
+    }
+
+    if (!quiet && roomHostActive()) await publishRoomGameSnapshot("match");
+    } finally {
+      if (manageBusy) setMatchSimulationBusy(false);
+      updateMatchActionButtons();
+    }
   }
 
   function ensureSeasonStats() {
@@ -2831,7 +2958,11 @@ setInterval(syncFriendsRoom, 1000);
     const stats = ensureSeasonStats();
     const batters = Object.values(stats.batting);
     const bowlers = Object.values(stats.bowling);
-    if (!batters.length && !bowlers.length) { wrap.style.display = "none"; return; }
+    if (!batters.length && !bowlers.length) {
+      grid.innerHTML = '<div class="stat-leader-card"><h4>Season Leaders</h4><div class="stat-leader-row"><span>No season stats yet</span><strong>-</strong></div></div>';
+      wrap.style.display = seasonLeadersPanelOpen ? "block" : "none";
+      return;
+    }
 
     const rows = (items, valueFn) => items.slice(0,5).map(p => `
       <div class="stat-leader-row"><span>${p.name}<br><small>${p.team || "-"}</small></span><strong>${valueFn(p)}</strong></div>`).join("") ||
@@ -2850,7 +2981,7 @@ setInterval(syncFriendsRoom, 1000);
       <div class="stat-leader-card"><h4>Most Sixes</h4>${rows(bySixes, p => p.sixes)}</div>
       <div class="stat-leader-card"><h4>Best Strike Rate</h4>${rows(bySR, p => ((p.runs / p.balls) * 100).toFixed(0))}</div>
       <div class="stat-leader-card"><h4>Best Economy</h4>${rows(byEconomy, p => (p.runs / (p.balls / 6)).toFixed(1))}</div>`;
-    wrap.style.display = "block";
+    wrap.style.display = seasonLeadersPanelOpen ? "block" : "none";
   }
 
   function renderChampionScreen() {
@@ -2867,6 +2998,7 @@ setInterval(syncFriendsRoom, 1000);
     clearMatchResultPanels();
     document.getElementById("simMatchBtn").style.display = "none";
     document.getElementById("nextMatchBtn").style.display = "none";
+    updateMatchActionButtons();
   }
   function updatePointsTable(nameA, nameB, scoreA, scoreB) {
     const pt = tournState.pointsTable;
@@ -2922,6 +3054,7 @@ setInterval(syncFriendsRoom, 1000);
     const l = rec.filter(h=>h.result==="L").length;
     const t = rec.filter(h=>h.result==="T").length;
     mhRecord.textContent = `W${w} L${l} T${t}`;
+    updateMatchActionButtons();
   }
   function renderVsBanner(teamAName, teamBName, scoreA, scoreB, resultForA) {
     const tbA = document.getElementById("mTeamA");
