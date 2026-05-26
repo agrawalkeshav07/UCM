@@ -445,6 +445,7 @@ html,body{width:100%;max-width:100%;}
       <button class="btn btn-ghost" onclick="goBackFromFriends()">BACK</button>
     </div>
     <p class="room-note">Online rooms sync through the hosted game server. Share the same game link with every player.</p>
+    <div id="resumeRoomCard" class="room-code-box" style="display:none;text-align:left;max-width:430px;"></div>
     <div class="team-actions" style="margin-top:16px;"><button class="btn btn-ghost btn-sm" onclick="goBackFromFriends()">BACK</button></div>
   </div>
 </div>
@@ -525,26 +526,41 @@ function showOnlyScreen(id) {
   });
 }
 function roomStorageKey(code) { return ROOM_STORAGE_PREFIX + String(code || "").toUpperCase(); }
+function readStoredRoomIdentity() {
+  let saved = null;
+  try { saved = JSON.parse(sessionStorage.getItem(ROOM_IDENTITY_KEY) || "null"); } catch (e) { saved = null; }
+  if (!saved) {
+    try { saved = JSON.parse(localStorage.getItem(ROOM_IDENTITY_KEY) || "null"); } catch (e) { saved = null; }
+  }
+  return saved && saved.code && saved.playerId ? saved : null;
+}
+function clearRoomIdentity() {
+  try { sessionStorage.removeItem(ROOM_IDENTITY_KEY); } catch (e) {}
+  try { localStorage.removeItem(ROOM_IDENTITY_KEY); } catch (e) {}
+}
 function saveRoomIdentity() {
   if (!currentRoomCode || !currentPlayerId) return;
-  try {
-    sessionStorage.setItem(ROOM_IDENTITY_KEY, JSON.stringify({
-      code: currentRoomCode,
-      playerId: currentPlayerId,
-      creator: !!currentRoomCreator,
-      name: currentPlayerName || ""
-    }));
-  } catch (e) {}
+  const payload = JSON.stringify({
+    code: currentRoomCode,
+    playerId: currentPlayerId,
+    creator: !!currentRoomCreator,
+    name: currentPlayerName || "",
+    team: selectedTeam || ""
+  });
+  try { sessionStorage.setItem(ROOM_IDENTITY_KEY, payload); } catch (e) {}
+  try { localStorage.setItem(ROOM_IDENTITY_KEY, payload); } catch (e) {}
 }
 function restoreRoomIdentity(code = currentRoomCode) {
   try {
-    const saved = JSON.parse(sessionStorage.getItem(ROOM_IDENTITY_KEY) || "null");
-    if (!saved || (code && saved.code !== code)) return;
+    const saved = readStoredRoomIdentity();
+    if (!saved || (code && saved.code !== code)) return false;
     currentRoomCode = saved.code || currentRoomCode;
     currentPlayerId = saved.playerId || currentPlayerId;
     currentRoomCreator = !!saved.creator;
     currentPlayerName = saved.name || currentPlayerName;
-  } catch (e) {}
+    selectedTeam = saved.team || selectedTeam;
+    return true;
+  } catch (e) { return false; }
 }
 function isCurrentRoomCreator(room) {
   restoreRoomIdentity(room && room.code);
@@ -583,7 +599,15 @@ async function fetchLatestRoom(code = currentRoomCode) {
 function saveRoom(room) {
   if (!room || !room.code) return;
   currentRoomData = room;
-  localStorage.setItem(roomStorageKey(room.code), JSON.stringify(room));
+  try { localStorage.setItem(roomStorageKey(room.code), JSON.stringify(room)); } catch (e) {}
+  const me = currentPlayerId ? (room.players || []).find(p => p.id === currentPlayerId) : null;
+  if (me) {
+    selectedTeam = me.team || selectedTeam;
+    currentPlayerName = me.name || currentPlayerName;
+    currentRoomCreator = room.creatorId === currentPlayerId;
+    saveRoomIdentity();
+  }
+  renderSavedRoomCard();
 }
 function enterStartedFriendsRoom(room) {
   saveRoom(room);
@@ -694,22 +718,31 @@ document.querySelectorAll(".team-card-select").forEach(card => {
 });
 
 function goToTeamSelection() { prepareTeamScreen("ai", null); showOnlyScreen("teamScreen"); }
-function goBack() { if (playMode === "friends") showOnlyScreen("friendsScreen"); else showOnlyScreen("homeScreen"); }
+function goBack() { if (playMode === "friends") { renderSavedRoomCard(); showOnlyScreen("friendsScreen"); } else showOnlyScreen("homeScreen"); }
 function goToFriendsMenu() {
   playMode = "friends";
   roomFlow = null;
-  currentRoomCode = null;
-  currentPlayerId = null;
-  currentRoomCreator = false;
-  currentPlayerName = "";
-  currentRoomData = null;
-  roomStartedEntered = false;
-  roomActionCursor = 0;
-  try { sessionStorage.removeItem(ROOM_IDENTITY_KEY); } catch (e) {}
+  const saved = readStoredRoomIdentity();
+  if (saved) {
+    currentRoomCode = saved.code;
+    currentPlayerId = saved.playerId;
+    currentRoomCreator = !!saved.creator;
+    currentPlayerName = saved.name || "";
+    selectedTeam = saved.team || selectedTeam;
+  } else {
+    currentRoomCode = null;
+    currentPlayerId = null;
+    currentRoomCreator = false;
+    currentPlayerName = "";
+    currentRoomData = null;
+    roomStartedEntered = false;
+    roomActionCursor = 0;
+  }
   if (roomEventSource) { roomEventSource.close(); roomEventSource = null; }
   document.getElementById("joinRoomInput").style.display = "none";
   document.getElementById("joinRoomActions").style.display = "none";
   document.getElementById("joinRoomInput").value = "";
+  renderSavedRoomCard();
   showOnlyScreen("friendsScreen");
 }
 function goBackFromFriends() { showOnlyScreen("homeScreen"); }
@@ -723,6 +756,66 @@ function showJoinRoomForm() {
   document.getElementById("joinRoomInput").style.display = "block";
   document.getElementById("joinRoomActions").style.display = "grid";
   document.getElementById("joinRoomInput").focus();
+}
+function escapeRoomHtml(value) {
+  const roomEscapeMap = {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"};
+  return String(value || "").replace(/[&<>"']/g, ch => roomEscapeMap[ch]);
+}
+function renderSavedRoomCard() {
+  const card = document.getElementById("resumeRoomCard");
+  if (!card) return;
+  const saved = readStoredRoomIdentity();
+  if (!saved || !saved.code) { card.style.display = "none"; card.innerHTML = ""; return; }
+  const room = readRoom(saved.code);
+  const me = room && (room.players || []).find(p => p.id === saved.playerId);
+  const team = (me && me.team) || saved.team || "Team selected";
+  const name = (me && me.name) || saved.name || "Player";
+  const status = room ? (room.started ? "In progress" : "Lobby waiting") : "Saved room";
+  card.style.display = "block";
+  card.innerHTML = `
+    <div class="room-code-label">Current Room</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div>
+        <div class="room-code-value" style="font-size:1.35rem;letter-spacing:0.12em;">${escapeRoomHtml(saved.code)}</div>
+        <div class="room-note" style="text-align:left;margin-top:4px;">${escapeRoomHtml(name)} - ${escapeRoomHtml(team)} - ${escapeRoomHtml(status)}</div>
+      </div>
+      <button class="btn btn-gold btn-sm" onclick="resumeFriendsRoom()">REJOIN</button>
+    </div>`;
+}
+async function resumeFriendsRoom() {
+  const saved = readStoredRoomIdentity();
+  if (!saved || !saved.code) { alert("No saved room found. Ask the creator for the room code and join again."); renderSavedRoomCard(); return; }
+  playMode = "friends";
+  roomFlow = null;
+  currentRoomCode = saved.code;
+  currentPlayerId = saved.playerId;
+  currentRoomCreator = !!saved.creator;
+  currentPlayerName = saved.name || currentPlayerName;
+  selectedTeam = saved.team || selectedTeam;
+  roomStartedEntered = false;
+  roomActionCursor = 0;
+  let room = null;
+  try {
+    room = roomApiEnabled() ? await roomApi("/api/rooms/" + saved.code) : readRoom(saved.code);
+  } catch (e) {
+    alert(e.message || "Could not rejoin this room. Ask the creator for the latest room code.");
+    renderSavedRoomCard();
+    return;
+  }
+  const me = room && (room.players || []).find(p => p.id === currentPlayerId);
+  if (!room || !me) {
+    clearRoomIdentity();
+    alert("This saved player is no longer in the room. Join again with the room code.");
+    goToFriendsMenu();
+    return;
+  }
+  selectedTeam = me.team;
+  currentPlayerName = me.name || currentPlayerName;
+  currentRoomCreator = isCurrentRoomCreator(room);
+  saveRoomIdentity();
+  subscribeRoomSync(room.code);
+  handleRoomUpdate(room);
+  if (!room.started) { renderRoomLobby(); showOnlyScreen("roomLobbyScreen"); }
 }
 async function joinRoomByCode() {
   const name = readFriendName();
@@ -799,6 +892,14 @@ async function leaveFriendsRoom() {
   if (room && !currentRoomCreator && roomApiEnabled()) {
     try { await roomApi("/api/rooms/" + currentRoomCode + "/leave", { method:"POST", body:JSON.stringify({ playerId:currentPlayerId }) }); } catch (e) {}
   }
+  clearRoomIdentity();
+  currentRoomCode = null;
+  currentPlayerId = null;
+  currentRoomCreator = false;
+  currentPlayerName = "";
+  currentRoomData = null;
+  roomStartedEntered = false;
+  roomActionCursor = 0;
   goToFriendsMenu();
 }
 async function startFriendsRoom() {
@@ -994,8 +1095,16 @@ setInterval(syncFriendsRoom, 1000);
     if (!roomModeActive() || !game) return;
     if (roomHostActive()) { roomGameRevision = Math.max(roomGameRevision, Number(game.revision || 0)); return; }
     if (Number(game.revision || 0) < roomGameRevision) return;
+    restoreRoomIdentity(currentRoomCode);
+    const roomPlayer = currentRoomPlayers().find(p => p.id === currentPlayerId);
+    if (roomPlayer) {
+      selectedTeam = roomPlayer.team || selectedTeam;
+      currentPlayerName = roomPlayer.name || currentPlayerName;
+      saveRoomIdentity();
+    }
     applyingRoomGame = true;
     try {
+      roomStartedEntered = true;
       roomGameRevision = Number(game.revision || roomGameRevision || 0);
       roomGameStage = game.stage || roomGameStage || "auction";
       const a = game.auction || {};
@@ -3247,8 +3356,11 @@ setInterval(syncFriendsRoom, 1000);
     state.auctionSummaryShown = true;
     if (roomHostActive()) {
       roomGameStage = "xi";
-      publishRoomGameSnapshot("xi");
       openXIScreen();
+      publishRoomGameSnapshot("xi");
+      setTimeout(() => {
+        if (roomHostActive() && roomGameStage === "xi") publishRoomGameSnapshot("xi");
+      }, 900);
       return;
     }
     const top=activeAuctionTeams().flatMap(t=>t.squad).sort((a,b)=>(b.soldPrice||0)-(a.soldPrice||0))[0];
