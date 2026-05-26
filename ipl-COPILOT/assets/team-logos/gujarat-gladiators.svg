@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450" role="img" aria-label="Gujarat Gladiators logo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1118"/><stop offset="1" stop-color="#07152b"/></linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07152b"/><stop offset="0.58" stop-color="#0b1118"/><stop offset="1" stop-color="#b79343"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#000" flood-opacity="0.55"/></filter>
+  </defs>
+  <rect width="720" height="450" fill="url(#bg)"/>
+  <g opacity="0.18" stroke="#fff" stroke-width="1"><path d="M0 345 C150 300 290 316 432 290 C545 270 630 282 720 250"/><path d="M0 378 H720"/><path d="M0 78 H720"/></g>
+  <g filter="url(#shadow)">
+    <path d="M360 36 C474 48 558 104 586 188 C574 294 486 374 360 414 C234 374 146 294 134 188 C162 104 246 48 360 36Z" fill="url(#shield)" stroke="#b79343" stroke-width="10"/>
+    <path d="M360 68 C452 78 520 124 542 194 C530 274 462 336 360 370 C258 336 190 274 178 194 C200 124 268 78 360 68Z" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="5"/>
+    <path d="M214 82 H506 Q526 82 536 102 L548 128 H172 L184 102 Q194 82 214 82Z" fill="#b79343" stroke="#111827" stroke-width="5"/>
+    <text x="360" y="116" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="42" letter-spacing="3" fill="#111827">GUJARAT</text>
+    <g>
+    <path d="M306 154 C352 112 434 126 462 188 L430 286 L326 286 L284 198 C286 180 294 164 306 154Z" fill="#07152b" stroke="#b79343" stroke-width="9"/>
+    <path d="M322 176 C360 150 408 158 442 188 L432 216 L320 216Z" fill="#f6d36b"/>
+    <path d="M286 150 L250 78 L330 126 M448 140 L510 80 L484 184" fill="none" stroke="#b79343" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M300 292 H502" stroke="#f8f1c7" stroke-width="10" stroke-linecap="round"/></g>
+    <path d="M170 312 Q360 278 550 312 L528 372 Q360 344 192 372Z" fill="#07152b" stroke="#b79343" stroke-width="8"/>
+    <text x="360" y="356" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="56" letter-spacing="2" fill="#fff" stroke="#111827" stroke-width="3" paint-order="stroke">GLADIATORS</text>
+  </g>
+</svg>

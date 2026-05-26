@@ -67,14 +67,49 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .team-screen-inner{width:100%;max-width:900px;animation:fadeUp 0.5s ease both;}
 .screen-title{font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;letter-spacing:0.1em;color:var(--gold);margin-bottom:4px;text-align:center;}
 .screen-sub{font-family:var(--font-ui);font-size:0.75rem;color:var(--text-mute);letter-spacing:0.1em;text-transform:uppercase;text-align:center;margin-bottom:28px;}
-.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:28px;}
-.team-card-select{padding:18px 12px;border-radius:var(--radius);background:var(--bg-panel);border:1px solid var(--border);cursor:pointer;transition:0.2s;text-align:center;font-family:var(--font-display);font-size:1rem;font-weight:600;letter-spacing:0.04em;line-height:1.3;}
-.team-card-select:hover{background:var(--bg-hover);border-color:rgba(255,255,255,0.22);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.4);}
-.team-card-select.selected{background:rgba(232,48,48,0.22);border-color:var(--red);box-shadow:0 0 0 1px var(--red),0 8px 24px rgba(232,48,48,0.25);transform:translateY(-2px);}
-.team-icon{display:inline-grid;place-items:center;width:38px;height:38px;margin:0 auto 8px;border-radius:50%;background:rgba(255,215,0,0.14);border:1px solid rgba(255,215,0,0.28);color:var(--gold);font-family:var(--font-display);font-size:0.95rem;font-weight:700;letter-spacing:0.04em;}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:28px;}
+.team-card-select{min-height:116px;padding:16px 14px;border-radius:14px;background:linear-gradient(135deg,var(--team-a,#172331),var(--team-b,#0b1118));border:1px solid rgba(255,255,255,0.14);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;display:flex;align-items:flex-end;justify-content:center;text-align:center;font-family:var(--font-display);font-size:0.92rem;font-weight:700;letter-spacing:0.04em;line-height:1.2;position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,0.12),0 12px 32px rgba(0,0,0,0.28);}
+.team-card-select::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 24% 24%,rgba(255,255,255,0.20),transparent 28%),linear-gradient(145deg,rgba(255,255,255,0.08),transparent 42%),var(--team-pattern,transparent);opacity:0.92;transition:transform 0.24s,opacity 0.24s;}
+.team-card-select::after{content:'';position:absolute;right:-28px;top:-34px;width:130px;height:130px;border-radius:34px;background:var(--team-symbol,linear-gradient(135deg,rgba(255,255,255,0.22),transparent));border:1px solid rgba(255,255,255,0.16);transform:rotate(18deg);opacity:0.72;}
+.team-card-select:hover{border-color:rgba(255,255,255,0.32);transform:translateY(-3px);box-shadow:0 18px 42px rgba(0,0,0,0.42);}
+.team-card-select:hover::before{transform:scale(1.04);opacity:1;}
+.team-card-select.selected{border-color:var(--gold);box-shadow:0 0 0 1px rgba(255,215,0,0.72),0 18px 42px rgba(255,215,0,0.20);transform:translateY(-3px);}
+.team-mark{position:absolute;left:16px;top:14px;width:42px;height:42px;border-radius:14px;background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.18);z-index:1;display:grid;place-items:center;overflow:hidden;}
+.team-mark::before,.team-mark::after{content:'';position:absolute;display:block;}
+.team-mark::before{width:25px;height:25px;border-radius:50%;border:3px solid rgba(255,255,255,0.78);box-shadow:0 0 18px rgba(255,255,255,0.16);}
+.team-mark::after{width:30px;height:5px;border-radius:999px;background:rgba(255,255,255,0.76);transform:rotate(-28deg);}
+.team-full{position:relative;z-index:2;width:100%;white-space:nowrap;overflow:hidden;text-overflow:clip;text-shadow:0 2px 14px rgba(0,0,0,0.62);}
+.team-card-select.has-logo::after{display:none;}
+.team-card-select.has-logo::before{background:linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.52)),var(--team-logo-bg),radial-gradient(circle at 24% 24%,rgba(255,255,255,0.20),transparent 28%);background-size:cover,cover,auto;background-position:center;opacity:0.46;filter:saturate(1.08);}
+.team-card-select.has-logo .team-mark{display:none;}
+.team-card-logo-art{position:absolute;left:10px;right:10px;top:8px;height:calc(100% - 36px);width:calc(100% - 20px);object-fit:contain;z-index:1;filter:drop-shadow(0 10px 18px rgba(0,0,0,0.62));pointer-events:none;}
+.team-card-select.has-logo .team-full{align-self:flex-end;padding:6px 8px;border-radius:9px;background:linear-gradient(180deg,rgba(5,10,18,0.18),rgba(5,10,18,0.78));backdrop-filter:blur(3px);}
+.team-logo-mini,.room-logo,.pt-logo,.bidder-logo{display:inline-grid;place-items:center;flex:0 0 auto;background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.12);overflow:hidden;}
+.team-logo-mini{width:34px;height:28px;border-radius:8px;}
+.room-logo{width:44px;height:34px;border-radius:10px;}
+.pt-logo{width:28px;height:24px;border-radius:7px;}
+.bidder-logo{width:30px;height:24px;border-radius:7px;margin-right:6px;vertical-align:middle;}
+.team-logo-mini img,.room-logo img,.pt-logo img,.bidder-logo img{width:100%;height:100%;object-fit:contain;display:block;}
+.t-name-left,.room-team-line,.pt-team-cell{display:flex;align-items:center;gap:8px;min-width:0;}
+.t-name-text,.room-team-text,.pt-team-text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.room-member{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;}
+.room-member strong{margin-bottom:2px;}
+.match-logo{width:min(128px,42vw);height:78px;object-fit:contain;display:block;margin:0 auto 8px;filter:drop-shadow(0 10px 20px rgba(0,0,0,0.48));}
+.match-team-box.loser .match-logo{opacity:0.55;filter:grayscale(0.35) drop-shadow(0 10px 20px rgba(0,0,0,0.35));}
+@media(max-width:560px){.team-card-logo-art{height:calc(100% - 32px);}.match-logo{height:62px;}.room-member{grid-template-columns:auto 1fr;}}
 .team-actions{display:flex;align-items:center;justify-content:center;gap:12px;}
 .team-card-select.taken{opacity:0.42;cursor:not-allowed;filter:grayscale(0.65);}
-.team-card-select.taken:hover{transform:none;box-shadow:none;border-color:var(--border);background:var(--bg-panel);}
+.team-card-select.taken:hover{transform:none;box-shadow:inset 0 1px 0 rgba(255,255,255,0.12),0 12px 32px rgba(0,0,0,0.28);border-color:rgba(255,255,255,0.14);}
+.team-card-select[data-brand='mumbai']{--team-a:#082f73;--team-b:#d9a928;--team-pattern:repeating-linear-gradient(120deg,rgba(255,255,255,0.08) 0 8px,transparent 8px 18px);--team-symbol:conic-gradient(from 35deg,#f1c94d,#0b53a5,#f1c94d,#103966);}
+.team-card-select[data-brand='delhi']{--team-a:#12225b;--team-b:#c82737;--team-pattern:linear-gradient(60deg,transparent 0 48%,rgba(255,255,255,0.16) 49% 52%,transparent 53%);--team-symbol:linear-gradient(135deg,#e64253 0 42%,#1d4fb0 43%);}
+.team-card-select[data-brand='bengaluru']{--team-a:#2a1117;--team-b:#cf9d28;--team-pattern:radial-gradient(circle at 70% 28%,rgba(255,215,0,0.22),transparent 26%);--team-symbol:linear-gradient(150deg,#d19b26,#8d1620 54%,#111);}
+.team-card-select[data-brand='chennai']{--team-a:#f0c927;--team-b:#134b9a;color:#06101f;--team-pattern:linear-gradient(135deg,rgba(255,255,255,0.26),transparent 42%);--team-symbol:linear-gradient(135deg,#144d9f,#f4d640);}
+.team-card-select[data-brand='kolkata']{--team-a:#26124f;--team-b:#d6a72e;--team-pattern:radial-gradient(circle at 68% 28%,rgba(216,172,55,0.26),transparent 26%);--team-symbol:linear-gradient(135deg,#e2b646,#3b1a75);}
+.team-card-select[data-brand='rajasthan']{--team-a:#243a8f;--team-b:#df4d95;--team-pattern:linear-gradient(90deg,rgba(255,255,255,0.12),transparent 40%);--team-symbol:linear-gradient(135deg,#f060a7,#2b46a2);}
+.team-card-select[data-brand='hyderabad']{--team-a:#cf4d14;--team-b:#0f1118;--team-pattern:radial-gradient(circle at 28% 30%,rgba(255,221,95,0.20),transparent 28%);--team-symbol:linear-gradient(135deg,#ff8a26,#111 62%);}
+.team-card-select[data-brand='punjab']{--team-a:#b91022;--team-b:#d8dce5;color:#fff;--team-pattern:linear-gradient(135deg,rgba(255,255,255,0.18),transparent 36%);--team-symbol:linear-gradient(135deg,#e7e9ef,#c51428);}
+.team-card-select[data-brand='gujarat']{--team-a:#07152b;--team-b:#b79343;--team-pattern:linear-gradient(45deg,rgba(183,147,67,0.22),transparent 44%);--team-symbol:linear-gradient(135deg,#d3a84f,#071b35);}
+.team-card-select[data-brand='lucknow']{--team-a:#33a8d8;--team-b:#e45c2d;--team-pattern:radial-gradient(circle at 24% 26%,rgba(255,255,255,0.22),transparent 24%);--team-symbol:linear-gradient(135deg,#33a8d8 0 40%,#e45c2d 41%);}
 .room-panel{width:100%;max-width:760px;background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px;box-shadow:0 24px 80px rgba(0,0,0,0.45);animation:fadeUp 0.45s ease both;}
 .room-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px;}
 .room-code-box{margin:18px auto 14px;padding:18px;border-radius:var(--radius);border:1px solid rgba(255,215,0,0.35);background:rgba(255,215,0,0.08);text-align:center;max-width:360px;}
@@ -130,6 +165,31 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .highest-bidder.flash,.timer.flash{transform:scale(1.06);color:var(--gold);}
 .bid-amount,.highest-bidder,.timer{will-change:transform,color;}
 .auction-host-only.locked{opacity:0.45;cursor:not-allowed;}
+.auction-topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;}
+.auction-topbar .panel-title{margin-bottom:0;}
+.auction-toolbar{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
+.timer-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px;}
+.timer-option{padding:10px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--text);font-family:var(--font-display);cursor:pointer;}
+.timer-option.active{background:rgba(255,215,0,0.18);border-color:rgba(255,215,0,0.55);color:var(--gold);}
+.timer-option:disabled{opacity:0.42;cursor:not-allowed;}
+.settings-note{font-family:var(--font-ui);font-size:0.75rem;color:var(--text-dim);line-height:1.55;margin-top:12px;}
+.auction-history-panel{position:fixed;right:18px;top:18px;bottom:18px;width:min(560px,calc(100vw - 36px));z-index:65;background:rgba(9,15,22,0.98);border:1px solid rgba(255,215,0,0.28);border-radius:18px;box-shadow:0 28px 90px rgba(0,0,0,0.62);padding:16px;display:none;flex-direction:column;gap:12px;}
+.auction-history-panel.active{display:flex;animation:fadeUp 0.22s ease both;}
+.history-head{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.history-title{font-family:var(--font-display);font-size:1.05rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;}
+.history-controls{display:grid;grid-template-columns:1fr 140px 130px 120px;gap:8px;}
+.history-controls input,.history-controls select{width:100%;padding:9px 10px;border-radius:9px;background:rgba(0,0,0,0.34);border:1px solid var(--border);color:var(--text);font-family:var(--font-ui);font-size:0.74rem;outline:none;}
+.history-live{padding:10px;border-radius:12px;background:rgba(255,215,0,0.07);border:1px solid rgba(255,215,0,0.18);font-family:var(--font-ui);font-size:0.74rem;color:var(--text-dim);}
+.history-list{overflow:auto;display:grid;gap:8px;padding-right:2px;}
+.history-card{padding:11px;border-radius:12px;background:rgba(255,255,255,0.055);border:1px solid var(--border);}
+.history-main{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+.history-player{font-family:var(--font-display);font-size:0.92rem;color:var(--text);}
+.history-meta{font-family:var(--font-ui);font-size:0.68rem;color:var(--text-dim);line-height:1.45;margin-top:2px;}
+.history-price{font-family:var(--font-display);color:var(--green);white-space:nowrap;}
+.history-status.unsold .history-price{color:var(--red);}
+.bid-trail{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;}
+.bid-chip{font-family:var(--font-ui);font-size:0.62rem;padding:4px 6px;border-radius:999px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.08);color:var(--text-dim);}
+@media(max-width:560px){.timer-options{grid-template-columns:repeat(2,minmax(0,1fr));}.auction-history-panel{left:10px;right:10px;top:10px;bottom:10px;width:auto;padding:12px;}.history-controls{grid-template-columns:1fr;}.auction-topbar{align-items:flex-start;flex-direction:column;}.auction-toolbar{justify-content:flex-start;}}
 .highest-bidder{font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);margin-bottom:10px;}
 .bidder-name{color:var(--gold);font-weight:600;}
 .timer-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
@@ -386,8 +446,8 @@ html,body{width:100%;max-width:100%;}
   .home-container{padding-top:24px;}
   .trophy{font-size:52px;}
   .home-title{font-size:clamp(2.2rem,16vw,4rem);line-height:0.9;}
-  .team-grid{grid-template-columns:1fr 1fr;gap:8px;}
-  .team-card-select{font-size:0.86rem;padding:12px 8px;}
+  .team-grid{grid-template-columns:1fr;gap:10px;}
+  .team-card-select{font-size:0.82rem;min-height:92px;padding:12px 10px;}
   #auctionScreen{padding:10px;}
   #auctionScreen.active{display:flex;flex-direction:column;gap:10px;}
   .auction-panel{position:static;width:100%;padding:12px;}
@@ -490,16 +550,16 @@ html,body{width:100%;max-width:100%;}
     <h2 class="screen-title" id="teamScreenTitle">SELECT YOUR FRANCHISE</h2>
     <p class="screen-sub" id="teamScreenSub">You manage this team - all others are AI controlled</p>
     <div class="team-grid">
-      <div class="team-card-select" data-team="Mumbai Mavericks"><span class="team-icon">MM</span>Mumbai Mavericks</div>
-      <div class="team-card-select" data-team="Delhi Strikers"><span class="team-icon">DS</span>Delhi Strikers</div>
-      <div class="team-card-select" data-team="Bengaluru Blazers"><span class="team-icon">BB</span>Bengaluru Blazers</div>
-      <div class="team-card-select" data-team="Chennai Chargers"><span class="team-icon">CC</span>Chennai Chargers</div>
-      <div class="team-card-select" data-team="Kolkata Knightsmen"><span class="team-icon">KK</span>Kolkata Knightsmen</div>
-      <div class="team-card-select" data-team="Rajasthan Riders"><span class="team-icon">RR</span>Rajasthan Riders</div>
-      <div class="team-card-select" data-team="Hyderabad Hawks"><span class="team-icon">HH</span>Hyderabad Hawks</div>
-      <div class="team-card-select" data-team="Punjab Panthers"><span class="team-icon">PP</span>Punjab Panthers</div>
-      <div class="team-card-select" data-team="Gujarat Gladiators"><span class="team-icon">GG</span>Gujarat Gladiators</div>
-      <div class="team-card-select" data-team="Lucknow Lions"><span class="team-icon">LL</span>Lucknow Lions</div>
+      <div class="team-card-select" data-brand="mumbai" data-team="Mumbai Mavericks"><span class="team-mark" aria-hidden="true"></span><span class="team-full">Mumbai Mavericks</span></div>
+      <div class="team-card-select" data-brand="delhi" data-team="Delhi Strikers"><span class="team-mark" aria-hidden="true"></span><span class="team-full">Delhi Strikers</span></div>
+      <div class="team-card-select" data-brand="bengaluru" data-team="Bengaluru Blazers"><span class="team-mark" aria-hidden="true"></span><span class="team-full">Bengaluru Blazers</span></div>
+      <div class="team-card-select" data-brand="chennai" data-team="Chennai Chargers"><span class="team-mark" aria-hidden="true"></span><span class="team-full">Chennai Chargers</span></div>
+      <div class="team-card-select" data-brand="kolkata" data-team="Kolkata Knightsmen"><span class="team-mark" aria-hidden="true"></span><span class="team-full">Kolkata Knightsmen</span></div>
+      <div class="team-card-select" data-brand="rajasthan" data-team="Rajasthan Riders"><span class="team-mark" aria-hidden="true"></span><span class="team-full">Rajasthan Riders</span></div>
+      <div class="team-card-select" data-brand="hyderabad" data-team="Hyderabad Hawks"><span class="team-mark" aria-hidden="true"></span><span class="team-full">Hyderabad Hawks</span></div>
+      <div class="team-card-select" data-brand="punjab" data-team="Punjab Panthers"><span class="team-mark" aria-hidden="true"></span><span class="team-full">Punjab Panthers</span></div>
+      <div class="team-card-select" data-brand="gujarat" data-team="Gujarat Gladiators"><span class="team-mark" aria-hidden="true"></span><span class="team-full">Gujarat Gladiators</span></div>
+      <div class="team-card-select" data-brand="lucknow" data-team="Lucknow Lions"><span class="team-mark" aria-hidden="true"></span><span class="team-full">Lucknow Lions</span></div>
     </div>
     <div class="team-actions">
       <button class="btn btn-ghost btn-sm" onclick="goBack()">BACK</button>
@@ -517,6 +577,34 @@ html,body{width:100%;max-width:100%;}
 <script>
 // ==================== GLOBALS ====================
 const UCM_DISCLAIMER = "UCM - Ultimate Cricket Manager is a fictional cricket management simulation game. It is not affiliated with, endorsed by, or connected to any real cricket league, cricket board, franchise, player, or official tournament.";
+const BID_TIMER_OPTIONS = [3,4,5,6,7,8,9,10];
+const BID_TIMER_STORAGE_KEY = "ucm_bid_timer_seconds";
+function clampBidTimer(value) { const sec = Number(value); return BID_TIMER_OPTIONS.includes(sec) ? sec : 5; }
+function getStoredBidTimerSetting() { try { return clampBidTimer(localStorage.getItem(BID_TIMER_STORAGE_KEY)); } catch (e) { return 5; } }
+function setStoredBidTimerSetting(seconds) { const sec = clampBidTimer(seconds); window.UCMSettings = { ...(window.UCMSettings || {}), bidTimer: sec }; try { localStorage.setItem(BID_TIMER_STORAGE_KEY, String(sec)); } catch (e) {} return sec; }
+window.UCMSettings = { bidTimer: getStoredBidTimerSetting() };
+function getCurrentBidTimerSetting() { return typeof window.currentAuctionTimerSetting === "function" ? window.currentAuctionTimerSetting() : (window.UCMSettings && window.UCMSettings.bidTimer) || getStoredBidTimerSetting(); }
+function canEditAuctionTimerSetting() { return typeof window.canEditAuctionSettings === "function" ? window.canEditAuctionSettings() : true; }
+function chooseBidTimer(seconds) { const sec = clampBidTimer(seconds); if (typeof window.applyAuctionTimerSetting === "function") window.applyAuctionTimerSetting(sec); else setStoredBidTimerSetting(sec); renderSettingsTimerOptions(); }
+function renderSettingsTimerOptions() {
+  const wrap = document.getElementById("settingsTimerOptions");
+  const note = document.getElementById("settingsTimerNote");
+  if (!wrap) return;
+  const current = getCurrentBidTimerSetting();
+  const editable = canEditAuctionTimerSetting();
+  wrap.innerHTML = BID_TIMER_OPTIONS.map(sec => '<button class="timer-option ' + (sec === current ? 'active' : '') + '" ' + (editable ? '' : 'disabled') + ' onclick="chooseBidTimer(' + sec + ')">' + sec + 's</button>').join('');
+  if (note) note.textContent = editable ? "This timer is used when a player lot starts and whenever a new bid is placed." : "Only the room creator can change this timer. You are viewing the room timer.";
+}
+function showSettingsModal() {
+  const modal = document.getElementById("ucmInfoModal");
+  const title = document.getElementById("ucmInfoTitle");
+  const body = document.getElementById("ucmInfoBody");
+  if (!modal || !title || !body) return;
+  title.textContent = "Settings";
+  body.innerHTML = '<p class="settings-note">Auction bid timer</p><div id="settingsTimerOptions" class="timer-options"></div><p id="settingsTimerNote" class="settings-note"></p>';
+  modal.classList.add("active");
+  renderSettingsTimerOptions();
+}
 function showToast(message) {
   const wrap = document.getElementById("ucmToastWrap");
   if (!wrap) return;
@@ -528,13 +616,13 @@ function showToast(message) {
 }
 window.alert = function(message) { showToast(message); };
 function showInfoModal(type) {
+  if (type === "settings") { showSettingsModal(); return; }
   const modal = document.getElementById("ucmInfoModal");
   const title = document.getElementById("ucmInfoTitle");
   const body = document.getElementById("ucmInfoBody");
   if (!modal || !title || !body) return;
   const pages = {
     how: { title:"How To Play", html:"<ul><li>Select a fictional UCM team.</li><li>Enter the auction and build a balanced squad.</li><li>Choose an XI with wicketkeeping and bowling depth.</li><li>Simulate fixtures, track points, qualify for playoffs, and win the final.</li></ul>" },
-    settings: { title:"Settings", html:"<p>Advanced settings are being prepared. Current defaults keep animations on, use balanced simulation speed, and keep the dark UCM theme active.</p>" },
     about: { title:"Disclaimer / About", html:"<p>" + UCM_DISCLAIMER + "</p><p>CREATED WITH &#10084;&#65039; BY <a href=\"https://www.linkedin.com/in/keshav-agrawal-122b43159/\" target=\"_blank\" rel=\"noopener\">KESHAV</a></p>" }
   };
   const page = pages[type] || pages.about;
@@ -598,6 +686,67 @@ const TEAM_NAMES = [
   "Mumbai Mavericks", "Delhi Strikers", "Bengaluru Blazers", "Chennai Chargers", "Kolkata Knightsmen",
   "Rajasthan Riders", "Hyderabad Hawks", "Punjab Panthers", "Gujarat Gladiators", "Lucknow Lions"
 ];
+const TEAM_LOGO_DB_URL = "team_logos_db.json";
+const DEFAULT_TEAM_LOGOS = {
+  "Mumbai Mavericks": { logo:"assets/team-logos/mumbai-mavericks.svg", brand:"mumbai" },
+  "Delhi Strikers": { logo:"assets/team-logos/delhi-strikers.svg", brand:"delhi" },
+  "Bengaluru Blazers": { logo:"assets/team-logos/bengaluru-blazers.svg", brand:"bengaluru" },
+  "Chennai Chargers": { logo:"assets/team-logos/chennai-chargers.svg", brand:"chennai" },
+  "Kolkata Knightsmen": { logo:"assets/team-logos/kolkata-knightsmen.svg", brand:"kolkata" },
+  "Rajasthan Riders": { logo:"assets/team-logos/rajasthan-riders.svg", brand:"rajasthan" },
+  "Hyderabad Hawks": { logo:"assets/team-logos/hyderabad-hawks.svg", brand:"hyderabad" },
+  "Punjab Panthers": { logo:"assets/team-logos/punjab-panthers.svg", brand:"punjab" },
+  "Gujarat Gladiators": { logo:"assets/team-logos/gujarat-gladiators.svg", brand:"gujarat" },
+  "Lucknow Lions": { logo:"assets/team-logos/lucknow-lions.svg", brand:"lucknow" }
+};
+let teamLogoDatabase = { ...DEFAULT_TEAM_LOGOS };
+function logoTextEscape(value) { return String(value || "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch])); }
+function teamInitials(name) { return String(name || "").split(/\s+/).filter(Boolean).map(w => w[0]).join("").slice(0, 3).toUpperCase(); }
+function getTeamLogo(teamName) { return teamLogoDatabase[teamName] || DEFAULT_TEAM_LOGOS[teamName] || null; }
+function teamLogoImgHtml(teamName, className = "team-logo-mini") {
+  const rec = getTeamLogo(teamName);
+  const alt = logoTextEscape(teamName + " logo");
+  if (rec && rec.logo) return '<span class="' + className + '"><img src="' + logoTextEscape(rec.logo) + '" alt="' + alt + '" loading="lazy"></span>';
+  return '<span class="' + className + '">' + logoTextEscape(teamInitials(teamName)) + '</span>';
+}
+function setTeamLogoImage(id, teamName) {
+  const img = document.getElementById(id);
+  if (!img) return;
+  const rec = getTeamLogo(teamName);
+  if (rec && rec.logo) { img.src = rec.logo; img.alt = teamName + " logo"; img.style.display = "block"; }
+  else { img.removeAttribute("src"); img.alt = ""; img.style.display = "none"; }
+}
+function applyTeamLogosToDOM() {
+  document.querySelectorAll(".team-card-select").forEach(card => {
+    const team = card.dataset.team;
+    const rec = getTeamLogo(team);
+    if (!rec || !rec.logo) return;
+    card.classList.add("has-logo");
+    card.style.setProperty("--team-logo-bg", 'url("' + rec.logo + '")');
+    let img = card.querySelector(".team-card-logo-art");
+    if (!img) { img = document.createElement("img"); img.className = "team-card-logo-art"; card.insertBefore(img, card.querySelector(".team-full")); }
+    img.src = rec.logo;
+    img.alt = team + " logo";
+    img.loading = "lazy";
+  });
+}
+async function loadTeamLogoDatabase() {
+  applyTeamLogosToDOM();
+  try {
+    const res = await fetch(TEAM_LOGO_DB_URL, { cache:"no-store" });
+    if (!res.ok) throw new Error("Logo database unavailable");
+    const data = await res.json();
+    const rows = Array.isArray(data.teams) ? data.teams : [];
+    if (rows.length) {
+      teamLogoDatabase = { ...DEFAULT_TEAM_LOGOS };
+      rows.forEach(row => { if (row && row.name && row.logo) teamLogoDatabase[row.name] = row; });
+      applyTeamLogosToDOM();
+    }
+  } catch (e) {
+    applyTeamLogosToDOM();
+  }
+}
+loadTeamLogoDatabase();
 const ANALYTICS_VISITOR_KEY = "ucm_analytics_visitor_id";
 const ANALYTICS_SESSION_KEY = "ucm_analytics_session_id";
 const analyticsStartedAt = Date.now();
@@ -1026,7 +1175,7 @@ function renderRoomLobby() {
   saveRoomIdentity();
   document.getElementById("roomCodeDisplay").textContent = room.code;
   document.getElementById("roomLobbySub").textContent = isCreator ? "Share this code with friends, then start the auction" : "Joined room - waiting for creator to start";
-  document.getElementById("roomMembersList").innerHTML = room.players.map(p => `<div class="room-member"><strong>${p.team}</strong>${p.name}${p.id===room.creatorId?" - Creator":""}</div>`).join("");
+  document.getElementById("roomMembersList").innerHTML = room.players.map(p => `<div class="room-member">${teamLogoImgHtml(p.team, "room-logo")}<div><strong class="room-team-line"><span class="room-team-text">${escapeRoomHtml(p.team)}</span></strong><span>${escapeRoomHtml(p.name)}${p.id===room.creatorId?" - Creator":""}</span></div></div>`).join("");
   document.getElementById("roomStartBtn").style.display = isCreator ? "inline-flex" : "none";
 }
 async function leaveFriendsRoom() {
@@ -1162,8 +1311,9 @@ setInterval(syncFriendsRoom, 1000);
     currentBid:0, highestBidder:null,
     timer:5, interval:null,
     userPassed:false, openedTeam:null,
-    lastMessage:'', auto:false, speed:1,
-    sold:new Set(), unsold:new Set(), passedTeams:new Set(), auctionSummaryShown:false
+    lastMessage:'', auto:false, speed:1, bidTimer:getStoredBidTimerSetting(),
+    sold:new Set(), unsold:new Set(), passedTeams:new Set(), auctionSummaryShown:false,
+    auctionHistory:[], bidTrail:[]
   };
 
   // ==================== MULTUCMAYER GAME SYNC ====================
@@ -1225,12 +1375,15 @@ setInterval(syncFriendsRoom, 1000);
         currentBid: state.currentBid || 0,
         highestBidder: state.highestBidder ? state.highestBidder.name : null,
         timer: state.timer || 0,
+        bidTimer: state.bidTimer || getStoredBidTimerSetting(),
         auto: !!state.auto,
         speed: state.speed || 1,
         lastMessage: state.lastMessage || "",
         soldIds: Array.from(state.sold),
         unsoldIds: Array.from(state.unsold),
-        passedTeams: Array.from(state.passedTeams || [])
+        passedTeams: Array.from(state.passedTeams || []),
+        history: state.auctionHistory || [],
+        bidTrail: state.bidTrail || []
       },
       teams: auctionTeams.map(snapshotTeam),
       tournament: JSON.parse(JSON.stringify(tournState || {}))
@@ -1270,13 +1423,18 @@ setInterval(syncFriendsRoom, 1000);
       state.currentBid = Number(a.currentBid || 0);
       state.highestBidder = auctionTeams.find(t => t.name === a.highestBidder) || null;
       state.timer = Number(a.timer || 0);
+      state.bidTimer = clampBidTimer(a.bidTimer || state.bidTimer || getStoredBidTimerSetting());
+      setStoredBidTimerSetting(state.bidTimer);
       state.auto = !!a.auto;
       state.speed = Number(a.speed || 1);
       state.lastMessage = a.lastMessage || "";
       state.sold = new Set(a.soldIds || []);
       state.unsold = new Set(a.unsoldIds || []);
       state.passedTeams = new Set(a.passedTeams || []);
+      state.auctionHistory = Array.isArray(a.history) ? a.history : [];
+      state.bidTrail = Array.isArray(a.bidTrail) ? a.bidTrail : [];
       state.userPassed = state.passedTeams.has(selectedTeam);
+      if (typeof renderSettingsTimerOptions === "function") renderSettingsTimerOptions();
       const teamMap = new Map((game.teams || []).map(t => [t.name, t]));
       auctionTeams.forEach(team => restoreTeam(team, teamMap.get(team.name)));
       if (game.tournament) Object.assign(tournState, JSON.parse(JSON.stringify(game.tournament)));
@@ -1388,13 +1546,16 @@ setInterval(syncFriendsRoom, 1000);
     state.currentPlayer = null;
     state.currentBid = 0;
     state.highestBidder = null;
-    state.timer = 5;
+    state.bidTimer = getStoredBidTimerSetting();
+    state.timer = state.bidTimer;
     state.userPassed = false;
     state.lastMessage = "Room auction ready.";
     state.auto = false;
     state.sold.clear();
     state.unsold.clear();
     state.passedTeams.clear();
+    state.auctionHistory = [];
+    state.bidTrail = [];
     state.auctionSummaryShown = false;
   }
   function allRoomXIsReady() {
@@ -1452,6 +1613,22 @@ setInterval(syncFriendsRoom, 1000);
     if (roomHostActive()) publishRoomGameSnapshot("auction");
     else if (room && room.game) applyRoomGameSnapshot(room.game);
   };
+  window.currentAuctionTimerSetting = () => state.bidTimer || getStoredBidTimerSetting();
+  window.canEditAuctionSettings = () => !roomClientActive();
+  window.applyAuctionTimerSetting = function(seconds) {
+    if (roomClientActive()) {
+      alert("Only the room creator can change the auction timer.");
+      return false;
+    }
+    state.bidTimer = setStoredBidTimerSetting(seconds);
+    if (!state.currentPlayer) state.timer = state.bidTimer;
+    state.lastMessage = "Bid timer set to " + state.bidTimer + " seconds";
+    renderLive(state.lastMessage);
+    updateControls();
+    if (typeof renderSettingsTimerOptions === "function") renderSettingsTimerOptions();
+    if (roomHostActive()) publishRoomGameSnapshot("auction");
+    return true;
+  };
   setInterval(() => { if (roomHostActive()) processRoomActions(); }, 700);
 
 
@@ -1479,7 +1656,13 @@ setInterval(syncFriendsRoom, 1000);
       <div id="playerList" class="player-list"></div>
     </aside>
     <main class="auction-panel" style="position:sticky;top:16px;">
-      <h2 class="panel-title">Live Mega Auction</h2>
+      <div class="auction-topbar">
+        <h2 class="panel-title">Live Mega Auction</h2>
+        <div class="auction-toolbar">
+          <button class="btn btn-ghost btn-sm" id="auctionSettingsBtn">SETTINGS</button>
+          <button class="btn btn-ghost btn-sm" id="auctionHistoryBtn">HISTORY</button>
+        </div>
+      </div>
       <div id="liveAuction" class="live-card"></div>
       <div class="auction-actions">
         <button class="btn btn-primary btn-sm" id="startAuctionBtn">START</button>
@@ -1499,6 +1682,20 @@ setInterval(syncFriendsRoom, 1000);
       <h2 class="panel-title">Team Status</h2>
       <div id="teamStatus" class="team-status"></div>
     </aside>
+    <section id="auctionHistoryPanel" class="auction-history-panel" aria-live="polite">
+      <div class="history-head">
+        <div class="history-title">Auction History</div>
+        <button class="btn btn-ghost btn-sm" id="closeHistoryBtn">CLOSE</button>
+      </div>
+      <div class="history-controls">
+        <input id="historySearch" placeholder="Search player or team">
+        <select id="historyTeamFilter"><option value="">All Teams</option></select>
+        <select id="historyRoleFilter"><option value="">All Categories</option><option value="BAT">Batters</option><option value="BOW">Bowlers</option><option value="ALL">All-rounders</option><option value="WIC">Wicketkeepers</option></select>
+        <select id="historyStatusFilter"><option value="">All</option><option value="Sold">Sold</option><option value="Unsold">Unsold</option></select>
+      </div>
+      <div id="historyLive" class="history-live"></div>
+      <div id="auctionHistoryList" class="history-list"></div>
+    </section>
   </div>`);
 
   // ---- Inject XI Screen ----
@@ -1603,6 +1800,13 @@ setInterval(syncFriendsRoom, 1000);
   document.getElementById("playerSearch").addEventListener("input", renderPlayers);
   document.getElementById("roleFilter").addEventListener("change", renderPlayers);
   document.getElementById("countryFilter").addEventListener("change", renderPlayers);
+  document.getElementById("auctionSettingsBtn").onclick = () => showInfoModal("settings");
+  document.getElementById("auctionHistoryBtn").onclick = openAuctionHistory;
+  document.getElementById("closeHistoryBtn").onclick = closeAuctionHistory;
+  document.getElementById("historySearch").addEventListener("input", renderAuctionHistory);
+  document.getElementById("historyTeamFilter").addEventListener("change", renderAuctionHistory);
+  document.getElementById("historyRoleFilter").addEventListener("change", renderAuctionHistory);
+  document.getElementById("historyStatusFilter").addEventListener("change", renderAuctionHistory);
   document.getElementById("startAuctionBtn").onclick = startAuction;
   document.getElementById("userBidBtn").onclick = userBid;
 
@@ -2190,12 +2394,14 @@ setInterval(syncFriendsRoom, 1000);
     <!-- VS Banner -->
     <div class="match-vs-banner" id="matchVsBanner" style="display:none;">
       <div class="match-team-box" id="mTeamA">
+        <img class="match-logo" id="mTeamALogo" alt="" style="display:none;">
         <div class="match-team-name" id="mTeamAName">-</div>
         <div class="match-team-score" id="mTeamAScore">-</div>
         <div id="mTeamABadge"></div>
       </div>
       <div class="match-vs">VS</div>
       <div class="match-team-box" id="mTeamB">
+        <img class="match-logo" id="mTeamBLogo" alt="" style="display:none;">
         <div class="match-team-name" id="mTeamBName">-</div>
         <div class="match-team-score" id="mTeamBScore">-</div>
         <div id="mTeamBBadge"></div>
@@ -2690,6 +2896,8 @@ setInterval(syncFriendsRoom, 1000);
     const tbB = document.getElementById("mTeamB");
     tbA.className = "match-team-box" + (teamAName===selectedTeam?" user-side":"") + (resultForA==="W"?" winner":resultForA==="L"?" loser":"");
     tbB.className = "match-team-box" + (teamBName===selectedTeam?" user-side":"") + (resultForA==="L"?" winner":resultForA==="W"?" loser":"");
+    setTeamLogoImage("mTeamALogo", teamAName);
+    setTeamLogoImage("mTeamBLogo", teamBName);
     document.getElementById("mTeamAName").textContent = teamAName;
     document.getElementById("mTeamBName").textContent = teamBName;
     document.getElementById("mTeamAScore").textContent = scoreA;
@@ -2725,7 +2933,7 @@ setInterval(syncFriendsRoom, 1000);
       }).join("");
       return `
       <div class="scorecard">
-        <div class="scorecard-title">${teamName} Batting</div>
+        <div class="scorecard-title">${teamLogoImgHtml(teamName, "pt-logo")}<span>${teamName} Batting</span></div>
         <table class="sc-table">
           <thead><tr><th>Player</th><th>R</th><th>B</th><th>4/6</th><th>SR</th></tr></thead>
           <tbody>${rows}</tbody>
@@ -2746,7 +2954,7 @@ setInterval(syncFriendsRoom, 1000);
       </tr>`).join("");
       return `
       <div class="scorecard bowling-card">
-        <div class="scorecard-title">${teamName} Bowling</div>
+        <div class="scorecard-title">${teamLogoImgHtml(teamName, "pt-logo")}<span>${teamName} Bowling</span></div>
         <table class="sc-table">
           <thead><tr><th>Bowler</th><th>O</th><th>R</th><th>W</th><th>Econ</th><th>0s</th><th>4/6</th></tr></thead>
           <tbody>${rows}</tbody>
@@ -2797,7 +3005,7 @@ setInterval(syncFriendsRoom, 1000);
         const isUser = name === selectedTeam;
         const qualified = i < 4 && activeAuctionTeams().length >= 4;
         return `<tr class="${isUser?"user-row":""}">
-          <td>${i+1}. ${name}${isUser?" *":""}${qualified?" Q":""}</td>
+          <td><span class="pt-team-cell">${teamLogoImgHtml(name, "pt-logo")}<span class="pt-team-text">${i+1}. ${name}${isUser?" *":""}${qualified?" Q":""}</span></span></td>
           <td>${r.p}</td><td>${r.w}</td><td>${r.l}</td><td>${r.t}</td>
           <td class="pt-pts">${r.pts}</td>
           <td>${Number(r.nrr) > 0 ? "+" : ""}${r.nrr}</td>
@@ -3192,6 +3400,69 @@ setInterval(syncFriendsRoom, 1000);
     });
   }
 
+  function auctionRecordExists(playerId, status) { return state.auctionHistory.some(r => r.playerId === playerId && r.status === status); }
+  function recordAuctionBid(team, amount) {
+    if (!team || !state.currentPlayer) return;
+    state.bidTrail.push({ team:team.name, amount:Number(amount || 0), at:Date.now(), purseAfter:Math.max(0, Number(team.purse || 0) - Number(amount || 0)) });
+    if (state.bidTrail.length > 80) state.bidTrail = state.bidTrail.slice(-80);
+    renderAuctionHistory();
+  }
+  function recordAuctionOutcome(player, status, team = null, amount = 0, purseAfter = null, trail = null, method = "Live") {
+    if (!player || auctionRecordExists(player.id, status)) return;
+    const bids = Array.isArray(trail) ? trail : (state.bidTrail || []);
+    state.auctionHistory.push({
+      id: state.auctionHistory.length + 1,
+      playerId: player.id,
+      playerName: player.name,
+      role: player.role,
+      status,
+      team: team ? team.name : "",
+      amount:Number(amount || 0),
+      purseAfter:purseAfter == null ? null : Number(purseAfter || 0),
+      method,
+      at:Date.now(),
+      bidTrail:bids.map(b => ({ team:b.team, amount:Number(b.amount || 0), at:b.at || Date.now(), purseAfter:b.purseAfter == null ? null : Number(b.purseAfter || 0) })).slice(-30)
+    });
+    if (state.auctionHistory.length > 1200) state.auctionHistory = state.auctionHistory.slice(-1000);
+    renderAuctionHistory();
+  }
+  function markAuctionUnsold(player, method = "Live") {
+    if (!player) return;
+    state.unsold.add(player.id);
+    recordAuctionOutcome(player, "Unsold", null, 0, null, state.bidTrail || [], method);
+  }
+  function openAuctionHistory() {
+    const panel = document.getElementById("auctionHistoryPanel");
+    if (!panel) return;
+    panel.classList.add("active");
+    renderAuctionHistory();
+  }
+  function closeAuctionHistory() { document.getElementById("auctionHistoryPanel")?.classList.remove("active"); }
+  function renderAuctionHistory() {
+    const panel = document.getElementById("auctionHistoryPanel");
+    if (!panel) return;
+    const teamFilter = document.getElementById("historyTeamFilter");
+    if (teamFilter && teamFilter.options.length <= 1) teamFilter.innerHTML = '<option value="">All Teams</option>' + activeAuctionTeams().map(t => '<option value="' + t.name + '">' + t.name + '</option>').join('');
+    const q = (document.getElementById("historySearch")?.value || "").toLowerCase();
+    const tf = teamFilter?.value || "";
+    const rf = document.getElementById("historyRoleFilter")?.value || "";
+    const sf = document.getElementById("historyStatusFilter")?.value || "";
+    const live = document.getElementById("historyLive");
+    if (live) {
+      const lot = state.currentPlayer;
+      live.innerHTML = lot ? '<strong>Current lot:</strong> ' + lot.name + ' - ' + (state.highestBidder ? state.highestBidder.name + ' leads at ' + money(state.currentBid) : 'No bids yet') + '<div class="bid-trail">' + (state.bidTrail || []).slice(-8).map(b => '<span class="bid-chip">' + b.team + ' ' + money(b.amount) + '</span>').join('') + '</div>' : 'No live lot in progress.';
+    }
+    let rows = [...(state.auctionHistory || [])].reverse();
+    rows = rows.filter(r => (!q || (r.playerName + ' ' + r.team + ' ' + r.role).toLowerCase().includes(q)) && (!tf || r.team === tf) && (!rf || r.role === rf) && (!sf || r.status === sf));
+    const list = document.getElementById("auctionHistoryList");
+    if (!list) return;
+    list.innerHTML = rows.map(r => {
+      const trail = (r.bidTrail || []).map(b => '<span class="bid-chip">' + b.team + ' ' + money(b.amount) + '</span>').join('');
+      const time = r.at ? new Date(r.at).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', second:'2-digit' }) : '';
+      const purse = r.purseAfter == null ? '' : ' - Purse after: ' + money(r.purseAfter);
+      return '<div class="history-card history-status ' + r.status.toLowerCase() + '"><div class="history-main"><div><div class="history-player">' + r.playerName + '</div><div class="history-meta">' + r.role + ' - ' + r.status + (r.team ? ' to ' + r.team : '') + ' - ' + time + purse + '</div></div><div class="history-price">' + (r.status === 'Sold' ? money(r.amount) : 'UNSOLD') + '</div></div>' + (trail ? '<div class="bid-trail">' + trail + '</div>' : '') + '</div>';
+    }).join('') || '<div class="live-empty">No auction history yet.</div>';
+  }
   function flashLiveNode(node) {
     if (!node) return;
     node.classList.remove("flash");
@@ -3239,7 +3510,7 @@ setInterval(syncFriendsRoom, 1000);
     }
 
     const bidderHtml = state.highestBidder
-      ? `Leading: <span class="bidder-name">${state.highestBidder.name}</span>`
+      ? `Leading: ${teamLogoImgHtml(state.highestBidder.name, "bidder-logo")}<span class="bidder-name">${state.highestBidder.name}</span>`
       : `No bids yet  -  Base: ${money(player.basePrice)}`;
     const bidderEl = el.querySelector("#highestBidderLine");
     if (bidderEl && bidderEl.innerHTML !== bidderHtml) {
@@ -3266,7 +3537,7 @@ setInterval(syncFriendsRoom, 1000);
     document.getElementById("teamStatus").innerHTML = activeAuctionTeams().map(team => {
       const isOpen=state.openedTeam===team.name;
       return `<div class="tsc ${state.highestBidder===team?"leading":""} ${team.squad.length>=25?"full":""} ${team.name===selectedTeam?"user-t":""} ${isOpen?"open":""}" data-team="${team.name}">
-        <div class="t-name">${team.name}${team.name===selectedTeam?'<span class="you-tag">YOU</span>':''}</div>
+        <div class="t-name"><span class="t-name-left">${teamLogoImgHtml(team.name, "team-logo-mini")}<span class="t-name-text">${team.name}</span></span>${team.name===selectedTeam?'<span class="you-tag">YOU</span>':''}</div>
         <div class="t-pills">
           <span class="t-pill hi">Rs ${((team.purse/CRORE).toFixed(1))}Cr left</span>
           <span class="t-pill">${team.squad.length}/25</span>
@@ -3290,7 +3561,7 @@ setInterval(syncFriendsRoom, 1000);
     if (!state.selectedPlayer||state.currentPlayer) return;
     state.currentPlayer=state.selectedPlayer;
     state.currentBid=state.currentPlayer.basePrice;
-    state.highestBidder=null; state.timer=5; state.userPassed=false; state.passedTeams.clear();
+    state.highestBidder=null; state.timer=state.bidTimer; state.userPassed=false; state.passedTeams.clear(); state.bidTrail=[];
     state.lastMessage="Auction started for "+state.currentPlayer.name;
     updateControls(); startTimer(); renderAll();
     if (roomHostActive()) publishRoomGameSnapshot("auction");
@@ -3345,7 +3616,8 @@ setInterval(syncFriendsRoom, 1000);
     const nextBid=nextBidAmount();
     if (team===state.highestBidder) return false;
     if (!canBid(team,state.currentPlayer,nextBid)) return false;
-    state.currentBid=nextBid; state.highestBidder=team; state.timer=5;
+    state.currentBid=nextBid; state.highestBidder=team; state.timer=state.bidTimer;
+    recordAuctionBid(team, nextBid);
     state.lastMessage="Bid raised by "+team.name;
     renderLive(state.lastMessage); renderTeams(); updateControls();
     const bidEl=document.getElementById("bidAmount");
@@ -3372,14 +3644,15 @@ setInterval(syncFriendsRoom, 1000);
       state.highestBidder.squad.push({...player,soldPrice:state.currentBid});
       if(player.overseas)state.highestBidder.overseas+=1;
       state.sold.add(player.id);
+      recordAuctionOutcome(player, "Sold", state.highestBidder, state.currentBid, state.highestBidder.purse, state.bidTrail, "Live");
       state.lastMessage="SOLD to "+state.highestBidder.name+" for "+money(state.currentBid);
     } else {
-      state.unsold.add(player.id);
+      markAuctionUnsold(player, "Live");
       state.lastMessage="UNSOLD - "+player.name;
     }
     renderLive(state.lastMessage);
     state.currentPlayer=null;state.selectedPlayer=null;
-    state.currentBid=0;state.highestBidder=null;state.userPassed=false;state.passedTeams.clear();
+    state.currentBid=0;state.highestBidder=null;state.userPassed=false;state.passedTeams.clear();state.bidTrail=[];
     updateControls();renderPlayers();renderTeams();renderPoolStats();
     if (roomHostActive()) publishRoomGameSnapshot("auction");
     if(state.auto&&!roomClientActive())setTimeout(autoNextPlayer,700/state.speed);
@@ -3461,15 +3734,15 @@ setInterval(syncFriendsRoom, 1000);
 
     for (const player of remaining) {
       if (skipAuctionComplete()) {
-        state.unsold.add(player.id);
+        markAuctionUnsold(player, "Auto-fill");
         continue;
       }
       const buyer = chooseSkipBuyer(player);
       if (!buyer) {
-        state.unsold.add(player.id);
+        markAuctionUnsold(player, "Auto-fill");
         continue;
       }
-      if (!buySkipPlayer(buyer, player)) state.unsold.add(player.id);
+      if (!buySkipPlayer(buyer, player)) markAuctionUnsold(player, "Auto-fill");
     }
 
     state.lastMessage = "Auction skipped. Squads completed with varied 18-25 player AI builds.";
@@ -3484,6 +3757,7 @@ setInterval(syncFriendsRoom, 1000);
     team.squad.push({ ...player, soldPrice: price });
     if (player.overseas) team.overseas += 1;
     state.sold.add(player.id);
+    recordAuctionOutcome(player, "Sold", team, price, team.purse, [{ team:team.name, amount:price, at:Date.now(), purseAfter:team.purse }], "Auto-fill");
     return true;
   }
 

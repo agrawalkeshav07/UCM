@@ -39,3 +39,16 @@ test('analytics basics are wired safely', () => {
   assert.match(html, /sendAnalytics/);
   assert.match(html, /session_ping/);
 });
+
+
+test('team logo database is complete', () => {
+  const db = JSON.parse(fs.readFileSync(path.join(root, 'team_logos_db.json'), 'utf8'));
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert.equal(db.teams.length, 10);
+  for (const team of db.teams) {
+    assert.match(team.logo, /^assets\/team-logos\/.+\.svg$/);
+    assert(fs.existsSync(path.join(root, team.logo)), 'Missing logo asset for ' + team.name);
+  }
+  assert.match(html, /TEAM_LOGO_DB_URL/);
+  assert.match(html, /teamLogoImgHtml/);
+});
