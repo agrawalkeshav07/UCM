@@ -598,12 +598,78 @@ const TEAM_NAMES = [
   "Mumbai Mavericks", "Delhi Strikers", "Bengaluru Blazers", "Chennai Chargers", "Kolkata Knightsmen",
   "Rajasthan Riders", "Hyderabad Hawks", "Punjab Panthers", "Gujarat Gladiators", "Lucknow Lions"
 ];
+const ANALYTICS_VISITOR_KEY = "ucm_analytics_visitor_id";
+const ANALYTICS_SESSION_KEY = "ucm_analytics_session_id";
+const analyticsStartedAt = Date.now();
+let analyticsClickCount = 0;
+let lastAnalyticsScreen = "";
+
+function makeAnalyticsId(prefix) {
+  return prefix + "_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 10);
+}
+function getAnalyticsVisitorId() {
+  try {
+    let id = localStorage.getItem(ANALYTICS_VISITOR_KEY);
+    if (!id) { id = makeAnalyticsId("visitor"); localStorage.setItem(ANALYTICS_VISITOR_KEY, id); }
+    return id;
+  } catch (e) { return makeAnalyticsId("visitor"); }
+}
+function getAnalyticsSessionId() {
+  try {
+    let id = sessionStorage.getItem(ANALYTICS_SESSION_KEY);
+    if (!id) { id = makeAnalyticsId("session"); sessionStorage.setItem(ANALYTICS_SESSION_KEY, id); }
+    return id;
+  } catch (e) { return makeAnalyticsId("session"); }
+}
+function analyticsContext(extra = {}) {
+  return {
+    analyticsSessionId: getAnalyticsSessionId(),
+    visitorId: getAnalyticsVisitorId(),
+    roomCode: currentRoomCode || "",
+    playerId: currentPlayerId || "",
+    sessionToken: currentSessionToken || "",
+    name: currentPlayerName || "",
+    team: selectedTeam || "",
+    screen: extra.screen || currentScreenId(),
+    timeSpentMs: Date.now() - analyticsStartedAt,
+    clickCount: analyticsClickCount
+  };
+}
+function currentScreenId() {
+  const screens = ["homeScreen", "friendsScreen", "teamScreen", "roomLobbyScreen", "auctionScreen", "xiScreen", "matchScreen"];
+  const active = screens.find(id => document.getElementById(id)?.classList.contains("active"));
+  return active || "unknown";
+}
+function sendAnalytics(type, label = "", extra = {}) {
+  if (!roomApiEnabled()) return;
+  const body = { ...analyticsContext(extra), ...extra, type, label:String(label || "").slice(0, 100) };
+  const json = JSON.stringify(body);
+  try {
+    if ((type === "session_end" || type === "session_ping") && navigator.sendBeacon) {
+      navigator.sendBeacon("/api/analytics/event", new Blob([json], { type:"application/json" }));
+      return;
+    }
+  } catch (e) {}
+  fetch("/api/analytics/event", { method:"POST", headers:{ "Content-Type":"application/json" }, body:json, keepalive:true }).catch(() => {});
+}
+function roomAnalyticsPayload(extra = {}) {
+  return { ...analyticsContext(extra), ...extra };
+}
+function analyticsClickLabel(target) {
+  const el = target.closest("button,a,.team-card-select,.player-row,.xi-player-card,.tsc,.pitch-slot-rm,select,input");
+  if (!el) return "page";
+  return (el.id || el.dataset.team || el.dataset.id || el.getAttribute("aria-label") || el.textContent || el.tagName || "click").replace(/\s+/g, " ").trim().slice(0, 80);
+}
 
 function showOnlyScreen(id) {
   ["homeScreen", "friendsScreen", "teamScreen", "roomLobbyScreen", "auctionScreen", "xiScreen", "matchScreen"].forEach(screenId => {
     const el = document.getElementById(screenId);
     if (el) el.classList.toggle("active", screenId === id);
   });
+  if (id && id !== lastAnalyticsScreen) {
+    lastAnalyticsScreen = id;
+    sendAnalytics("screen_view", id, { screen:id });
+  }
 }
 function roomStorageKey(code) { return ROOM_STORAGE_PREFIX + String(code || "").toUpperCase(); }
 function readStoredRoomIdentity() {
@@ -926,7 +992,7 @@ async function claimFriendsTeam() {
     currentRoomCode = localCode;
     let room = null;
     try {
-      room = await roomApi("/api/rooms", { method:"POST", body:JSON.stringify({ code:localCode, playerId:currentPlayerId, name:currentPlayerName || "Creator", team:selectedTeam }) });
+      room = await roomApi("/api/rooms", { method:"POST", body:JSON.stringify({ code:localCode, playerId:currentPlayerId, name:currentPlayerName || "Creator", team:selectedTeam, ...roomAnalyticsPayload({ screen:"teamScreen" }) }) });
       currentSessionToken = room.sessionToken || currentSessionToken;
     } catch (e) { alert(e.message || "Could not create room."); return; }
     currentRoomCode = room.code;
@@ -945,7 +1011,7 @@ async function claimFriendsTeam() {
     return;
   }
   try {
-    room = await roomApi("/api/rooms/" + currentRoomCode + "/join", { method:"POST", body:JSON.stringify({ playerId:currentPlayerId, name:currentPlayerName || "Player", team:selectedTeam }) });
+    room = await roomApi("/api/rooms/" + currentRoomCode + "/join", { method:"POST", body:JSON.stringify({ playerId:currentPlayerId, name:currentPlayerName || "Player", team:selectedTeam, ...roomAnalyticsPayload({ screen:"teamScreen" }) }) });
     currentSessionToken = room.sessionToken || currentSessionToken;
   } catch (e) { alert(e.message || "Could not join room."); return; }
   currentRoomCreator = isCurrentRoomCreator(room);
@@ -966,7 +1032,7 @@ function renderRoomLobby() {
 async function leaveFriendsRoom() {
   const room = readRoom(currentRoomCode);
   if (room && !currentRoomCreator && roomApiEnabled()) {
-    try { await roomApi("/api/rooms/" + currentRoomCode + "/leave", { method:"POST", body:JSON.stringify({ playerId:currentPlayerId, sessionToken:currentSessionToken || "" }) }); } catch (e) {}
+    try { await roomApi("/api/rooms/" + currentRoomCode + "/leave", { method:"POST", body:JSON.stringify({ playerId:currentPlayerId, sessionToken:currentSessionToken || "", ...roomAnalyticsPayload({ screen:"roomLobbyScreen" }) }) }); } catch (e) {}
   }
   clearRoomIdentity();
   currentRoomCode = null;
@@ -984,7 +1050,7 @@ async function startFriendsRoom() {
   if (!room || !isCurrentRoomCreator(room)) return;
   if (room.players.length < 2) { alert("At least 2 players must join before starting the room."); return; }
   try {
-    room = await roomApi("/api/rooms/" + currentRoomCode + "/start", { method:"POST", body:JSON.stringify({ playerId:currentPlayerId, sessionToken:currentSessionToken || "" }) });
+    room = await roomApi("/api/rooms/" + currentRoomCode + "/start", { method:"POST", body:JSON.stringify({ playerId:currentPlayerId, sessionToken:currentSessionToken || "", ...roomAnalyticsPayload({ screen:"roomLobbyScreen" }) }) });
   } catch (e) { alert(e.message || "Could not start room."); return; }
   enterStartedFriendsRoom(room);
 }
@@ -1000,6 +1066,13 @@ function syncFriendsRoomFromStorage() { syncFriendsRoom(); }
 window.addEventListener("storage", e => {
   if (currentRoomCode && e.key === roomStorageKey(currentRoomCode)) syncFriendsRoom();
 });
+document.addEventListener("click", e => {
+  analyticsClickCount += 1;
+  sendAnalytics("click", analyticsClickLabel(e.target));
+}, true);
+setInterval(() => sendAnalytics("session_ping", "heartbeat"), 30000);
+window.addEventListener("pagehide", () => sendAnalytics("session_end", "pagehide"));
+window.addEventListener("beforeunload", () => sendAnalytics("session_end", "beforeunload"));
 setInterval(syncFriendsRoom, 1000);
 
 // ==================== AUCTION ENGINE ====================
@@ -2224,12 +2297,14 @@ setInterval(syncFriendsRoom, 1000);
   };
 
   document.getElementById("simMatchBtn").onclick = async function () {
+    sendAnalytics("game_action", "simulate_match");
     requestMatchScroll();
     if (roomClientActive()) { await sendRoomAction("simulateMatch", { team:selectedTeam }); return; }
     await simulateNextMatch();
   };
 
   document.getElementById("nextMatchBtn").onclick = async function () {
+    sendAnalytics("game_action", "next_match");
     requestMatchScroll();
     if (roomClientActive()) { await sendRoomAction("nextMatch", { team:selectedTeam }); return; }
     advanceToNextMatch();
@@ -3210,6 +3285,7 @@ setInterval(syncFriendsRoom, 1000);
 
   // ==================== AUCTION LOGIC ====================
   function startAuction() {
+    sendAnalytics("game_action", "start_auction_lot");
     if (roomClientActive()) { alert("The room creator starts each auction lot so everyone stays synced."); return; }
     if (!state.selectedPlayer||state.currentPlayer) return;
     state.currentPlayer=state.selectedPlayer;
@@ -3234,6 +3310,7 @@ setInterval(syncFriendsRoom, 1000);
   function stopTimer(){if(state.interval)clearInterval(state.interval);state.interval=null;}
 
   async function userBid() {
+    sendAnalytics("game_action", "bid");
     if (!state.currentPlayer||state.userPassed||state.passedTeams.has(selectedTeam)) return;
     if (roomClientActive()) {
       state.lastMessage = "Bid request sent for " + selectedTeam;
@@ -3359,6 +3436,7 @@ setInterval(syncFriendsRoom, 1000);
     return rating + roleDrama + Math.random() * 7;
   }
   function skipAuction() {
+    sendAnalytics("game_action", "skip_auction");
     if (roomClientActive()) { alert("Only the room creator can skip the auction so every player stays synced."); return; }
     if (state.skipInProgress) return;
     state.skipInProgress = true;

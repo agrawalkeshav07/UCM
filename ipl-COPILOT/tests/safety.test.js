@@ -28,3 +28,14 @@ test('CSS root defines bg-glass variable', () => {
   const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   assert.match(html, /--bg-glass:/);
 });
+
+
+test('analytics basics are wired safely', () => {
+  const server = fs.readFileSync(path.join(root, 'server.js'), 'utf8');
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert.match(server, /ucm_analytics_db\.json/);
+  assert.match(server, /ANALYTICS_ADMIN_TOKEN/);
+  assert.match(server, /api\/analytics\/summary/);
+  assert.match(html, /sendAnalytics/);
+  assert.match(html, /session_ping/);
+});

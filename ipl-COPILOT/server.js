@@ -10,6 +10,8 @@ const PORT = Number(process.env.PORT || 8790);
 const HOST = process.env.HOST || '0.0.0.0';
 const ROOT = __dirname;
 const ROOM_DB_FILE = process.env.ROOM_DB_FILE || path.join(ROOT, 'ucm_rooms_db.json');
+const ANALYTICS_DB_FILE = process.env.ANALYTICS_DB_FILE || path.join(ROOT, 'ucm_analytics_db.json');
+const ANALYTICS_ADMIN_TOKEN = process.env.ANALYTICS_ADMIN_TOKEN || '';
 const HOST_TIMEOUT_MS = Number(process.env.HOST_TIMEOUT_MS || 2 * 60 * 1000);
 const TEAM_NAMES = [
   'Mumbai Mavericks', 'Delhi Strikers', 'Bengaluru Blazers', 'Chennai Chargers', 'Kolkata Knightsmen',
@@ -20,8 +22,18 @@ const rooms = new Map();
 const clients = new Map();
 const rateBuckets = new Map();
 let saveTimer = null;
+let analyticsSaveTimer = null;
 
 function now() { return Date.now(); }
+const analyticsDb = {
+  version: 1,
+  savedAt: now(),
+  totals: { roomsCreated:0, roomJoins:0, starts:0, leaves:0, clicks:0, sessionPings:0, timeSpentMs:0, events:0 },
+  rooms: {},
+  users: {},
+  sessions: {},
+  events: []
+};
 function makeToken() { return crypto.randomBytes(24).toString('hex'); }
 function makePlayerId() { return 'P' + now().toString(36).toUpperCase() + crypto.randomBytes(3).toString('hex').toUpperCase(); }
 function normalizeCode(code) { return String(code || '').trim().toUpperCase(); }
@@ -53,6 +65,130 @@ function loadRooms() {
   }
 }
 loadRooms();
+loadAnalytics();
+
+function sanitizeAnalyticsText(value, max = 80) {
+  return String(value || '').replace(/[\r\n\t]/g, ' ').trim().slice(0, max);
+}
+function ensureAnalyticsRoom(code) {
+  const roomCode = normalizeCode(code);
+  if (!roomCode) return null;
+  if (!analyticsDb.rooms[roomCode]) analyticsDb.rooms[roomCode] = { code:roomCode, createdAt:now(), players:{}, joins:0, starts:0, leaves:0, clicks:0, timeSpentMs:0, lastSeen:now() };
+  return analyticsDb.rooms[roomCode];
+}
+function ensureAnalyticsSession(sessionId) {
+  const id = sanitizeAnalyticsText(sessionId, 64) || 'unknown';
+  if (!analyticsDb.sessions[id]) analyticsDb.sessions[id] = { id, firstSeen:now(), lastSeen:now(), events:0, clicks:0, timeSpentMs:0, roomCode:null, playerId:null, name:null, team:null };
+  return analyticsDb.sessions[id];
+}
+function scheduleAnalyticsSave() {
+  clearTimeout(analyticsSaveTimer);
+  analyticsSaveTimer = setTimeout(saveAnalytics, 250);
+}
+function saveAnalytics() {
+  try {
+    analyticsDb.savedAt = now();
+    fs.writeFileSync(ANALYTICS_DB_FILE, JSON.stringify(analyticsDb, null, 2), 'utf8');
+  } catch (e) {
+    console.error('Could not save analytics database:', e.message);
+  }
+}
+function loadAnalytics() {
+  try {
+    if (!fs.existsSync(ANALYTICS_DB_FILE)) return;
+    const payload = JSON.parse(fs.readFileSync(ANALYTICS_DB_FILE, 'utf8'));
+    if (!payload || typeof payload !== 'object') return;
+    analyticsDb.version = payload.version || 1;
+    analyticsDb.savedAt = payload.savedAt || now();
+    analyticsDb.totals = { ...analyticsDb.totals, ...(payload.totals || {}) };
+    analyticsDb.rooms = payload.rooms || {};
+    analyticsDb.users = payload.users || {};
+    analyticsDb.sessions = payload.sessions || {};
+    analyticsDb.events = Array.isArray(payload.events) ? payload.events.slice(-1000) : [];
+    console.log('Loaded UCM analytics database:', Object.keys(analyticsDb.sessions).length, 'sessions');
+  } catch (e) {
+    console.error('Could not load analytics database:', e.message);
+  }
+}
+function recomputeTotalTimeSpent() {
+  analyticsDb.totals.timeSpentMs = Object.values(analyticsDb.sessions).reduce((sum, item) => sum + Number(item.timeSpentMs || 0), 0);
+}
+function recordAnalyticsEvent(req, body = {}, trusted = {}) {
+  const t = now();
+  const type = sanitizeAnalyticsText(trusted.type || body.type || 'event', 40);
+  const roomCode = normalizeCode(trusted.roomCode || body.roomCode || '');
+  const playerId = sanitizeAnalyticsText(trusted.playerId || body.playerId || '', 64);
+  const sessionId = sanitizeAnalyticsText(body.analyticsSessionId || trusted.analyticsSessionId || '', 64) || (playerId ? 'player-' + playerId : 'unknown');
+  const visitorId = sanitizeAnalyticsText(body.visitorId || trusted.visitorId || '', 64);
+  const session = ensureAnalyticsSession(sessionId);
+  const room = roomCode ? ensureAnalyticsRoom(roomCode) : null;
+  const label = sanitizeAnalyticsText(body.label || trusted.label || '', 100);
+  const screen = sanitizeAnalyticsText(body.screen || trusted.screen || '', 40);
+  const name = sanitizeAnalyticsText(trusted.name || body.name || session.name || '', 32);
+  const team = sanitizeAnalyticsText(trusted.team || body.team || session.team || '', 50);
+  const deltaMs = Math.max(0, Math.min(30 * 60 * 1000, Number(body.timeSpentMs || body.deltaMs || 0)));
+
+  session.lastSeen = t;
+  session.events += 1;
+  if (roomCode) session.roomCode = roomCode;
+  if (playerId) session.playerId = playerId;
+  if (visitorId) session.visitorId = visitorId;
+  if (name) session.name = name;
+  if (team) session.team = team;
+
+  if (type === 'click') {
+    session.clicks += 1;
+    analyticsDb.totals.clicks += 1;
+    if (room) room.clicks += 1;
+  }
+  if (type === 'session_ping' || type === 'session_end') {
+    session.timeSpentMs = Math.max(session.timeSpentMs || 0, deltaMs);
+    analyticsDb.totals.sessionPings += 1;
+    recomputeTotalTimeSpent();
+    if (room) room.timeSpentMs = Math.max(room.timeSpentMs || 0, session.timeSpentMs || 0);
+  }
+  if (room) {
+    room.lastSeen = t;
+    if (playerId) room.players[playerId] = { playerId, name:name || undefined, team:team || undefined, lastSeen:t, sessionId };
+  }
+
+  analyticsDb.totals.events += 1;
+  const event = { id:analyticsDb.totals.events, at:t, type, roomCode:roomCode || undefined, playerId:playerId || undefined, name:name || undefined, team:team || undefined, sessionId, screen:screen || undefined, label:label || undefined };
+  analyticsDb.events.push(event);
+  if (analyticsDb.events.length > 1000) analyticsDb.events = analyticsDb.events.slice(-1000);
+  scheduleAnalyticsSave();
+  return event;
+}
+function recordRoomJoinAnalytics(req, room, playerId, kind, body = {}) {
+  const player = room.players.find(p => p.id === playerId) || {};
+  const analyticsRoom = ensureAnalyticsRoom(room.code);
+  analyticsRoom.joins += 1;
+  analyticsRoom.players[playerId] = { playerId, name:player.name, team:player.team, joinedAt:now(), lastSeen:now(), sessionId:sanitizeAnalyticsText(body.analyticsSessionId || '', 64) || undefined };
+  analyticsDb.users[playerId] = { playerId, name:player.name, team:player.team, roomCode:room.code, firstSeen:analyticsDb.users[playerId]?.firstSeen || now(), lastSeen:now(), joins:(analyticsDb.users[playerId]?.joins || 0) + 1 };
+  if (kind === 'create') analyticsDb.totals.roomsCreated += 1;
+  analyticsDb.totals.roomJoins += 1;
+  recordAnalyticsEvent(req, { ...body, type:kind === 'create' ? 'room_created' : 'room_joined' }, { roomCode:room.code, playerId, name:player.name, team:player.team });
+}
+function analyticsSummary() {
+  recomputeTotalTimeSpent();
+  const sessions = Object.values(analyticsDb.sessions);
+  const users = Object.values(analyticsDb.users);
+  const roomsList = Object.values(analyticsDb.rooms);
+  return {
+    savedAt: analyticsDb.savedAt,
+    totals: analyticsDb.totals,
+    activeRooms: rooms.size,
+    uniquePlayers: users.length,
+    uniqueSessions: sessions.length,
+    totalTimeMinutes: Math.round((analyticsDb.totals.timeSpentMs || 0) / 60000),
+    recentRooms: roomsList.sort((a,b) => Number(b.lastSeen || 0) - Number(a.lastSeen || 0)).slice(0, 20),
+    recentEvents: analyticsDb.events.slice(-50)
+  };
+}
+function canViewAnalytics(query) {
+  if (!ANALYTICS_ADMIN_TOKEN) return process.env.NODE_ENV !== 'production';
+  return String(query.token || '') === ANALYTICS_ADMIN_TOKEN;
+}
 
 function sendJson(res, status, data) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
@@ -195,6 +331,27 @@ function serveStatic(req, res, pathname) {
   });
 }
 async function handleApi(req, res, pathname, query) {
+  if (pathname === '/api/analytics/event' && req.method === 'POST') {
+    if (!checkRate(req, res, 'analytics-event', 240, 60_000)) return;
+    const body = await readBody(req);
+    let trusted = {};
+    const roomCode = normalizeCode(body.roomCode || '');
+    if (roomCode && rooms.has(roomCode) && body.playerId) {
+      const room = rooms.get(roomCode);
+      try {
+        const player = assertRoomPlayer(room, body.playerId, body.sessionToken);
+        trusted = { roomCode:room.code, playerId:player.id, name:player.name, team:player.team };
+      } catch (e) {
+        trusted = { roomCode };
+      }
+    }
+    const event = recordAnalyticsEvent(req, body, trusted);
+    return sendJson(res, 201, { ok:true, eventId:event.id });
+  }
+  if (pathname === '/api/analytics/summary' && req.method === 'GET') {
+    if (!canViewAnalytics(query)) return sendJson(res, 403, { error:'Analytics token required' });
+    return sendJson(res, 200, analyticsSummary());
+  }
   const match = pathname.match(/^\/api\/rooms\/([A-Z0-9]{6})(?:\/(join|leave|start|events|game|actions))?$/);
   if (req.method === 'POST' && pathname === '/api/rooms') {
     if (!checkRate(req, res, 'create-room', 8, 60_000)) return;
@@ -218,7 +375,9 @@ async function handleApi(req, res, pathname, query) {
       lastActionId: 0
     };
     rooms.set(code, room);
+    recordRoomJoinAnalytics(req, room, playerId, 'create', body);
     saveRooms();
+    saveAnalytics();
     broadcast(code);
     return sendJson(res, 201, roomForPlayer(room, playerId));
   }
@@ -261,8 +420,10 @@ async function handleApi(req, res, pathname, query) {
     assertTeamAvailable(room, team, playerId);
     room.players = room.players.filter(p => p.id !== playerId);
     room.players.push({ id: playerId, name, team, sessionToken: makeToken(), lastSeen: now() });
+    recordRoomJoinAnalytics(req, room, playerId, 'join', body);
     touchRoom(room);
     saveRooms();
+    saveAnalytics();
     broadcast(code);
     return sendJson(res, 200, roomForPlayer(room, playerId));
   }
@@ -270,6 +431,8 @@ async function handleApi(req, res, pathname, query) {
     if (!checkRate(req, res, 'leave-room', 30, 60_000)) return;
     const body = await readBody(req);
     const player = assertRoomPlayer(room, body.playerId, body.sessionToken);
+    recordAnalyticsEvent(req, body, { type:'room_left', roomCode:room.code, playerId:player.id, name:player.name, team:player.team });
+    analyticsDb.totals.leaves += 1;
     if (player.id !== room.creatorId && !room.started) room.players = room.players.filter(p => p.id !== player.id);
     maybeTransferHost(room);
     touchRoom(room);
@@ -285,6 +448,10 @@ async function handleApi(req, res, pathname, query) {
     if (player.id !== room.creatorId) return sendJson(res, 403, { error:'Only the host can start' });
     if (room.players.length < 2) return sendJson(res, 400, { error:'At least 2 players must join before starting' });
     room.started = true;
+    const analyticsRoom = ensureAnalyticsRoom(room.code);
+    analyticsRoom.starts += 1;
+    analyticsDb.totals.starts += 1;
+    recordAnalyticsEvent(req, body, { type:'room_started', roomCode:room.code, playerId:player.id, name:player.name, team:player.team });
     touchRoom(room);
     saveRooms();
     broadcast(code);
@@ -346,7 +513,7 @@ const server = http.createServer((req, res) => {
   const parsed = url.parse(req.url, true);
   const pathname = parsed.pathname;
   if (pathname === '/healthz') {
-    return sendJson(res, 200, { ok:true, service:'ucm-franchise-manager', rooms:rooms.size });
+    return sendJson(res, 200, { ok:true, service:'ucm-franchise-manager', rooms:rooms.size, analyticsEvents:analyticsDb.totals.events || 0 });
   }
   if (pathname.startsWith('/api/')) {
     handleApi(req, res, pathname, parsed.query || {}).catch(err => sendJson(res, 400, { error:err.message || 'Request failed' }));
@@ -358,5 +525,5 @@ server.listen(PORT, HOST, () => {
   console.log(`UCM multiplayer server running on http://${HOST}:${PORT}`);
   console.log('In production, share the hosted HTTPS URL with every player.');
 });
-process.on('SIGINT', () => { saveRooms(); process.exit(0); });
-process.on('SIGTERM', () => { saveRooms(); process.exit(0); });
+process.on('SIGINT', () => { saveRooms(); saveAnalytics(); process.exit(0); });
+process.on('SIGTERM', () => { saveRooms(); saveAnalytics(); process.exit(0); });
