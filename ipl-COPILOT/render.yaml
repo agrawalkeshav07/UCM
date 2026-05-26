@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: ipl-franchise-manager
+    name: ucm-franchise-manager
     env: node
     plan: free
     buildCommand: npm install

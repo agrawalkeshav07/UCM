@@ -22,12 +22,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 254,
     "totalUCMMatches": 254,
     "teams": [
-      "Deccan Chargers",
-      "Mumbai Indians"
+      "Deccan Dynamos",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Mumbai Indians"
+      "Deccan Dynamos",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -86,12 +86,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 247,
     "totalUCMMatches": 247,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -150,16 +150,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 237,
     "totalUCMMatches": 237,
     "teams": [
-      "Chennai Super Kings",
-      "Gujarat Lions",
-      "Kochi Tuskers Kerala",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Gujarat Gladiators",
+      "Kochi Coastals",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Gujarat Lions",
-      "Kochi Tuskers Kerala",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Gujarat Gladiators",
+      "Kochi Coastals",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -217,20 +217,20 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 222,
     "totalUCMMatches": 222,
     "teams": [
-      "Deccan Chargers",
-      "Delhi Capitals",
+      "Deccan Dynamos",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Delhi Capitals",
+      "Deccan Dynamos",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -289,18 +289,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 210,
     "totalUCMMatches": 210,
     "teams": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
+      "Chennai Chargers",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Rajasthan Royals",
-      "Rising Pune Supergiants"
+      "Rajasthan Riders",
+      "Pune Pioneerss"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
+      "Chennai Chargers",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Rajasthan Royals",
-      "Rising Pune Supergiants"
+      "Rajasthan Riders",
+      "Pune Pioneerss"
     ],
     "seasonsPlayed": [
       2009,
@@ -357,16 +357,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 192,
     "totalUCMMatches": 192,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -424,10 +424,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 176,
     "totalUCMMatches": 176,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2012,
@@ -482,14 +482,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 160,
     "totalUCMMatches": 160,
     "teams": [
-      "Chennai Super Kings",
-      "Gujarat Lions",
-      "Mumbai Indians"
+      "Chennai Chargers",
+      "Gujarat Gladiators",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Gujarat Lions",
-      "Mumbai Indians"
+      "Chennai Chargers",
+      "Gujarat Gladiators",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -545,14 +545,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 159,
     "totalUCMMatches": 159,
     "teams": [
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2013,
@@ -606,14 +606,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 251,
     "totalUCMMatches": 251,
     "teams": [
-      "Chennai Super Kings",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants"
+      "Chennai Chargers",
+      "Pune Pioneers",
+      "Pune Pioneerss"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants"
+      "Chennai Chargers",
+      "Pune Pioneers",
+      "Pune Pioneerss"
     ],
     "seasonsPlayed": [
       2008,
@@ -672,12 +672,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 176,
     "totalUCMMatches": 176,
     "teams": [
-      "Pune Warriors",
-      "Sunrisers Hyderabad"
+      "Pune Pioneers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors",
-      "Sunrisers Hyderabad"
+      "Pune Pioneers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2011,
@@ -734,21 +734,21 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 249,
     "teams": [
       "Delhi Daredevils",
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -807,14 +807,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 185,
     "totalUCMMatches": 185,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2009,
@@ -871,18 +871,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 162,
     "totalUCMMatches": 162,
     "teams": [
-      "Deccan Chargers",
-      "Delhi Capitals",
+      "Deccan Dynamos",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Lucknow Super Giants",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Delhi Capitals",
+      "Deccan Dynamos",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Lucknow Super Giants",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -940,12 +940,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 201,
     "totalUCMMatches": 201,
     "teams": [
-      "Chennai Super Kings",
-      "Gujarat Lions"
+      "Chennai Chargers",
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Gujarat Lions"
+      "Chennai Chargers",
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2008,
@@ -1000,10 +1000,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 185,
     "totalUCMMatches": 185,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2010,
@@ -1058,14 +1058,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 152,
     "totalUCMMatches": 152,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2013,
@@ -1119,14 +1119,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 145,
     "totalUCMMatches": 145,
     "teams": [
-      "Chennai Super Kings",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -1181,11 +1181,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 124,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2012,
@@ -1239,14 +1239,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 163,
     "totalUCMMatches": 163,
     "teams": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Chennai Chargers",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Chennai Chargers",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -1301,20 +1301,20 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 200,
     "totalUCMMatches": 200,
     "teams": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -1372,15 +1372,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 147,
     "teams": [
       "Delhi Daredevils",
-      "Gujarat Titans",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Gujarat Titans",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2010,
@@ -1436,10 +1436,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 133,
     "totalUCMMatches": 133,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2013,
@@ -1492,12 +1492,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 121,
     "totalUCMMatches": 121,
     "teams": [
-      "Gujarat Titans",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2017,
@@ -1547,22 +1547,22 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 176,
     "totalUCMMatches": 176,
     "teams": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants"
+      "Chennai Chargers",
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Pune Pioneerss"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants"
+      "Chennai Chargers",
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Pune Pioneerss"
     ],
     "seasonsPlayed": [
       2008,
@@ -1620,12 +1620,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 194,
     "totalUCMMatches": 194,
     "teams": [
-      "Chennai Super Kings",
-      "Mumbai Indians"
+      "Chennai Chargers",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Mumbai Indians"
+      "Chennai Chargers",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2010,
@@ -1682,11 +1682,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 179,
     "teams": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -1743,11 +1743,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 167,
     "teams": [
       "Delhi Daredevils",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2013,
@@ -1802,15 +1802,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 126,
     "teams": [
       "Kings XI Punjab",
-      "Punjab Kings",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Punjab Kings",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2013,
@@ -1864,10 +1864,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 122,
     "totalUCMMatches": 122,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2009,
@@ -1919,15 +1919,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 141,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Punjab Kings",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Punjab Panthers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Punjab Kings",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Punjab Panthers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009,
@@ -1982,12 +1982,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 135,
     "totalUCMMatches": 135,
     "teams": [
-      "Gujarat Titans",
-      "Mumbai Indians"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
-      "Mumbai Indians"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2015,
@@ -2039,14 +2039,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 164,
     "totalUCMMatches": 164,
     "teams": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -2100,22 +2100,22 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 162,
     "totalUCMMatches": 162,
     "teams": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -2174,18 +2174,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 142,
     "totalUCMMatches": 142,
     "teams": [
-      "Chennai Super Kings",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Chennai Chargers",
+      "Pune Pioneers",
+      "Pune Pioneerss",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Chennai Chargers",
+      "Pune Pioneers",
+      "Pune Pioneerss",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011,
@@ -2240,16 +2240,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 104,
     "totalUCMMatches": 104,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Punjab Kings",
-      "Royal Challengers Bangalore"
+      "Punjab Panthers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Punjab Kings",
-      "Royal Challengers Bangalore"
+      "Punjab Panthers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2012,
@@ -2305,16 +2305,16 @@ window.UCM_PLAYER_DATABASE = [
     "teams": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2012,
@@ -2369,17 +2369,17 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 128,
     "teams": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Punjab Kings",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Punjab Panthers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Punjab Kings",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Punjab Panthers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2013,
@@ -2432,12 +2432,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 127,
     "totalUCMMatches": 127,
     "teams": [
-      "Lucknow Super Giants",
-      "Mumbai Indians"
+      "Lucknow Lions",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants",
-      "Mumbai Indians"
+      "Lucknow Lions",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2016,
@@ -2488,15 +2488,15 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 112,
     "totalUCMMatches": 112,
     "teams": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
-      "Gujarat Titans",
+      "Chennai Chargers",
+      "Delhi Strikers",
+      "Gujarat Gladiators",
       "Kings XI Punjab"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
-      "Gujarat Titans",
+      "Chennai Chargers",
+      "Delhi Strikers",
+      "Gujarat Gladiators",
       "Kings XI Punjab"
     ],
     "seasonsPlayed": [
@@ -2550,17 +2550,17 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 110,
     "teams": [
       "Delhi Daredevils",
-      "Gujarat Titans",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Punjab Kings"
+      "Kolkata Knightsmen",
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Gujarat Titans",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Punjab Kings"
+      "Kolkata Knightsmen",
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2013,
@@ -2613,11 +2613,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 152,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008,
@@ -2670,12 +2670,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 146,
     "totalUCMMatches": 146,
     "teams": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2012,
@@ -2729,20 +2729,20 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 103,
     "totalUCMMatches": 103,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2015,
@@ -2794,18 +2794,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 157,
     "totalUCMMatches": 157,
     "teams": [
-      "Chennai Super Kings",
-      "Gujarat Titans",
+      "Chennai Chargers",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Gujarat Titans",
+      "Chennai Chargers",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -2865,23 +2865,23 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 104,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2010,
@@ -2938,14 +2938,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 80,
     "totalUCMMatches": 80,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2017,
@@ -2996,18 +2996,18 @@ window.UCM_PLAYER_DATABASE = [
     "teams": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -3060,12 +3060,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 98,
     "totalUCMMatches": 98,
     "teams": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -3114,18 +3114,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 94,
     "totalUCMMatches": 94,
     "teams": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
+      "Chennai Chargers",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rising Pune Supergiant"
+      "Kolkata Knightsmen",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
+      "Chennai Chargers",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rising Pune Supergiant"
+      "Kolkata Knightsmen",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2015,
@@ -3176,14 +3176,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 131,
     "totalUCMMatches": 131,
     "teams": [
-      "Gujarat Titans",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2012,
@@ -3238,20 +3238,20 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 110,
     "totalUCMMatches": 110,
     "teams": [
-      "Deccan Chargers",
-      "Delhi Capitals",
+      "Deccan Dynamos",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rising Pune Supergiants",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Pune Pioneerss",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Delhi Capitals",
+      "Deccan Dynamos",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rising Pune Supergiants",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Pune Pioneerss",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -3307,12 +3307,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 106,
     "totalUCMMatches": 106,
     "teams": [
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2016,
@@ -3365,18 +3365,18 @@ window.UCM_PLAYER_DATABASE = [
     "teams": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Punjab Kings",
-      "Rising Pune Supergiant",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Punjab Kings",
-      "Rising Pune Supergiant",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2011,
@@ -3432,18 +3432,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 119,
     "totalUCMMatches": 119,
     "teams": [
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -3495,11 +3495,11 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 111,
     "totalUCMMatches": 111,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils"
     ],
     "seasonsPlayed": [
@@ -3551,17 +3551,17 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 107,
     "teams": [
       "Delhi Daredevils",
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2013,
@@ -3614,12 +3614,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 106,
     "totalUCMMatches": 106,
     "teams": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2016,
@@ -3670,16 +3670,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 105,
     "totalUCMMatches": 105,
     "teams": [
-      "Kochi Tuskers Kerala",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Kochi Coastals",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Kochi Tuskers Kerala",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Kochi Coastals",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -3733,17 +3733,17 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 102,
     "teams": [
       "Delhi Daredevils",
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Rising Pune Supergiants",
-      "Sunrisers Hyderabad"
+      "Pune Pioneerss",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Rising Pune Supergiants",
-      "Sunrisers Hyderabad"
+      "Pune Pioneerss",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -3794,12 +3794,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 101,
     "totalUCMMatches": 101,
     "teams": [
-      "Gujarat Titans",
-      "Kolkata Knight Riders"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
-      "Kolkata Knight Riders"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2018,
@@ -3848,16 +3848,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 96,
     "totalUCMMatches": 96,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Royal Challengers Bangalore"
+      "Lucknow Lions",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Royal Challengers Bangalore"
+      "Lucknow Lions",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2016,
@@ -3908,14 +3908,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 93,
     "totalUCMMatches": 93,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2017,
@@ -3965,14 +3965,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 115,
     "totalUCMMatches": 115,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2015,
@@ -4024,13 +4024,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 99,
     "teams": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -4082,12 +4082,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 84,
     "totalUCMMatches": 84,
     "teams": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders"
+      "Delhi Strikers",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders"
+      "Delhi Strikers",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2016,
@@ -4137,20 +4137,20 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 137,
     "totalUCMMatches": 137,
     "teams": [
-      "Chennai Super Kings",
-      "Deccan Chargers",
-      "Kochi Tuskers Kerala",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Chennai Chargers",
+      "Deccan Dynamos",
+      "Kochi Coastals",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Deccan Chargers",
-      "Kochi Tuskers Kerala",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Chennai Chargers",
+      "Deccan Dynamos",
+      "Kochi Coastals",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -4204,12 +4204,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 101,
     "totalUCMMatches": 101,
     "teams": [
-      "Gujarat Lions",
-      "Mumbai Indians"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions",
-      "Mumbai Indians"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2016,
@@ -4260,16 +4260,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 95,
     "totalUCMMatches": 95,
     "teams": [
-      "Deccan Chargers",
-      "Gujarat Lions",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Gujarat Gladiators",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Gujarat Lions",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Gujarat Gladiators",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -4322,16 +4322,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 90,
     "totalUCMMatches": 90,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -4382,18 +4382,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 88,
     "totalUCMMatches": 88,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -4444,18 +4444,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 81,
     "totalUCMMatches": 81,
     "teams": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
+      "Chennai Chargers",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
+      "Chennai Chargers",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2013,
@@ -4505,18 +4505,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 84,
     "totalUCMMatches": 84,
     "teams": [
-      "Chennai Super Kings",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru",
-      "Sunrisers Hyderabad"
+      "Chennai Chargers",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru",
-      "Sunrisers Hyderabad"
+      "Chennai Chargers",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2009,
@@ -4569,14 +4569,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 78,
     "totalUCMMatches": 78,
     "teams": [
-      "Mumbai Indians",
-      "Punjab Kings",
-      "Rising Pune Supergiant"
+      "Mumbai Mavericks",
+      "Punjab Panthers",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Punjab Kings",
-      "Rising Pune Supergiant"
+      "Mumbai Mavericks",
+      "Punjab Panthers",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2017,
@@ -4627,11 +4627,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 70,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2019,
@@ -4679,18 +4679,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 110,
     "totalUCMMatches": 110,
     "teams": [
-      "Chennai Super Kings",
-      "Gujarat Lions",
-      "Kochi Tuskers Kerala",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Gujarat Gladiators",
+      "Kochi Coastals",
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Gujarat Lions",
-      "Kochi Tuskers Kerala",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Gujarat Gladiators",
+      "Kochi Coastals",
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -4744,17 +4744,17 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 108,
     "teams": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Punjab Kings",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Punjab Panthers",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Punjab Kings",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Punjab Panthers",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2015,
@@ -4806,14 +4806,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 92,
     "totalUCMMatches": 92,
     "teams": [
-      "Gujarat Lions",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -4869,16 +4869,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 91,
     "totalUCMMatches": 91,
     "teams": [
-      "Chennai Super Kings",
-      "Deccan Chargers",
-      "Gujarat Lions",
-      "Mumbai Indians"
+      "Chennai Chargers",
+      "Deccan Dynamos",
+      "Gujarat Gladiators",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Deccan Chargers",
-      "Gujarat Lions",
-      "Mumbai Indians"
+      "Chennai Chargers",
+      "Deccan Dynamos",
+      "Gujarat Gladiators",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -4929,12 +4929,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 90,
     "totalUCMMatches": 90,
     "teams": [
-      "Deccan Chargers",
-      "Mumbai Indians"
+      "Deccan Dynamos",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Mumbai Indians"
+      "Deccan Dynamos",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -4984,14 +4984,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 81,
     "totalUCMMatches": 81,
     "teams": [
-      "Chennai Super Kings",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants"
+      "Chennai Chargers",
+      "Pune Pioneers",
+      "Pune Pioneerss"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants"
+      "Chennai Chargers",
+      "Pune Pioneers",
+      "Pune Pioneerss"
     ],
     "seasonsPlayed": [
       2016,
@@ -5041,12 +5041,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 106,
     "totalUCMMatches": 106,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
       "Kings XI Punjab"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
       "Kings XI Punjab"
     ],
@@ -5157,17 +5157,17 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 95,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Pune Pioneerss"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Pune Pioneerss"
     ],
     "seasonsPlayed": [
       2008,
@@ -5219,16 +5219,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 94,
     "totalUCMMatches": 94,
     "teams": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2017,
@@ -5278,18 +5278,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 89,
     "totalUCMMatches": 89,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Gujarat Titans",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Gujarat Titans",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2014,
@@ -5341,18 +5341,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 82,
     "totalUCMMatches": 82,
     "teams": [
-      "Deccan Chargers",
-      "Kochi Tuskers Kerala",
-      "Mumbai Indians",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Deccan Dynamos",
+      "Kochi Coastals",
+      "Mumbai Mavericks",
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Kochi Tuskers Kerala",
-      "Mumbai Indians",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Deccan Dynamos",
+      "Kochi Coastals",
+      "Mumbai Mavericks",
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -5402,11 +5402,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 65,
     "teams": [
       "Kings XI Punjab",
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2019,
@@ -5454,18 +5454,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 62,
     "totalUCMMatches": 62,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Lucknow Super Giants",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Lucknow Lions",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Lucknow Super Giants",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Lucknow Lions",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2017,
@@ -5516,11 +5516,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 61,
     "teams": [
       "Kings XI Punjab",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2017,
@@ -5568,14 +5568,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 59,
     "totalUCMMatches": 59,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2019,
@@ -5622,12 +5622,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 57,
     "totalUCMMatches": 57,
     "teams": [
-      "Delhi Capitals",
-      "Sunrisers Hyderabad"
+      "Delhi Strikers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Sunrisers Hyderabad"
+      "Delhi Strikers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2018,
@@ -5676,18 +5676,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 103,
     "totalUCMMatches": 103,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Punjab Kings",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Punjab Panthers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Punjab Kings",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Punjab Panthers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2010,
@@ -5743,18 +5743,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 102,
     "totalUCMMatches": 102,
     "teams": [
-      "Delhi Capitals",
-      "Pune Warriors",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants"
+      "Delhi Strikers",
+      "Pune Pioneers",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Pune Pioneerss"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Pune Warriors",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants"
+      "Delhi Strikers",
+      "Pune Pioneers",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Pune Pioneerss"
     ],
     "seasonsPlayed": [
       2012,
@@ -5805,14 +5805,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 84,
     "totalUCMMatches": 84,
     "teams": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Delhi Daredevils",
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Delhi Daredevils",
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2009,
@@ -5862,11 +5862,11 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 79,
     "totalUCMMatches": 79,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils"
     ],
     "seasonsPlayed": [
@@ -5916,12 +5916,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 72,
     "totalUCMMatches": 72,
     "teams": [
-      "Kolkata Knight Riders",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2011,
@@ -5973,13 +5973,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 70,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009,
@@ -6029,12 +6029,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 66,
     "totalUCMMatches": 66,
     "teams": [
-      "Chennai Super Kings",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2018,
@@ -6083,10 +6083,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 66,
     "totalUCMMatches": 66,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2020,
@@ -6134,13 +6134,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 65,
     "teams": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Punjab Kings"
+      "Lucknow Lions",
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Punjab Kings"
+      "Lucknow Lions",
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2020,
@@ -6188,13 +6188,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 58,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2014,
@@ -6244,25 +6244,25 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 90,
     "teams": [
       "Delhi Daredevils",
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2010,
@@ -6315,12 +6315,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 78,
     "totalUCMMatches": 78,
     "teams": [
-      "Gujarat Titans",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2015,
@@ -6372,19 +6372,19 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 76,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Pune Warriors",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Pune Pioneers",
+      "Pune Pioneers",
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Pune Warriors",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Pune Pioneers",
+      "Pune Pioneers",
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -6436,10 +6436,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 76,
     "totalUCMMatches": 76,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -6488,15 +6488,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 75,
     "teams": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2019,
@@ -6544,14 +6544,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 73,
     "totalUCMMatches": 73,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008,
@@ -6600,14 +6600,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 59,
     "totalUCMMatches": 59,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Rising Pune Supergiant"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Rising Pune Supergiant"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2014,
@@ -6657,18 +6657,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 57,
     "totalUCMMatches": 57,
     "teams": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Chennai Chargers",
+      "Delhi Strikers",
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Delhi Capitals",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Chennai Chargers",
+      "Delhi Strikers",
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2016,
@@ -6717,12 +6717,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 88,
     "totalUCMMatches": 88,
     "teams": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -6770,10 +6770,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 78,
     "totalUCMMatches": 78,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -6822,11 +6822,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 63,
     "teams": [
       "Delhi Daredevils",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2018,
@@ -6875,14 +6875,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 63,
     "totalUCMMatches": 63,
     "teams": [
-      "Gujarat Lions",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -6931,16 +6931,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 60,
     "totalUCMMatches": 60,
     "teams": [
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2011,
@@ -6989,14 +6989,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 59,
     "totalUCMMatches": 59,
     "teams": [
-      "Rising Pune Supergiant",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Rising Pune Supergiant",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2017,
@@ -7046,10 +7046,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 46,
     "totalUCMMatches": 46,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2020,
@@ -7097,13 +7097,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 101,
     "teams": [
       "Delhi Daredevils",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2009,
@@ -7157,14 +7157,14 @@ window.UCM_PLAYER_DATABASE = [
     "teams": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rising Pune Supergiant"
+      "Kolkata Knightsmen",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rising Pune Supergiant"
+      "Kolkata Knightsmen",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2008,
@@ -7216,14 +7216,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 88,
     "totalUCMMatches": 88,
     "teams": [
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2010,
@@ -7275,11 +7275,11 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 80,
     "totalUCMMatches": 80,
     "teams": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab"
     ],
     "seasonsPlayed": [
@@ -7328,16 +7328,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 72,
     "totalUCMMatches": 72,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Gujarat Titans",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Gujarat Titans",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2014,
@@ -7443,14 +7443,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 71,
     "totalUCMMatches": 71,
     "teams": [
-      "Delhi Capitals",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2019,
@@ -7498,14 +7498,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 66,
     "totalUCMMatches": 66,
     "teams": [
-      "Chennai Super Kings",
-      "Kochi Tuskers Kerala",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Kochi Coastals",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Kochi Tuskers Kerala",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Kochi Coastals",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -7554,14 +7554,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 65,
     "totalUCMMatches": 65,
     "teams": [
-      "Lucknow Super Giants",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Lucknow Lions",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Lucknow Lions",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2020,
@@ -7610,18 +7610,18 @@ window.UCM_PLAYER_DATABASE = [
     "teams": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Punjab Kings",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Punjab Panthers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Punjab Kings",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Punjab Panthers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2009,
@@ -7672,14 +7672,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 62,
     "totalUCMMatches": 62,
     "teams": [
-      "Chennai Super Kings",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2019,
@@ -7727,10 +7727,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 56,
     "totalUCMMatches": 56,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2015,
@@ -7777,14 +7777,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 51,
     "totalUCMMatches": 51,
     "teams": [
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2014,
@@ -7835,18 +7835,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 46,
     "totalUCMMatches": 46,
     "teams": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders",
-      "Lucknow Super Giants",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Chennai Chargers",
+      "Kolkata Knightsmen",
+      "Lucknow Lions",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders",
-      "Lucknow Super Giants",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Chennai Chargers",
+      "Kolkata Knightsmen",
+      "Lucknow Lions",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2013,
@@ -7895,16 +7895,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 45,
     "totalUCMMatches": 45,
     "teams": [
-      "Gujarat Titans",
-      "Kolkata Knight Riders",
-      "Rising Pune Supergiant",
-      "Royal Challengers Bengaluru"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen",
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
-      "Kolkata Knight Riders",
-      "Rising Pune Supergiant",
-      "Royal Challengers Bengaluru"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen",
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2017,
@@ -7953,18 +7953,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 42,
     "totalUCMMatches": 42,
     "teams": [
-      "Deccan Chargers",
-      "Delhi Capitals",
-      "Pune Warriors",
-      "Rising Pune Supergiants",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Delhi Strikers",
+      "Pune Pioneers",
+      "Pune Pioneerss",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Delhi Capitals",
-      "Pune Warriors",
-      "Rising Pune Supergiants",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Delhi Strikers",
+      "Pune Pioneers",
+      "Pune Pioneerss",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2010,
@@ -8016,12 +8016,12 @@ window.UCM_PLAYER_DATABASE = [
     "teams": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Kochi Tuskers Kerala"
+      "Kochi Coastals"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Kochi Tuskers Kerala"
+      "Kochi Coastals"
     ],
     "seasonsPlayed": [
       2008,
@@ -8071,16 +8071,16 @@ window.UCM_PLAYER_DATABASE = [
     "teams": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2013,
@@ -8132,10 +8132,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 64,
     "totalUCMMatches": 64,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2019,
@@ -8184,13 +8184,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 55,
     "teams": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2013,
@@ -8240,10 +8240,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 55,
     "totalUCMMatches": 55,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -8290,13 +8290,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 54,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2013,
@@ -8344,18 +8344,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 54,
     "totalUCMMatches": 54,
     "teams": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011,
@@ -8407,10 +8407,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 52,
     "totalUCMMatches": 52,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2020,
@@ -8457,18 +8457,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 85,
     "totalUCMMatches": 85,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Kochi Tuskers Kerala",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kochi Coastals",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Kochi Tuskers Kerala",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kochi Coastals",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2010,
@@ -8523,15 +8523,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 78,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2010,
@@ -8582,15 +8582,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 77,
     "teams": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -8644,11 +8644,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 71,
     "teams": [
       "Delhi Daredevils",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2011,
@@ -8701,14 +8701,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 64,
     "totalUCMMatches": 64,
     "teams": [
-      "Kochi Tuskers Kerala",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kochi Coastals",
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Kochi Tuskers Kerala",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kochi Coastals",
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -8757,12 +8757,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 52,
     "totalUCMMatches": 52,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2020,
@@ -8809,12 +8809,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 51,
     "totalUCMMatches": 51,
     "teams": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2018,
@@ -8861,12 +8861,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 50,
     "totalUCMMatches": 50,
     "teams": [
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2019,
@@ -8913,10 +8913,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 49,
     "totalUCMMatches": 49,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2021,
@@ -8962,14 +8962,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 45,
     "totalUCMMatches": 45,
     "teams": [
-      "Chennai Super Kings",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant"
+      "Chennai Chargers",
+      "Rajasthan Riders",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant"
+      "Chennai Chargers",
+      "Rajasthan Riders",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2017,
@@ -9017,10 +9017,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 73,
     "totalUCMMatches": 73,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2008,
@@ -9068,14 +9068,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 68,
     "totalUCMMatches": 68,
     "teams": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -9123,14 +9123,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 63,
     "totalUCMMatches": 63,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008,
@@ -9179,12 +9179,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 58,
     "totalUCMMatches": 58,
     "teams": [
-      "Chennai Super Kings",
-      "Mumbai Indians"
+      "Chennai Chargers",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Mumbai Indians"
+      "Chennai Chargers",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -9233,14 +9233,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 58,
     "totalUCMMatches": 58,
     "teams": [
-      "Chennai Super Kings",
-      "Gujarat Lions",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Gujarat Gladiators",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Gujarat Lions",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Gujarat Gladiators",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009,
@@ -9289,16 +9289,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 51,
     "totalUCMMatches": 51,
     "teams": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Delhi Daredevils",
-      "Rising Pune Supergiant",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Delhi Daredevils",
-      "Rising Pune Supergiant",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011,
@@ -9347,17 +9347,17 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 50,
     "teams": [
       "Delhi Daredevils",
-      "Gujarat Titans",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Gujarat Titans",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011,
@@ -9409,15 +9409,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 41,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Punjab Kings"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Punjab Kings"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2013,
@@ -9468,11 +9468,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 40,
     "teams": [
       "Kings XI Punjab",
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2019,
@@ -9520,12 +9520,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 40,
     "totalUCMMatches": 40,
     "teams": [
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2018,
@@ -9571,12 +9571,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 39,
     "totalUCMMatches": 39,
     "teams": [
-      "Punjab Kings",
-      "Rajasthan Royals"
+      "Punjab Panthers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings",
-      "Rajasthan Royals"
+      "Punjab Panthers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2019,
@@ -9623,12 +9623,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 39,
     "totalUCMMatches": 39,
     "teams": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2014,
@@ -9673,14 +9673,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 37,
     "totalUCMMatches": 37,
     "teams": [
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2018,
@@ -9728,12 +9728,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 36,
     "totalUCMMatches": 36,
     "teams": [
-      "Chennai Super Kings",
-      "Delhi Capitals"
+      "Chennai Chargers",
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Delhi Capitals"
+      "Chennai Chargers",
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2020,
@@ -9779,12 +9779,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 57,
     "totalUCMMatches": 57,
     "teams": [
-      "Kolkata Knight Riders",
-      "Pune Warriors"
+      "Kolkata Knightsmen",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Pune Warriors"
+      "Kolkata Knightsmen",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2008,
@@ -9832,15 +9832,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 53,
     "teams": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Lucknow Lions",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Lucknow Lions",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2013,
@@ -9891,14 +9891,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 49,
     "totalUCMMatches": 49,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2012,
@@ -9949,12 +9949,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 44,
     "totalUCMMatches": 44,
     "teams": [
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2021,
@@ -10001,19 +10001,19 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 44,
     "teams": [
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Punjab Kings",
-      "Rajasthan Royals",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Punjab Panthers",
+      "Rajasthan Riders",
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Punjab Kings",
-      "Rajasthan Royals",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Punjab Panthers",
+      "Rajasthan Riders",
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2016,
@@ -10062,10 +10062,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 44,
     "totalUCMMatches": 44,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2018,
@@ -10114,17 +10114,17 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 43,
     "teams": [
       "Delhi Daredevils",
-      "Gujarat Lions",
-      "Gujarat Titans",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Gujarat Gladiators",
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Gujarat Lions",
-      "Gujarat Titans",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Gujarat Gladiators",
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -10175,16 +10175,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 41,
     "totalUCMMatches": 41,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Rajasthan Royals"
+      "Lucknow Lions",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Rajasthan Royals"
+      "Lucknow Lions",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2018,
@@ -10234,15 +10234,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 38,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2013,
@@ -10292,10 +10292,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 38,
     "totalUCMMatches": 38,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2022,
@@ -10340,14 +10340,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 58,
     "totalUCMMatches": 58,
     "teams": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Delhi Daredevils",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Delhi Daredevils",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -10396,15 +10396,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 56,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Pune Warriors",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Pune Warriors",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -10453,14 +10453,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 48,
     "totalUCMMatches": 48,
     "teams": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -10512,13 +10512,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 46,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Pune Warriors"
+      "Kolkata Knightsmen",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Pune Warriors"
+      "Kolkata Knightsmen",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2009,
@@ -10566,10 +10566,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 44,
     "totalUCMMatches": 44,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2020,
@@ -10616,14 +10616,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 44,
     "totalUCMMatches": 44,
     "teams": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Delhi Daredevils",
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Delhi Daredevils",
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2010,
@@ -10671,13 +10671,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 44,
     "teams": [
       "Kings XI Punjab",
-      "Kochi Tuskers Kerala",
-      "Rajasthan Royals"
+      "Kochi Coastals",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kochi Tuskers Kerala",
-      "Rajasthan Royals"
+      "Kochi Coastals",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -10724,10 +10724,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 42,
     "totalUCMMatches": 42,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -10772,10 +10772,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 39,
     "totalUCMMatches": 39,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2022,
@@ -10820,10 +10820,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 38,
     "totalUCMMatches": 38,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011,
@@ -10870,10 +10870,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 37,
     "totalUCMMatches": 37,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2022,
@@ -10918,11 +10918,11 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 37,
     "totalUCMMatches": 37,
     "teams": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab"
     ],
     "seasonsPlayed": [
@@ -10970,20 +10970,20 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 36,
     "totalUCMMatches": 36,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Punjab Kings",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Punjab Panthers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Punjab Kings",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Punjab Panthers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2016,
@@ -11032,12 +11032,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 34,
     "totalUCMMatches": 34,
     "teams": [
-      "Gujarat Titans",
-      "Kolkata Knight Riders"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
-      "Kolkata Knight Riders"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2018,
@@ -11084,16 +11084,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 30,
     "totalUCMMatches": 30,
     "teams": [
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Rajasthan Royals"
+      "Lucknow Lions",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Rajasthan Royals"
+      "Lucknow Lions",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2017,
@@ -11140,12 +11140,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 29,
     "totalUCMMatches": 29,
     "teams": [
-      "Mumbai Indians",
-      "Royal Challengers Bengaluru"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Royal Challengers Bengaluru"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2023,
@@ -11189,12 +11189,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 28,
     "totalUCMMatches": 28,
     "teams": [
-      "Gujarat Titans",
-      "Royal Challengers Bengaluru"
+      "Gujarat Gladiators",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
-      "Royal Challengers Bengaluru"
+      "Gujarat Gladiators",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2022,
@@ -11239,12 +11239,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 27,
     "totalUCMMatches": 27,
     "teams": [
-      "Chennai Super Kings",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2020,
@@ -11290,10 +11290,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 26,
     "totalUCMMatches": 26,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2021,
@@ -11338,10 +11338,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 26,
     "totalUCMMatches": 26,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2021,
@@ -11387,10 +11387,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 25,
     "totalUCMMatches": 25,
     "teams": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2022,
@@ -11435,10 +11435,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 20,
     "totalUCMMatches": 20,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2022,
@@ -11484,15 +11484,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 55,
     "teams": [
       "Delhi Daredevils",
-      "Pune Warriors",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Pune Warriors",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -11542,11 +11542,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 52,
     "teams": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -11594,15 +11594,15 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 44,
     "totalUCMMatches": 44,
     "teams": [
-      "Chennai Super Kings",
-      "Deccan Chargers",
-      "Gujarat Lions",
+      "Chennai Chargers",
+      "Deccan Dynamos",
+      "Gujarat Gladiators",
       "Kings XI Punjab"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Deccan Chargers",
-      "Gujarat Lions",
+      "Chennai Chargers",
+      "Deccan Dynamos",
+      "Gujarat Gladiators",
       "Kings XI Punjab"
     ],
     "seasonsPlayed": [
@@ -11652,14 +11652,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 42,
     "totalUCMMatches": 42,
     "teams": [
-      "Deccan Chargers",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Deccan Dynamos",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Deccan Dynamos",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2012,
@@ -11708,14 +11708,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 40,
     "totalUCMMatches": 40,
     "teams": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Rajasthan Riders",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Rajasthan Riders",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2018,
@@ -11764,12 +11764,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 38,
     "totalUCMMatches": 38,
     "teams": [
-      "Gujarat Titans",
-      "Punjab Kings"
+      "Gujarat Gladiators",
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
-      "Punjab Kings"
+      "Gujarat Gladiators",
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2021,
@@ -11815,20 +11815,20 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 38,
     "totalUCMMatches": 38,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Kochi Tuskers Kerala",
-      "Mumbai Indians",
-      "Rising Pune Supergiants",
-      "Sunrisers Hyderabad"
+      "Kochi Coastals",
+      "Mumbai Mavericks",
+      "Pune Pioneerss",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Kochi Tuskers Kerala",
-      "Mumbai Indians",
-      "Rising Pune Supergiants",
-      "Sunrisers Hyderabad"
+      "Kochi Coastals",
+      "Mumbai Mavericks",
+      "Pune Pioneerss",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2010,
@@ -11876,12 +11876,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 36,
     "totalUCMMatches": 36,
     "teams": [
-      "Deccan Chargers",
-      "Mumbai Indians"
+      "Deccan Dynamos",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Mumbai Indians"
+      "Deccan Dynamos",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -11927,12 +11927,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 36,
     "totalUCMMatches": 36,
     "teams": [
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2021,
@@ -11979,11 +11979,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 34,
     "teams": [
       "Kings XI Punjab",
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2019,
@@ -12032,13 +12032,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 34,
     "teams": [
       "Delhi Daredevils",
-      "Pune Warriors",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Pune Warriors",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011,
@@ -12085,14 +12085,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 33,
     "totalUCMMatches": 33,
     "teams": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Rajasthan Riders",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Rajasthan Riders",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2018,
@@ -12138,10 +12138,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 28,
     "totalUCMMatches": 28,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2020,
@@ -12188,10 +12188,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 27,
     "totalUCMMatches": 27,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2022,
@@ -12236,10 +12236,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 23,
     "totalUCMMatches": 23,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2022,
@@ -12285,15 +12285,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 51,
     "teams": [
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -12342,14 +12342,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 47,
     "totalUCMMatches": 47,
     "teams": [
-      "Deccan Chargers",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -12397,11 +12397,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 46,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008,
@@ -12451,11 +12451,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 42,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008,
@@ -12503,16 +12503,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 40,
     "totalUCMMatches": 40,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Punjab Kings",
-      "Royal Challengers Bangalore"
+      "Punjab Panthers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Punjab Kings",
-      "Royal Challengers Bangalore"
+      "Punjab Panthers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2015,
@@ -12563,13 +12563,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 34,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009,
@@ -12664,12 +12664,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 31,
     "totalUCMMatches": 31,
     "teams": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2019,
@@ -12716,10 +12716,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 27,
     "totalUCMMatches": 27,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2010,
@@ -12764,10 +12764,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 23,
     "totalUCMMatches": 23,
     "teams": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2023,
@@ -12811,14 +12811,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 22,
     "totalUCMMatches": 22,
     "teams": [
-      "Gujarat Titans",
-      "Mumbai Indians",
-      "Royal Challengers Bengaluru"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
-      "Mumbai Indians",
-      "Royal Challengers Bengaluru"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2019,
@@ -12864,10 +12864,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 22,
     "totalUCMMatches": 22,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2022,
@@ -12911,12 +12911,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 21,
     "totalUCMMatches": 21,
     "teams": [
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2021,
@@ -12962,12 +12962,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 20,
     "totalUCMMatches": 20,
     "teams": [
-      "Kolkata Knight Riders",
-      "Punjab Kings"
+      "Kolkata Knightsmen",
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Punjab Kings"
+      "Kolkata Knightsmen",
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2022,
@@ -13012,10 +13012,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 19,
     "totalUCMMatches": 19,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2022,
@@ -13060,10 +13060,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2021,
@@ -13109,14 +13109,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 43,
     "totalUCMMatches": 43,
     "teams": [
-      "Deccan Chargers",
-      "Mumbai Indians",
-      "Pune Warriors"
+      "Deccan Dynamos",
+      "Mumbai Mavericks",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Mumbai Indians",
-      "Pune Warriors"
+      "Deccan Dynamos",
+      "Mumbai Mavericks",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2009,
@@ -13164,11 +13164,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 38,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008,
@@ -13217,13 +13217,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 36,
     "teams": [
       "Delhi Daredevils",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009,
@@ -13271,11 +13271,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 34,
     "teams": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -13322,12 +13322,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 33,
     "totalUCMMatches": 33,
     "teams": [
-      "Gujarat Lions",
-      "Rajasthan Royals"
+      "Gujarat Gladiators",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions",
-      "Rajasthan Royals"
+      "Gujarat Gladiators",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2013,
@@ -13373,10 +13373,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 32,
     "totalUCMMatches": 32,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2008,
@@ -13421,10 +13421,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 30,
     "totalUCMMatches": 30,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -13469,14 +13469,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 28,
     "totalUCMMatches": 28,
     "teams": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2017,
@@ -13522,10 +13522,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 25,
     "totalUCMMatches": 25,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2012,
@@ -13570,14 +13570,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 24,
     "totalUCMMatches": 24,
     "teams": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Rajasthan Riders",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Rajasthan Riders",
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2021,
@@ -13623,12 +13623,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 24,
     "totalUCMMatches": 24,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2021,
@@ -13674,11 +13674,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 23,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2012,
@@ -13723,16 +13723,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 20,
     "totalUCMMatches": 20,
     "teams": [
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Pune Pioneerss",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2016,
@@ -13778,14 +13778,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 20,
     "totalUCMMatches": 20,
     "teams": [
-      "Gujarat Titans",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2020,
@@ -13832,10 +13832,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 20,
     "totalUCMMatches": 20,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2023,
@@ -13879,12 +13879,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 19,
     "totalUCMMatches": 19,
     "teams": [
-      "Delhi Capitals",
-      "Rajasthan Royals"
+      "Delhi Strikers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Rajasthan Royals"
+      "Delhi Strikers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2021,
@@ -13929,10 +13929,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 19,
     "totalUCMMatches": 19,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2019,
@@ -13980,10 +13980,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 19,
     "totalUCMMatches": 19,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2023,
@@ -14027,12 +14027,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 18,
     "totalUCMMatches": 18,
     "teams": [
-      "Delhi Capitals",
-      "Mumbai Indians"
+      "Delhi Strikers",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Mumbai Indians"
+      "Delhi Strikers",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2022,
@@ -14077,10 +14077,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2023,
@@ -14124,14 +14124,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 39,
     "totalUCMMatches": 39,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Rising Pune Supergiants"
+      "Pune Pioneerss"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Rising Pune Supergiants"
+      "Pune Pioneerss"
     ],
     "seasonsPlayed": [
       2009,
@@ -14179,13 +14179,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 39,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2010,
@@ -14234,11 +14234,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 38,
     "teams": [
       "Kings XI Punjab",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2012,
@@ -14287,12 +14287,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 36,
     "totalUCMMatches": 36,
     "teams": [
-      "Deccan Chargers",
-      "Mumbai Indians"
+      "Deccan Dynamos",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Mumbai Indians"
+      "Deccan Dynamos",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -14339,11 +14339,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 30,
     "teams": [
       "Kings XI Punjab",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2010,
@@ -14393,13 +14393,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 30,
     "teams": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2014,
@@ -14445,16 +14445,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 29,
     "totalUCMMatches": 29,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2013,
@@ -14502,14 +14502,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 29,
     "totalUCMMatches": 29,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009,
@@ -14555,12 +14555,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 29,
     "totalUCMMatches": 29,
     "teams": [
-      "Pune Warriors",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009,
@@ -14605,10 +14605,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 29,
     "totalUCMMatches": 29,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2014,
@@ -14654,12 +14654,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 28,
     "totalUCMMatches": 28,
     "teams": [
-      "Deccan Chargers",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2012,
@@ -14705,14 +14705,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 28,
     "totalUCMMatches": 28,
     "teams": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009,
@@ -14759,16 +14759,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 28,
     "totalUCMMatches": 28,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2015,
@@ -14817,14 +14817,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 27,
     "totalUCMMatches": 27,
     "teams": [
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2018,
@@ -14870,14 +14870,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 25,
     "totalUCMMatches": 25,
     "teams": [
-      "Gujarat Lions",
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions",
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2017,
@@ -14924,12 +14924,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 25,
     "totalUCMMatches": 25,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2016,
@@ -14974,12 +14974,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 24,
     "totalUCMMatches": 24,
     "teams": [
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2017,
@@ -15027,10 +15027,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 23,
     "totalUCMMatches": 23,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009,
@@ -15075,14 +15075,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 23,
     "totalUCMMatches": 23,
     "teams": [
-      "Delhi Capitals",
-      "Punjab Kings",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Punjab Panthers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Punjab Kings",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Punjab Panthers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2014,
@@ -15128,10 +15128,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 22,
     "totalUCMMatches": 22,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2023,
@@ -15175,14 +15175,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 21,
     "totalUCMMatches": 21,
     "teams": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2017,
@@ -15227,12 +15227,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 21,
     "totalUCMMatches": 21,
     "teams": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders"
+      "Delhi Strikers",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders"
+      "Delhi Strikers",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2023,
@@ -15324,12 +15324,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 20,
     "totalUCMMatches": 20,
     "teams": [
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2022,
@@ -15373,12 +15373,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 19,
     "totalUCMMatches": 19,
     "teams": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2015,
@@ -15423,12 +15423,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 19,
     "totalUCMMatches": 19,
     "teams": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2022,
@@ -15473,12 +15473,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 18,
     "totalUCMMatches": 18,
     "teams": [
-      "Mumbai Indians",
-      "Punjab Kings"
+      "Mumbai Mavericks",
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Punjab Kings"
+      "Mumbai Mavericks",
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2021,
@@ -15523,10 +15523,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2022,
@@ -15571,16 +15571,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Delhi Capitals",
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2020,
@@ -15626,10 +15626,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 14,
     "totalUCMMatches": 14,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2022,
@@ -15673,10 +15673,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2023,
@@ -15720,10 +15720,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 12,
     "totalUCMMatches": 12,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2022,
@@ -15768,14 +15768,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 41,
     "totalUCMMatches": 41,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2008,
@@ -15824,12 +15824,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 29,
     "totalUCMMatches": 29,
     "teams": [
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -15875,14 +15875,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 28,
     "totalUCMMatches": 28,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2016,
@@ -15930,15 +15930,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 24,
     "teams": [
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2015,
@@ -15985,12 +15985,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 24,
     "totalUCMMatches": 24,
     "teams": [
-      "Chennai Super Kings",
-      "Pune Warriors"
+      "Chennai Chargers",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Pune Warriors"
+      "Chennai Chargers",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2013,
@@ -16036,11 +16036,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 24,
     "teams": [
       "Kings XI Punjab",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2009,
@@ -16086,11 +16086,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 23,
     "teams": [
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009,
@@ -16137,13 +16137,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 22,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009,
@@ -16190,12 +16190,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 22,
     "totalUCMMatches": 22,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2013,
@@ -16240,12 +16240,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 22,
     "totalUCMMatches": 22,
     "teams": [
-      "Delhi Capitals",
-      "Sunrisers Hyderabad"
+      "Delhi Strikers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Sunrisers Hyderabad"
+      "Delhi Strikers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2020,
@@ -16291,12 +16291,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 21,
     "totalUCMMatches": 21,
     "teams": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2012,
@@ -16343,15 +16343,15 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 21,
     "teams": [
       "Delhi Daredevils",
-      "Gujarat Lions",
-      "Kolkata Knight Riders",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Gujarat Lions",
-      "Kolkata Knight Riders",
-      "Sunrisers Hyderabad"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2017,
@@ -16398,11 +16398,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 21,
     "teams": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009,
@@ -16449,10 +16449,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 21,
     "totalUCMMatches": 21,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010,
@@ -16547,10 +16547,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2012,
@@ -16594,10 +16594,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2019,
@@ -16641,10 +16641,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2023,
@@ -16688,10 +16688,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 16,
     "totalUCMMatches": 16,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2023,
@@ -16735,12 +16735,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 16,
     "totalUCMMatches": 16,
     "teams": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2019,
@@ -16788,12 +16788,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 15,
     "totalUCMMatches": 15,
     "teams": [
-      "Chennai Super Kings",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2022,
@@ -16837,10 +16837,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 15,
     "totalUCMMatches": 15,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2023,
@@ -16884,10 +16884,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 14,
     "totalUCMMatches": 14,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2018,
@@ -16933,13 +16933,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 14,
     "teams": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Royal Challengers Bengaluru"
+      "Lucknow Lions",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Lucknow Super Giants",
-      "Royal Challengers Bengaluru"
+      "Lucknow Lions",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2016,
@@ -16985,12 +16985,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Kolkata Knight Riders",
-      "Lucknow Super Giants"
+      "Kolkata Knightsmen",
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Lucknow Super Giants"
+      "Kolkata Knightsmen",
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2022,
@@ -17034,10 +17034,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2023,
@@ -17081,10 +17081,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2023,
@@ -17128,10 +17128,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 12,
     "totalUCMMatches": 12,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2022,
@@ -17175,12 +17175,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 12,
     "totalUCMMatches": 12,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2022,
@@ -17225,10 +17225,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2023,
@@ -17272,12 +17272,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2023,
@@ -17321,12 +17321,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2019,
@@ -17373,10 +17373,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2022,
@@ -17420,14 +17420,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants",
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Lucknow Lions",
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2022,
@@ -17472,12 +17472,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2022,
@@ -17522,10 +17522,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2022,
@@ -17571,13 +17571,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 31,
     "teams": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2010,
@@ -17627,13 +17627,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 31,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2010,
@@ -17679,12 +17679,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 29,
     "totalUCMMatches": 29,
     "teams": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -17730,16 +17730,16 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 29,
     "totalUCMMatches": 29,
     "teams": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -17788,12 +17788,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 28,
     "totalUCMMatches": 28,
     "teams": [
-      "Deccan Chargers",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -17841,11 +17841,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 27,
     "teams": [
       "Kings XI Punjab",
-      "Kochi Tuskers Kerala"
+      "Kochi Coastals"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kochi Tuskers Kerala"
+      "Kochi Coastals"
     ],
     "seasonsPlayed": [
       2008,
@@ -17892,10 +17892,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 26,
     "totalUCMMatches": 26,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2011,
@@ -17940,10 +17940,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 26,
     "totalUCMMatches": 26,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2011,
@@ -17990,12 +17990,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 25,
     "totalUCMMatches": 25,
     "teams": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2017,
@@ -18040,14 +18040,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 23,
     "totalUCMMatches": 23,
     "teams": [
-      "Kochi Tuskers Kerala",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kochi Coastals",
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Kochi Tuskers Kerala",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kochi Coastals",
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010,
@@ -18143,13 +18143,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 22,
     "teams": [
       "Delhi Daredevils",
-      "Gujarat Titans",
-      "Mumbai Indians"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Gujarat Titans",
-      "Mumbai Indians"
+      "Gujarat Gladiators",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2015,
@@ -18198,18 +18198,18 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 21,
     "totalUCMMatches": 21,
     "teams": [
-      "Deccan Chargers",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Pune Pioneerss",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Rajasthan Royals",
-      "Rising Pune Supergiant",
-      "Rising Pune Supergiants",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Rajasthan Riders",
+      "Pune Pioneers",
+      "Pune Pioneerss",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2012,
@@ -18258,14 +18258,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 21,
     "totalUCMMatches": 21,
     "teams": [
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2014,
@@ -18312,10 +18312,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 19,
     "totalUCMMatches": 19,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2011,
@@ -18360,11 +18360,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 19,
     "teams": [
       "Kings XI Punjab",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2018,
@@ -18411,13 +18411,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 18,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2010,
@@ -18463,13 +18463,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 17,
     "teams": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Kolkata Knight Riders",
-      "Sunrisers Hyderabad"
+      "Kolkata Knightsmen",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2016,
@@ -18515,11 +18515,11 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
+      "Chennai Chargers",
       "Delhi Daredevils"
     ],
     "seasonsPlayed": [
@@ -18566,14 +18566,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 15,
     "totalUCMMatches": 15,
     "teams": [
-      "Pune Warriors",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2013,
@@ -18621,14 +18621,14 @@ window.UCM_PLAYER_DATABASE = [
     "teams": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2014,
@@ -18675,11 +18675,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 14,
     "teams": [
       "Delhi Daredevils",
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2011,
@@ -18725,11 +18725,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 13,
     "teams": [
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -18776,10 +18776,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2022,
@@ -18823,10 +18823,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2023
@@ -18869,10 +18869,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2022,
@@ -18916,10 +18916,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2008,
@@ -18964,10 +18964,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 12,
     "totalUCMMatches": 12,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2013,
@@ -19011,10 +19011,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2022,
@@ -19058,12 +19058,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Chennai Super Kings",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2018,
@@ -19108,14 +19108,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2019,
@@ -19160,10 +19160,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008
@@ -19206,10 +19206,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2024
@@ -19252,14 +19252,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Delhi Capitals",
-      "Gujarat Titans",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Gujarat Gladiators",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Gujarat Titans",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Gujarat Gladiators",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2021,
@@ -19304,12 +19304,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders"
+      "Chennai Chargers",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders"
+      "Chennai Chargers",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2020,
@@ -19354,10 +19354,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2022,
@@ -19401,12 +19401,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Lucknow Super Giants",
-      "Mumbai Indians"
+      "Lucknow Lions",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants",
-      "Mumbai Indians"
+      "Lucknow Lions",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2023,
@@ -19450,10 +19450,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2023,
@@ -19497,10 +19497,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2023,
@@ -19544,10 +19544,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2022,
@@ -19591,10 +19591,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2022,
@@ -19638,10 +19638,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2022,
@@ -19686,13 +19686,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 27,
     "teams": [
       "Kings XI Punjab",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -19738,10 +19738,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 24,
     "totalUCMMatches": 24,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008,
@@ -19787,13 +19787,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 23,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2010,
@@ -19840,12 +19840,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 23,
     "totalUCMMatches": 23,
     "teams": [
-      "Delhi Capitals",
-      "Sunrisers Hyderabad"
+      "Delhi Strikers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Sunrisers Hyderabad"
+      "Delhi Strikers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2013,
@@ -19890,14 +19890,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 22,
     "totalUCMMatches": 22,
     "teams": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -19944,13 +19944,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 22,
     "teams": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2011,
@@ -19998,14 +19998,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 21,
     "totalUCMMatches": 21,
     "teams": [
-      "Deccan Chargers",
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Deccan Dynamos",
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Deccan Dynamos",
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010,
@@ -20098,11 +20098,11 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 20,
     "totalUCMMatches": 20,
     "teams": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab"
     ],
     "seasonsPlayed": [
@@ -20148,10 +20148,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 20,
     "totalUCMMatches": 20,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -20197,12 +20197,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 20,
     "totalUCMMatches": 20,
     "teams": [
-      "Deccan Chargers",
-      "Kochi Tuskers Kerala"
+      "Deccan Dynamos",
+      "Kochi Coastals"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Kochi Tuskers Kerala"
+      "Deccan Dynamos",
+      "Kochi Coastals"
     ],
     "seasonsPlayed": [
       2008,
@@ -20249,11 +20249,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 18,
     "teams": [
       "Kings XI Punjab",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -20348,12 +20348,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2010,
@@ -20401,12 +20401,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -20500,10 +20500,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 16,
     "totalUCMMatches": 16,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2008,
@@ -20549,12 +20549,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 16,
     "totalUCMMatches": 16,
     "teams": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders"
+      "Delhi Strikers",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders"
+      "Delhi Strikers",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2020,
@@ -20599,10 +20599,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 15,
     "totalUCMMatches": 15,
     "teams": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2011,
@@ -20694,14 +20694,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 15,
     "totalUCMMatches": 15,
     "teams": [
-      "Chennai Super Kings",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -20748,11 +20748,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 15,
     "teams": [
       "Delhi Daredevils",
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2012,
@@ -20890,10 +20890,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008
@@ -20936,14 +20936,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Delhi Strikers",
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2018,
@@ -20988,12 +20988,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 12,
     "totalUCMMatches": 12,
     "teams": [
-      "Chennai Super Kings",
-      "Deccan Chargers"
+      "Chennai Chargers",
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Deccan Chargers"
+      "Chennai Chargers",
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2008,
@@ -21038,12 +21038,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders"
+      "Delhi Strikers",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders"
+      "Delhi Strikers",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2022,
@@ -21135,11 +21135,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 10,
     "teams": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009,
@@ -21186,14 +21186,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Chennai Super Kings",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2016,
@@ -21239,10 +21239,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -21286,10 +21286,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2024
@@ -21332,10 +21332,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2024
@@ -21378,12 +21378,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Gujarat Titans",
-      "Kolkata Knight Riders"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans",
-      "Kolkata Knight Riders"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2019,
@@ -21429,12 +21429,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2017,
@@ -21478,12 +21478,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Lucknow Super Giants",
-      "Punjab Kings"
+      "Lucknow Lions",
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants",
-      "Punjab Kings"
+      "Lucknow Lions",
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2022,
@@ -21527,10 +21527,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2021,
@@ -21575,12 +21575,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Pune Warriors",
-      "Punjab Kings"
+      "Pune Pioneers",
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors",
-      "Punjab Kings"
+      "Pune Pioneers",
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2011,
@@ -21626,12 +21626,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Royal Challengers Bengaluru",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bengaluru",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2023,
@@ -21675,10 +21675,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2024
@@ -21721,10 +21721,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2024
@@ -21767,12 +21767,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Chennai Super Kings",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2018,
@@ -21817,10 +21817,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2024
@@ -21863,10 +21863,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2022
@@ -21909,10 +21909,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2023,
@@ -21956,10 +21956,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2023,
@@ -22003,12 +22003,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Chennai Super Kings",
-      "Lucknow Super Giants"
+      "Chennai Chargers",
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Lucknow Super Giants"
+      "Chennai Chargers",
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2018,
@@ -22052,10 +22052,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2023
@@ -22098,12 +22098,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2023,
@@ -22147,10 +22147,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2023,
@@ -22194,10 +22194,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2023,
@@ -22241,10 +22241,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 23,
     "totalUCMMatches": 23,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2011,
@@ -22290,10 +22290,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 22,
     "totalUCMMatches": 22,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009,
@@ -22338,12 +22338,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Deccan Chargers",
-      "Pune Warriors"
+      "Deccan Dynamos",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Pune Warriors"
+      "Deccan Dynamos",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2010,
@@ -22388,12 +22388,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 17,
     "totalUCMMatches": 17,
     "teams": [
-      "Chennai Super Kings",
-      "Sunrisers Hyderabad"
+      "Chennai Chargers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Sunrisers Hyderabad"
+      "Chennai Chargers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2008,
@@ -22441,10 +22441,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 16,
     "totalUCMMatches": 16,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009,
@@ -22491,12 +22491,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 16,
     "totalUCMMatches": 16,
     "teams": [
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -22541,12 +22541,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 15,
     "totalUCMMatches": 15,
     "teams": [
-      "Kochi Tuskers Kerala",
-      "Royal Challengers Bangalore"
+      "Kochi Coastals",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Kochi Tuskers Kerala",
-      "Royal Challengers Bangalore"
+      "Kochi Coastals",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -22592,11 +22592,11 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 15,
     "totalUCMMatches": 15,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils"
     ],
     "seasonsPlayed": [
@@ -22641,10 +22641,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 15,
     "totalUCMMatches": 15,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009,
@@ -22689,12 +22689,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 15,
     "totalUCMMatches": 15,
     "teams": [
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -22739,12 +22739,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 14,
     "totalUCMMatches": 14,
     "teams": [
-      "Chennai Super Kings",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2010,
@@ -22790,13 +22790,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 14,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010,
@@ -22841,12 +22841,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 14,
     "totalUCMMatches": 14,
     "teams": [
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -22891,10 +22891,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 14,
     "totalUCMMatches": 14,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2009,
@@ -22938,12 +22938,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 14,
     "totalUCMMatches": 14,
     "teams": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2013,
@@ -22989,10 +22989,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2011,
@@ -23037,14 +23037,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2016,
@@ -23090,11 +23090,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 13,
     "teams": [
       "Delhi Daredevils",
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2013,
@@ -23139,10 +23139,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010,
@@ -23187,13 +23187,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 13,
     "teams": [
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Sunrisers Hyderabad"
+      "Mumbai Mavericks",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2016,
@@ -23238,12 +23238,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 13,
     "totalUCMMatches": 13,
     "teams": [
-      "Kochi Tuskers Kerala",
-      "Pune Warriors"
+      "Kochi Coastals",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Kochi Tuskers Kerala",
-      "Pune Warriors"
+      "Kochi Coastals",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2011,
@@ -23288,11 +23288,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 13,
     "teams": [
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009,
@@ -23339,10 +23339,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 12,
     "totalUCMMatches": 12,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2012,
@@ -23386,12 +23386,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 12,
     "totalUCMMatches": 12,
     "teams": [
-      "Mumbai Indians",
-      "Pune Warriors"
+      "Mumbai Mavericks",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Pune Warriors"
+      "Mumbai Mavericks",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2010,
@@ -23437,12 +23437,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 12,
     "totalUCMMatches": 12,
     "teams": [
-      "Deccan Chargers",
-      "Rajasthan Royals"
+      "Deccan Dynamos",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Rajasthan Royals"
+      "Deccan Dynamos",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010,
@@ -23486,14 +23486,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 12,
     "totalUCMMatches": 12,
     "teams": [
-      "Chennai Super Kings",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2013,
@@ -23538,10 +23538,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2023
@@ -23584,10 +23584,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011,
@@ -23633,11 +23633,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 11,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2015,
@@ -23683,12 +23683,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Deccan Chargers",
-      "Kolkata Knight Riders"
+      "Deccan Dynamos",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Kolkata Knight Riders"
+      "Deccan Dynamos",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008,
@@ -23826,10 +23826,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2024
@@ -23872,12 +23872,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Kolkata Knight Riders",
-      "Pune Warriors"
+      "Kolkata Knightsmen",
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Pune Warriors"
+      "Kolkata Knightsmen",
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2008,
@@ -23923,10 +23923,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2020
@@ -23969,14 +23969,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
+      "Deccan Dynamos",
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010,
@@ -24021,10 +24021,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2020
@@ -24067,10 +24067,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -24114,10 +24114,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2016,
@@ -24161,10 +24161,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2008
@@ -24207,12 +24207,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Chennai Super Kings",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2013,
@@ -24256,12 +24256,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals",
-      "Sunrisers Hyderabad"
+      "Rajasthan Riders",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2021,
@@ -24305,10 +24305,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2021
@@ -24351,12 +24351,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009,
@@ -24448,10 +24448,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2019,
@@ -24495,10 +24495,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2008
@@ -24541,11 +24541,11 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
+      "Delhi Strikers",
       "Delhi Daredevils"
     ],
     "seasonsPlayed": [
@@ -24590,10 +24590,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2024
@@ -24636,12 +24636,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Delhi Capitals",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Royal Challengers Bangalore"
+      "Delhi Strikers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2019,
@@ -24685,10 +24685,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2012
@@ -24731,12 +24731,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Deccan Chargers",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2011,
@@ -24781,10 +24781,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2018,
@@ -24874,10 +24874,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2024
@@ -24920,12 +24920,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Kochi Tuskers Kerala",
-      "Royal Challengers Bangalore"
+      "Kochi Coastals",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Kochi Tuskers Kerala",
-      "Royal Challengers Bangalore"
+      "Kochi Coastals",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011,
@@ -25015,10 +25015,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2010
@@ -25061,10 +25061,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2013
@@ -25107,10 +25107,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2017,
@@ -25154,10 +25154,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2024
@@ -25200,12 +25200,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Chennai Super Kings",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Rajasthan Royals"
+      "Chennai Chargers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2021,
@@ -25296,12 +25296,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009,
@@ -25346,12 +25346,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Royal Challengers Bangalore"
+      "Kolkata Knightsmen",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2018,
@@ -25396,10 +25396,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2023
@@ -25442,10 +25442,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2024
@@ -25488,12 +25488,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Royal Challengers Bangalore"
+      "Mumbai Mavericks",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2017,
@@ -25538,11 +25538,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 6,
     "teams": [
       "Kings XI Punjab",
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2017,
@@ -25586,10 +25586,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008
@@ -25632,12 +25632,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Mumbai Indians",
-      "Punjab Kings"
+      "Mumbai Mavericks",
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians",
-      "Punjab Kings"
+      "Mumbai Mavericks",
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2021,
@@ -25681,10 +25681,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2024
@@ -25727,10 +25727,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2024
@@ -25773,12 +25773,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Delhi Capitals",
-      "Punjab Kings"
+      "Delhi Strikers",
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Punjab Kings"
+      "Delhi Strikers",
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2021,
@@ -25822,10 +25822,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2024
@@ -25868,10 +25868,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2022,
@@ -25915,12 +25915,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2023,
@@ -25964,12 +25964,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Deccan Chargers",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2012,
@@ -26013,14 +26013,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 11,
     "totalUCMMatches": 11,
     "teams": [
-      "Pune Warriors",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors",
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Pune Pioneers",
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2013,
@@ -26066,14 +26066,14 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions",
+      "Gujarat Gladiators",
       "Kings XI Punjab",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2016,
@@ -26166,13 +26166,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 10,
     "teams": [
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -26218,10 +26218,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 10,
     "totalUCMMatches": 10,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2008
@@ -26264,10 +26264,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2008
@@ -26310,12 +26310,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -26360,13 +26360,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 9,
     "teams": [
       "Delhi Daredevils",
-      "Gujarat Lions",
-      "Kolkata Knight Riders"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Gujarat Lions",
-      "Kolkata Knight Riders"
+      "Gujarat Gladiators",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2010,
@@ -26412,12 +26412,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 9,
     "totalUCMMatches": 9,
     "teams": [
-      "Pune Warriors",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors",
-      "Royal Challengers Bangalore"
+      "Pune Pioneers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011,
@@ -26461,10 +26461,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010
@@ -26507,12 +26507,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Deccan Chargers",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Sunrisers Hyderabad"
+      "Deccan Dynamos",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2012,
@@ -26602,10 +26602,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2011,
@@ -26649,10 +26649,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2019
@@ -26695,10 +26695,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2009,
@@ -26742,10 +26742,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008
@@ -26788,10 +26788,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008
@@ -26835,13 +26835,13 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 8,
     "teams": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Mumbai Indians",
-      "Rajasthan Royals"
+      "Mumbai Mavericks",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2012,
@@ -26886,10 +26886,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2011
@@ -26932,10 +26932,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2008
@@ -26978,12 +26978,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors",
-      "Rajasthan Royals"
+      "Pune Pioneers",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010,
@@ -27027,10 +27027,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -27074,10 +27074,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008,
@@ -27121,10 +27121,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2009,
@@ -27168,10 +27168,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2011,
@@ -27262,10 +27262,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2011,
@@ -27309,10 +27309,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2018
@@ -27355,12 +27355,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Deccan Chargers",
-      "Kolkata Knight Riders"
+      "Deccan Dynamos",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers",
-      "Kolkata Knight Riders"
+      "Deccan Dynamos",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2011,
@@ -27451,10 +27451,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2012,
@@ -27544,10 +27544,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -27591,10 +27591,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009
@@ -27637,12 +27637,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Rajasthan Royals"
+      "Kolkata Knightsmen",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010,
@@ -27686,10 +27686,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008
@@ -27732,10 +27732,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2009
@@ -27824,10 +27824,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2018
@@ -27870,12 +27870,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Lucknow Super Giants",
-      "Rajasthan Royals"
+      "Lucknow Lions",
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants",
-      "Rajasthan Royals"
+      "Lucknow Lions",
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2019,
@@ -27919,12 +27919,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2017,
@@ -28014,10 +28014,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2009
@@ -28106,10 +28106,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008
@@ -28152,10 +28152,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2012
@@ -28198,10 +28198,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2008
@@ -28290,10 +28290,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2009,
@@ -28337,10 +28337,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Rising Pune Supergiants"
+      "Pune Pioneerss"
     ],
     "iplTeamsPlayedFor": [
-      "Rising Pune Supergiants"
+      "Pune Pioneerss"
     ],
     "seasonsPlayed": [
       2016
@@ -28383,10 +28383,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2017
@@ -28429,10 +28429,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2011
@@ -28475,10 +28475,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2011,
@@ -28522,12 +28522,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders",
-      "Mumbai Indians"
+      "Kolkata Knightsmen",
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2012,
@@ -28572,10 +28572,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2009
@@ -28665,10 +28665,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2023
@@ -28711,10 +28711,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2019
@@ -28757,10 +28757,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2020,
@@ -28804,12 +28804,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Delhi Capitals",
-      "Sunrisers Hyderabad"
+      "Delhi Strikers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Sunrisers Hyderabad"
+      "Delhi Strikers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2018,
@@ -28854,10 +28854,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2024
@@ -28900,10 +28900,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2024
@@ -28946,12 +28946,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings",
-      "Sunrisers Hyderabad"
+      "Punjab Panthers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2021,
@@ -28995,10 +28995,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2022
@@ -29041,10 +29041,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2022
@@ -29087,10 +29087,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2021,
@@ -29134,10 +29134,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2024
@@ -29180,10 +29180,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2024
@@ -29226,10 +29226,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2023
@@ -29272,12 +29272,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore",
-      "Sunrisers Hyderabad"
+      "Bengaluru Blazers",
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2015,
@@ -29321,10 +29321,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bengaluru"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2024
@@ -29367,10 +29367,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2024
@@ -29413,10 +29413,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2024
@@ -29459,12 +29459,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders"
+      "Delhi Strikers",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals",
-      "Kolkata Knight Riders"
+      "Delhi Strikers",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2021,
@@ -29508,10 +29508,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2024
@@ -29554,10 +29554,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2024
@@ -29600,10 +29600,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2024
@@ -29646,10 +29646,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2023
@@ -29692,10 +29692,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2024
@@ -29738,10 +29738,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2024
@@ -29784,10 +29784,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2024
@@ -29830,10 +29830,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2024
@@ -29876,10 +29876,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2022
@@ -29922,10 +29922,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2022
@@ -29968,10 +29968,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2024
@@ -30014,10 +30014,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2023
@@ -30060,10 +30060,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2023
@@ -30106,10 +30106,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2024
@@ -30152,10 +30152,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2024
@@ -30198,10 +30198,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2023
@@ -30244,10 +30244,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2022
@@ -30290,10 +30290,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2023
@@ -30336,10 +30336,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2023
@@ -30382,10 +30382,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2024
@@ -30428,10 +30428,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2024
@@ -30474,10 +30474,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2023
@@ -30520,10 +30520,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2023
@@ -30566,10 +30566,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2023
@@ -30612,10 +30612,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Titans"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2024
@@ -30658,10 +30658,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2023
@@ -30704,10 +30704,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2023
@@ -30750,10 +30750,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2023
@@ -30796,10 +30796,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2022
@@ -30842,10 +30842,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "iplTeamsPlayedFor": [
-      "Lucknow Super Giants"
+      "Lucknow Lions"
     ],
     "seasonsPlayed": [
       2024
@@ -30888,10 +30888,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2024
@@ -30934,10 +30934,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2023
@@ -30980,10 +30980,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2023
@@ -31026,10 +31026,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2023
@@ -31072,10 +31072,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2024
@@ -31118,10 +31118,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2024
@@ -31164,10 +31164,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 8,
     "totalUCMMatches": 8,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2018,
@@ -31212,11 +31212,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 8,
     "teams": [
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008,
@@ -31260,10 +31260,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 7,
     "totalUCMMatches": 7,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011,
@@ -31307,10 +31307,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2017
@@ -31353,10 +31353,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2008
@@ -31399,10 +31399,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2012
@@ -31445,10 +31445,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 6,
     "totalUCMMatches": 6,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2012
@@ -31537,10 +31537,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010,
@@ -31584,10 +31584,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2010
@@ -31630,10 +31630,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2010
@@ -31676,10 +31676,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008
@@ -31722,10 +31722,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008
@@ -31768,10 +31768,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2021
@@ -31814,10 +31814,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2010
@@ -31860,10 +31860,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2020
@@ -31952,10 +31952,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008,
@@ -31999,10 +31999,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009
@@ -32091,10 +32091,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2013,
@@ -32139,10 +32139,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2012
@@ -32185,12 +32185,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2016,
@@ -32280,10 +32280,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 5,
     "totalUCMMatches": 5,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2009
@@ -32326,12 +32326,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Chennai Super Kings",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Royal Challengers Bangalore"
+      "Chennai Chargers",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008,
@@ -32376,10 +32376,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2012
@@ -32422,10 +32422,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2014
@@ -32468,10 +32468,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2008
@@ -32560,10 +32560,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2018
@@ -32606,10 +32606,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Kochi Tuskers Kerala"
+      "Kochi Coastals"
     ],
     "iplTeamsPlayedFor": [
-      "Kochi Tuskers Kerala"
+      "Kochi Coastals"
     ],
     "seasonsPlayed": [
       2011
@@ -32652,12 +32652,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals",
-      "Royal Challengers Bangalore"
+      "Rajasthan Riders",
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2010,
@@ -32702,11 +32702,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 4,
     "teams": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
       "Kings XI Punjab",
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2016,
@@ -32797,10 +32797,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 4,
     "totalUCMMatches": 4,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008
@@ -32890,10 +32890,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2009
@@ -32982,10 +32982,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010
@@ -33028,10 +33028,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2020
@@ -33120,10 +33120,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2009
@@ -33166,10 +33166,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2008
@@ -33212,10 +33212,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2008
@@ -33258,10 +33258,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2016
@@ -33350,10 +33350,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008
@@ -33396,10 +33396,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011
@@ -33442,12 +33442,12 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders"
+      "Chennai Chargers",
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings",
-      "Kolkata Knight Riders"
+      "Chennai Chargers",
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2014,
@@ -33491,10 +33491,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2012,
@@ -33585,10 +33585,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2008
@@ -33631,10 +33631,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008
@@ -33677,10 +33677,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2014,
@@ -33724,10 +33724,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009
@@ -33770,10 +33770,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008
@@ -33816,10 +33816,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008
@@ -33862,10 +33862,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009
@@ -33908,10 +33908,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2008
@@ -33954,10 +33954,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 3,
     "totalUCMMatches": 3,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2012
@@ -34000,10 +34000,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010
@@ -34046,10 +34046,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2009
@@ -34138,10 +34138,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2020
@@ -34184,10 +34184,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2012
@@ -34230,10 +34230,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2009
@@ -34276,10 +34276,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008
@@ -34322,10 +34322,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008
@@ -34414,10 +34414,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2014
@@ -34460,10 +34460,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2010
@@ -34506,10 +34506,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2013
@@ -34552,10 +34552,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2017
@@ -34598,10 +34598,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2011
@@ -34644,10 +34644,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2018,
@@ -34691,10 +34691,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2008
@@ -34737,10 +34737,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011
@@ -34783,10 +34783,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2015
@@ -34829,10 +34829,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2010
@@ -34922,11 +34922,11 @@ window.UCM_PLAYER_DATABASE = [
     "totalUCMMatches": 2,
     "teams": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
       "Delhi Daredevils",
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2010,
@@ -34970,10 +34970,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2019
@@ -35016,10 +35016,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Rising Pune Supergiants"
+      "Pune Pioneerss"
     ],
     "iplTeamsPlayedFor": [
-      "Rising Pune Supergiants"
+      "Pune Pioneerss"
     ],
     "seasonsPlayed": [
       2016
@@ -35062,10 +35062,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2009
@@ -35108,10 +35108,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2020
@@ -35154,10 +35154,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2009
@@ -35200,10 +35200,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2011
@@ -35292,10 +35292,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2013
@@ -35338,10 +35338,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2014
@@ -35384,10 +35384,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2021
@@ -35430,10 +35430,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008
@@ -35476,10 +35476,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Kochi Tuskers Kerala"
+      "Kochi Coastals"
     ],
     "iplTeamsPlayedFor": [
-      "Kochi Tuskers Kerala"
+      "Kochi Coastals"
     ],
     "seasonsPlayed": [
       2011
@@ -35522,10 +35522,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 2,
     "totalUCMMatches": 2,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2019
@@ -35568,10 +35568,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2018
@@ -35614,10 +35614,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2008
@@ -35660,10 +35660,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2011
@@ -35706,10 +35706,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008
@@ -35752,10 +35752,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2008
@@ -35844,10 +35844,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2014
@@ -35890,10 +35890,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2015
@@ -35936,10 +35936,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2011
@@ -35982,10 +35982,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2010
@@ -36028,10 +36028,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2010
@@ -36166,10 +36166,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2021
@@ -36212,10 +36212,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2017
@@ -36258,10 +36258,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2010
@@ -36304,10 +36304,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2009
@@ -36350,10 +36350,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2008
@@ -36396,10 +36396,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2011
@@ -36442,10 +36442,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2021
@@ -36488,10 +36488,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "iplTeamsPlayedFor": [
-      "Punjab Kings"
+      "Punjab Panthers"
     ],
     "seasonsPlayed": [
       2021
@@ -36534,10 +36534,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2019
@@ -36580,10 +36580,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2011
@@ -36626,10 +36626,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "iplTeamsPlayedFor": [
-      "Delhi Capitals"
+      "Delhi Strikers"
     ],
     "seasonsPlayed": [
       2021
@@ -36672,10 +36672,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2009
@@ -36718,10 +36718,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2010
@@ -36810,10 +36810,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2019
@@ -36856,10 +36856,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2009
@@ -36902,10 +36902,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "iplTeamsPlayedFor": [
-      "Chennai Super Kings"
+      "Chennai Chargers"
     ],
     "seasonsPlayed": [
       2020
@@ -36994,10 +36994,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Kochi Tuskers Kerala"
+      "Kochi Coastals"
     ],
     "iplTeamsPlayedFor": [
-      "Kochi Tuskers Kerala"
+      "Kochi Coastals"
     ],
     "seasonsPlayed": [
       2011
@@ -37040,10 +37040,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2019
@@ -37086,10 +37086,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Rising Pune Supergiants"
+      "Pune Pioneerss"
     ],
     "iplTeamsPlayedFor": [
-      "Rising Pune Supergiants"
+      "Pune Pioneerss"
     ],
     "seasonsPlayed": [
       2016
@@ -37132,10 +37132,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2009
@@ -37178,10 +37178,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "iplTeamsPlayedFor": [
-      "Royal Challengers Bangalore"
+      "Bengaluru Blazers"
     ],
     "seasonsPlayed": [
       2012
@@ -37270,10 +37270,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2011
@@ -37316,10 +37316,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2019
@@ -37362,10 +37362,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "iplTeamsPlayedFor": [
-      "Mumbai Indians"
+      "Mumbai Mavericks"
     ],
     "seasonsPlayed": [
       2019
@@ -37408,10 +37408,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2017
@@ -37454,10 +37454,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "iplTeamsPlayedFor": [
-      "Pune Warriors"
+      "Pune Pioneers"
     ],
     "seasonsPlayed": [
       2011
@@ -37500,10 +37500,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "iplTeamsPlayedFor": [
-      "Kolkata Knight Riders"
+      "Kolkata Knightsmen"
     ],
     "seasonsPlayed": [
       2009
@@ -37592,10 +37592,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "iplTeamsPlayedFor": [
-      "Deccan Chargers"
+      "Deccan Dynamos"
     ],
     "seasonsPlayed": [
       2012
@@ -37638,10 +37638,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "iplTeamsPlayedFor": [
-      "Gujarat Lions"
+      "Gujarat Gladiators"
     ],
     "seasonsPlayed": [
       2017
@@ -37684,10 +37684,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "iplTeamsPlayedFor": [
-      "Sunrisers Hyderabad"
+      "Hyderabad Hawks"
     ],
     "seasonsPlayed": [
       2013
@@ -37730,10 +37730,10 @@ window.UCM_PLAYER_DATABASE = [
     "matches": 1,
     "totalUCMMatches": 1,
     "teams": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "iplTeamsPlayedFor": [
-      "Rajasthan Royals"
+      "Rajasthan Riders"
     ],
     "seasonsPlayed": [
       2008

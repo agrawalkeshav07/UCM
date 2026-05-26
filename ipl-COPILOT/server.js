@@ -2,19 +2,60 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
+const crypto = require('crypto');
 
+// This small Node server hosts the UCM web app and keeps multiplayer rooms synced.
+// Rooms are persisted to a JSON file so a normal server restart does not instantly erase them.
 const PORT = Number(process.env.PORT || 8790);
 const HOST = process.env.HOST || '0.0.0.0';
 const ROOT = __dirname;
+const ROOM_DB_FILE = process.env.ROOM_DB_FILE || path.join(ROOT, 'ucm_rooms_db.json');
+const HOST_TIMEOUT_MS = Number(process.env.HOST_TIMEOUT_MS || 2 * 60 * 1000);
 const TEAM_NAMES = [
-  'Mumbai Indians', 'Chennai Super Kings', 'Royal Challengers Bangalore', 'Kolkata Knight Riders', 'Delhi Capitals',
-  'Sunrisers Hyderabad', 'Rajasthan Royals', 'Punjab Kings', 'Gujarat Titans', 'Lucknow Super Giants'
+  'Mumbai Mavericks', 'Delhi Strikers', 'Bengaluru Blazers', 'Chennai Chargers', 'Kolkata Knightsmen',
+  'Rajasthan Riders', 'Hyderabad Hawks', 'Punjab Panthers', 'Gujarat Gladiators', 'Lucknow Lions'
 ];
+const ALLOWED_ACTIONS = new Set(['bid', 'pass', 'xi', 'simulateMatch', 'nextMatch']);
 const rooms = new Map();
 const clients = new Map();
+const rateBuckets = new Map();
+let saveTimer = null;
+
+function now() { return Date.now(); }
+function makeToken() { return crypto.randomBytes(24).toString('hex'); }
+function makePlayerId() { return 'P' + now().toString(36).toUpperCase() + crypto.randomBytes(3).toString('hex').toUpperCase(); }
+function normalizeCode(code) { return String(code || '').trim().toUpperCase(); }
+function validCode(code) { return /^[0-9A-Z]{6}$/.test(normalizeCode(code)); }
+function clientIp(req) { return String(req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'local').split(',')[0].trim(); }
+function touchRoom(room) { room.updatedAt = now(); scheduleSave(); }
+function scheduleSave() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveRooms, 120);
+}
+function saveRooms() {
+  try {
+    const payload = { version: 1, savedAt: now(), rooms: Array.from(rooms.values()) };
+    fs.writeFileSync(ROOM_DB_FILE, JSON.stringify(payload, null, 2), 'utf8');
+  } catch (e) {
+    console.error('Could not save room database:', e.message);
+  }
+}
+function loadRooms() {
+  try {
+    if (!fs.existsSync(ROOM_DB_FILE)) return;
+    const payload = JSON.parse(fs.readFileSync(ROOM_DB_FILE, 'utf8'));
+    for (const room of payload.rooms || []) {
+      if (room && validCode(room.code) && Array.isArray(room.players)) rooms.set(room.code, room);
+    }
+    console.log('Loaded UCM room database:', rooms.size, 'rooms');
+  } catch (e) {
+    console.error('Could not load room database:', e.message);
+  }
+}
+loadRooms();
 
 function sendJson(res, status, data) {
-  res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+  res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
   res.end(JSON.stringify(data));
 }
 function readBody(req) {
@@ -34,42 +75,107 @@ function readBody(req) {
     req.on('error', reject);
   });
 }
+function checkRate(req, res, key, limit = 40, windowMs = 10_000) {
+  const bucketKey = clientIp(req) + ':' + key;
+  const t = now();
+  const bucket = rateBuckets.get(bucketKey) || { count: 0, resetAt: t + windowMs };
+  if (t > bucket.resetAt) { bucket.count = 0; bucket.resetAt = t + windowMs; }
+  bucket.count += 1;
+  rateBuckets.set(bucketKey, bucket);
+  if (bucket.count > limit) {
+    sendJson(res, 429, { error: 'Too many requests. Please wait a few seconds and try again.' });
+    return false;
+  }
+  return true;
+}
+function isPlayerConnected(code, playerId) {
+  for (const client of clients.get(code) || []) if (client.playerId === playerId) return true;
+  return false;
+}
+function touchPlayer(room, playerId) {
+  const player = room.players.find(p => p.id === playerId);
+  if (player) { player.lastSeen = now(); touchRoom(room); }
+}
+function maybeTransferHost(room) {
+  const host = room.players.find(p => p.id === room.creatorId);
+  if (!host) {
+    if (room.players[0]) room.creatorId = room.players[0].id;
+    return;
+  }
+  if (isPlayerConnected(room.code, host.id)) return;
+  const stale = now() - Number(host.lastSeen || room.createdAt || 0) > HOST_TIMEOUT_MS;
+  if (!stale) return;
+  const nextHost = room.players.find(p => p.id !== host.id && isPlayerConnected(room.code, p.id)) || room.players.find(p => p.id !== host.id);
+  if (nextHost) {
+    room.creatorId = nextHost.id;
+    touchRoom(room);
+  }
+}
 function publicRoom(room) {
+  maybeTransferHost(room);
   return {
     code: room.code,
     creatorId: room.creatorId,
     started: !!room.started,
     createdAt: room.createdAt,
-    players: room.players.map(p => ({ id:p.id, name:p.name, team:p.team })),
+    updatedAt: room.updatedAt || room.createdAt,
+    players: room.players.map(p => ({ id: p.id, name: p.name, team: p.team, connected: isPlayerConnected(room.code, p.id), lastSeen: p.lastSeen || 0 })),
     game: room.game || null,
     gameRevision: room.gameRevision || 0,
     lastActionId: room.lastActionId || 0
   };
 }
+function roomForPlayer(room, playerId) {
+  const data = publicRoom(room);
+  const player = room.players.find(p => p.id === playerId);
+  if (player) data.sessionToken = player.sessionToken;
+  return data;
+}
 function broadcast(code) {
   const room = rooms.get(code);
   if (!room) return;
   const payload = `data: ${JSON.stringify(publicRoom(room))}\n\n`;
-  for (const res of clients.get(code) || []) res.write(payload);
+  for (const client of clients.get(code) || []) client.res.write(payload);
 }
 function roomCodeForTeam(team) {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
   const idx = Math.max(0, TEAM_NAMES.indexOf(team));
   let code = '';
   do {
-    code = String(idx) + Array.from({ length:5 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+    code = String(idx) + Array.from({ length: 5 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
   } while (rooms.has(code));
   return code;
 }
 function assertTeamAvailable(room, team, playerId) {
-  if (!TEAM_NAMES.includes(team)) throw new Error('Unknown team');
+  if (!TEAM_NAMES.includes(team)) throw new Error('Valid UCM team is required');
   const taken = room.players.find(p => p.team === team && p.id !== playerId);
   if (taken) throw new Error(`${team} is already selected by ${taken.name}`);
 }
-function assertRoomPlayer(room, playerId) {
-  const player = room.players.find(p => p.id === playerId);
+function assertRoomPlayer(room, playerId, token) {
+  const player = room.players.find(p => p.id === String(playerId || '').trim());
   if (!player) throw new Error('Player is not in this room');
+  if (!player.sessionToken || player.sessionToken !== String(token || '').trim()) throw new Error('Invalid player session. Rejoin the room and try again.');
+  player.lastSeen = now();
+  touchRoom(room);
   return player;
+}
+function currentPhase(room) {
+  return (room.game && room.game.stage) || (room.started ? 'auction' : 'lobby');
+}
+function validateActionForPhase(room, type) {
+  const phase = currentPhase(room);
+  if (!ALLOWED_ACTIONS.has(type)) throw new Error('Unsupported multiplayer action');
+  if (['bid', 'pass'].includes(type) && phase !== 'auction') throw new Error('Auction action is only allowed during auction.');
+  if (type === 'xi' && phase !== 'xi') throw new Error('Playing XI can only be submitted during XI selection.');
+  if (['simulateMatch', 'nextMatch'].includes(type) && phase !== 'match') throw new Error('Match action is only allowed during match simulation.');
+}
+function validateXiPayload(payload) {
+  const xiIds = Array.isArray(payload.xiIds) ? payload.xiIds.filter(Boolean) : [];
+  if (xiIds.length !== 11) throw new Error('Invalid playing XI. Exactly 11 players are required.');
+  if (new Set(xiIds).size !== 11) throw new Error('Invalid playing XI. Duplicate players are not allowed.');
+  if (!payload.captainId || !payload.viceCaptainId) throw new Error('Captain and vice-captain are required.');
+  if (payload.captainId === payload.viceCaptainId) throw new Error('Captain and vice-captain cannot be the same player.');
+  if (!xiIds.includes(payload.captainId) || !xiIds.includes(payload.viceCaptainId)) throw new Error('Captain and vice-captain must be in the XI.');
 }
 function contentType(file) {
   const ext = path.extname(file).toLowerCase();
@@ -91,72 +197,113 @@ function serveStatic(req, res, pathname) {
 async function handleApi(req, res, pathname, query) {
   const match = pathname.match(/^\/api\/rooms\/([A-Z0-9]{6})(?:\/(join|leave|start|events|game|actions))?$/);
   if (req.method === 'POST' && pathname === '/api/rooms') {
+    if (!checkRate(req, res, 'create-room', 8, 60_000)) return;
     const body = await readBody(req);
     const name = String(body.name || '').trim().slice(0, 24);
     const team = String(body.team || '').trim();
-    const playerId = String(body.playerId || '').trim() || `P${Date.now()}`;
+    const playerId = String(body.playerId || '').trim() || makePlayerId();
     if (!name) return sendJson(res, 400, { error:'Player name is required' });
-    if (!TEAM_NAMES.includes(team)) return sendJson(res, 400, { error:'Valid team is required' });
-    const code = body.code && /^[0-9A-Z]{6}$/.test(String(body.code)) && !rooms.has(String(body.code)) ? String(body.code) : roomCodeForTeam(team);
-    const room = { code, creatorId:playerId, started:false, createdAt:Date.now(), players:[{ id:playerId, name, team }], game:null, gameRevision:0, actions:[], lastActionId:0 };
+    if (!TEAM_NAMES.includes(team)) return sendJson(res, 400, { error:'Valid UCM team is required' });
+    const code = body.code && validCode(body.code) && !rooms.has(normalizeCode(body.code)) ? normalizeCode(body.code) : roomCodeForTeam(team);
+    const room = {
+      code,
+      creatorId: playerId,
+      started: false,
+      createdAt: now(),
+      updatedAt: now(),
+      players: [{ id: playerId, name, team, sessionToken: makeToken(), lastSeen: now() }],
+      game: null,
+      gameRevision: 0,
+      actions: [],
+      lastActionId: 0
+    };
     rooms.set(code, room);
+    saveRooms();
     broadcast(code);
-    return sendJson(res, 201, publicRoom(room));
+    return sendJson(res, 201, roomForPlayer(room, playerId));
   }
   if (!match) return sendJson(res, 404, { error:'API route not found' });
-  const code = match[1];
+  const code = normalizeCode(match[1]);
   const action = match[2];
   const room = rooms.get(code);
   if (!room) return sendJson(res, 404, { error:'Room not found on this server' });
-  if (req.method === 'GET' && !action) return sendJson(res, 200, publicRoom(room));
+
+  if (req.method === 'GET' && !action) {
+    if (query.playerId) touchPlayer(room, String(query.playerId));
+    return sendJson(res, 200, publicRoom(room));
+  }
   if (req.method === 'GET' && action === 'events') {
+    const playerId = String(query.playerId || '').trim();
+    if (playerId) touchPlayer(room, playerId);
     res.writeHead(200, {
-      'Content-Type':'text/event-stream', 'Cache-Control':'no-cache, no-transform', Connection:'keep-alive',
+      'Content-Type':'text/event-stream; charset=utf-8', 'Cache-Control':'no-cache, no-transform', Connection:'keep-alive',
       'Access-Control-Allow-Origin':'*'
     });
     res.write(`data: ${JSON.stringify(publicRoom(room))}\n\n`);
-    const ping = setInterval(() => res.write(': ping\n\n'), 15000);
+    const client = { res, playerId };
+    const ping = setInterval(() => {
+      if (playerId) touchPlayer(room, playerId);
+      res.write(': ping\n\n');
+    }, 15000);
     if (!clients.has(code)) clients.set(code, new Set());
-    clients.get(code).add(res);
-    req.on('close', () => { clearInterval(ping); clients.get(code)?.delete(res); });
+    clients.get(code).add(client);
+    req.on('close', () => { clearInterval(ping); clients.get(code)?.delete(client); broadcast(code); });
     return;
   }
   if (req.method === 'POST' && action === 'join') {
+    if (!checkRate(req, res, 'join-room', 20, 60_000)) return;
     const body = await readBody(req);
     const name = String(body.name || '').trim().slice(0, 24);
     const team = String(body.team || '').trim();
-    const playerId = String(body.playerId || '').trim() || `P${Date.now()}`;
+    const playerId = String(body.playerId || '').trim() || makePlayerId();
     if (room.started) return sendJson(res, 409, { error:'This room has already started' });
     if (!name) return sendJson(res, 400, { error:'Player name is required' });
     assertTeamAvailable(room, team, playerId);
     room.players = room.players.filter(p => p.id !== playerId);
-    room.players.push({ id:playerId, name, team });
+    room.players.push({ id: playerId, name, team, sessionToken: makeToken(), lastSeen: now() });
+    touchRoom(room);
+    saveRooms();
     broadcast(code);
-    return sendJson(res, 200, publicRoom(room));
+    return sendJson(res, 200, roomForPlayer(room, playerId));
   }
   if (req.method === 'POST' && action === 'leave') {
+    if (!checkRate(req, res, 'leave-room', 30, 60_000)) return;
     const body = await readBody(req);
-    const playerId = String(body.playerId || '').trim();
-    if (playerId && playerId !== room.creatorId && !room.started) room.players = room.players.filter(p => p.id !== playerId);
+    const player = assertRoomPlayer(room, body.playerId, body.sessionToken);
+    if (player.id !== room.creatorId && !room.started) room.players = room.players.filter(p => p.id !== player.id);
+    maybeTransferHost(room);
+    touchRoom(room);
+    saveRooms();
     broadcast(code);
     return sendJson(res, 200, publicRoom(room));
   }
   if (req.method === 'POST' && action === 'start') {
+    if (!checkRate(req, res, 'start-room', 20, 60_000)) return;
     const body = await readBody(req);
-    if (String(body.playerId || '') !== room.creatorId) return sendJson(res, 403, { error:'Only the room creator can start' });
+    const player = assertRoomPlayer(room, body.playerId, body.sessionToken);
+    maybeTransferHost(room);
+    if (player.id !== room.creatorId) return sendJson(res, 403, { error:'Only the host can start' });
     if (room.players.length < 2) return sendJson(res, 400, { error:'At least 2 players must join before starting' });
     room.started = true;
+    touchRoom(room);
+    saveRooms();
     broadcast(code);
     return sendJson(res, 200, publicRoom(room));
   }
   if (action === 'game') {
     if (req.method === 'GET') return sendJson(res, 200, { game: room.game || null, gameRevision: room.gameRevision || 0 });
     if (req.method === 'POST') {
+      if (!checkRate(req, res, 'publish-game', 80, 10_000)) return;
       const body = await readBody(req);
-      const playerId = String(body.playerId || '').trim();
-      if (playerId !== room.creatorId) return sendJson(res, 403, { error:'Only the room creator can publish game state' });
+      const player = assertRoomPlayer(room, body.playerId, body.sessionToken);
+      maybeTransferHost(room);
+      if (player.id !== room.creatorId) return sendJson(res, 403, { error:'Only the host can publish game state' });
+      const stage = String((body.game && body.game.stage) || currentPhase(room));
+      if (!['auction', 'xi', 'match', 'done'].includes(stage)) return sendJson(res, 400, { error:'Invalid game phase' });
       room.gameRevision = (room.gameRevision || 0) + 1;
-      room.game = { ...(body.game || {}), revision: room.gameRevision, updatedAt: Date.now() };
+      room.game = { ...(body.game || {}), stage, revision: room.gameRevision, updatedAt: now() };
+      touchRoom(room);
+      saveRooms();
       broadcast(code);
       return sendJson(res, 200, publicRoom(room));
     }
@@ -167,23 +314,27 @@ async function handleApi(req, res, pathname, query) {
       return sendJson(res, 200, { actions: room.actions.filter(a => a.id > since), lastActionId: room.lastActionId || 0 });
     }
     if (req.method === 'POST') {
+      if (!checkRate(req, res, 'room-action', 120, 10_000)) return;
       const body = await readBody(req);
-      const playerId = String(body.playerId || '').trim();
-      const player = assertRoomPlayer(room, playerId);
+      const player = assertRoomPlayer(room, body.playerId, body.sessionToken);
       const type = String(body.type || '').trim();
-      if (!type) return sendJson(res, 400, { error:'Action type is required' });
+      const payload = body.payload || {};
+      validateActionForPhase(room, type);
+      if (type === 'xi') validateXiPayload(payload);
       const entry = {
         id: (room.lastActionId || 0) + 1,
-        playerId,
+        playerId: player.id,
         playerName: player.name,
         team: player.team,
         type,
-        payload: body.payload || {},
-        at: Date.now()
+        payload,
+        at: now()
       };
       room.lastActionId = entry.id;
       room.actions.push(entry);
       if (room.actions.length > 800) room.actions = room.actions.slice(-500);
+      touchRoom(room);
+      saveRooms();
       broadcast(code);
       return sendJson(res, 201, { action: entry, lastActionId: room.lastActionId });
     }
@@ -195,7 +346,7 @@ const server = http.createServer((req, res) => {
   const parsed = url.parse(req.url, true);
   const pathname = parsed.pathname;
   if (pathname === '/healthz') {
-    return sendJson(res, 200, { ok:true, service:'ucm-franchise-manager' });
+    return sendJson(res, 200, { ok:true, service:'ucm-franchise-manager', rooms:rooms.size });
   }
   if (pathname.startsWith('/api/')) {
     handleApi(req, res, pathname, parsed.query || {}).catch(err => sendJson(res, 400, { error:err.message || 'Request failed' }));
@@ -207,3 +358,5 @@ server.listen(PORT, HOST, () => {
   console.log(`UCM multiplayer server running on http://${HOST}:${PORT}`);
   console.log('In production, share the hosted HTTPS URL with every player.');
 });
+process.on('SIGINT', () => { saveRooms(); process.exit(0); });
+process.on('SIGTERM', () => { saveRooms(); process.exit(0); });
