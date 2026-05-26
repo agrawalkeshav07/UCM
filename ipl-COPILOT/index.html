@@ -2331,9 +2331,49 @@ setInterval(syncFriendsRoom, 1000);
     tournState.champion = null;
   }
 
-  // Balanced double round-robin: each team plays once per round before the return leg.
+  function leaguePairKey(a, b) {
+    return [a, b].sort().join("::");
+  }
+
+  function validateDoubleRoundRobinSchedule(schedule, names) {
+    const uniqueNames = [...new Set(names)];
+    const expectedTeamMatches = Math.max(0, (uniqueNames.length - 1) * 2);
+    const teamCounts = Object.fromEntries(uniqueNames.map(name => [name, 0]));
+    const pairCounts = {};
+    for (const fixture of schedule || []) {
+      if (!fixture || !teamCounts.hasOwnProperty(fixture.home) || !teamCounts.hasOwnProperty(fixture.away) || fixture.home === fixture.away) return false;
+      teamCounts[fixture.home] += 1;
+      teamCounts[fixture.away] += 1;
+      const key = leaguePairKey(fixture.home, fixture.away);
+      pairCounts[key] = (pairCounts[key] || 0) + 1;
+    }
+    const expectedPairs = uniqueNames.length * (uniqueNames.length - 1) / 2;
+    return Object.values(teamCounts).every(count => count === expectedTeamMatches) &&
+      Object.keys(pairCounts).length === expectedPairs &&
+      Object.values(pairCounts).every(count => count === 2);
+  }
+
+  function buildFallbackDoubleRoundRobin(names) {
+    const fixtures = [];
+    let round = 1;
+    const perRound = Math.max(1, Math.floor(names.length / 2));
+    for (let i = 0; i < names.length; i++) {
+      for (let j = i + 1; j < names.length; j++) {
+        const flip = (i + j) % 2 === 0;
+        fixtures.push({ home: flip ? names[i] : names[j], away: flip ? names[j] : names[i], round:Math.floor(fixtures.length / perRound) + 1, leg:1, stage:"League" });
+      }
+    }
+    const firstLegCount = fixtures.length;
+    for (let idx = 0; idx < firstLegCount; idx++) {
+      const f = fixtures[idx];
+      fixtures.push({ home:f.away, away:f.home, round:round + Math.floor((firstLegCount + idx) / perRound), leg:2, stage:"League" });
+    }
+    return fixtures;
+  }
+
+  // Balanced double round-robin: every team plays every other team exactly twice.
   function buildSchedule() {
-    const names = activeAuctionTeams().map(t => t.name);
+    const names = [...new Set(activeAuctionTeams().map(t => t.name).filter(Boolean))];
     if (names.length < 2) return [];
     const entrants = [...names];
     if (entrants.length % 2 === 1) entrants.push("__BYE__");
@@ -2349,20 +2389,21 @@ setInterval(syncFriendsRoom, 1000);
         if (a === "__BYE__" || b === "__BYE__") continue;
         const home = (roundNo + i) % 2 === 0 ? a : b;
         const away = home === a ? b : a;
-        round.push({ home, away, round: roundNo + 1, leg: 1, stage: "League" });
+        round.push({ home, away, round:roundNo + 1, leg:1, stage:"League" });
       }
       rounds.push(round);
       rotation = [rotation[0], rotation[rotation.length - 1], ...rotation.slice(1, -1)];
     }
 
     const returnLegs = rounds.map((round, idx) => round.map(f => ({
-      home: f.away,
-      away: f.home,
-      round: rounds.length + idx + 1,
-      leg: 2,
-      stage: "League"
+      home:f.away,
+      away:f.home,
+      round:rounds.length + idx + 1,
+      leg:2,
+      stage:"League"
     })));
-    return [...rounds, ...returnLegs].flat();
+    const schedule = [...rounds, ...returnLegs].flat();
+    return validateDoubleRoundRobinSchedule(schedule, names) ? schedule : buildFallbackDoubleRoundRobin(names);
   }
 
   // Initialize points table
@@ -3586,7 +3627,7 @@ setInterval(syncFriendsRoom, 1000);
       purseAfter:purseAfter == null ? null : Number(purseAfter || 0),
       method,
       at:Date.now(),
-      bidTrail:bids.map(b => ({ team:b.team, amount:Number(b.amount || 0), at:b.at || Date.now(), purseAfter:b.purseAfter == null ? null : Number(b.purseAfter || 0) })).slice(-30)
+      bidCount:bids.length
     });
     if (state.auctionHistory.length > 1200) state.auctionHistory = state.auctionHistory.slice(-1000);
     renderAuctionHistory();
@@ -3595,6 +3636,30 @@ setInterval(syncFriendsRoom, 1000);
     if (!player) return;
     state.unsold.add(player.id);
     recordAuctionOutcome(player, "Unsold", null, 0, null, state.bidTrail || [], method);
+  }
+  function auctionWorkYield() {
+    return new Promise(resolve => setTimeout(resolve, 0));
+  }
+  function bulkMarkAuctionUnsold(players, method = "Auto-fill") {
+    const fresh = (players || []).filter(player => player && !state.sold.has(player.id) && !state.unsold.has(player.id));
+    fresh.forEach(player => state.unsold.add(player.id));
+    if (!fresh.length) return 0;
+    state.auctionHistory.push({
+      id:state.auctionHistory.length + 1,
+      playerId:"bulk-unsold-" + Date.now(),
+      playerName:fresh.length + " remaining players",
+      role:"",
+      status:"Unsold",
+      team:"",
+      amount:0,
+      purseAfter:null,
+      method,
+      at:Date.now(),
+      bidCount:0,
+      summary:true
+    });
+    if (state.auctionHistory.length > 1200) state.auctionHistory = state.auctionHistory.slice(-1000);
+    return fresh.length;
   }
   function openAuctionHistory() {
     const panel = document.getElementById("auctionHistoryPanel");
@@ -3605,7 +3670,7 @@ setInterval(syncFriendsRoom, 1000);
   function closeAuctionHistory() { document.getElementById("auctionHistoryPanel")?.classList.remove("active"); }
   function renderAuctionHistory() {
     const panel = document.getElementById("auctionHistoryPanel");
-    if (!panel) return;
+    if (!panel || !panel.classList.contains("active")) return;
     const teamFilter = document.getElementById("historyTeamFilter");
     if (teamFilter && teamFilter.options.length <= 1) teamFilter.innerHTML = '<option value="">All Teams</option>' + activeAuctionTeams().map(t => '<option value="' + t.name + '">' + t.name + '</option>').join('');
     const q = (document.getElementById("historySearch")?.value || "").toLowerCase();
@@ -3615,17 +3680,19 @@ setInterval(syncFriendsRoom, 1000);
     const live = document.getElementById("historyLive");
     if (live) {
       const lot = state.currentPlayer;
-      live.innerHTML = lot ? '<strong>Current lot:</strong> ' + lot.name + ' - ' + (state.highestBidder ? state.highestBidder.name + ' leads at ' + money(state.currentBid) : 'No bids yet') + '<div class="bid-trail">' + (state.bidTrail || []).slice(-8).map(b => '<span class="bid-chip">' + b.team + ' ' + money(b.amount) + '</span>').join('') + '</div>' : 'No live lot in progress.';
+      const bidCount = (state.bidTrail || []).length;
+      live.innerHTML = lot ? '<strong>Current lot:</strong> ' + lot.name + ' - ' + (state.highestBidder ? state.highestBidder.name + ' leads at ' + money(state.currentBid) : 'No bids yet') + (bidCount ? ' - ' + bidCount + ' bids placed' : '') : 'No live lot in progress.';
     }
     let rows = [...(state.auctionHistory || [])].reverse();
     rows = rows.filter(r => (!q || (r.playerName + ' ' + r.team + ' ' + r.role).toLowerCase().includes(q)) && (!tf || r.team === tf) && (!rf || r.role === rf) && (!sf || r.status === sf));
     const list = document.getElementById("auctionHistoryList");
     if (!list) return;
     list.innerHTML = rows.map(r => {
-      const trail = (r.bidTrail || []).map(b => '<span class="bid-chip">' + b.team + ' ' + money(b.amount) + '</span>').join('');
       const time = r.at ? new Date(r.at).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', second:'2-digit' }) : '';
       const purse = r.purseAfter == null ? '' : ' - Purse after: ' + money(r.purseAfter);
-      return '<div class="history-card history-status ' + r.status.toLowerCase() + '"><div class="history-main"><div><div class="history-player">' + r.playerName + '</div><div class="history-meta">' + r.role + ' - ' + r.status + (r.team ? ' to ' + r.team : '') + ' - ' + time + purse + '</div></div><div class="history-price">' + (r.status === 'Sold' ? money(r.amount) : 'UNSOLD') + '</div></div>' + (trail ? '<div class="bid-trail">' + trail + '</div>' : '') + '</div>';
+      const bidInfo = r.bidCount ? ' - ' + r.bidCount + ' bids' : '';
+      const roleText = r.role ? r.role + ' - ' : '';
+      return '<div class="history-card history-status ' + r.status.toLowerCase() + '"><div class="history-main"><div><div class="history-player">' + r.playerName + '</div><div class="history-meta">' + roleText + r.status + (r.team ? ' to ' + r.team : '') + ' - ' + time + purse + bidInfo + '</div></div><div class="history-price">' + (r.status === 'Sold' ? money(r.amount) : 'UNSOLD') + '</div></div></div>';
     }).join('') || '<div class="live-empty">No auction history yet.</div>';
   }
   function flashLiveNode(node) {
@@ -3873,7 +3940,7 @@ setInterval(syncFriendsRoom, 1000);
     const roleDrama = player.role === "All-Rounder" ? 2.5 : player.role === "Wicketkeeper" ? 1.5 : player.role === "Bowler" ? 1.2 : 0;
     return rating + roleDrama + Math.random() * 7;
   }
-  function skipAuction() {
+  async function skipAuction() {
     sendAnalytics("game_action", "skip_auction");
     if (roomClientActive()) { alert("Only the room creator can skip the auction so every player stays synced."); return; }
     if (state.skipInProgress) return;
@@ -3890,30 +3957,54 @@ setInterval(syncFriendsRoom, 1000);
     state.lastMessage = "Completing auction with AI generated pricing...";
     assignAuctionSquadTargets(true);
     updateControls();
+    renderLive(state.lastMessage);
+    showToast("Completing auction. This may take a few seconds for large player pools.");
 
-    ensureSkipAuctionCoreRoles();
+    try {
+      await auctionWorkYield();
+      await ensureSkipAuctionCoreRoles();
 
-    const remaining = state.players
-      .filter(p => !state.sold.has(p.id) && !state.unsold.has(p.id))
-      .sort((a,b)=>auctionPoolPriority(b)-auctionPoolPriority(a));
+      const remaining = state.players
+        .filter(p => !state.sold.has(p.id) && !state.unsold.has(p.id))
+        .sort((a,b)=>auctionPoolPriority(b)-auctionPoolPriority(a));
 
-    for (const player of remaining) {
-      if (skipAuctionComplete()) {
-        markAuctionUnsold(player, "Auto-fill");
-        continue;
+      let processed = 0;
+      let filled = false;
+      for (let i = 0; i < remaining.length; i++) {
+        const player = remaining[i];
+        if (skipAuctionComplete()) {
+          const unsoldCount = bulkMarkAuctionUnsold(remaining.slice(i), "Auto-fill");
+          state.lastMessage = "Squads complete. Marked " + unsoldCount + " remaining players unsold.";
+          filled = true;
+          break;
+        }
+        const buyer = chooseSkipBuyer(player);
+        if (!buyer) markAuctionUnsold(player, "Auto-fill");
+        else if (!buySkipPlayer(buyer, player)) markAuctionUnsold(player, "Auto-fill");
+        processed++;
+        if (processed % 24 === 0) {
+          state.lastMessage = "Completing auction... processed " + processed + " players";
+          renderLive(state.lastMessage);
+          renderPoolStats();
+          updateControls();
+          await auctionWorkYield();
+        }
       }
-      const buyer = chooseSkipBuyer(player);
-      if (!buyer) {
-        markAuctionUnsold(player, "Auto-fill");
-        continue;
+      if (!filled && skipAuctionComplete()) {
+        state.lastMessage = "Squads complete.";
+      } else if (!skipAuctionComplete()) {
+        state.lastMessage = "Auction skipped. Best possible squads completed from available purse and players.";
+      } else {
+        state.lastMessage = "Auction skipped. Squads completed with varied 18-25 player AI builds.";
       }
-      if (!buySkipPlayer(buyer, player)) markAuctionUnsold(player, "Auto-fill");
+    } catch (err) {
+      console.error(err);
+      alert("Skip auction could not finish. Please try again.");
+    } finally {
+      state.skipInProgress = false;
+      renderAll();
+      showAuctionSummary();
     }
-
-    state.lastMessage = "Auction skipped. Squads completed with varied 18-25 player AI builds.";
-    state.skipInProgress = false;
-    renderAll();
-    showAuctionSummary();
   }
   function buySkipPlayer(team, player, lockedPrice = null) {
     const price = lockedPrice != null ? lockedPrice : skipAuctionPrice(team, player);
@@ -3926,20 +4017,21 @@ setInterval(syncFriendsRoom, 1000);
     return true;
   }
 
-  function ensureSkipAuctionWicketkeepers() {
-    activeAuctionTeams().forEach(team => {
-      if (team.squad.some(p => p.role === "Wicketkeeper")) return;
+  async function ensureSkipAuctionWicketkeepers() {
+    for (const team of activeAuctionTeams()) {
+      if (team.squad.some(p => p.role === "Wicketkeeper")) continue;
       const keepers = state.players
         .filter(p => p.role === "Wicketkeeper" && !state.sold.has(p.id) && !state.unsold.has(p.id))
         .sort((a,b) => Number(b.rating||0) - Number(a.rating||0));
       const priced = keepers.map(p => ({ player:p, price:skipAuctionPrice(team, p) })).find(x => canBid(team, x.player, x.price));
       if (priced) buySkipPlayer(team, priced.player, priced.price);
-    });
+      await auctionWorkYield();
+    }
   }
 
-  function ensureSkipAuctionCoreRoles() {
-    ensureSkipAuctionWicketkeepers();
-    activeAuctionTeams().forEach(team => {
+  async function ensureSkipAuctionCoreRoles() {
+    await ensureSkipAuctionWicketkeepers();
+    for (const team of activeAuctionTeams()) {
       let guard = 0;
       while (squadRoleCounts(team).bowlingOptions < 5 && guard++ < 8) {
         const candidates = state.players
@@ -3949,8 +4041,9 @@ setInterval(syncFriendsRoom, 1000);
           .sort((a,b) => b.score - a.score);
         if (!candidates.length) break;
         buySkipPlayer(team, candidates[0].player, candidates[0].price);
+        await auctionWorkYield();
       }
-    });
+    }
   }
   function chooseSkipBuyer(player) {
     const teams = activeAuctionTeams();

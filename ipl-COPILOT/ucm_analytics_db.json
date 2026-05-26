@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "savedAt": 1779824287553,
+  "savedAt": 1779826267548,
   "totals": {
     "roomsCreated": 0,
     "roomJoins": 0,
     "starts": 0,
     "leaves": 0,
     "clicks": 2,
-    "sessionPings": 495,
+    "sessionPings": 561,
     "timeSpentMs": 1800000,
-    "events": 499
+    "events": 565
   },
   "rooms": {},
   "users": {},
@@ -17,8 +17,8 @@
     "session_mpmqq659_6lh53wvj": {
       "id": "session_mpmqq659_6lh53wvj",
       "firstSeen": 1779806315441,
-      "lastSeen": 1779824287298,
-      "events": 499,
+      "lastSeen": 1779826267292,
+      "events": 565,
       "clicks": 2,
       "timeSpentMs": 1800000,
       "roomCode": null,
@@ -4016,6 +4016,534 @@
     {
       "id": 499,
       "at": 1779824287298,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 500,
+      "at": 1779824317297,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 501,
+      "at": 1779824347283,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 502,
+      "at": 1779824377295,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 503,
+      "at": 1779824407282,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 504,
+      "at": 1779824437294,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 505,
+      "at": 1779824467292,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 506,
+      "at": 1779824497293,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 507,
+      "at": 1779824527282,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 508,
+      "at": 1779824557290,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 509,
+      "at": 1779824587291,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 510,
+      "at": 1779824617291,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 511,
+      "at": 1779824647290,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 512,
+      "at": 1779824677290,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 513,
+      "at": 1779824707289,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 514,
+      "at": 1779824737290,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 515,
+      "at": 1779824767289,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 516,
+      "at": 1779824797288,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 517,
+      "at": 1779824827286,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 518,
+      "at": 1779824857289,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 519,
+      "at": 1779824887289,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 520,
+      "at": 1779824917288,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 521,
+      "at": 1779824947285,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 522,
+      "at": 1779824977286,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 523,
+      "at": 1779825007283,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 524,
+      "at": 1779825045517,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 525,
+      "at": 1779825067284,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 526,
+      "at": 1779825097285,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 527,
+      "at": 1779825127283,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 528,
+      "at": 1779825157284,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 529,
+      "at": 1779825187301,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 530,
+      "at": 1779825241997,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 531,
+      "at": 1779825247282,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 532,
+      "at": 1779825277286,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 533,
+      "at": 1779825307293,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 534,
+      "at": 1779825337298,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 535,
+      "at": 1779825367282,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 536,
+      "at": 1779825430634,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 537,
+      "at": 1779825430642,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 538,
+      "at": 1779825457296,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 539,
+      "at": 1779825487288,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 540,
+      "at": 1779825517281,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 541,
+      "at": 1779825547295,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 542,
+      "at": 1779825577281,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 543,
+      "at": 1779825607295,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 544,
+      "at": 1779825637293,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 545,
+      "at": 1779825667292,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 546,
+      "at": 1779825697292,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 547,
+      "at": 1779825727296,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 548,
+      "at": 1779825757289,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 549,
+      "at": 1779825787294,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 550,
+      "at": 1779825817283,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 551,
+      "at": 1779825847280,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 552,
+      "at": 1779825877278,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 553,
+      "at": 1779825907283,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 554,
+      "at": 1779825937282,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 555,
+      "at": 1779825967282,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 556,
+      "at": 1779825997281,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 557,
+      "at": 1779826027281,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 558,
+      "at": 1779826057283,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 559,
+      "at": 1779826087280,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 560,
+      "at": 1779826117280,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 561,
+      "at": 1779826147279,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 562,
+      "at": 1779826177279,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 563,
+      "at": 1779826207280,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 564,
+      "at": 1779826253199,
+      "type": "session_ping",
+      "sessionId": "session_mpmqq659_6lh53wvj",
+      "screen": "homeScreen",
+      "label": "heartbeat"
+    },
+    {
+      "id": 565,
+      "at": 1779826267292,
       "type": "session_ping",
       "sessionId": "session_mpmqq659_6lh53wvj",
       "screen": "homeScreen",
