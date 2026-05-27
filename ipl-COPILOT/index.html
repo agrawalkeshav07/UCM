@@ -31,6 +31,23 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .info-card p,.info-card li{font-family:var(--font-ui);font-size:0.84rem;line-height:1.7;color:var(--text-dim);}
 .info-card ul{padding-left:18px;margin:10px 0 16px;}
 .info-card .modal-actions{display:flex;justify-content:flex-end;margin-top:16px;}
+.ucm-logo-secret{cursor:pointer;user-select:none;}
+.admin-password-row{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:14px;}
+.admin-password-row .room-input{margin:0;}
+.admin-error{min-height:18px;margin-top:8px;font-family:var(--font-ui);font-size:0.76rem;color:#ff7575;}
+.admin-dashboard-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 16px;}
+.admin-metric{background:rgba(255,255,255,0.055);border:1px solid var(--border);border-radius:10px;padding:12px;}
+.admin-metric strong{display:block;font-family:var(--font-display);font-size:1.55rem;color:var(--gold);line-height:1;}
+.admin-metric span{display:block;margin-top:5px;font-family:var(--font-ui);font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;}
+.admin-lists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.admin-list{background:rgba(0,0,0,0.18);border:1px solid var(--border);border-radius:10px;padding:12px;min-width:0;}
+.admin-list h3{font-family:var(--font-display);font-size:1rem;color:var(--gold-soft);letter-spacing:0.08em;margin-bottom:8px;}
+.admin-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-family:var(--font-ui);font-size:0.75rem;color:var(--text-dim);}
+.admin-row:last-child{border-bottom:0;}
+.admin-row b{color:var(--text);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.admin-row span{color:var(--gold);}
+@media(max-width:720px){.admin-password-row{grid-template-columns:1fr;}.admin-dashboard-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.admin-lists{grid-template-columns:1fr;}}
+@media(max-width:460px){.admin-dashboard-grid{grid-template-columns:1fr;}}
 
 /* SCREENS */
 .screen{display:none;justify-content:center;align-items:center;min-height:100vh;padding:24px;position:relative;z-index:1;}
@@ -496,7 +513,7 @@ html,body{width:100%;max-width:100%;}
 <!-- HOME -->
 <div id="homeScreen" class="screen active">
   <div class="home-container">
-    <span class="trophy">UCM</span>
+    <span class="trophy ucm-logo-secret" role="button" tabindex="0" onclick="openAdminAnalyticsLogin()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openAdminAnalyticsLogin();}">UCM</span>
     <h1 class="home-title">UCM</h1>
     <div class="home-sub">Ultimate Cricket Manager</div>
     <p class="home-desc">Build a fictional cricket franchise, run a competitive UCM auction, pick your Playing XI, and chase the championship across a full season.</p>
@@ -636,6 +653,84 @@ function showInfoModal(type) {
   modal.classList.add("active");
 }
 function closeInfoModal() { document.getElementById("ucmInfoModal")?.classList.remove("active"); }
+function openAdminAnalyticsLogin() {
+  const modal = document.getElementById("ucmInfoModal");
+  const title = document.getElementById("ucmInfoTitle");
+  const body = document.getElementById("ucmInfoBody");
+  if (!modal || !title || !body) return;
+  title.textContent = "Admin Analytics";
+  body.innerHTML = '<p>Enter the admin password to view anonymous traffic and gameplay analytics.</p><div class="admin-password-row"><input id="adminAnalyticsPassword" class="room-input" type="password" autocomplete="current-password" placeholder="Admin password"><button class="btn btn-gold btn-sm" id="adminAnalyticsOpenBtn">VIEW</button></div><div id="adminAnalyticsError" class="admin-error"></div>';
+  modal.classList.add("active");
+  const input = document.getElementById("adminAnalyticsPassword");
+  const button = document.getElementById("adminAnalyticsOpenBtn");
+  if (button) button.onclick = loadAdminAnalyticsDashboard;
+  if (input) {
+    input.focus();
+    input.onkeydown = e => { if (e.key === "Enter") loadAdminAnalyticsDashboard(); };
+  }
+}
+function adminMetricHtml(value, label) {
+  return '<div class="admin-metric"><strong>' + escapeRoomHtml(value) + '</strong><span>' + escapeRoomHtml(label) + '</span></div>';
+}
+function adminListHtml(title, rows, emptyLabel) {
+  const safeRows = Array.isArray(rows) ? rows : [];
+  const html = safeRows.length
+    ? safeRows.map(row => '<div class="admin-row"><b>' + escapeRoomHtml(row.label || "Unknown") + '</b><span>' + escapeRoomHtml(row.count || 0) + '</span></div>').join("")
+    : '<div class="admin-row"><b>' + escapeRoomHtml(emptyLabel || "No data yet") + '</b><span>0</span></div>';
+  return '<section class="admin-list"><h3>' + escapeRoomHtml(title) + '</h3>' + html + '</section>';
+}
+function adminMinutes(value) {
+  const minutes = Math.max(0, Number(value || 0));
+  if (minutes < 60) return minutes + "m";
+  return Math.floor(minutes / 60) + "h " + (minutes % 60) + "m";
+}
+async function loadAdminAnalyticsDashboard() {
+  const input = document.getElementById("adminAnalyticsPassword");
+  const error = document.getElementById("adminAnalyticsError");
+  const body = document.getElementById("ucmInfoBody");
+  const password = input ? input.value.trim() : "";
+  if (!password) {
+    if (error) error.textContent = "Password is required.";
+    return;
+  }
+  if (error) error.textContent = "Loading dashboard...";
+  try {
+    const res = await fetch("/api/analytics/summary?token=" + encodeURIComponent(password), { cache:"no-store" });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || "Invalid admin password.");
+    renderAdminAnalyticsDashboard(data);
+  } catch (e) {
+    if (error) error.textContent = e.message || "Could not load analytics. Make sure the game is running through the Node server.";
+    else if (body) body.innerHTML = "<p>Could not load analytics.</p>";
+  }
+}
+function renderAdminAnalyticsDashboard(data) {
+  const title = document.getElementById("ucmInfoTitle");
+  const body = document.getElementById("ucmInfoBody");
+  if (!body) return;
+  if (title) title.textContent = "Admin Analytics Dashboard";
+  const totals = data.totals || {};
+  const savedAt = data.savedAt ? new Date(data.savedAt).toLocaleString() : "Not saved yet";
+  body.innerHTML =
+    '<p>Anonymous usage analytics stored in <strong>ucm_analytics_db.json</strong>. Last updated: ' + escapeRoomHtml(savedAt) + '.</p>' +
+    '<div class="admin-dashboard-grid">' +
+      adminMetricHtml(data.totalVisitorsToday || 0, "Total visitors today") +
+      adminMetricHtml(data.activeUsersNow || 0, "Active users now") +
+      adminMetricHtml(data.totalSessions || data.uniqueSessions || 0, "Total sessions") +
+      adminMetricHtml(adminMinutes(data.averageTimeSpentMinutes || 0), "Avg time spent") +
+      adminMetricHtml(data.roomsCreated || totals.roomsCreated || 0, "Rooms created") +
+      adminMetricHtml(data.roomsJoined || 0, "Rooms joined") +
+      adminMetricHtml(data.matchesSimulated || 0, "Matches simulated") +
+      adminMetricHtml(data.auctionCompletions || 0, "Auction completions") +
+      adminMetricHtml(totals.clicks || 0, "Total clicks") +
+    '</div>' +
+    '<div class="admin-lists">' +
+      adminListHtml("Most Clicked Buttons", data.mostClickedButtons, "No clicks tracked yet") +
+      adminListHtml("Most Selected Teams", data.mostSelectedTeams, "No teams selected yet") +
+      adminListHtml("Device Type", data.deviceTypes, "No device data yet") +
+      adminListHtml("Country / City Approx.", data.locations, "No location data yet") +
+    '</div>';
+}
 
 let selectedTeam = null;
 let playMode = "ai";
@@ -810,10 +905,17 @@ function getAnalyticsSessionId() {
     return id;
   } catch (e) { return makeAnalyticsId("session"); }
 }
+function analyticsDeviceType() {
+  const ua = navigator.userAgent || "";
+  if (/ipad|tablet/i.test(ua)) return "tablet";
+  if (/mobi|android|iphone|ipod/i.test(ua)) return "mobile";
+  return "desktop";
+}
 function analyticsContext(extra = {}) {
   return {
     analyticsSessionId: getAnalyticsSessionId(),
     visitorId: getAnalyticsVisitorId(),
+    deviceType: analyticsDeviceType(),
     roomCode: currentRoomCode || "",
     playerId: currentPlayerId || "",
     sessionToken: currentSessionToken || "",
@@ -3416,7 +3518,7 @@ setInterval(syncFriendsRoom, 1000);
       bowler.historicalMissing = true;
       bowler.historicalMatchNo = historical.matchNo || null;
 
-      if (!historical.found) return;
+      if (!hasHistoricalBowlingRecord(historical, bowler)) return;
       bowler.wickets = Number(historical.w || 0);
       bowler.balls = estimateHistoricalBowlingBalls(bowler.wickets, bowler);
       bowler.runs = estimateHistoricalBowlingRuns(bowler, bowler.wickets, bowler.balls);
@@ -3462,6 +3564,14 @@ setInterval(syncFriendsRoom, 1000);
     const maxCount = Math.floor(runs / value);
     const ratio = value === 6 ? 0.12 : 0.18;
     return Math.min(maxCount, Math.floor(runs * ratio / value));
+  }
+
+  function hasHistoricalBowlingRecord(historical, bowler) {
+    if (!historical || !historical.found) return false;
+    const wickets = Number(historical.w || 0);
+    if (wickets > 0) return true;
+    const role = String(bowler && bowler.role || "").toLowerCase();
+    return role.includes("bowler") || role.includes("all-rounder") || role.includes("all rounder");
   }
 
   function estimateHistoricalBowlingBalls(wickets, bowler) {
@@ -4104,6 +4214,7 @@ setInterval(syncFriendsRoom, 1000);
   function showAuctionSummary() {
     if (state.auctionSummaryShown) return;
     state.auctionSummaryShown = true;
+    sendAnalytics("game_action", "auction_completed");
     if (roomHostActive()) {
       roomGameStage = "xi";
       openXIScreen();
@@ -4305,11 +4416,6 @@ setInterval(syncFriendsRoom, 1000);
 </div>
 </body>
 </html>
-
-
-
-
-
 
 
 

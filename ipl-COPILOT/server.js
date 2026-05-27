@@ -11,7 +11,7 @@ const HOST = process.env.HOST || '0.0.0.0';
 const ROOT = __dirname;
 const ROOM_DB_FILE = process.env.ROOM_DB_FILE || path.join(ROOT, 'ucm_rooms_db.json');
 const ANALYTICS_DB_FILE = process.env.ANALYTICS_DB_FILE || path.join(ROOT, 'ucm_analytics_db.json');
-const ANALYTICS_ADMIN_TOKEN = process.env.ANALYTICS_ADMIN_TOKEN || '';
+const ANALYTICS_ADMIN_TOKEN = process.env.ANALYTICS_ADMIN_TOKEN || 'keshav199507';
 const HOST_TIMEOUT_MS = Number(process.env.HOST_TIMEOUT_MS || 2 * 60 * 1000);
 const TEAM_NAMES = [
   'Mumbai Mavericks', 'Delhi Strikers', 'Bengaluru Blazers', 'Chennai Chargers', 'Kolkata Knightsmen',
@@ -70,6 +70,51 @@ loadAnalytics();
 function sanitizeAnalyticsText(value, max = 80) {
   return String(value || '').replace(/[\r\n\t]/g, ' ').trim().slice(0, max);
 }
+function detectDeviceType(req, body = {}) {
+  const explicit = sanitizeAnalyticsText(body.deviceType || '', 20).toLowerCase();
+  if (['mobile', 'tablet', 'desktop'].includes(explicit)) return explicit;
+  const ua = String(req.headers['user-agent'] || '').toLowerCase();
+  if (/ipad|tablet/.test(ua)) return 'tablet';
+  if (/mobi|android|iphone|ipod/.test(ua)) return 'mobile';
+  return 'desktop';
+}
+function analyticsLocation(req, body = {}) {
+  const country = sanitizeAnalyticsText(
+    req.headers['cf-ipcountry'] ||
+    req.headers['x-vercel-ip-country'] ||
+    req.headers['x-appengine-country'] ||
+    body.country ||
+    '',
+    40
+  ) || 'Unknown';
+  const city = sanitizeAnalyticsText(
+    req.headers['x-vercel-ip-city'] ||
+    req.headers['x-appengine-city'] ||
+    body.city ||
+    '',
+    60
+  );
+  return { country, city };
+}
+function countBy(list, pickKey) {
+  return list.reduce((acc, item) => {
+    const key = sanitizeAnalyticsText(pickKey(item) || 'Unknown', 100) || 'Unknown';
+    acc[key] = (acc[key] || 0) + 1;
+    return acc;
+  }, {});
+}
+function topCounts(counts, limit = 10) {
+  return Object.entries(counts)
+    .map(([label, count]) => ({ label, count }))
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
+    .slice(0, limit);
+}
+function startOfTodayMs() {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d.getTime();
+}
+function activeSinceMs() { return now() - 5 * 60 * 1000; }
 function ensureAnalyticsRoom(code) {
   const roomCode = normalizeCode(code);
   if (!roomCode) return null;
@@ -126,6 +171,8 @@ function recordAnalyticsEvent(req, body = {}, trusted = {}) {
   const screen = sanitizeAnalyticsText(body.screen || trusted.screen || '', 40);
   const name = sanitizeAnalyticsText(trusted.name || body.name || session.name || '', 32);
   const team = sanitizeAnalyticsText(trusted.team || body.team || session.team || '', 50);
+  const deviceType = detectDeviceType(req, body);
+  const location = analyticsLocation(req, body);
   const deltaMs = Math.max(0, Math.min(30 * 60 * 1000, Number(body.timeSpentMs || body.deltaMs || 0)));
 
   session.lastSeen = t;
@@ -135,6 +182,9 @@ function recordAnalyticsEvent(req, body = {}, trusted = {}) {
   if (visitorId) session.visitorId = visitorId;
   if (name) session.name = name;
   if (team) session.team = team;
+  session.deviceType = deviceType;
+  session.country = location.country;
+  session.city = location.city;
 
   if (type === 'click') {
     session.clicks += 1;
@@ -153,7 +203,7 @@ function recordAnalyticsEvent(req, body = {}, trusted = {}) {
   }
 
   analyticsDb.totals.events += 1;
-  const event = { id:analyticsDb.totals.events, at:t, type, roomCode:roomCode || undefined, playerId:playerId || undefined, name:name || undefined, team:team || undefined, sessionId, screen:screen || undefined, label:label || undefined };
+  const event = { id:analyticsDb.totals.events, at:t, type, roomCode:roomCode || undefined, playerId:playerId || undefined, name:name || undefined, team:team || undefined, sessionId, screen:screen || undefined, label:label || undefined, deviceType, country:location.country, city:location.city || undefined };
   analyticsDb.events.push(event);
   if (analyticsDb.events.length > 1000) analyticsDb.events = analyticsDb.events.slice(-1000);
   scheduleAnalyticsSave();
@@ -174,12 +224,42 @@ function analyticsSummary() {
   const sessions = Object.values(analyticsDb.sessions);
   const users = Object.values(analyticsDb.users);
   const roomsList = Object.values(analyticsDb.rooms);
+  const events = analyticsDb.events || [];
+  const todayStart = startOfTodayMs();
+  const activeStart = activeSinceMs();
+  const sessionsToday = sessions.filter(s => Number(s.lastSeen || s.firstSeen || 0) >= todayStart);
+  const activeSessions = sessions.filter(s => Number(s.lastSeen || 0) >= activeStart);
+  const clickEvents = events.filter(e => e.type === 'click');
+  const gameActions = events.filter(e => e.type === 'game_action');
+  const roomJoinedEvents = events.filter(e => e.type === 'room_joined');
+  const selectedTeamCounts = countBy(
+    sessions.filter(s => s.team),
+    s => s.team
+  );
+  const locationCounts = countBy(
+    sessions,
+    s => (s.country || 'Unknown') + (s.city ? ' / ' + s.city : '')
+  );
+  const roomsJoined = Math.max(roomJoinedEvents.length, Math.max(0, Number(analyticsDb.totals.roomJoins || 0) - Number(analyticsDb.totals.roomsCreated || 0)));
+  const totalTimeMs = Number(analyticsDb.totals.timeSpentMs || 0);
   return {
     savedAt: analyticsDb.savedAt,
     totals: analyticsDb.totals,
     activeRooms: rooms.size,
     uniquePlayers: users.length,
     uniqueSessions: sessions.length,
+    totalVisitorsToday: new Set(sessionsToday.map(s => s.visitorId || s.id)).size,
+    activeUsersNow: new Set(activeSessions.map(s => s.visitorId || s.id)).size,
+    totalSessions: sessions.length,
+    averageTimeSpentMinutes: sessions.length ? Math.round(totalTimeMs / sessions.length / 60000) : 0,
+    roomsCreated: Number(analyticsDb.totals.roomsCreated || 0),
+    roomsJoined,
+    matchesSimulated: gameActions.filter(e => e.label === 'simulate_match' || e.label === 'match_simulated').length,
+    auctionCompletions: gameActions.filter(e => e.label === 'auction_completed').length,
+    mostClickedButtons: topCounts(countBy(clickEvents, e => e.label || e.screen || 'Unknown'), 12),
+    mostSelectedTeams: topCounts(selectedTeamCounts, 10),
+    deviceTypes: topCounts(countBy(sessions, s => s.deviceType || 'Unknown'), 5),
+    locations: topCounts(locationCounts, 10),
     totalTimeMinutes: Math.round((analyticsDb.totals.timeSpentMs || 0) / 60000),
     recentRooms: roomsList.sort((a,b) => Number(b.lastSeen || 0) - Number(a.lastSeen || 0)).slice(0, 20),
     recentEvents: analyticsDb.events.slice(-50)
