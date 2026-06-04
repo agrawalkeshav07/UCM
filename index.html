@@ -31,6 +31,23 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .info-card p,.info-card li{font-family:var(--font-ui);font-size:0.84rem;line-height:1.7;color:var(--text-dim);}
 .info-card ul{padding-left:18px;margin:10px 0 16px;}
 .info-card .modal-actions{display:flex;justify-content:flex-end;margin-top:16px;}
+.ucm-logo-secret{cursor:pointer;user-select:none;}
+.admin-password-row{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:14px;}
+.admin-password-row .room-input{margin:0;}
+.admin-error{min-height:18px;margin-top:8px;font-family:var(--font-ui);font-size:0.76rem;color:#ff7575;}
+.admin-dashboard-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 16px;}
+.admin-metric{background:rgba(255,255,255,0.055);border:1px solid var(--border);border-radius:10px;padding:12px;}
+.admin-metric strong{display:block;font-family:var(--font-display);font-size:1.55rem;color:var(--gold);line-height:1;}
+.admin-metric span{display:block;margin-top:5px;font-family:var(--font-ui);font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;}
+.admin-lists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.admin-list{background:rgba(0,0,0,0.18);border:1px solid var(--border);border-radius:10px;padding:12px;min-width:0;}
+.admin-list h3{font-family:var(--font-display);font-size:1rem;color:var(--gold-soft);letter-spacing:0.08em;margin-bottom:8px;}
+.admin-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-family:var(--font-ui);font-size:0.75rem;color:var(--text-dim);}
+.admin-row:last-child{border-bottom:0;}
+.admin-row b{color:var(--text);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.admin-row span{color:var(--gold);}
+@media(max-width:720px){.admin-password-row{grid-template-columns:1fr;}.admin-dashboard-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.admin-lists{grid-template-columns:1fr;}}
+@media(max-width:460px){.admin-dashboard-grid{grid-template-columns:1fr;}}
 
 /* SCREENS */
 .screen{display:none;justify-content:center;align-items:center;min-height:100vh;padding:24px;position:relative;z-index:1;}
@@ -42,8 +59,22 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .home-title{font-family:var(--font-display);font-size:clamp(2.4rem,7vw,3.8rem);font-weight:700;letter-spacing:0.06em;line-height:1;color:var(--gold);text-shadow:0 0 40px rgba(255,215,0,0.4);margin-bottom:4px;}
 .home-sub{font-family:var(--font-display);font-size:0.95rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-dim);margin-bottom:20px;}
-.home-desc{font-family:var(--font-ui);font-size:0.85rem;color:var(--text-dim);line-height:1.65;margin-bottom:36px;padding:0 8px;}
+.home-desc{font-family:var(--font-ui);font-size:0.85rem;color:var(--text-dim);line-height:1.65;margin-bottom:20px;padding:0 8px;}
+.home-name-box{max-width:340px;margin:0 auto 18px;}
+.home-name-label{display:block;font-family:var(--font-display);font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:7px;}
+.home-name-box .room-input{margin:0 auto;text-transform:none;letter-spacing:0.04em;}
+.home-name-error{min-height:18px;margin-top:7px;font-family:var(--font-ui);font-size:0.72rem;color:#ff7575;}
 .home-buttons{display:grid;grid-template-columns:1fr;gap:12px;max-width:320px;margin:0 auto;}
+.mode-container{width:100%;max-width:760px;text-align:center;animation:fadeUp 0.5s ease both;}
+.mode-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0 16px;}
+.mode-card{border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,0.055);padding:18px;text-align:left;cursor:pointer;transition:transform 0.18s,border-color 0.18s,box-shadow 0.18s;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;color:inherit;font:inherit;}
+.mode-card:hover{transform:translateY(-3px);border-color:rgba(255,215,0,0.36);box-shadow:0 18px 42px rgba(0,0,0,0.34);}
+.mode-card h3{font-family:var(--font-display);font-size:1.45rem;line-height:1.05;color:var(--gold);letter-spacing:0.06em;margin-bottom:10px;}
+.mode-card p{font-family:var(--font-ui);font-size:0.8rem;line-height:1.55;color:var(--text-dim);}
+.mode-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.mode-tags span{font-family:var(--font-ui);font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:5px 8px;}
+.friend-name-chip{margin:0 auto 14px;width:max-content;max-width:100%;font-family:var(--font-ui);font-size:0.74rem;color:var(--text-dim);background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:999px;padding:7px 12px;}
+.friend-name-chip strong{color:var(--gold);font-weight:600;}
 
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border:none;border-radius:var(--radius);cursor:pointer;font-family:var(--font-display);font-size:1.05rem;font-weight:600;letter-spacing:0.08em;color:#fff;transition:transform 0.18s,box-shadow 0.18s,opacity 0.18s;position:relative;overflow:hidden;}
@@ -258,12 +289,15 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .xi-player-card.in-xi{background:rgba(56,239,125,0.12);border-color:rgba(56,239,125,0.35);}
 .xi-player-card.in-xi:hover{background:rgba(232,48,48,0.12);border-color:rgba(232,48,48,0.3);}
 .xi-player-card.blocked{opacity:0.38;cursor:not-allowed;transform:none!important;}
+.xi-player-card.injured{opacity:0.52;cursor:not-allowed;background:rgba(232,48,48,0.08);border-color:rgba(232,48,48,0.28);transform:none!important;}
+.xi-player-card.injured:hover{background:rgba(232,48,48,0.10);border-color:rgba(232,48,48,0.36);transform:none;}
 .xi-avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-display);font-size:13px;font-weight:700;color:#000;background:linear-gradient(135deg,#ffd700,#fff2a6);flex-shrink:0;}
 .xi-player-info{flex:1;min-width:0;}
 .xi-player-name{font-family:var(--font-display);font-size:0.95rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .xi-player-sub{font-family:var(--font-ui);font-size:0.65rem;color:var(--text-dim);margin-top:1px;}
 .xi-player-rating{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--gold-soft);flex-shrink:0;}
 .xi-tick{font-size:1rem;flex-shrink:0;width:20px;text-align:center;}
+.injury-chip{display:inline-flex;align-items:center;margin-left:6px;padding:2px 6px;border-radius:999px;background:rgba(232,48,48,0.14);border:1px solid rgba(232,48,48,0.28);color:#ff8b8b;font-family:var(--font-ui);font-size:0.55rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;}
 
 /* XI pitch view (right panel) */
 .xi-pitch-panel{background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;position:sticky;top:20px;}
@@ -300,6 +334,13 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .xi-confirm-area{margin-top:12px;border-top:1px solid var(--border);padding-top:12px;}
 .xi-confirm-area .btn{width:100%;margin-bottom:8px;}
 .xi-warning{font-family:var(--font-ui);font-size:0.72rem;color:var(--red);text-align:center;min-height:20px;margin-top:4px;}
+
+.injury-panel{margin:12px 0;padding:12px;border-radius:12px;background:rgba(232,48,48,0.055);border:1px solid rgba(232,48,48,0.24);}
+.injury-list{display:grid;gap:7px;margin-top:8px;}
+.injury-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-family:var(--font-ui);font-size:0.72rem;color:var(--text-dim);}
+.injury-row:last-child{border-bottom:0;}
+.injury-row strong{display:block;color:var(--text);font-family:var(--font-display);font-size:0.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.injury-row span:last-child{color:#ff9a9a;font-weight:700;white-space:nowrap;}
 
 /* Role summary mini bar */
 .role-summary{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;}
@@ -451,6 +492,8 @@ html,body{width:100%;max-width:100%;}
   .home-container{padding-top:24px;}
   .trophy{font-size:52px;}
   .home-title{font-size:clamp(2.2rem,16vw,4rem);line-height:0.9;}
+  .mode-grid{grid-template-columns:1fr;}
+  .mode-card{min-height:auto;}
   .team-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,clamp(64px,10vh,78px));gap:7px;}
   .team-card-select{font-size:0.66rem;min-height:0;height:100%;padding:6px 6px;}
   #auctionScreen{padding:10px;}
@@ -496,17 +539,47 @@ html,body{width:100%;max-width:100%;}
 <!-- HOME -->
 <div id="homeScreen" class="screen active">
   <div class="home-container">
-    <span class="trophy">UCM</span>
+    <span class="trophy ucm-logo-secret" role="button" tabindex="0" onclick="openAdminAnalyticsLogin()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openAdminAnalyticsLogin();}">UCM</span>
     <h1 class="home-title">UCM</h1>
     <div class="home-sub">Ultimate Cricket Manager</div>
     <p class="home-desc">Build a fictional cricket franchise, run a competitive UCM auction, pick your Playing XI, and chase the championship across a full season.</p>
+    <div class="home-name-box">
+      <label class="home-name-label" for="homeNameInput">Enter Your Name</label>
+      <input id="homeNameInput" class="room-input" maxlength="24" placeholder="Your name" autocomplete="name">
+      <div id="homeNameError" class="home-name-error"></div>
+    </div>
     <div class="home-buttons">
-      <button class="btn btn-primary" onclick="goToTeamSelection()">START SOLO GAME</button>
-      <button class="btn btn-secondary" onclick="goToFriendsMenu()">CREATE / JOIN ROOM</button>
+      <button class="btn btn-primary" onclick="goToSoloModeSelection()">PLAY SOLO</button>
+      <button class="btn btn-secondary" onclick="goToFriendsMenu()">PLAY WITH FRIENDS</button>
       <button class="btn btn-ghost" onclick="showInfoModal('how')">HOW TO PLAY</button>
       <button class="btn btn-ghost" onclick="showInfoModal('settings')">SETTINGS</button>
       <button class="btn btn-ghost" onclick="showInfoModal('about')">DISCLAIMER / ABOUT</button>
     </div>
+  </div>
+</div>
+
+<!-- SOLO GAME MODE SELECTION -->
+<div id="modeScreen" class="screen">
+  <div class="mode-container">
+    <h2 class="screen-title">SELECT GAME MODE</h2>
+    <p class="screen-sub">Choose how this solo UCM season should be simulated</p>
+    <div class="mode-grid">
+      <button class="mode-card" onclick="startSoloGameMode('ai2027')">
+        <div>
+          <h3>AI Simulation Tournament 2027</h3>
+          <p>Same auction system, then dynamic OpenAI-based match simulation using tactical rules, player roles, venue conditions, pressure, form, and team balance.</p>
+        </div>
+        <div class="mode-tags"><span>Fixed 2027</span><span>OpenAI Match Engine</span><span>No Historical Draw</span></div>
+      </button>
+      <button class="mode-card" onclick="startSoloGameMode('historical')">
+        <div>
+          <h3>Historical Tournament</h3>
+          <p>The current UCM experience: historical database, year draw, existing auction, squad, XI, match simulation, playoffs, and records.</p>
+        </div>
+        <div class="mode-tags"><span>Historical DB</span><span>Year Draw</span><span>Current Flow</span></div>
+      </button>
+    </div>
+    <button class="btn btn-ghost btn-sm" onclick="showOnlyScreen('homeScreen')">BACK</button>
   </div>
 </div>
 
@@ -515,8 +588,9 @@ html,body{width:100%;max-width:100%;}
 <div id="friendsScreen" class="screen">
   <div class="room-panel">
     <h2 class="screen-title">PLAY WITH FRIENDS</h2>
-    <p class="screen-sub">Enter your name, then create or join a private UCM room</p>
-    <input id="friendNameInput" class="room-input" maxlength="24" placeholder="YOUR NAME">
+    <p class="screen-sub">Create or join a private UCM room</p>
+    <div class="friend-name-chip">Playing as <strong id="friendPlayerNameDisplay">Player</strong></div>
+    <input id="friendNameInput" type="hidden" maxlength="24">
     <div class="room-actions">
       <button class="btn btn-primary" onclick="beginCreateRoom()">CREATE ROOM</button>
       <button class="btn btn-secondary" onclick="showJoinRoomForm()">JOIN ROOM</button>
@@ -636,9 +710,88 @@ function showInfoModal(type) {
   modal.classList.add("active");
 }
 function closeInfoModal() { document.getElementById("ucmInfoModal")?.classList.remove("active"); }
+function openAdminAnalyticsLogin() {
+  const modal = document.getElementById("ucmInfoModal");
+  const title = document.getElementById("ucmInfoTitle");
+  const body = document.getElementById("ucmInfoBody");
+  if (!modal || !title || !body) return;
+  title.textContent = "Admin Analytics";
+  body.innerHTML = '<p>Enter the admin password to view anonymous traffic and gameplay analytics.</p><div class="admin-password-row"><input id="adminAnalyticsPassword" class="room-input" type="password" autocomplete="current-password" placeholder="Admin password"><button class="btn btn-gold btn-sm" id="adminAnalyticsOpenBtn">VIEW</button></div><div id="adminAnalyticsError" class="admin-error"></div>';
+  modal.classList.add("active");
+  const input = document.getElementById("adminAnalyticsPassword");
+  const button = document.getElementById("adminAnalyticsOpenBtn");
+  if (button) button.onclick = loadAdminAnalyticsDashboard;
+  if (input) {
+    input.focus();
+    input.onkeydown = e => { if (e.key === "Enter") loadAdminAnalyticsDashboard(); };
+  }
+}
+function adminMetricHtml(value, label) {
+  return '<div class="admin-metric"><strong>' + escapeRoomHtml(value) + '</strong><span>' + escapeRoomHtml(label) + '</span></div>';
+}
+function adminListHtml(title, rows, emptyLabel) {
+  const safeRows = Array.isArray(rows) ? rows : [];
+  const html = safeRows.length
+    ? safeRows.map(row => '<div class="admin-row"><b>' + escapeRoomHtml(row.label || "Unknown") + '</b><span>' + escapeRoomHtml(row.count || 0) + '</span></div>').join("")
+    : '<div class="admin-row"><b>' + escapeRoomHtml(emptyLabel || "No data yet") + '</b><span>0</span></div>';
+  return '<section class="admin-list"><h3>' + escapeRoomHtml(title) + '</h3>' + html + '</section>';
+}
+function adminMinutes(value) {
+  const minutes = Math.max(0, Number(value || 0));
+  if (minutes < 60) return minutes + "m";
+  return Math.floor(minutes / 60) + "h " + (minutes % 60) + "m";
+}
+async function loadAdminAnalyticsDashboard() {
+  const input = document.getElementById("adminAnalyticsPassword");
+  const error = document.getElementById("adminAnalyticsError");
+  const body = document.getElementById("ucmInfoBody");
+  const password = input ? input.value.trim() : "";
+  if (!password) {
+    if (error) error.textContent = "Password is required.";
+    return;
+  }
+  if (error) error.textContent = "Loading dashboard...";
+  try {
+    const res = await fetch("/api/analytics/summary?token=" + encodeURIComponent(password), { cache:"no-store" });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || "Invalid admin password.");
+    renderAdminAnalyticsDashboard(data);
+  } catch (e) {
+    if (error) error.textContent = e.message || "Could not load analytics. Make sure the game is running through the Node server.";
+    else if (body) body.innerHTML = "<p>Could not load analytics.</p>";
+  }
+}
+function renderAdminAnalyticsDashboard(data) {
+  const title = document.getElementById("ucmInfoTitle");
+  const body = document.getElementById("ucmInfoBody");
+  if (!body) return;
+  if (title) title.textContent = "Admin Analytics Dashboard";
+  const totals = data.totals || {};
+  const savedAt = data.savedAt ? new Date(data.savedAt).toLocaleString() : "Not saved yet";
+  body.innerHTML =
+    '<p>Anonymous usage analytics stored in <strong>ucm_analytics_db.json</strong>. Last updated: ' + escapeRoomHtml(savedAt) + '.</p>' +
+    '<div class="admin-dashboard-grid">' +
+      adminMetricHtml(data.totalVisitorsToday || 0, "Total visitors today") +
+      adminMetricHtml(data.activeUsersNow || 0, "Active users now") +
+      adminMetricHtml(data.totalSessions || data.uniqueSessions || 0, "Total sessions") +
+      adminMetricHtml(adminMinutes(data.averageTimeSpentMinutes || 0), "Avg time spent") +
+      adminMetricHtml(data.roomsCreated || totals.roomsCreated || 0, "Rooms created") +
+      adminMetricHtml(data.roomsJoined || 0, "Rooms joined") +
+      adminMetricHtml(data.matchesSimulated || 0, "Matches simulated") +
+      adminMetricHtml(data.auctionCompletions || 0, "Auction completions") +
+      adminMetricHtml(totals.clicks || 0, "Total clicks") +
+    '</div>' +
+    '<div class="admin-lists">' +
+      adminListHtml("Most Clicked Buttons", data.mostClickedButtons, "No clicks tracked yet") +
+      adminListHtml("Most Selected Teams", data.mostSelectedTeams, "No teams selected yet") +
+      adminListHtml("Device Type", data.deviceTypes, "No device data yet") +
+      adminListHtml("Country / City Approx.", data.locations, "No location data yet") +
+    '</div>';
+}
 
 let selectedTeam = null;
 let playMode = "ai";
+let currentGameMode = "historical";
 let roomFlow = null;
 let currentRoomCode = null;
 let currentPlayerId = null;
@@ -653,6 +806,9 @@ let pendingMatchAutoScroll = false;
 let matchSimulationBusy = false;
 let matchHistoryPanelOpen = false;
 let seasonLeadersPanelOpen = false;
+const USER_NAME_KEY = "ucm_player_name";
+const GAME_MODE_HISTORICAL = "historical";
+const GAME_MODE_AI_2027 = "ai2027";
 
 function closeRoomLiveConnection() {
   if (roomEventSource) { roomEventSource.close(); roomEventSource = null; }
@@ -667,6 +823,69 @@ function resetActiveRoomViewState() {
   roomStartedEntered = false;
   roomActionCursor = 0;
   roomFlow = null;
+}
+function normalizeUserName(value) {
+  return String(value || "").trim().replace(/\s+/g, " ").slice(0, 24);
+}
+function setHomeNameError(message = "") {
+  const error = document.getElementById("homeNameError");
+  if (error) error.textContent = message;
+}
+function syncUserNameDisplays() {
+  const input = document.getElementById("homeNameInput");
+  const friendInput = document.getElementById("friendNameInput");
+  const friendDisplay = document.getElementById("friendPlayerNameDisplay");
+  if (input && currentPlayerName && input.value !== currentPlayerName) input.value = currentPlayerName;
+  if (friendInput) friendInput.value = currentPlayerName || "";
+  if (friendDisplay) friendDisplay.textContent = currentPlayerName || "Player";
+}
+function loadStoredUserName() {
+  try { return normalizeUserName(localStorage.getItem(USER_NAME_KEY)); } catch (e) { return ""; }
+}
+function saveCurrentUserName(name) {
+  currentPlayerName = normalizeUserName(name);
+  if (currentPlayerName) {
+    try { localStorage.setItem(USER_NAME_KEY, currentPlayerName); } catch (e) {}
+  }
+  syncUserNameDisplays();
+  return currentPlayerName;
+}
+function readHomeUserName() {
+  const input = document.getElementById("homeNameInput");
+  const name = normalizeUserName(input ? input.value : currentPlayerName);
+  if (!name) return "";
+  return saveCurrentUserName(name);
+}
+function requireUserNameToContinue() {
+  const name = readHomeUserName();
+  if (!name) {
+    setHomeNameError("Please enter your name to continue.");
+    showToast("Please enter your name to continue.");
+    const input = document.getElementById("homeNameInput");
+    if (input) input.focus();
+    return null;
+  }
+  setHomeNameError("");
+  return name;
+}
+function initializeHomeUserName() {
+  currentPlayerName = currentPlayerName || loadStoredUserName();
+  syncUserNameDisplays();
+  const input = document.getElementById("homeNameInput");
+  if (input) {
+    input.addEventListener("input", () => {
+      const value = normalizeUserName(input.value);
+      if (value) {
+        saveCurrentUserName(value);
+        setHomeNameError("");
+      }
+    });
+  }
+}
+function isAiTournamentMode() { return currentGameMode === GAME_MODE_AI_2027; }
+function isHistoricalTournamentMode() { return currentGameMode !== GAME_MODE_AI_2027; }
+function setGameMode(mode) {
+  currentGameMode = mode === GAME_MODE_AI_2027 ? GAME_MODE_AI_2027 : GAME_MODE_HISTORICAL;
 }
 function scrollToScreenTop(screenId = "matchScreen") {
   requestAnimationFrame(() => {
@@ -810,10 +1029,17 @@ function getAnalyticsSessionId() {
     return id;
   } catch (e) { return makeAnalyticsId("session"); }
 }
+function analyticsDeviceType() {
+  const ua = navigator.userAgent || "";
+  if (/ipad|tablet/i.test(ua)) return "tablet";
+  if (/mobi|android|iphone|ipod/i.test(ua)) return "mobile";
+  return "desktop";
+}
 function analyticsContext(extra = {}) {
   return {
     analyticsSessionId: getAnalyticsSessionId(),
     visitorId: getAnalyticsVisitorId(),
+    deviceType: analyticsDeviceType(),
     roomCode: currentRoomCode || "",
     playerId: currentPlayerId || "",
     sessionToken: currentSessionToken || "",
@@ -825,7 +1051,7 @@ function analyticsContext(extra = {}) {
   };
 }
 function currentScreenId() {
-  const screens = ["homeScreen", "friendsScreen", "teamScreen", "roomLobbyScreen", "auctionScreen", "xiScreen", "matchScreen"];
+  const screens = ["homeScreen", "modeScreen", "friendsScreen", "teamScreen", "roomLobbyScreen", "auctionScreen", "xiScreen", "matchScreen"];
   const active = screens.find(id => document.getElementById(id)?.classList.contains("active"));
   return active || "unknown";
 }
@@ -851,7 +1077,7 @@ function analyticsClickLabel(target) {
 }
 
 function showOnlyScreen(id) {
-  ["homeScreen", "friendsScreen", "teamScreen", "roomLobbyScreen", "auctionScreen", "xiScreen", "matchScreen"].forEach(screenId => {
+  ["homeScreen", "modeScreen", "friendsScreen", "teamScreen", "roomLobbyScreen", "auctionScreen", "xiScreen", "matchScreen"].forEach(screenId => {
     const el = document.getElementById(screenId);
     if (el) el.classList.toggle("active", screenId === id);
   });
@@ -981,10 +1207,10 @@ function subscribeRoomSync(code) {
 }
 function makePlayerId() { return "P" + Date.now().toString(36).toUpperCase() + Math.random().toString(36).slice(2,5).toUpperCase(); }
 function readFriendName() {
+  const name = requireUserNameToContinue();
+  if (!name) return null;
   const input = document.getElementById("friendNameInput");
-  const name = input ? input.value.trim().replace(/\s+/g, " ") : "";
-  if (!name) { alert("Please enter your name first."); if (input) input.focus(); return null; }
-  currentPlayerName = name;
+  if (input) input.value = name;
   return name;
 }
 function makeRoomCode(teamName) {
@@ -1041,7 +1267,9 @@ function prepareTeamScreen(mode, flow) {
     }
   } else {
     title.textContent = "SELECT YOUR FRANCHISE";
-    sub.textContent = "You manage this team - all others are AI controlled";
+    sub.textContent = isAiTournamentMode()
+      ? "AI Simulation Tournament 2027 - auction stays same, matches use AI engine"
+      : "Historical Tournament - current database year-draw simulation";
     action.textContent = "GO TO AUCTION";
   }
 }
@@ -1056,14 +1284,30 @@ document.querySelectorAll(".team-card-select").forEach(card => {
   });
 });
 
-function goToTeamSelection() { prepareTeamScreen("ai", null); showOnlyScreen("teamScreen"); }
+function goToSoloModeSelection() {
+  if (!requireUserNameToContinue()) return;
+  playMode = "ai";
+  showOnlyScreen("modeScreen");
+}
+function goToTeamSelection() {
+  startSoloGameMode(GAME_MODE_HISTORICAL);
+}
+function startSoloGameMode(mode) {
+  if (!requireUserNameToContinue()) return;
+  setGameMode(mode);
+  prepareTeamScreen("ai", null);
+  showOnlyScreen("teamScreen");
+}
 function showFriendsMenuLanding() {
+  if (!requireUserNameToContinue()) return;
   playMode = "friends";
+  setGameMode(GAME_MODE_HISTORICAL);
   resetActiveRoomViewState();
   const saved = readStoredRoomIdentity();
   const nameInput = document.getElementById("friendNameInput");
-  if (saved && saved.name && nameInput && !nameInput.value.trim()) nameInput.value = saved.name;
-  currentPlayerName = nameInput ? nameInput.value.trim() : "";
+  if (saved && saved.name && !currentPlayerName) currentPlayerName = saved.name;
+  if (nameInput) nameInput.value = currentPlayerName || "";
+  syncUserNameDisplays();
   selectedTeam = null;
   document.getElementById("joinRoomInput").style.display = "none";
   document.getElementById("joinRoomActions").style.display = "none";
@@ -1071,9 +1315,10 @@ function showFriendsMenuLanding() {
   renderSavedRoomCard();
   showOnlyScreen("friendsScreen");
 }
-function goBack() { if (playMode === "friends") showFriendsMenuLanding(); else showOnlyScreen("homeScreen"); }
+function goBack() { if (playMode === "friends") showFriendsMenuLanding(); else showOnlyScreen("modeScreen"); }
 function goToFriendsMenu() { showFriendsMenuLanding(); }
 function goBackFromFriends() { resetActiveRoomViewState(); showOnlyScreen("homeScreen"); }
+initializeHomeUserName();
 function beginCreateRoom() {
   const name = readFriendName();
   if (!name) return;
@@ -1227,7 +1472,7 @@ async function leaveFriendsRoom() {
   currentRoomCode = null;
   currentPlayerId = null;
   currentRoomCreator = false;
-  currentPlayerName = "";
+  currentPlayerName = loadStoredUserName() || currentPlayerName;
   currentRoomData = null;
   roomStartedEntered = false;
   roomActionCursor = 0;
@@ -1409,6 +1654,7 @@ setInterval(syncFriendsRoom, 1000);
     return {
       stage: stage || roomGameStage,
       revision: roomGameRevision,
+      gameMode: currentGameMode,
       auction: {
         selectedPlayerId: state.selectedPlayer ? state.selectedPlayer.id : null,
         currentPlayerId: state.currentPlayer ? state.currentPlayer.id : null,
@@ -1457,6 +1703,7 @@ setInterval(syncFriendsRoom, 1000);
       roomStartedEntered = true;
       roomGameRevision = Number(game.revision || roomGameRevision || 0);
       roomGameStage = game.stage || roomGameStage || "auction";
+      if (game.gameMode) currentGameMode = game.gameMode;
       const a = game.auction || {};
       state.selectedPlayer = findPlayerById(a.selectedPlayerId);
       state.currentPlayer = findPlayerById(a.currentPlayerId);
@@ -1770,6 +2017,7 @@ setInterval(syncFriendsRoom, 1000);
       <div class="xi-rule" id="ruleBowlOptions"><span class="dot"></span>Min 5 Bowl/AR</div>
       <div class="xi-rule" id="ruleCaptain"><span class="dot"></span>Captain & Vice-Captain</div>
       <div class="xi-rule" id="ruleImpact"><span class="dot"></span>Impact Player</div>
+      <div class="xi-rule" id="ruleInjury"><span class="dot"></span>No injured players</div>
     </div>
 
     <div class="xi-pool-panel">
@@ -1794,6 +2042,11 @@ setInterval(syncFriendsRoom, 1000);
       </div>
 
       <div id="xiPitchSlots"></div>
+
+      <div class="injury-panel" id="injuryPanel" style="display:none">
+        <div class="xi-management-title">Injured Players</div>
+        <div class="injury-list" id="injuryList"></div>
+      </div>
 
       <div class="xi-management-panel">
         <div class="xi-management-title">Squad Leadership</div>
@@ -1900,6 +2153,7 @@ setInterval(syncFriendsRoom, 1000);
   };
 
   document.getElementById("confirmXIBtn").onclick = async function () {
+    if (!validateXI()) return;
     const userTeam = auctionTeams.find(t => t.name === selectedTeam);
     userTeam.xi = [...xiState.xi];
     userTeam.captainId = xiState.captainId;
@@ -1940,6 +2194,11 @@ setInterval(syncFriendsRoom, 1000);
       alert(`Your squad has ${userTeam.squad ? userTeam.squad.length : 0} players. You need at least 11 players before picking a Playing XI. Continue the auction or use SKIP to complete your squad.`);
       return;
     }
+    removeInjuredFromTeamXI(userTeam);
+    const availableCount = userTeam.squad.filter(p => !isPlayerInjured(p)).length;
+    if (availableCount < 11) {
+      showToast(`Squad has only ${availableCount} fit players. Injured players cannot be selected until they recover.`);
+    }
 
     // Pre-fill with any previously saved XI, or start fresh
     xiState.xi = userTeam.xi.length ? [...userTeam.xi] : [];
@@ -1975,20 +2234,21 @@ setInterval(syncFriendsRoom, 1000);
 
     document.getElementById("xiSquadGrid").innerHTML = squad.map(player => {
       const inXI  = xiState.xi.some(x => x.id === player.id);
-      const canAdd = !inXI && full; // blocked if XI full and not already in
+      const injured = isPlayerInjured(player);
+      const blocked = (!inXI && full) || (injured && !inXI);
       const initials = player.name.split(" ").map(x=>x[0]).join("").slice(0,2);
       return `
-      <div class="xi-player-card ${inXI?"in-xi":""} ${canAdd?"blocked":""}" data-id="${player.id}">
+      <div class="xi-player-card ${inXI?"in-xi":""} ${blocked?"blocked":""} ${injured?"injured":""}" data-id="${player.id}">
         <div class="xi-avatar">${initials}</div>
         <div class="xi-player-info">
-          <div class="xi-player-name">${player.name}${player.overseas?' (OS)':''}</div>
+          <div class="xi-player-name">${player.name}${player.overseas?' (OS)':''}${injured ? `<span class="injury-chip">Injured</span>` : ""}</div>
           <div class="xi-player-sub">
             <span class="role-badge ${rc(player.role)}">${player.role}</span>
-            ${player.country}  -  Rs ${player.soldPrice ? (player.soldPrice/10000000).toFixed(1)+'Cr' : 'N/A'}
+            ${injured ? injuryStatusText(player) : `${player.country}  -  Rs ${player.soldPrice ? (player.soldPrice/10000000).toFixed(1)+'Cr' : 'N/A'}`}
           </div>
         </div>
         <div class="xi-player-rating">${player.rating}</div>
-        <div class="xi-tick">${inXI ? 'IN' : (canAdd ? 'FULL' : '+')}</div>
+        <div class="xi-tick">${inXI ? 'IN' : (injured ? 'OUT' : (blocked ? 'FULL' : '+'))}</div>
       </div>`;
     }).join("") || `<div style="padding:20px;text-align:center;color:var(--text-mute);font-family:var(--font-ui);font-size:0.8rem;">No players in this role</div>`;
 
@@ -2001,6 +2261,10 @@ setInterval(syncFriendsRoom, 1000);
           // Remove from XI
           xiState.xi.splice(idx, 1);
         } else {
+          if (isPlayerInjured(player)) {
+            showToast(`${player.name} is injured for ${injuryMatchesText(player)}.`);
+            return;
+          }
           // Add to XI (only if under 11)
           if (xiState.xi.length >= 11) return;
           xiState.xi.push(player);
@@ -2011,6 +2275,7 @@ setInterval(syncFriendsRoom, 1000);
         validateXI();
       };
     });
+    renderInjuryPanel(userTeam);
   }
 
   function renderXIPitch(options = {}) {
@@ -2052,6 +2317,7 @@ setInterval(syncFriendsRoom, 1000);
     document.getElementById("rsBowl").textContent = counts["Bowler"]||0;
     document.getElementById("rsAR").textContent   = counts["All-Rounder"]||0;
     document.getElementById("rsWK").textContent   = counts["Wicketkeeper"]||0;
+    renderInjuryPanel(auctionTeams.find(t => t.name === selectedTeam));
   }
 
   function validateXI() {
@@ -2065,10 +2331,14 @@ setInterval(syncFriendsRoom, 1000);
     const captainInXI = xi.some(p => p.id === xiState.captainId);
     const viceInXI = xi.some(p => p.id === xiState.viceCaptainId);
     const leadershipDistinct = xiState.captainId && xiState.viceCaptainId && xiState.captainId !== xiState.viceCaptainId;
-    const impactPoolSize = userTeam ? userTeam.squad.filter(p => !xi.some(x => x.id === p.id)).length : 0;
+    const injuredInXI = userTeam ? xi.filter(p => isPlayerInjured(resolveSquadPlayer(userTeam, p.id) || p)) : xi.filter(isPlayerInjured);
+    const impactPlayer = userTeam ? resolveSquadPlayer(userTeam, xiState.impactId) : null;
+    const impactPool = userTeam ? userTeam.squad.filter(p => !xi.some(x => x.id === p.id) && !isPlayerInjured(p)) : [];
+    const impactPoolSize = impactPool.length;
     const impactRequired = impactPoolSize > 0;
-    const impactInSquad = !!(userTeam && userTeam.squad.some(p => p.id === xiState.impactId));
+    const impactInSquad = !!(xiState.impactId && impactPool.some(p => p.id === xiState.impactId));
     const impactNotInXI = !!xiState.impactId && !xi.some(p => p.id === xiState.impactId);
+    const ruleInjury = injuredInXI.length === 0 && !isPlayerInjured(impactPlayer);
 
     const ruleXI   = total === 11;
     const ruleInd  = indians >= 7;
@@ -2077,7 +2347,7 @@ setInterval(syncFriendsRoom, 1000);
     const ruleBowlOptions = bowlingOptions >= 5;
     const ruleCaptain = captainInXI && viceInXI && leadershipDistinct;
     const ruleImpact = impactRequired ? (impactInSquad && impactNotInXI) : true;
-    const allPass  = ruleXI && ruleInd && ruleOS && ruleWK && ruleBowlOptions && ruleCaptain && ruleImpact;
+    const allPass  = ruleXI && ruleInd && ruleOS && ruleWK && ruleBowlOptions && ruleCaptain && ruleImpact && ruleInjury;
 
     // Update rule chips
     const setRule = (id, pass) => {
@@ -2093,6 +2363,7 @@ setInterval(syncFriendsRoom, 1000);
     setRule("ruleBowlOptions", ruleBowlOptions);
     setRule("ruleCaptain", ruleCaptain);
     setRule("ruleImpact",  ruleImpact);
+    setRule("ruleInjury",  ruleInjury);
 
     // Update counters
     const ctr = (id, valId, val, cls) => {
@@ -2113,9 +2384,11 @@ setInterval(syncFriendsRoom, 1000);
     if (!ruleBowlOptions) warnings.push(`Need ${5-bowlingOptions} more bowler/all-rounder option${5-bowlingOptions>1?"s":""}`);
     if (!ruleCaptain) warnings.push("Choose different Captain and Vice-Captain from your XI");
     if (!ruleImpact) warnings.push("Choose an Impact Player from outside your XI");
+    if (!ruleInjury) warnings.push("Remove injured players from XI, captaincy, or Impact Player");
     document.getElementById("xiWarning").textContent = warnings[0] || "";
 
     document.getElementById("confirmXIBtn").disabled = !allPass;
+    return allPass;
   }
 
   function renderXIManagementControls() {
@@ -2128,10 +2401,11 @@ setInterval(syncFriendsRoom, 1000);
     const ipSel = document.getElementById("impactPlayerSelect");
     if (!capSel || !vcSel || !ipSel) return;
 
-    const xiOptions = `<option value="">Select player</option>` + xiState.xi.map(p =>
+    const fitXI = xiState.xi.filter(p => !isPlayerInjured(resolveSquadPlayer(userTeam, p.id) || p));
+    const xiOptions = `<option value="">Select player</option>` + fitXI.map(p =>
       `<option value="${p.id}">${p.name} - ${p.role}</option>`
     ).join("");
-    const impactPool = userTeam.squad.filter(p => !xiState.xi.some(x => x.id === p.id));
+    const impactPool = userTeam.squad.filter(p => !xiState.xi.some(x => x.id === p.id) && !isPlayerInjured(p));
     const impactOptions = `<option value="">Select impact player</option>` + impactPool.map(p =>
       `<option value="${p.id}">${p.name} - ${p.role}</option>`
     ).join("");
@@ -2152,9 +2426,10 @@ setInterval(syncFriendsRoom, 1000);
     const userTeam = auctionTeams.find(t => t.name === selectedTeam);
     const inXI = id => xiState.xi.some(p => p.id === id);
     const inSquad = id => userTeam && userTeam.squad.some(p => p.id === id);
+    xiState.xi = xiState.xi.filter(p => !isPlayerInjured(resolveSquadPlayer(userTeam, p.id) || p));
     if (xiState.captainId && !inXI(xiState.captainId)) xiState.captainId = null;
     if (xiState.viceCaptainId && !inXI(xiState.viceCaptainId)) xiState.viceCaptainId = null;
-    if (xiState.impactId && (!inSquad(xiState.impactId) || inXI(xiState.impactId))) xiState.impactId = null;
+    if (xiState.impactId && (!inSquad(xiState.impactId) || inXI(xiState.impactId) || isPlayerInjured(resolveSquadPlayer(userTeam, xiState.impactId)))) xiState.impactId = null;
   }
 
   function xiPlayerTags(player) {
@@ -2164,13 +2439,214 @@ setInterval(syncFriendsRoom, 1000);
     if (player.id === xiState.impactId) tags.push(`<span class="xi-role-tag ip">IP</span>`);
     return tags.join("");
   }
+
+  // Injury system: players miss future matches, recover over time, and cannot be selected while injured.
+  function isPlayerInjured(player) {
+    return Number(player && player.injuredMatches || 0) > 0;
+  }
+
+  function resolveSquadPlayer(team, playerId) {
+    if (!team || !playerId) return null;
+    return (team.squad || []).find(p => p.id === playerId) || null;
+  }
+
+  function injuryMatchesText(player) {
+    const matches = Math.max(0, Number(player && player.injuredMatches || 0));
+    return `${matches} match${matches === 1 ? "" : "es"}`;
+  }
+
+  function injuryStatusText(player) {
+    return `${player.injuryType || "Injury"} - out for ${injuryMatchesText(player)}`;
+  }
+
+  function teamInjuredPlayers(team) {
+    return (team && team.squad ? team.squad : [])
+      .filter(isPlayerInjured)
+      .sort((a,b) => Number(b.injuredMatches || 0) - Number(a.injuredMatches || 0));
+  }
+
+  function renderInjuryPanel(team) {
+    const panel = document.getElementById("injuryPanel");
+    const list = document.getElementById("injuryList");
+    if (!panel || !list) return;
+    const injured = teamInjuredPlayers(team);
+    panel.style.display = injured.length ? "block" : "none";
+    list.innerHTML = injured.map(player => `
+      <div class="injury-row">
+        <div><strong>${player.name}</strong>${player.injuryType || "Injury"}</div>
+        <span>${injuryMatchesText(player)}</span>
+      </div>
+    `).join("");
+  }
+
+  function clearPlayerInjury(player) {
+    if (!player) return;
+    delete player.injuredMatches;
+    delete player.injuryType;
+    delete player.injuredAtMatch;
+  }
+
+  function advanceTeamInjuryRecovery(team) {
+    (team && team.squad ? team.squad : []).forEach(player => {
+      if (!isPlayerInjured(player)) return;
+      player.injuredMatches = Math.max(0, Number(player.injuredMatches || 0) - 1);
+      if (player.injuredMatches <= 0) {
+        clearPlayerInjury(player);
+        player.fitness = Math.min(100, Number(player.fitness || 72) + 8);
+      }
+    });
+  }
+
+  function removeInjuredFromTeamXI(team) {
+    if (!team) return false;
+    let changed = false;
+    const was = team.xi || [];
+    team.xi = was.filter(player => {
+      const squadPlayer = resolveSquadPlayer(team, player.id) || player;
+      const keep = !isPlayerInjured(squadPlayer);
+      if (!keep) changed = true;
+      return keep;
+    });
+    const inXI = id => team.xi.some(p => p.id === id);
+    const captain = resolveSquadPlayer(team, team.captainId);
+    const viceCaptain = resolveSquadPlayer(team, team.viceCaptainId);
+    const impact = resolveSquadPlayer(team, team.impactId);
+    if (team.captainId && (!inXI(team.captainId) || isPlayerInjured(captain))) { team.captainId = null; team.captain = null; changed = true; }
+    if (team.viceCaptainId && (!inXI(team.viceCaptainId) || isPlayerInjured(viceCaptain))) { team.viceCaptainId = null; team.viceCaptain = null; changed = true; }
+    if (team.impactId && (inXI(team.impactId) || isPlayerInjured(impact))) { team.impactId = null; team.impactPlayer = null; changed = true; }
+    return changed;
+  }
+
+  function teamImpactReady(team) {
+    const xi = team && team.xi ? team.xi : [];
+    const bench = (team && team.squad ? team.squad : []).filter(p => !xi.some(x => x.id === p.id) && !isPlayerInjured(p));
+    if (!bench.length) return true;
+    const impact = resolveSquadPlayer(team, team.impactId);
+    return !!impact && !isPlayerInjured(impact) && !xi.some(p => p.id === impact.id);
+  }
+
+  function teamXIReadyForMatch(team) {
+    if (!team) return false;
+    removeInjuredFromTeamXI(team);
+    return xiMeetsCoreRules(team.xi) && teamImpactReady(team);
+  }
+
+  function ensureMatchTeamsReady(teamA, teamB, quiet = false) {
+    const teams = [teamA, teamB];
+    for (const team of teams) {
+      removeInjuredFromTeamXI(team);
+      if (team.name !== selectedTeam) {
+        if (!teamXIReadyForMatch(team)) autoSelectAIXI(team);
+        continue;
+      }
+      if (!teamXIReadyForMatch(team)) {
+        if (!quiet) {
+          showToast("Your XI has injured or unavailable players. Please update your Playing XI before simulating.");
+          openXIScreen();
+        }
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function workloadForPlayer(match, team, player) {
+    const ownInnings = (match.innings || []).find(inn => inn.teamName === team.name);
+    const bowlingInnings = (match.innings || []).find(inn => inn.teamName !== team.name);
+    const batRow = ownInnings && (ownInnings.batting || []).find(row => row.id === player.id);
+    const bowlRow = bowlingInnings && (bowlingInnings.bowling || []).find(row => row.id === player.id);
+    return {
+      battingBalls: Number(batRow && !batRow.historicalMissing ? batRow.balls : 0),
+      bowlingBalls: Number(bowlRow && !bowlRow.historicalMissing ? bowlRow.balls : 0),
+      wickets: Number(bowlRow && !bowlRow.historicalMissing ? bowlRow.wickets : 0)
+    };
+  }
+
+  function playerInjuryRisk(player, workload) {
+    const role = String(player.role || "");
+    const bowlingStyle = String(player.bowlingStyle || "").toLowerCase();
+    const age = Number(player.age || 30);
+    const fitness = Number(player.fitness || 82);
+    let risk = 0.008;
+    risk += Math.min(0.02, workload.battingBalls / 220);
+    risk += Math.min(0.032, workload.bowlingBalls / 115);
+    if (role === "Bowler") risk += 0.008;
+    if (role === "All-Rounder" && workload.bowlingBalls > 0 && workload.battingBalls > 12) risk += 0.01;
+    if (bowlingStyle.includes("fast") || bowlingStyle.includes("medium")) risk += workload.bowlingBalls >= 18 ? 0.014 : 0.006;
+    if (age >= 35) risk += 0.007;
+    if (fitness < 72) risk += 0.012;
+    if (fitness < 60) risk += 0.012;
+    return Math.max(0.002, Math.min(0.085, risk));
+  }
+
+  function chooseInjuryType(player, workload) {
+    const bowlingStyle = String(player.bowlingStyle || "").toLowerCase();
+    if (workload.bowlingBalls >= 18 && (bowlingStyle.includes("fast") || bowlingStyle.includes("medium"))) {
+      return ["Hamstring strain", "Back stiffness", "Shoulder soreness"][Math.floor(Math.random() * 3)];
+    }
+    if (workload.battingBalls >= 35) return ["Groin tightness", "Wrist knock", "Fatigue strain"][Math.floor(Math.random() * 3)];
+    return ["Minor niggle", "Fielding knock", "Fatigue strain"][Math.floor(Math.random() * 3)];
+  }
+
+  function injuryDurationMatches(player, workload) {
+    let duration = 1;
+    if (workload.bowlingBalls >= 18) duration += Math.random() < 0.45 ? 1 : 0;
+    if (Number(player.age || 30) >= 35) duration += Math.random() < 0.35 ? 1 : 0;
+    if (Number(player.fitness || 82) < 65) duration += Math.random() < 0.4 ? 1 : 0;
+    return Math.max(1, Math.min(4, duration));
+  }
+
+  function rollTeamMatchInjuries(match, fixture, team, xi) {
+    const events = [];
+    (xi || []).forEach(xiPlayer => {
+      const player = resolveSquadPlayer(team, xiPlayer.id) || xiPlayer;
+      if (!player || isPlayerInjured(player)) return;
+      const workload = workloadForPlayer(match, team, player);
+      const activeWorkload = workload.battingBalls + workload.bowlingBalls;
+      if (activeWorkload <= 0 && Math.random() > 0.12) return;
+      const risk = playerInjuryRisk(player, workload);
+      player.fatigue = Math.max(0, Math.min(100, Number(player.fatigue || 0) + Math.round(activeWorkload / 4)));
+      player.fitness = Math.max(45, Math.min(100, Number(player.fitness || 82) - Math.round(activeWorkload / 28)));
+      if (Math.random() > risk) return;
+      player.injuredMatches = injuryDurationMatches(player, workload);
+      player.injuryType = chooseInjuryType(player, workload);
+      player.injuredAtMatch = currentTournamentMatchNumber();
+      events.push({
+        team: team.name,
+        playerId: player.id,
+        playerName: player.name,
+        type: player.injuryType,
+        matches: player.injuredMatches,
+        fixture: `${fixture.home} vs ${fixture.away}`
+      });
+    });
+    return events;
+  }
+
+  function applyPostMatchFitnessAndInjuries(match, fixture, teamA, teamB, xiA, xiB) {
+    advanceTeamInjuryRecovery(teamA);
+    advanceTeamInjuryRecovery(teamB);
+    const events = [
+      ...rollTeamMatchInjuries(match, fixture, teamA, xiA),
+      ...rollTeamMatchInjuries(match, fixture, teamB, xiB)
+    ];
+    if (events.length) {
+      match.injuries = events;
+      match.commentary = match.commentary || [];
+      events.forEach(ev => match.commentary.push(`${ev.playerName} (${ev.team}) suffered ${ev.type} and will miss ${ev.matches} match${ev.matches === 1 ? "" : "es"}.`));
+      if (events.some(ev => ev.team === selectedTeam)) showToast("Injury update: one of your players is unavailable for upcoming matches.");
+    }
+    removeInjuredFromTeamXI(teamA);
+    removeInjuredFromTeamXI(teamB);
+    return events;
+  }
   // ==================== AI AUTO-SELECT XI ====================
   function xiBowlingOptions(xi) {
     return xi.filter(p => p.role === "Bowler" || p.role === "All-Rounder").length;
   }
 
   function xiMeetsCoreRules(xi) {
-    return xi && xi.length === 11 && xi.some(p => p.role === "Wicketkeeper") && xiBowlingOptions(xi) >= 5 && xi.filter(p => p.overseas).length <= 4;
+    return xi && xi.length === 11 && !xi.some(isPlayerInjured) && xi.some(p => p.role === "Wicketkeeper") && xiBowlingOptions(xi) >= 5 && xi.filter(p => p.overseas).length <= 4;
   }
 
   function sortAIBattingOrder(xi) {
@@ -2182,7 +2658,7 @@ setInterval(syncFriendsRoom, 1000);
   }
 
   function autoSelectAIXI(team) {
-    const squad = [...(team.squad || [])].sort((a,b) => Number(b.rating||0) - Number(a.rating||0));
+    const squad = [...(team.squad || [])].filter(p => !isPlayerInjured(p)).sort((a,b) => Number(b.rating||0) - Number(a.rating||0));
     const xi = [];
     const isBowlingRole = p => p && (p.role === "Bowler" || p.role === "All-Rounder");
     const bowlingCount = list => list.filter(isBowlingRole).length;
@@ -2251,7 +2727,7 @@ setInterval(syncFriendsRoom, 1000);
     team.captain = team.squad.find(p => p.id === team.captainId) || null;
     team.viceCaptain = team.squad.find(p => p.id === team.viceCaptainId) || null;
     const impact = team.squad
-      .filter(p => !ordered.some(x => x.id === p.id))
+      .filter(p => !isPlayerInjured(p) && !ordered.some(x => x.id === p.id))
       .sort((a,b)=>Number(b.rating||0)-Number(a.rating||0))[0] || null;
     team.impactId = impact ? impact.id : null;
     team.impactPlayer = impact;
@@ -2311,6 +2787,7 @@ setInterval(syncFriendsRoom, 1000);
     lastMatchView: null,
     pointsTable: null,
     schedule: [],        // balanced double round-robin fixtures
+    playedFixtures: {},  // prevents the same league/playoff fixture being counted twice
     phase: 'league',     // 'league' | 'playoffs' | 'done'
     playoffs: [],
     playoffStep: 0,
@@ -2319,12 +2796,13 @@ setInterval(syncFriendsRoom, 1000);
 
   function resetTournamentForActiveTeams() {
     tournState.matchNo = 0;
-    tournState.drawnYear = null;
+    tournState.drawnYear = isAiTournamentMode() ? 2027 : null;
     tournState.matchHistory = [];
     tournState.seasonStats = null;
     tournState.lastMatchView = null;
     tournState.pointsTable = null;
     tournState.schedule = [];
+    tournState.playedFixtures = {};
     tournState.phase = "league";
     tournState.playoffs = [];
     tournState.playoffStep = 0;
@@ -2536,12 +3014,33 @@ setInterval(syncFriendsRoom, 1000);
   }
 
   function drawYearForCurrentMatch(options = {}) {
+    if (isAiTournamentMode()) {
+      tournState.drawnYear = 2027;
+      const yearCard = document.getElementById("yearDrawCard");
+      if (!yearCard) return;
+      if (options.quiet) { yearCard.style.display = "none"; return; }
+      yearCard.style.display = "block";
+      const ydLabel = yearCard.querySelector(".year-draw-label");
+      const ydEl = document.getElementById("drawnYearDisplay");
+      if (ydLabel) ydLabel.textContent = "AI SIMULATION TOURNAMENT YEAR";
+      if (ydEl) {
+        ydEl.classList.remove("year-spin");
+        void ydEl.offsetWidth;
+        ydEl.classList.add("year-spin");
+        ydEl.textContent = "2027";
+      }
+      const ydSub = yearCard.querySelector(".year-draw-sub");
+      if (ydSub) ydSub.textContent = "OpenAI match simulation uses the rulebook, squads, XI, pitch, pressure, and team balance";
+      return;
+    }
     const validYears = getAvailableHistoricalYears();
     tournState.drawnYear = validYears[Math.floor(Math.random() * validYears.length)];
     const yearCard = document.getElementById("yearDrawCard");
     if (!yearCard) return;
     if (options.quiet) { yearCard.style.display = "none"; return; }
     yearCard.style.display = "block";
+    const ydLabel = yearCard.querySelector(".year-draw-label");
+    if (ydLabel) ydLabel.textContent = "UCM YEAR DRAWN FOR THIS MATCH";
     const ydEl = document.getElementById("drawnYearDisplay");
     ydEl.classList.remove("year-spin");
     void ydEl.offsetWidth;
@@ -2606,7 +3105,8 @@ setInterval(syncFriendsRoom, 1000);
 
     // Init tournament if first time
     if (tournState.matchNo === 0) {
-      await loadStatsDB().catch(() => false);
+      if (isHistoricalTournamentMode()) await loadStatsDB().catch(() => false);
+      else tournState.drawnYear = 2027;
       tournState.schedule   = buildSchedule();
       tournState.pointsTable= initPointsTable();
       tournState.matchNo    = 1;
@@ -2705,6 +3205,44 @@ setInterval(syncFriendsRoom, 1000);
     if (tournState.phase === "league") return tournState.schedule[tournState.matchNo - 1] || null;
     if (tournState.phase === "playoffs") return tournState.playoffs[tournState.playoffStep] || null;
     return null;
+  }
+
+  function ensurePlayedFixtures() {
+    if (!tournState.playedFixtures || typeof tournState.playedFixtures !== "object" || Array.isArray(tournState.playedFixtures)) {
+      tournState.playedFixtures = {};
+    }
+    return tournState.playedFixtures;
+  }
+
+  function currentFixtureKey() {
+    const fixture = getCurrentFixture();
+    if (!fixture || !fixture.home || !fixture.away) return "";
+    if (tournState.phase === "league") {
+      return ["league", tournState.matchNo, fixture.home, fixture.away, fixture.leg || 1].join("::");
+    }
+    if (tournState.phase === "playoffs") {
+      return ["playoff", fixture.kind || tournState.playoffStep, fixture.home, fixture.away].join("::");
+    }
+    return "";
+  }
+
+  function isCurrentFixtureAlreadyPlayed() {
+    const key = currentFixtureKey();
+    if (key && ensurePlayedFixtures()[key]) return true;
+    const fixture = getCurrentFixture();
+    if (!fixture || !Array.isArray(tournState.matchHistory)) return false;
+    if (tournState.phase === "league") {
+      return tournState.matchHistory.some(h => Number(h.leagueMatchNo) === Number(tournState.matchNo) && h.teamA === fixture.home && h.teamB === fixture.away);
+    }
+    if (tournState.phase === "playoffs") {
+      return tournState.matchHistory.some(h => Number(h.playoffStep) === Number(tournState.playoffStep + 1) && h.teamA === fixture.home && h.teamB === fixture.away);
+    }
+    return false;
+  }
+
+  function markCurrentFixturePlayed() {
+    const key = currentFixtureKey();
+    if (key) ensurePlayedFixtures()[key] = true;
   }
 
   function clearMatchResultPanels() {
@@ -2854,30 +3392,45 @@ setInterval(syncFriendsRoom, 1000);
       alert("This playoff fixture is waiting for earlier playoff results.");
       return;
     }
+    if (isCurrentFixtureAlreadyPlayed()) {
+      if (!quiet) {
+        showToast("This fixture has already been simulated. Click Next Match.");
+        document.getElementById("simMatchBtn").style.display = "none";
+        document.getElementById("nextMatchBtn").style.display = "inline-flex";
+        updateMatchActionButtons();
+      }
+      return;
+    }
 
     const teamA = auctionTeams.find(t => t.name === fixture.home);
     const teamB = auctionTeams.find(t => t.name === fixture.away);
     if (!teamA || !teamB) { alert("Fixture team not found. Please restart the tournament."); return; }
+    if (!ensureMatchTeamsReady(teamA, teamB, quiet)) return;
 
-    const xiA = teamA.xi.length ? teamA.xi : autoGetXI(teamA);
-    const xiB = teamB.xi.length ? teamB.xi : autoGetXI(teamB);
-    await loadStatsDB();
+    const xiA = autoGetXI(teamA);
+    const xiB = autoGetXI(teamB);
+    if (isHistoricalTournamentMode()) await loadStatsDB();
     drawYearForCurrentMatch({ quiet });
     if (!quiet) renderMatchHeader();
 
     const tournamentMatchNo = currentTournamentMatchNumber();
-    const matchNoInYear = getMatchNoForTournMatch(tournamentMatchNo, tournState.drawnYear);
-    const teamAAppearanceNo = getTeamAppearanceNo(teamA.name);
-    const teamBAppearanceNo = getTeamAppearanceNo(teamB.name);
-    const match = simulateT20Match(teamA, teamB, xiA, xiB, {
-      year: tournState.drawnYear,
-      matchNoInYear,
-      useHistorical: !!STATS_DB,
-      teamAppearances: {
-        [teamA.name]: teamAAppearanceNo,
-        [teamB.name]: teamBAppearanceNo
-      }
-    });
+    const matchNoInYear = isAiTournamentMode() ? null : getMatchNoForTournMatch(tournamentMatchNo, tournState.drawnYear);
+    let match;
+    if (isAiTournamentMode()) {
+      match = await simulateAIMatch2027(teamA, teamB, xiA, xiB, fixture, tournamentMatchNo);
+    } else {
+      const teamAAppearanceNo = getTeamAppearanceNo(teamA.name);
+      const teamBAppearanceNo = getTeamAppearanceNo(teamB.name);
+      match = simulateT20Match(teamA, teamB, xiA, xiB, {
+        year: tournState.drawnYear,
+        matchNoInYear,
+        useHistorical: !!STATS_DB,
+        teamAppearances: {
+          [teamA.name]: teamAAppearanceNo,
+          [teamB.name]: teamBAppearanceNo
+        }
+      });
+    }
 
     const totalA = match.teamScores[teamA.name];
     const totalB = match.teamScores[teamB.name];
@@ -2891,6 +3444,7 @@ setInterval(syncFriendsRoom, 1000);
     const resultForA = totalA > totalB ? "W" : totalA < totalB ? "L" : "T";
 
     if (tournState.phase === "league") updatePointsTable(teamA.name, teamB.name, totalA, totalB);
+    const injuryEvents = applyPostMatchFitnessAndInjuries(match, fixture, teamA, teamB, xiA, xiB);
 
     const summary = match.superOverWinner
       ? `${match.superOverWinner} won in the Super Over`
@@ -2904,6 +3458,7 @@ setInterval(syncFriendsRoom, 1000);
       stage: fixture.stage || (tournState.phase === "league" ? "League" : "Playoff"),
       year: tournState.drawnYear,
       matchNoInYear,
+      mode: currentGameMode,
       teamA: teamA.name,
       teamB: teamB.name,
       scoreA: totalA,
@@ -2914,11 +3469,13 @@ setInterval(syncFriendsRoom, 1000);
       result: selectedResult,
       venue: match.venue.name,
       summary,
+      injuries: injuryEvents,
       innings: match.innings
     });
 
     updateSeasonStats(match, fixture);
     if (tournState.phase === "playoffs") completePlayoffMatch(match, fixture, winnerName);
+    markCurrentFixturePlayed();
 
     if (!quiet) {
       renderVsBanner(teamA.name, teamB.name, formatTeamScore(innA), formatTeamScore(innB), resultForA);
@@ -3041,8 +3598,8 @@ setInterval(syncFriendsRoom, 1000);
     document.getElementById("nextMatchBtn").style.display = "none";
     updateMatchActionButtons();
   }
-  function updatePointsTable(nameA, nameB, scoreA, scoreB) {
-    const pt = tournState.pointsTable;
+  function applyPointsResult(pt, nameA, nameB, scoreA, scoreB) {
+    if (!pt || !pt[nameA] || !pt[nameB]) return;
     pt[nameA].p++; pt[nameB].p++;
     pt[nameA].pf += scoreA; pt[nameA].pa += scoreB;
     pt[nameB].pf += scoreB; pt[nameB].pa += scoreA;
@@ -3061,6 +3618,26 @@ setInterval(syncFriendsRoom, 1000);
       const r = pt[n];
       r.nrr = r.p > 0 ? ((r.pf - r.pa) / r.p).toFixed(1) : "0.0";
     });
+  }
+
+  function updatePointsTable(nameA, nameB, scoreA, scoreB) {
+    applyPointsResult(tournState.pointsTable, nameA, nameB, scoreA, scoreB);
+  }
+
+  function rebuildPointsTableFromUniqueLeagueMatches() {
+    if (!tournState.pointsTable || !tournState.matchHistory) return;
+    const rebuilt = initPointsTable();
+    const seen = new Set();
+    [...tournState.matchHistory]
+      .filter(h => Number.isFinite(Number(h.leagueMatchNo)) && h.teamA && h.teamB)
+      .sort((a, b) => Number(a.leagueMatchNo) - Number(b.leagueMatchNo))
+      .forEach(h => {
+        const key = "league::" + Number(h.leagueMatchNo);
+        if (seen.has(key)) return;
+        seen.add(key);
+        applyPointsResult(rebuilt, h.teamA, h.teamB, Number(h.scoreA || 0), Number(h.scoreB || 0));
+      });
+    tournState.pointsTable = rebuilt;
   }
 
   function renderMatchHeader() {
@@ -3087,8 +3664,13 @@ setInterval(syncFriendsRoom, 1000);
       mhSub.textContent = "Fixture loading...";
     }
 
-    mhYear.textContent = `Match Year: ${tournState.drawnYear || "-"}`;
-    mhMatchNum.textContent = `Historical Match Ref: ${tournState.drawnYear ? currentTournamentMatchNumber() : "-"}`;
+    if (isAiTournamentMode()) {
+      mhYear.textContent = "Match Year: 2027";
+      mhMatchNum.textContent = "AI Simulation: OpenAI Rulebook";
+    } else {
+      mhYear.textContent = `Match Year: ${tournState.drawnYear || "-"}`;
+      mhMatchNum.textContent = `Historical Match Ref: ${tournState.drawnYear ? currentTournamentMatchNumber() : "-"}`;
+    }
 
     const rec = tournState.matchHistory.filter(h => h.result && h.result !== "N");
     const w = rec.filter(h=>h.result==="W").length;
@@ -3204,6 +3786,7 @@ setInterval(syncFriendsRoom, 1000);
     }).join("") || `<div style="color:var(--text-mute);font-size:0.8rem;padding:8px">No matches played yet</div>`;
   }
   function renderPointsTable() {
+    rebuildPointsTableFromUniqueLeagueMatches();
     const pt = tournState.pointsTable;
     if (!pt) return;
     const rows = sortedStandings()
@@ -3231,6 +3814,213 @@ setInterval(syncFriendsRoom, 1000);
     {name:"Narendra Modi Stadium", pitch:"Big Ground", avg:170, pace:1.08, spin:1.02, batting:0.99, dew:0.45, chase:1.02},
     {name:"Ekana Cricket Stadium", pitch:"Bowling Friendly", avg:158, pace:1.04, spin:1.12, batting:0.91, dew:0.32, chase:0.97}
   ];
+
+  function playerForAISimulation(player, index) {
+    return {
+      id: player.id,
+      name: player.name,
+      role: player.role,
+      battingStyle: player.battingStyle || "",
+      bowlingStyle: player.bowlingStyle || "",
+      battingRating: Number(player.battingRating || player.batting || player.rating || 60),
+      bowlingRating: Number(player.bowlingRating || player.bowling || 35),
+      fieldingRating: Number(player.fieldingRating || player.fielding || 60),
+      fitness: Number(player.fitness || 80),
+      form: Number(player.recentForm || player.form || 60),
+      overallRating: Number(player.overallRating || player.rating || 60),
+      battingPosition: Number(player.preferredBattingPosition || index + 1),
+      overseas: !!player.overseas,
+      soldPrice: Number(player.soldPrice || 0)
+    };
+  }
+  function teamForAISimulation(team, xi) {
+    return {
+      name: team.name,
+      morale: Number(team.morale || 50),
+      purse: Number(team.purse || 0),
+      squadSize: team.squad ? team.squad.length : 0,
+      balance: squadRoleCounts(team),
+      captain: team.captain ? team.captain.name : "",
+      viceCaptain: team.viceCaptain ? team.viceCaptain.name : "",
+      impactPlayer: team.impactPlayer ? playerForAISimulation(team.impactPlayer, 11) : null,
+      xi: xi.map(playerForAISimulation)
+    };
+  }
+  function buildAISimulationPayload(teamA, teamB, xiA, xiB, fixture, matchNo, venue, dew, tossWinner, tossDecision) {
+    return {
+      mode: GAME_MODE_AI_2027,
+      year: 2027,
+      matchNo,
+      phase: tournState.phase,
+      stage: fixture.stage || "League",
+      fixture,
+      selectedTeam,
+      venue,
+      conditions: {
+        dew,
+        pitch: venue.pitch,
+        averageScore: venue.avg,
+        paceSupport: venue.pace,
+        spinSupport: venue.spin,
+        battingSupport: venue.batting,
+        chasingAdvantage: venue.chase
+      },
+      toss: { winner: tossWinner.name, decision: tossDecision },
+      teams: [teamForAISimulation(teamA, xiA), teamForAISimulation(teamB, xiB)],
+      ruleReminders: [
+        "Simulate as 2027. Do not use historical score extraction.",
+        "Apply realistic T20 phases: powerplay, middle overs, death overs.",
+        "Respect player roles, XI balance, wicketkeeper, bowling options, impact player context, pressure, fatigue, form, and venue.",
+        "Return raw innings runs and bowling wickets. The game will add 25 bonus runs per bowling wicket after the response."
+      ]
+    };
+  }
+  async function requestAISimulation(payload) {
+    const res = await fetch("/api/ai/simulate-match", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body:JSON.stringify(payload)
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.match) throw new Error(data.error || "OpenAI simulation unavailable");
+    return data;
+  }
+  function clampNumber(value, min, max, fallback) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return fallback;
+    return Math.max(min, Math.min(max, Math.round(n)));
+  }
+  function normalizeRecentBalls(balls) {
+    const safe = Array.isArray(balls) ? balls.map(b => String(b || "0").slice(0, 2)).filter(Boolean) : [];
+    return safe.length ? safe.slice(-12) : ["0","1","4","1","0","2","W","1","6","0","1","4"];
+  }
+  function normalizeAIBatting(rawRows, xi) {
+    const rows = Array.isArray(rawRows) ? rawRows : [];
+    const byName = new Map(rows.map(row => [String(row.name || "").toLowerCase(), row]));
+    return xi.map((player, index) => {
+      const raw = byName.get(String(player.name || "").toLowerCase()) || rows[index] || {};
+      return {
+        ...player,
+        runs: clampNumber(raw.runs, 0, 180, 0),
+        balls: clampNumber(raw.balls, 0, 120, Number(raw.runs || 0) ? Math.max(1, Math.round(Number(raw.runs || 0) * 0.75)) : 0),
+        fours: clampNumber(raw.fours, 0, 30, 0),
+        sixes: clampNumber(raw.sixes, 0, 20, 0),
+        dismissal: String(raw.dismissal || "")
+      };
+    });
+  }
+  function normalizeAIBowling(rawRows, bowlingXI) {
+    const rows = Array.isArray(rawRows) ? rawRows : [];
+    const byName = new Map(rows.map(row => [String(row.name || "").toLowerCase(), row]));
+    return getBowlingOptions(bowlingXI).slice(0, 7).map((player, index) => {
+      const raw = byName.get(String(player.name || "").toLowerCase()) || rows[index] || {};
+      const balls = clampNumber(raw.balls, 0, 24, index < 5 ? 18 : 0);
+      return {
+        id: player.id,
+        name: player.name,
+        role: player.role,
+        balls,
+        runs: clampNumber(raw.runs, 0, 80, balls ? Math.round(balls * 1.35) : 0),
+        wickets: clampNumber(raw.wickets, 0, 6, 0),
+        dots: clampNumber(raw.dots, 0, balls, Math.round(balls * 0.35)),
+        foursConceded: clampNumber(raw.foursConceded, 0, 12, 0),
+        sixesConceded: clampNumber(raw.sixesConceded, 0, 10, 0)
+      };
+    }).filter(b => b.balls > 0 || b.wickets > 0);
+  }
+  function normalizeAIInnings(raw, battingTeam, bowlingTeam, battingXI, bowlingXI) {
+    const runs = clampNumber(raw && raw.runs, 40, 280, 160);
+    const wickets = clampNumber(raw && raw.wickets, 0, 10, 6);
+    const balls = clampNumber(raw && raw.balls, 30, 120, 120);
+    const batting = normalizeAIBatting(raw && raw.batting, battingXI);
+    const bowling = normalizeAIBowling(raw && raw.bowling, bowlingXI);
+    return {
+      teamName: battingTeam.name,
+      runs,
+      wickets,
+      balls,
+      oversText: ballsToOvers(balls),
+      runRate: balls ? (runs / (balls / 6)).toFixed(2) : "0.00",
+      batting,
+      bowling,
+      commentary: Array.isArray(raw && raw.commentary) ? raw.commentary.map(String).slice(0, 10) : [],
+      recentBalls: normalizeRecentBalls(raw && raw.recentBalls),
+      historicalApplied: false,
+      aiApplied: true
+    };
+  }
+  function normalizeAIMatchResponse(raw, context) {
+    if (!raw || !Array.isArray(raw.innings) || raw.innings.length < 2) throw new Error("AI response did not include two innings.");
+    const { teamA, teamB, xiA, xiB, venue, dew, tossWinner, tossDecision } = context;
+    const teamMap = new Map([[teamA.name, teamA], [teamB.name, teamB]]);
+    const battingFirstName = raw.innings[0].teamName || (tossDecision === "bat" ? tossWinner.name : (tossWinner.name === teamA.name ? teamB.name : teamA.name));
+    const battingFirstTeam = teamMap.get(battingFirstName) || teamA;
+    const bowlingFirstTeam = battingFirstTeam.name === teamA.name ? teamB : teamA;
+    const battingFirstXI = battingFirstTeam.name === teamA.name ? xiA : xiB;
+    const bowlingFirstXI = bowlingFirstTeam.name === teamA.name ? xiA : xiB;
+    const innings1 = normalizeAIInnings(raw.innings[0], battingFirstTeam, bowlingFirstTeam, battingFirstXI, bowlingFirstXI);
+    const innings2 = normalizeAIInnings(raw.innings[1], bowlingFirstTeam, battingFirstTeam, bowlingFirstXI, battingFirstXI);
+    const innings1BowlingWickets = totalBowlingWickets(innings1);
+    const innings2BowlingWickets = totalBowlingWickets(innings2);
+    innings1.wicketBonusWickets = innings2BowlingWickets;
+    innings1.wicketBonusRuns = innings2BowlingWickets * WICKET_BONUS_RUNS;
+    innings1.finalRuns = innings1.runs + innings1.wicketBonusRuns;
+    innings2.wicketBonusWickets = innings1BowlingWickets;
+    innings2.wicketBonusRuns = innings1BowlingWickets * WICKET_BONUS_RUNS;
+    innings2.finalRuns = innings2.runs + innings2.wicketBonusRuns;
+    const teamScores = {};
+    teamScores[innings1.teamName] = innings1.finalRuns;
+    teamScores[innings2.teamName] = innings2.finalRuns;
+    const winnerName = innings1.finalRuns > innings2.finalRuns ? innings1.teamName : innings2.finalRuns > innings1.finalRuns ? innings2.teamName : null;
+    const winner = winnerName ? teamMap.get(winnerName) : null;
+    const resultText = winner
+      ? `${winner.name} won by ${Math.abs(innings1.finalRuns - innings2.finalRuns)} runs after wicket bonus`
+      : "Match tied";
+    const aiNotes = [
+      ...(Array.isArray(raw.commentary) ? raw.commentary.map(String) : []),
+      ...(Array.isArray(raw.tacticalAnalysis) ? raw.tacticalAnalysis.map(line => "Tactical note: " + line) : [])
+    ].filter(Boolean);
+    return {
+      venue:{ ...venue, ...(raw.venue || {}) },
+      dew: typeof raw.dew === "boolean" ? raw.dew : dew,
+      tossWinner: teamMap.get(raw.tossWinner) || tossWinner,
+      tossDecision: raw.tossDecision === "bowl" ? "bowl" : "bat",
+      innings:[innings1, innings2],
+      teamScores,
+      winner,
+      resultText: raw.resultText || resultText,
+      playerOfMatch: raw.playerOfMatch || "",
+      aiEngine: "OpenAI 2027",
+      commentary:[
+        "AI Simulation Tournament 2027: OpenAI rulebook engine applied.",
+        `${tossWinner.name} won the toss and chose to ${tossDecision}.`,
+        ...aiNotes.slice(0, 8),
+        raw.resultText || resultText
+      ]
+    };
+  }
+  async function simulateAIMatch2027(teamA, teamB, xiA, xiB, fixture, matchNo) {
+    tournState.drawnYear = 2027;
+    const venue = UCM_VENUES[Math.floor(Math.random() * UCM_VENUES.length)];
+    const dew = Math.random() < venue.dew;
+    const tossWinner = Math.random() < 0.5 ? teamA : teamB;
+    const tossDecision = chooseTossDecision(tossWinner, venue, dew);
+    const payload = buildAISimulationPayload(teamA, teamB, xiA, xiB, fixture, matchNo, venue, dew, tossWinner, tossDecision);
+    try {
+      const data = await requestAISimulation(payload);
+      return normalizeAIMatchResponse(data.match, { teamA, teamB, xiA, xiB, venue, dew, tossWinner, tossDecision });
+    } catch (e) {
+      console.warn("OpenAI match simulation unavailable; using local 2027 fallback.", e);
+      showToast("OpenAI simulation is unavailable. Using local 2027 simulation fallback.");
+      const fallback = simulateT20Match(teamA, teamB, xiA, xiB, { year:2027, matchNoInYear:null, useHistorical:false, teamAppearances:{} });
+      fallback.aiEngine = "Local 2027 fallback";
+      fallback.commentary = [
+        "AI Simulation Tournament 2027 fallback: local rule-based engine used because OpenAI is unavailable.",
+        ...fallback.commentary
+      ];
+      return fallback;
+    }
+  }
 
   function simulateT20Match(teamA, teamB, xiA, xiB, historyContext = {}) {
     const venue = UCM_VENUES[Math.floor(Math.random() * UCM_VENUES.length)];
@@ -3416,7 +4206,7 @@ setInterval(syncFriendsRoom, 1000);
       bowler.historicalMissing = true;
       bowler.historicalMatchNo = historical.matchNo || null;
 
-      if (!historical.found) return;
+      if (!hasHistoricalBowlingRecord(historical, bowler)) return;
       bowler.wickets = Number(historical.w || 0);
       bowler.balls = estimateHistoricalBowlingBalls(bowler.wickets, bowler);
       bowler.runs = estimateHistoricalBowlingRuns(bowler, bowler.wickets, bowler.balls);
@@ -3462,6 +4252,14 @@ setInterval(syncFriendsRoom, 1000);
     const maxCount = Math.floor(runs / value);
     const ratio = value === 6 ? 0.12 : 0.18;
     return Math.min(maxCount, Math.floor(runs * ratio / value));
+  }
+
+  function hasHistoricalBowlingRecord(historical, bowler) {
+    if (!historical || !historical.found) return false;
+    const wickets = Number(historical.w || 0);
+    if (wickets > 0) return true;
+    const role = String(bowler && bowler.role || "").toLowerCase();
+    return role.includes("bowler") || role.includes("all-rounder") || role.includes("all rounder");
   }
 
   function estimateHistoricalBowlingBalls(wickets, bowler) {
@@ -3551,9 +4349,10 @@ setInterval(syncFriendsRoom, 1000);
   }
   // Helper: get a valid XI for a team, with batting order and at least five bowling options.
   function autoGetXI(team) {
-    if (xiMeetsCoreRules(team.xi)) return team.xi;
+    removeInjuredFromTeamXI(team);
+    if (teamXIReadyForMatch(team)) return team.xi;
     autoSelectAIXI(team);
-    return team.xi && team.xi.length === 11 ? team.xi : team.squad.sort((a,b)=>b.rating-a.rating).slice(0,11);
+    return team.xi && team.xi.length === 11 ? team.xi : team.squad.filter(p => !isPlayerInjured(p)).sort((a,b)=>b.rating-a.rating).slice(0,11);
   }
   function renderAll() { renderPlayers(); renderLive(); renderTeams(); renderPoolStats(); updateControls(); }
 
@@ -4104,6 +4903,7 @@ setInterval(syncFriendsRoom, 1000);
   function showAuctionSummary() {
     if (state.auctionSummaryShown) return;
     state.auctionSummaryShown = true;
+    sendAnalytics("game_action", "auction_completed");
     if (roomHostActive()) {
       roomGameStage = "xi";
       openXIScreen();
@@ -4305,46 +5105,5 @@ setInterval(syncFriendsRoom, 1000);
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

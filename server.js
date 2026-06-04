@@ -11,13 +11,24 @@ const HOST = process.env.HOST || '0.0.0.0';
 const ROOT = __dirname;
 const ROOM_DB_FILE = process.env.ROOM_DB_FILE || path.join(ROOT, 'ucm_rooms_db.json');
 const ANALYTICS_DB_FILE = process.env.ANALYTICS_DB_FILE || path.join(ROOT, 'ucm_analytics_db.json');
-const ANALYTICS_ADMIN_TOKEN = process.env.ANALYTICS_ADMIN_TOKEN || '';
+const ANALYTICS_ADMIN_TOKEN = process.env.ANALYTICS_ADMIN_TOKEN || 'keshav199507';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
+const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4.1-mini';
 const HOST_TIMEOUT_MS = Number(process.env.HOST_TIMEOUT_MS || 2 * 60 * 1000);
 const TEAM_NAMES = [
   'Mumbai Mavericks', 'Delhi Strikers', 'Bengaluru Blazers', 'Chennai Chargers', 'Kolkata Knightsmen',
   'Rajasthan Riders', 'Hyderabad Hawks', 'Punjab Panthers', 'Gujarat Gladiators', 'Lucknow Lions'
 ];
 const ALLOWED_ACTIONS = new Set(['bid', 'pass', 'xi', 'simulateMatch', 'nextMatch']);
+const AI_SIMULATION_RULEBOOK = [
+  'Simulate UCM as a realistic premium T20 franchise tournament season, not arcade cricket.',
+  'Use player role, batting order, bowling type, ratings, form, confidence, fatigue, pressure, team balance, captaincy, venue, pitch, dew, weather, and match situation.',
+  'Recent T20 ability, role clarity, pressure handling, death-over skill, matchup advantage, and fitness should matter more than old reputation.',
+  'Include natural collapses, comebacks, momentum swings, tactical decisions, nervous starts, clutch performances, fielding pressure, and realistic human behaviour.',
+  'Venue and pitch must matter: boundary size, pace/spin support, dew, humidity, chasing advantage, and pitch deterioration should influence scoring.',
+  'Playing XI means 11 players plus optional impact player context. Respect wicketkeeper, bowling balance, overseas balance, and all-rounder value.',
+  'Return a complete JSON match result with toss, venue, innings, batting scorecards, bowling scorecards, highlights, tactical analysis, player of the match, and result text.'
+].join(' ');
 const rooms = new Map();
 const clients = new Map();
 const rateBuckets = new Map();
@@ -70,6 +81,51 @@ loadAnalytics();
 function sanitizeAnalyticsText(value, max = 80) {
   return String(value || '').replace(/[\r\n\t]/g, ' ').trim().slice(0, max);
 }
+function detectDeviceType(req, body = {}) {
+  const explicit = sanitizeAnalyticsText(body.deviceType || '', 20).toLowerCase();
+  if (['mobile', 'tablet', 'desktop'].includes(explicit)) return explicit;
+  const ua = String(req.headers['user-agent'] || '').toLowerCase();
+  if (/ipad|tablet/.test(ua)) return 'tablet';
+  if (/mobi|android|iphone|ipod/.test(ua)) return 'mobile';
+  return 'desktop';
+}
+function analyticsLocation(req, body = {}) {
+  const country = sanitizeAnalyticsText(
+    req.headers['cf-ipcountry'] ||
+    req.headers['x-vercel-ip-country'] ||
+    req.headers['x-appengine-country'] ||
+    body.country ||
+    '',
+    40
+  ) || 'Unknown';
+  const city = sanitizeAnalyticsText(
+    req.headers['x-vercel-ip-city'] ||
+    req.headers['x-appengine-city'] ||
+    body.city ||
+    '',
+    60
+  );
+  return { country, city };
+}
+function countBy(list, pickKey) {
+  return list.reduce((acc, item) => {
+    const key = sanitizeAnalyticsText(pickKey(item) || 'Unknown', 100) || 'Unknown';
+    acc[key] = (acc[key] || 0) + 1;
+    return acc;
+  }, {});
+}
+function topCounts(counts, limit = 10) {
+  return Object.entries(counts)
+    .map(([label, count]) => ({ label, count }))
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
+    .slice(0, limit);
+}
+function startOfTodayMs() {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d.getTime();
+}
+function activeSinceMs() { return now() - 5 * 60 * 1000; }
 function ensureAnalyticsRoom(code) {
   const roomCode = normalizeCode(code);
   if (!roomCode) return null;
@@ -126,6 +182,8 @@ function recordAnalyticsEvent(req, body = {}, trusted = {}) {
   const screen = sanitizeAnalyticsText(body.screen || trusted.screen || '', 40);
   const name = sanitizeAnalyticsText(trusted.name || body.name || session.name || '', 32);
   const team = sanitizeAnalyticsText(trusted.team || body.team || session.team || '', 50);
+  const deviceType = detectDeviceType(req, body);
+  const location = analyticsLocation(req, body);
   const deltaMs = Math.max(0, Math.min(30 * 60 * 1000, Number(body.timeSpentMs || body.deltaMs || 0)));
 
   session.lastSeen = t;
@@ -135,6 +193,9 @@ function recordAnalyticsEvent(req, body = {}, trusted = {}) {
   if (visitorId) session.visitorId = visitorId;
   if (name) session.name = name;
   if (team) session.team = team;
+  session.deviceType = deviceType;
+  session.country = location.country;
+  session.city = location.city;
 
   if (type === 'click') {
     session.clicks += 1;
@@ -153,7 +214,7 @@ function recordAnalyticsEvent(req, body = {}, trusted = {}) {
   }
 
   analyticsDb.totals.events += 1;
-  const event = { id:analyticsDb.totals.events, at:t, type, roomCode:roomCode || undefined, playerId:playerId || undefined, name:name || undefined, team:team || undefined, sessionId, screen:screen || undefined, label:label || undefined };
+  const event = { id:analyticsDb.totals.events, at:t, type, roomCode:roomCode || undefined, playerId:playerId || undefined, name:name || undefined, team:team || undefined, sessionId, screen:screen || undefined, label:label || undefined, deviceType, country:location.country, city:location.city || undefined };
   analyticsDb.events.push(event);
   if (analyticsDb.events.length > 1000) analyticsDb.events = analyticsDb.events.slice(-1000);
   scheduleAnalyticsSave();
@@ -174,12 +235,42 @@ function analyticsSummary() {
   const sessions = Object.values(analyticsDb.sessions);
   const users = Object.values(analyticsDb.users);
   const roomsList = Object.values(analyticsDb.rooms);
+  const events = analyticsDb.events || [];
+  const todayStart = startOfTodayMs();
+  const activeStart = activeSinceMs();
+  const sessionsToday = sessions.filter(s => Number(s.lastSeen || s.firstSeen || 0) >= todayStart);
+  const activeSessions = sessions.filter(s => Number(s.lastSeen || 0) >= activeStart);
+  const clickEvents = events.filter(e => e.type === 'click');
+  const gameActions = events.filter(e => e.type === 'game_action');
+  const roomJoinedEvents = events.filter(e => e.type === 'room_joined');
+  const selectedTeamCounts = countBy(
+    sessions.filter(s => s.team),
+    s => s.team
+  );
+  const locationCounts = countBy(
+    sessions,
+    s => (s.country || 'Unknown') + (s.city ? ' / ' + s.city : '')
+  );
+  const roomsJoined = Math.max(roomJoinedEvents.length, Math.max(0, Number(analyticsDb.totals.roomJoins || 0) - Number(analyticsDb.totals.roomsCreated || 0)));
+  const totalTimeMs = Number(analyticsDb.totals.timeSpentMs || 0);
   return {
     savedAt: analyticsDb.savedAt,
     totals: analyticsDb.totals,
     activeRooms: rooms.size,
     uniquePlayers: users.length,
     uniqueSessions: sessions.length,
+    totalVisitorsToday: new Set(sessionsToday.map(s => s.visitorId || s.id)).size,
+    activeUsersNow: new Set(activeSessions.map(s => s.visitorId || s.id)).size,
+    totalSessions: sessions.length,
+    averageTimeSpentMinutes: sessions.length ? Math.round(totalTimeMs / sessions.length / 60000) : 0,
+    roomsCreated: Number(analyticsDb.totals.roomsCreated || 0),
+    roomsJoined,
+    matchesSimulated: gameActions.filter(e => e.label === 'simulate_match' || e.label === 'match_simulated').length,
+    auctionCompletions: gameActions.filter(e => e.label === 'auction_completed').length,
+    mostClickedButtons: topCounts(countBy(clickEvents, e => e.label || e.screen || 'Unknown'), 12),
+    mostSelectedTeams: topCounts(selectedTeamCounts, 10),
+    deviceTypes: topCounts(countBy(sessions, s => s.deviceType || 'Unknown'), 5),
+    locations: topCounts(locationCounts, 10),
     totalTimeMinutes: Math.round((analyticsDb.totals.timeSpentMs || 0) / 60000),
     recentRooms: roomsList.sort((a,b) => Number(b.lastSeen || 0) - Number(a.lastSeen || 0)).slice(0, 20),
     recentEvents: analyticsDb.events.slice(-50)
@@ -188,6 +279,65 @@ function analyticsSummary() {
 function canViewAnalytics(query) {
   if (!ANALYTICS_ADMIN_TOKEN) return process.env.NODE_ENV !== 'production';
   return String(query.token || '') === ANALYTICS_ADMIN_TOKEN;
+}
+
+function safeJsonText(value, max = 200000) {
+  return JSON.stringify(value || {}).slice(0, max);
+}
+function extractOpenAIText(data) {
+  if (!data) return '';
+  if (typeof data.output_text === 'string') return data.output_text;
+  const chunks = [];
+  for (const item of data.output || []) {
+    for (const content of item.content || []) {
+      if (typeof content.text === 'string') chunks.push(content.text);
+      else if (typeof content.output_text === 'string') chunks.push(content.output_text);
+    }
+  }
+  return chunks.join('\n').trim();
+}
+function aiSimulationSystemPrompt() {
+  return [
+    'You are the UCM 2027 AI match simulation engine.',
+    'You must obey this rulebook: ' + AI_SIMULATION_RULEBOOK,
+    'Return only valid JSON. Do not include markdown.',
+    'Use the team names and player names exactly as provided.',
+    'Do not use historical score extraction. This is a fictional 2027 simulation.',
+    'The response schema is:',
+    '{"venue":{"name":"","pitch":""},"dew":true,"tossWinner":"Team Name","tossDecision":"bat","innings":[{"teamName":"Team Name","runs":170,"wickets":7,"balls":120,"batting":[{"name":"Player","runs":45,"balls":31,"fours":4,"sixes":2,"dismissal":"c fielder b bowler"}],"bowling":[{"name":"Bowler","balls":24,"runs":32,"wickets":2,"dots":9,"foursConceded":3,"sixesConceded":1}],"commentary":["short highlight"],"recentBalls":["1","4","0","W"]}],"winner":"Team Name","resultText":"Team won by ...","playerOfMatch":"Player","tacticalAnalysis":["short point"],"commentary":["six to eight broadcast-style lines"]}'
+  ].join('\n');
+}
+async function runOpenAIMatchSimulation(payload) {
+  if (!OPENAI_API_KEY) throw new Error('OpenAI API key is not configured. Set OPENAI_API_KEY on the server.');
+  const response = await fetch('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + OPENAI_API_KEY,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: OPENAI_MODEL,
+      temperature: 0.72,
+      max_output_tokens: 6500,
+      text: { format: { type: 'json_object' } },
+      input: [
+        { role: 'system', content: aiSimulationSystemPrompt() },
+        { role: 'user', content: 'Simulate this UCM 2027 match. Return JSON only.\n' + safeJsonText(payload) }
+      ]
+    })
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const message = data.error && data.error.message ? data.error.message : 'OpenAI simulation failed';
+    throw new Error(message);
+  }
+  const text = extractOpenAIText(data);
+  if (!text) throw new Error('OpenAI returned an empty simulation.');
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    throw new Error('OpenAI returned invalid simulation JSON.');
+  }
 }
 
 function sendJson(res, status, data) {
@@ -331,6 +481,14 @@ function serveStatic(req, res, pathname) {
   });
 }
 async function handleApi(req, res, pathname, query) {
+  if (pathname === '/api/ai/simulate-match' && req.method === 'POST') {
+    if (!checkRate(req, res, 'ai-simulate-match', 24, 60_000)) return;
+    const body = await readBody(req);
+    if (String(body.mode || '') !== 'ai2027') return sendJson(res, 400, { error:'Invalid AI simulation mode' });
+    if (!body.fixture || !Array.isArray(body.teams) || body.teams.length !== 2) return sendJson(res, 400, { error:'Match fixture and two teams are required' });
+    const match = await runOpenAIMatchSimulation(body);
+    return sendJson(res, 200, { ok:true, source:'openai', model:OPENAI_MODEL, match });
+  }
   if (pathname === '/api/analytics/event' && req.method === 'POST') {
     if (!checkRate(req, res, 'analytics-event', 240, 60_000)) return;
     const body = await readBody(req);
