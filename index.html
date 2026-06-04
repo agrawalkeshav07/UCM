@@ -2488,11 +2488,16 @@ setInterval(syncFriendsRoom, 1000);
 
   function advanceTeamInjuryRecovery(team) {
     (team && team.squad ? team.squad : []).forEach(player => {
-      if (!isPlayerInjured(player)) return;
-      player.injuredMatches = Math.max(0, Number(player.injuredMatches || 0) - 1);
-      if (player.injuredMatches <= 0) {
-        clearPlayerInjury(player);
-        player.fitness = Math.min(100, Number(player.fitness || 72) + 8);
+      if (isPlayerInjured(player)) {
+        player.injuredMatches = Math.max(0, Number(player.injuredMatches || 0) - 1);
+        if (player.injuredMatches <= 0) {
+          clearPlayerInjury(player);
+          player.fitness = Math.min(100, Number(player.fitness || 72) + 8);
+          player.fatigue = Math.max(0, Number(player.fatigue || 0) - 18);
+        }
+      } else {
+        player.fatigue = Math.max(0, Number(player.fatigue || 0) - 8);
+        player.fitness = Math.min(100, Number(player.fitness || 82) + 2);
       }
     });
   }
@@ -2567,16 +2572,19 @@ setInterval(syncFriendsRoom, 1000);
     const bowlingStyle = String(player.bowlingStyle || "").toLowerCase();
     const age = Number(player.age || 30);
     const fitness = Number(player.fitness || 82);
-    let risk = 0.008;
-    risk += Math.min(0.02, workload.battingBalls / 220);
-    risk += Math.min(0.032, workload.bowlingBalls / 115);
-    if (role === "Bowler") risk += 0.008;
-    if (role === "All-Rounder" && workload.bowlingBalls > 0 && workload.battingBalls > 12) risk += 0.01;
-    if (bowlingStyle.includes("fast") || bowlingStyle.includes("medium")) risk += workload.bowlingBalls >= 18 ? 0.014 : 0.006;
-    if (age >= 35) risk += 0.007;
-    if (fitness < 72) risk += 0.012;
-    if (fitness < 60) risk += 0.012;
-    return Math.max(0.002, Math.min(0.085, risk));
+    const fatigue = Number(player.fatigue || 0);
+    let risk = 0.012;
+    risk += Math.min(0.028, workload.battingBalls / 180);
+    risk += Math.min(0.044, workload.bowlingBalls / 105);
+    if (role === "Bowler") risk += 0.012;
+    if (role === "All-Rounder" && workload.bowlingBalls > 0 && workload.battingBalls > 10) risk += 0.016;
+    if (bowlingStyle.includes("fast") || bowlingStyle.includes("medium")) risk += workload.bowlingBalls >= 18 ? 0.022 : 0.009;
+    if (age >= 35) risk += 0.012;
+    if (fitness < 76) risk += 0.015;
+    if (fitness < 64) risk += 0.018;
+    if (fatigue >= 45) risk += 0.014;
+    if (fatigue >= 70) risk += 0.02;
+    return Math.max(0.006, Math.min(0.16, risk));
   }
 
   function chooseInjuryType(player, workload) {
@@ -2603,7 +2611,7 @@ setInterval(syncFriendsRoom, 1000);
       if (!player || isPlayerInjured(player)) return;
       const workload = workloadForPlayer(match, team, player);
       const activeWorkload = workload.battingBalls + workload.bowlingBalls;
-      if (activeWorkload <= 0 && Math.random() > 0.12) return;
+      if (activeWorkload <= 0 && Math.random() > 0.2) return;
       const risk = playerInjuryRisk(player, workload);
       player.fatigue = Math.max(0, Math.min(100, Number(player.fatigue || 0) + Math.round(activeWorkload / 4)));
       player.fitness = Math.max(45, Math.min(100, Number(player.fitness || 82) - Math.round(activeWorkload / 28)));
@@ -2623,15 +2631,49 @@ setInterval(syncFriendsRoom, 1000);
     return events;
   }
 
+  function forceFirstSeasonInjuryIfNeeded(match, fixture, teamsWithXi) {
+    if ((tournState.injuryLog || []).length || currentTournamentMatchNumber() < 5) return [];
+    const pool = teamsWithXi.flatMap(({ team, xi }) => (xi || []).map(xiPlayer => {
+      const player = resolveSquadPlayer(team, xiPlayer.id) || xiPlayer;
+      const workload = workloadForPlayer(match, team, player);
+      const activeWorkload = workload.battingBalls + workload.bowlingBalls;
+      const score = playerInjuryRisk(player, workload) * 100 + activeWorkload * 0.18 + Number(player.fatigue || 0) * 0.15 + (player.role === "Bowler" ? 3 : 0);
+      return { team, player, workload, score };
+    }))
+      .filter(item => item.player && !isPlayerInjured(item.player) && item.score > 2)
+      .sort((a,b) => b.score - a.score);
+    const picked = pool[0];
+    if (!picked) return [];
+    picked.player.injuredMatches = injuryDurationMatches(picked.player, picked.workload);
+    picked.player.injuryType = chooseInjuryType(picked.player, picked.workload);
+    picked.player.injuredAtMatch = currentTournamentMatchNumber();
+    picked.player.fitness = Math.max(45, Number(picked.player.fitness || 82) - 8);
+    return [{
+      team: picked.team.name,
+      playerId: picked.player.id,
+      playerName: picked.player.name,
+      type: picked.player.injuryType,
+      matches: picked.player.injuredMatches,
+      fixture: `${fixture.home} vs ${fixture.away}`
+    }];
+  }
+
   function applyPostMatchFitnessAndInjuries(match, fixture, teamA, teamB, xiA, xiB) {
     advanceTeamInjuryRecovery(teamA);
     advanceTeamInjuryRecovery(teamB);
-    const events = [
+    let events = [
       ...rollTeamMatchInjuries(match, fixture, teamA, xiA),
       ...rollTeamMatchInjuries(match, fixture, teamB, xiB)
     ];
+    if (!events.length) {
+      events = forceFirstSeasonInjuryIfNeeded(match, fixture, [
+        { team:teamA, xi:xiA },
+        { team:teamB, xi:xiB }
+      ]);
+    }
     if (events.length) {
       match.injuries = events;
+      tournState.injuryLog = [...(tournState.injuryLog || []), ...events.map(ev => ({ ...ev, matchNo: currentTournamentMatchNumber(), stage: fixture.stage || tournState.phase }))].slice(-80);
       match.commentary = match.commentary || [];
       events.forEach(ev => match.commentary.push(`${ev.playerName} (${ev.team}) suffered ${ev.type} and will miss ${ev.matches} match${ev.matches === 1 ? "" : "es"}.`));
       if (events.some(ev => ev.team === selectedTeam)) showToast("Injury update: one of your players is unavailable for upcoming matches.");
@@ -2788,6 +2830,7 @@ setInterval(syncFriendsRoom, 1000);
     pointsTable: null,
     schedule: [],        // balanced double round-robin fixtures
     playedFixtures: {},  // prevents the same league/playoff fixture being counted twice
+    injuryLog: [],
     phase: 'league',     // 'league' | 'playoffs' | 'done'
     playoffs: [],
     playoffStep: 0,
@@ -2803,6 +2846,7 @@ setInterval(syncFriendsRoom, 1000);
     tournState.pointsTable = null;
     tournState.schedule = [];
     tournState.playedFixtures = {};
+    tournState.injuryLog = [];
     tournState.phase = "league";
     tournState.playoffs = [];
     tournState.playoffStep = 0;
@@ -3556,7 +3600,9 @@ setInterval(syncFriendsRoom, 1000);
     const stats = ensureSeasonStats();
     const batters = Object.values(stats.batting);
     const bowlers = Object.values(stats.bowling);
-    if (!batters.length && !bowlers.length) {
+    const currentInjuries = activeAuctionTeams().flatMap(team => teamInjuredPlayers(team).map(player => ({ team:team.name, player })));
+    const recentInjuries = [...(tournState.injuryLog || [])].reverse();
+    if (!batters.length && !bowlers.length && !currentInjuries.length && !recentInjuries.length) {
       grid.innerHTML = '<div class="stat-leader-card"><h4>Season Leaders</h4><div class="stat-leader-row"><span>No season stats yet</span><strong>-</strong></div></div>';
       wrap.style.display = seasonLeadersPanelOpen ? "block" : "none";
       return;
@@ -3571,6 +3617,11 @@ setInterval(syncFriendsRoom, 1000);
     const bySixes = [...batters].sort((a,b) => b.sixes - a.sixes || b.runs - a.runs);
     const bySR = [...batters].filter(p => p.balls >= 20).sort((a,b) => (b.runs / b.balls) - (a.runs / a.balls));
     const byEconomy = [...bowlers].filter(p => p.balls >= 12).sort((a,b) => (a.runs / (a.balls / 6)) - (b.runs / (b.balls / 6)));
+    const injuryRows = currentInjuries.slice(0,5).map(item => `
+      <div class="stat-leader-row"><span>${item.player.name}<br><small>${item.team} - ${item.player.injuryType || "Injury"}</small></span><strong>${injuryMatchesText(item.player)}</strong></div>`).join("") ||
+      recentInjuries.slice(0,5).map(ev => `
+      <div class="stat-leader-row"><span>${ev.playerName}<br><small>${ev.team} - recovered/recent</small></span><strong>${ev.matches}m</strong></div>`).join("") ||
+      `<div class="stat-leader-row"><span>No injuries yet</span><strong>-</strong></div>`;
 
     grid.innerHTML = `
       <div class="stat-leader-card"><h4>Top Scorers</h4>${rows(byRuns, p => p.runs)}</div>
@@ -3578,7 +3629,8 @@ setInterval(syncFriendsRoom, 1000);
       <div class="stat-leader-card"><h4>Most Fours</h4>${rows(byFours, p => p.fours)}</div>
       <div class="stat-leader-card"><h4>Most Sixes</h4>${rows(bySixes, p => p.sixes)}</div>
       <div class="stat-leader-card"><h4>Best Strike Rate</h4>${rows(bySR, p => ((p.runs / p.balls) * 100).toFixed(0))}</div>
-      <div class="stat-leader-card"><h4>Best Economy</h4>${rows(byEconomy, p => (p.runs / (p.balls / 6)).toFixed(1))}</div>`;
+      <div class="stat-leader-card"><h4>Best Economy</h4>${rows(byEconomy, p => (p.runs / (p.balls / 6)).toFixed(1))}</div>
+      <div class="stat-leader-card"><h4>Injuries</h4>${injuryRows}</div>`;
     wrap.style.display = seasonLeadersPanelOpen ? "block" : "none";
   }
 
@@ -3624,15 +3676,24 @@ setInterval(syncFriendsRoom, 1000);
     applyPointsResult(tournState.pointsTable, nameA, nameB, scoreA, scoreB);
   }
 
+  function leagueHistoryFixtureKey(h) {
+    const no = Number(h && h.leagueMatchNo);
+    const fixture = Number.isInteger(no) && no >= 1 ? tournState.schedule[no - 1] : null;
+    if (!fixture || !h || fixture.stage !== "League") return null;
+    if (fixture.home !== h.teamA || fixture.away !== h.teamB) return null;
+    return ["league", no, fixture.home, fixture.away, fixture.leg || 1].join("::");
+  }
+
   function rebuildPointsTableFromUniqueLeagueMatches() {
     if (!tournState.pointsTable || !tournState.matchHistory) return;
     const rebuilt = initPointsTable();
     const seen = new Set();
     [...tournState.matchHistory]
-      .filter(h => Number.isFinite(Number(h.leagueMatchNo)) && h.teamA && h.teamB)
+      .filter(h => h.leagueMatchNo != null && h.stage === "League" && h.teamA && h.teamB)
       .sort((a, b) => Number(a.leagueMatchNo) - Number(b.leagueMatchNo))
       .forEach(h => {
-        const key = "league::" + Number(h.leagueMatchNo);
+        const key = leagueHistoryFixtureKey(h);
+        if (!key) return;
         if (seen.has(key)) return;
         seen.add(key);
         applyPointsResult(rebuilt, h.teamA, h.teamB, Number(h.scoreA || 0), Number(h.scoreB || 0));
@@ -3777,11 +3838,12 @@ setInterval(syncFriendsRoom, 1000);
       const selectedPlayed = h.result && h.result !== "N";
       const cls = selectedPlayed ? (h.result==="W"?"win-log":h.result==="L"?"loss-log":"tie-log") : "tie-log";
       const resultText = h.winner === "Tie" ? "TIE" : `${h.winner} won`;
+      const injuryText = h.injuries && h.injuries.length ? ` - ${h.injuries.length} injury${h.injuries.length === 1 ? "" : "s"}` : "";
       return `<div class="log-entry ${cls}">
         <span class="le-match">${h.stage || "Match"} ${h.leagueMatchNo || h.playoffStep || h.matchNo}</span>
         <span class="le-vs"><strong>${h.teamA}</strong> vs <strong>${h.teamB}</strong></span>
         <span class="le-score">${h.scoreTextA || h.scoreA} - ${h.scoreTextB || h.scoreB}</span>
-        <span class="le-result ${selectedPlayed ? h.result : "T"}">${resultText}</span>
+        <span class="le-result ${selectedPlayed ? h.result : "T"}">${resultText}${injuryText}</span>
       </div>`;
     }).join("") || `<div style="color:var(--text-mute);font-size:0.8rem;padding:8px">No matches played yet</div>`;
   }
@@ -5105,5 +5167,3 @@ setInterval(syncFriendsRoom, 1000);
 </div>
 </body>
 </html>
-
-
