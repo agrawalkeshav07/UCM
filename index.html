@@ -549,7 +549,7 @@ html,body{width:100%;max-width:100%;}
       <div id="homeNameError" class="home-name-error"></div>
     </div>
     <div class="home-buttons">
-      <button class="btn btn-primary" onclick="goToSoloModeSelection()">PLAY SOLO</button>
+      <button class="btn btn-primary" onclick="goToSoloModeSelection()">START SOLO GAME</button>
       <button class="btn btn-secondary" onclick="goToFriendsMenu()">PLAY WITH FRIENDS</button>
       <button class="btn btn-ghost" onclick="showInfoModal('how')">HOW TO PLAY</button>
       <button class="btn btn-ghost" onclick="showInfoModal('settings')">SETTINGS</button>
@@ -564,16 +564,16 @@ html,body{width:100%;max-width:100%;}
     <h2 class="screen-title">SELECT GAME MODE</h2>
     <p class="screen-sub">Choose how this solo UCM season should be simulated</p>
     <div class="mode-grid">
-      <button class="mode-card" onclick="startSoloGameMode('ai2027')">
+      <button class="mode-card" id="aiModeBtn" type="button">
         <div>
-          <h3>AI Simulation Tournament 2027</h3>
+          <h3>AI Mode</h3>
           <p>Same auction system, then dynamic OpenAI-based match simulation using tactical rules, player roles, venue conditions, pressure, form, and team balance.</p>
         </div>
-        <div class="mode-tags"><span>Fixed 2027</span><span>OpenAI Match Engine</span><span>No Historical Draw</span></div>
+        <div class="mode-tags"><span>2027 Season</span><span>AI Match Engine</span><span>No Historical Draw</span></div>
       </button>
-      <button class="mode-card" onclick="startSoloGameMode('historical')">
+      <button class="mode-card" id="historicalModeBtn" type="button">
         <div>
-          <h3>Historical Tournament</h3>
+          <h3>Historical Mode</h3>
           <p>The current UCM experience: historical database, year draw, existing auction, squad, XI, match simulation, playoffs, and records.</p>
         </div>
         <div class="mode-tags"><span>Historical DB</span><span>Year Draw</span><span>Current Flow</span></div>
@@ -806,6 +806,7 @@ let pendingMatchAutoScroll = false;
 let matchSimulationBusy = false;
 let matchHistoryPanelOpen = false;
 let seasonLeadersPanelOpen = false;
+let pendingSoloStateReset = false;
 const USER_NAME_KEY = "ucm_player_name";
 const GAME_MODE_HISTORICAL = "historical";
 const GAME_MODE_AI_2027 = "ai2027";
@@ -886,6 +887,10 @@ function isAiTournamentMode() { return currentGameMode === GAME_MODE_AI_2027; }
 function isHistoricalTournamentMode() { return currentGameMode !== GAME_MODE_AI_2027; }
 function setGameMode(mode) {
   currentGameMode = mode === GAME_MODE_AI_2027 ? GAME_MODE_AI_2027 : GAME_MODE_HISTORICAL;
+}
+function safeSetGameMode(mode) {
+  currentGameMode = mode === GAME_MODE_AI_2027 || mode === "ai" ? GAME_MODE_AI_2027 : GAME_MODE_HISTORICAL;
+  return currentGameMode;
 }
 function scrollToScreenTop(screenId = "matchScreen") {
   requestAnimationFrame(() => {
@@ -1294,10 +1299,15 @@ function goToTeamSelection() {
 }
 function startSoloGameMode(mode) {
   if (!requireUserNameToContinue()) return;
-  setGameMode(mode);
+  try { setGameMode(mode); } catch (e) { safeSetGameMode(mode); }
   prepareTeamScreen("ai", null);
   showOnlyScreen("teamScreen");
 }
+window.goToSoloModeSelection = goToSoloModeSelection;
+window.startSoloGameMode = startSoloGameMode;
+window.goToTeamSelection = goToTeamSelection;
+document.getElementById("aiModeBtn")?.addEventListener("click", () => startSoloGameMode(GAME_MODE_AI_2027));
+document.getElementById("historicalModeBtn")?.addEventListener("click", () => startSoloGameMode(GAME_MODE_HISTORICAL));
 function showFriendsMenuLanding() {
   if (!requireUserNameToContinue()) return;
   playMode = "friends";
@@ -1627,7 +1637,15 @@ setInterval(syncFriendsRoom, 1000);
       name: team.name,
       purse: team.purse,
       overseas: team.overseas,
-      squad: (team.squad || []).map(p => ({ id:p.id, soldPrice:p.soldPrice || 0 })),
+      squad: (team.squad || []).map(p => ({
+        id:p.id,
+        soldPrice:p.soldPrice || 0,
+        injuredMatches:Number(p.injuredMatches || 0),
+        injuryType:p.injuryType || "",
+        injuredAtMatch:p.injuredAtMatch || null,
+        fitness:p.fitness,
+        fatigue:p.fatigue
+      })),
       xiIds: (team.xi || []).map(p => p.id),
       captainId: team.captainId || null,
       viceCaptainId: team.viceCaptainId || null,
@@ -1640,9 +1658,18 @@ setInterval(syncFriendsRoom, 1000);
     team.overseas = Number(snap.overseas || 0);
     team.squad = (snap.squad || []).map(item => {
       const base = findPlayerById(item.id);
-      return base ? { ...base, soldPrice:item.soldPrice || 0 } : null;
+      return base ? {
+        ...base,
+        soldPrice:item.soldPrice || 0,
+        injuredMatches:Number(item.injuredMatches || 0),
+        injuryType:item.injuryType || "",
+        injuredAtMatch:item.injuredAtMatch || null,
+        fitness:item.fitness != null ? item.fitness : base.fitness,
+        fatigue:item.fatigue != null ? item.fatigue : base.fatigue
+      } : null;
     }).filter(Boolean);
-    team.xi = idsToPlayers(snap.xiIds);
+    const squadById = new Map(team.squad.map(p => [p.id, p]));
+    team.xi = (snap.xiIds || []).map(id => squadById.get(id)).filter(Boolean);
     team.captainId = snap.captainId || null;
     team.viceCaptainId = snap.viceCaptainId || null;
     team.impactId = snap.impactId || null;
@@ -1844,6 +1871,28 @@ setInterval(syncFriendsRoom, 1000);
     state.auctionHistory = [];
     state.bidTrail = [];
     state.auctionSummaryShown = false;
+  }
+  function resetSoloGameState() {
+    resetRoomAuctionState();
+    try {
+      resetTournamentForActiveTeams();
+      pendingSoloStateReset = false;
+    } catch (e) {
+      pendingSoloStateReset = true;
+      throw e;
+    }
+    selectedTeam = null;
+    try { xiState = { xi: [], captainId: null, viceCaptainId: null, impactId: null }; } catch (e) {}
+    matchHistoryPanelOpen = false;
+    seasonLeadersPanelOpen = false;
+    state.lastMessage = "Solo auction ready.";
+    resetTeamSelectionUI();
+    try { clearMatchResultPanels(); } catch (e) {}
+  }
+  function consumePendingSoloStateReset() {
+    if (!pendingSoloStateReset || playMode !== "ai") return;
+    resetTournamentForActiveTeams();
+    pendingSoloStateReset = false;
   }
   function allRoomXIsReady() {
     return activeAuctionTeams().length >= 2 && activeAuctionTeams().every(team =>
@@ -3301,6 +3350,7 @@ setInterval(syncFriendsRoom, 1000);
   }
 
   function sortedStandings() {
+    rebuildPointsTableFromUniqueLeagueMatches();
     return Object.entries(tournState.pointsTable || {})
       .sort((a,b) => b[1].pts - a[1].pts || Number(b[1].nrr) - Number(a[1].nrr) || b[1].w - a[1].w || (b[1].pf - b[1].pa) - (a[1].pf - a[1].pa));
   }
@@ -3933,7 +3983,7 @@ setInterval(syncFriendsRoom, 1000);
         "Simulate as 2027. Do not use historical score extraction.",
         "Apply realistic T20 phases: powerplay, middle overs, death overs.",
         "Respect player roles, XI balance, wicketkeeper, bowling options, impact player context, pressure, fatigue, form, and venue.",
-        "Return raw innings runs and bowling wickets. The game will add 25 bonus runs per bowling wicket after the response."
+        "Return normal cricket innings totals only. Do not add wicket bonus runs in AI Mode."
       ]
     };
   }
@@ -4025,19 +4075,21 @@ setInterval(syncFriendsRoom, 1000);
     const innings1BowlingWickets = totalBowlingWickets(innings1);
     const innings2BowlingWickets = totalBowlingWickets(innings2);
     innings1.wicketBonusWickets = innings2BowlingWickets;
-    innings1.wicketBonusRuns = innings2BowlingWickets * WICKET_BONUS_RUNS;
-    innings1.finalRuns = innings1.runs + innings1.wicketBonusRuns;
+    innings1.wicketBonusRuns = 0;
+    innings1.finalRuns = innings1.runs;
     innings2.wicketBonusWickets = innings1BowlingWickets;
-    innings2.wicketBonusRuns = innings1BowlingWickets * WICKET_BONUS_RUNS;
-    innings2.finalRuns = innings2.runs + innings2.wicketBonusRuns;
+    innings2.wicketBonusRuns = 0;
+    innings2.finalRuns = innings2.runs;
     const teamScores = {};
     teamScores[innings1.teamName] = innings1.finalRuns;
     teamScores[innings2.teamName] = innings2.finalRuns;
     const winnerName = innings1.finalRuns > innings2.finalRuns ? innings1.teamName : innings2.finalRuns > innings1.finalRuns ? innings2.teamName : null;
     const winner = winnerName ? teamMap.get(winnerName) : null;
     const resultText = winner
-      ? `${winner.name} won by ${Math.abs(innings1.finalRuns - innings2.finalRuns)} runs after wicket bonus`
+      ? `${winner.name} won by ${Math.abs(innings1.finalRuns - innings2.finalRuns)} runs`
       : "Match tied";
+    const rawResultText = String(raw.resultText || "");
+    const finalResultText = rawResultText && !/bonus/i.test(rawResultText) ? rawResultText : resultText;
     const aiNotes = [
       ...(Array.isArray(raw.commentary) ? raw.commentary.map(String) : []),
       ...(Array.isArray(raw.tacticalAnalysis) ? raw.tacticalAnalysis.map(line => "Tactical note: " + line) : [])
@@ -4050,14 +4102,14 @@ setInterval(syncFriendsRoom, 1000);
       innings:[innings1, innings2],
       teamScores,
       winner,
-      resultText: raw.resultText || resultText,
+      resultText: finalResultText,
       playerOfMatch: raw.playerOfMatch || "",
       aiEngine: "OpenAI 2027",
       commentary:[
         "AI Simulation Tournament 2027: OpenAI rulebook engine applied.",
         `${tossWinner.name} won the toss and chose to ${tossDecision}.`,
         ...aiNotes.slice(0, 8),
-        raw.resultText || resultText
+        finalResultText
       ]
     };
   }
@@ -4074,7 +4126,7 @@ setInterval(syncFriendsRoom, 1000);
     } catch (e) {
       console.warn("OpenAI match simulation unavailable; using local 2027 fallback.", e);
       showToast("OpenAI simulation is unavailable. Using local 2027 simulation fallback.");
-      const fallback = simulateT20Match(teamA, teamB, xiA, xiB, { year:2027, matchNoInYear:null, useHistorical:false, teamAppearances:{} });
+      const fallback = simulateT20Match(teamA, teamB, xiA, xiB, { year:2027, matchNoInYear:null, useHistorical:false, teamAppearances:{}, applyWicketBonus:false });
       fallback.aiEngine = "Local 2027 fallback";
       fallback.commentary = [
         "AI Simulation Tournament 2027 fallback: local rule-based engine used because OpenAI is unavailable.",
@@ -4119,8 +4171,9 @@ setInterval(syncFriendsRoom, 1000);
     });
     const innings1BowlingWickets = totalBowlingWickets(innings1);
     const innings2BowlingWickets = totalBowlingWickets(innings2);
-    const bonusForBattingFirst = innings2BowlingWickets * WICKET_BONUS_RUNS;
-    const bonusForBowlingFirst = innings1BowlingWickets * WICKET_BONUS_RUNS;
+    const useWicketBonus = historyContext.applyWicketBonus !== false;
+    const bonusForBattingFirst = useWicketBonus ? innings2BowlingWickets * WICKET_BONUS_RUNS : 0;
+    const bonusForBowlingFirst = useWicketBonus ? innings1BowlingWickets * WICKET_BONUS_RUNS : 0;
 
     innings1.wicketBonusWickets = innings2BowlingWickets;
     innings1.wicketBonusRuns = bonusForBattingFirst;
@@ -4138,7 +4191,7 @@ setInterval(syncFriendsRoom, 1000);
     if (innings2.finalRuns > innings1.finalRuns) winner = bowlingFirstTeam;
     const margin = Math.abs(innings1.finalRuns - innings2.finalRuns);
     const resultText = winner
-      ? `${winner.name} won by ${margin} runs after wicket bonus`
+      ? `${winner.name} won by ${margin} runs${useWicketBonus ? " after wicket bonus" : ""}`
       : "Match tied";
 
     return {
