@@ -47,6 +47,20 @@ Build Command: npm install
 Start Command: npm start
 ```
 
+For **AI Simulation Tournament 2027**, add this Render environment variable:
+
+```text
+OPENAI_API_KEY=your_openai_api_key
+```
+
+Optional:
+
+```text
+OPENAI_MODEL=gpt-4.1-mini
+```
+
+If `OPENAI_API_KEY` is missing, the game stays playable and uses the local 2027 fallback simulation.
+
 ## Multiplayer Storage
 
 Rooms are persisted to `ucm_rooms_db.json` by default. This prevents normal restarts from immediately erasing rooms on the same server instance. For production-grade long-term multiplayer, move room storage to PostgreSQL using `DATABASE_URL`.

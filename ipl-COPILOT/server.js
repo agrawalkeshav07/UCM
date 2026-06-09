@@ -12,12 +12,23 @@ const ROOT = __dirname;
 const ROOM_DB_FILE = process.env.ROOM_DB_FILE || path.join(ROOT, 'ucm_rooms_db.json');
 const ANALYTICS_DB_FILE = process.env.ANALYTICS_DB_FILE || path.join(ROOT, 'ucm_analytics_db.json');
 const ANALYTICS_ADMIN_TOKEN = process.env.ANALYTICS_ADMIN_TOKEN || 'keshav199507';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
+const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4.1-mini';
 const HOST_TIMEOUT_MS = Number(process.env.HOST_TIMEOUT_MS || 2 * 60 * 1000);
 const TEAM_NAMES = [
   'Mumbai Mavericks', 'Delhi Strikers', 'Bengaluru Blazers', 'Chennai Chargers', 'Kolkata Knightsmen',
   'Rajasthan Riders', 'Hyderabad Hawks', 'Punjab Panthers', 'Gujarat Gladiators', 'Lucknow Lions'
 ];
 const ALLOWED_ACTIONS = new Set(['bid', 'pass', 'xi', 'simulateMatch', 'nextMatch']);
+const AI_SIMULATION_RULEBOOK = [
+  'Simulate UCM as a realistic premium T20 franchise tournament season, not arcade cricket.',
+  'Use player role, batting order, bowling type, ratings, form, confidence, fatigue, pressure, team balance, captaincy, venue, pitch, dew, weather, and match situation.',
+  'Recent T20 ability, role clarity, pressure handling, death-over skill, matchup advantage, and fitness should matter more than old reputation.',
+  'Include natural collapses, comebacks, momentum swings, tactical decisions, nervous starts, clutch performances, fielding pressure, and realistic human behaviour.',
+  'Venue and pitch must matter: boundary size, pace/spin support, dew, humidity, chasing advantage, and pitch deterioration should influence scoring.',
+  'Playing XI means 11 players plus optional impact player context. Respect wicketkeeper, bowling balance, overseas balance, and all-rounder value.',
+  'Return a complete JSON match result with toss, venue, innings, batting scorecards, bowling scorecards, highlights, tactical analysis, player of the match, and result text.'
+].join(' ');
 const rooms = new Map();
 const clients = new Map();
 const rateBuckets = new Map();
@@ -270,6 +281,65 @@ function canViewAnalytics(query) {
   return String(query.token || '') === ANALYTICS_ADMIN_TOKEN;
 }
 
+function safeJsonText(value, max = 200000) {
+  return JSON.stringify(value || {}).slice(0, max);
+}
+function extractOpenAIText(data) {
+  if (!data) return '';
+  if (typeof data.output_text === 'string') return data.output_text;
+  const chunks = [];
+  for (const item of data.output || []) {
+    for (const content of item.content || []) {
+      if (typeof content.text === 'string') chunks.push(content.text);
+      else if (typeof content.output_text === 'string') chunks.push(content.output_text);
+    }
+  }
+  return chunks.join('\n').trim();
+}
+function aiSimulationSystemPrompt() {
+  return [
+    'You are the UCM 2027 AI match simulation engine.',
+    'You must obey this rulebook: ' + AI_SIMULATION_RULEBOOK,
+    'Return only valid JSON. Do not include markdown.',
+    'Use the team names and player names exactly as provided.',
+    'Do not use historical score extraction. This is a fictional 2027 simulation.',
+    'The response schema is:',
+    '{"venue":{"name":"","pitch":""},"dew":true,"tossWinner":"Team Name","tossDecision":"bat","innings":[{"teamName":"Team Name","runs":170,"wickets":7,"balls":120,"batting":[{"name":"Player","runs":45,"balls":31,"fours":4,"sixes":2,"dismissal":"c fielder b bowler"}],"bowling":[{"name":"Bowler","balls":24,"runs":32,"wickets":2,"dots":9,"foursConceded":3,"sixesConceded":1}],"commentary":["short highlight"],"recentBalls":["1","4","0","W"]}],"winner":"Team Name","resultText":"Team won by ...","playerOfMatch":"Player","tacticalAnalysis":["short point"],"commentary":["six to eight broadcast-style lines"]}'
+  ].join('\n');
+}
+async function runOpenAIMatchSimulation(payload) {
+  if (!OPENAI_API_KEY) throw new Error('OpenAI API key is not configured. Set OPENAI_API_KEY on the server.');
+  const response = await fetch('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + OPENAI_API_KEY,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: OPENAI_MODEL,
+      temperature: 0.72,
+      max_output_tokens: 6500,
+      text: { format: { type: 'json_object' } },
+      input: [
+        { role: 'system', content: aiSimulationSystemPrompt() },
+        { role: 'user', content: 'Simulate this UCM 2027 match. Return JSON only.\n' + safeJsonText(payload) }
+      ]
+    })
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const message = data.error && data.error.message ? data.error.message : 'OpenAI simulation failed';
+    throw new Error(message);
+  }
+  const text = extractOpenAIText(data);
+  if (!text) throw new Error('OpenAI returned an empty simulation.');
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    throw new Error('OpenAI returned invalid simulation JSON.');
+  }
+}
+
 function sendJson(res, status, data) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
   res.end(JSON.stringify(data));
@@ -411,6 +481,14 @@ function serveStatic(req, res, pathname) {
   });
 }
 async function handleApi(req, res, pathname, query) {
+  if (pathname === '/api/ai/simulate-match' && req.method === 'POST') {
+    if (!checkRate(req, res, 'ai-simulate-match', 24, 60_000)) return;
+    const body = await readBody(req);
+    if (String(body.mode || '') !== 'ai2027') return sendJson(res, 400, { error:'Invalid AI simulation mode' });
+    if (!body.fixture || !Array.isArray(body.teams) || body.teams.length !== 2) return sendJson(res, 400, { error:'Match fixture and two teams are required' });
+    const match = await runOpenAIMatchSimulation(body);
+    return sendJson(res, 200, { ok:true, source:'openai', model:OPENAI_MODEL, match });
+  }
   if (pathname === '/api/analytics/event' && req.method === 'POST') {
     if (!checkRate(req, res, 'analytics-event', 240, 60_000)) return;
     const body = await readBody(req);
