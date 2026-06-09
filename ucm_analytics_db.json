@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "savedAt": 1780965189605,
+  "savedAt": 1781011224090,
   "totals": {
     "roomsCreated": 0,
     "roomJoins": 0,
     "starts": 0,
     "leaves": 0,
-    "clicks": 22,
-    "sessionPings": 5605,
-    "timeSpentMs": 1800000,
-    "events": 5639
+    "clicks": 24,
+    "sessionPings": 5607,
+    "timeSpentMs": 1815576,
+    "events": 5643
   },
   "rooms": {},
   "users": {},
@@ -29,53 +29,25 @@
       "deviceType": "desktop",
       "country": "Unknown",
       "city": ""
+    },
+    "session_mq6o3edq_6h0vt6p0": {
+      "id": "session_mq6o3edq_6h0vt6p0",
+      "firstSeen": 1781011217300,
+      "lastSeen": 1781011223836,
+      "events": 4,
+      "clicks": 2,
+      "timeSpentMs": 15576,
+      "roomCode": null,
+      "playerId": null,
+      "name": null,
+      "team": null,
+      "visitorId": "visitor_mq6o3edq_rt2fok0u",
+      "deviceType": "desktop",
+      "country": "Unknown",
+      "city": ""
     }
   },
   "events": [
-    {
-      "id": 4640,
-      "at": 1780896969488,
-      "type": "session_ping",
-      "name": "Keshav",
-      "sessionId": "session_mpmqq659_6lh53wvj",
-      "screen": "teamScreen",
-      "label": "heartbeat",
-      "deviceType": "desktop",
-      "country": "Unknown"
-    },
-    {
-      "id": 4641,
-      "at": 1780896999504,
-      "type": "session_ping",
-      "name": "Keshav",
-      "sessionId": "session_mpmqq659_6lh53wvj",
-      "screen": "teamScreen",
-      "label": "heartbeat",
-      "deviceType": "desktop",
-      "country": "Unknown"
-    },
-    {
-      "id": 4642,
-      "at": 1780897029504,
-      "type": "session_ping",
-      "name": "Keshav",
-      "sessionId": "session_mpmqq659_6lh53wvj",
-      "screen": "teamScreen",
-      "label": "heartbeat",
-      "deviceType": "desktop",
-      "country": "Unknown"
-    },
-    {
-      "id": 4643,
-      "at": 1780897062553,
-      "type": "session_ping",
-      "name": "Keshav",
-      "sessionId": "session_mpmqq659_6lh53wvj",
-      "screen": "teamScreen",
-      "label": "heartbeat",
-      "deviceType": "desktop",
-      "country": "Unknown"
-    },
     {
       "id": 4644,
       "at": 1780897089481,
@@ -11029,6 +11001,46 @@
       "sessionId": "session_mpmqq659_6lh53wvj",
       "screen": "teamScreen",
       "label": "heartbeat",
+      "deviceType": "desktop",
+      "country": "Unknown"
+    },
+    {
+      "id": 5640,
+      "at": 1781011217300,
+      "type": "click",
+      "sessionId": "session_mq6o3edq_6h0vt6p0",
+      "screen": "homeScreen",
+      "label": "DISCLAIMER / ABOUT",
+      "deviceType": "desktop",
+      "country": "Unknown"
+    },
+    {
+      "id": 5641,
+      "at": 1781011219408,
+      "type": "click",
+      "sessionId": "session_mq6o3edq_6h0vt6p0",
+      "screen": "homeScreen",
+      "label": "CLOSE",
+      "deviceType": "desktop",
+      "country": "Unknown"
+    },
+    {
+      "id": 5642,
+      "at": 1781011223815,
+      "type": "session_end",
+      "sessionId": "session_mq6o3edq_6h0vt6p0",
+      "screen": "homeScreen",
+      "label": "beforeunload",
+      "deviceType": "desktop",
+      "country": "Unknown"
+    },
+    {
+      "id": 5643,
+      "at": 1781011223836,
+      "type": "session_end",
+      "sessionId": "session_mq6o3edq_6h0vt6p0",
+      "screen": "homeScreen",
+      "label": "pagehide",
       "deviceType": "desktop",
       "country": "Unknown"
     }
