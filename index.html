@@ -1295,7 +1295,7 @@ function goToSoloModeSelection() {
   showOnlyScreen("modeScreen");
 }
 function goToTeamSelection() {
-  startSoloGameMode(GAME_MODE_HISTORICAL);
+  goToSoloModeSelection();
 }
 function startSoloGameMode(mode) {
   if (!requireUserNameToContinue()) return;
