@@ -191,13 +191,24 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .live-card{min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;}
 .live-empty{color:var(--text-mute);font-family:var(--font-display);font-size:1.05rem;letter-spacing:0.08em;}
 .player-stage{width:100%;animation:fadeUp 0.35s ease both;}
+.auction-timer-progress{display:none;height:5px;border-radius:999px;background:linear-gradient(90deg,#ff2844,#ff4d5d);box-shadow:0 0 20px rgba(255,40,68,0.32);}
 .player-avatar{width:100px;height:100px;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;font-family:var(--font-display);font-size:34px;font-weight:700;color:#000;background:linear-gradient(135deg,#ffd700,#fff2a6);box-shadow:0 0 40px rgba(255,215,0,0.45),0 0 80px rgba(255,215,0,0.12);}
 .player-name-live{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;letter-spacing:0.06em;margin-bottom:4px;}
+.player-tags-live{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+.player-country-live{font-family:var(--font-ui);font-size:0.82rem;color:var(--text-dim);}
 .player-stats-live{font-family:var(--font-ui);font-size:0.78rem;color:var(--text-dim);margin-bottom:6px;line-height:1.8;}
+.live-stat-value{color:var(--text);font-weight:700;}
+.live-stat-good{color:var(--green);font-weight:700;}
+.live-stat-hot{color:#ff7070;font-weight:700;}
 .ratings-row{display:flex;justify-content:center;gap:10px;margin:12px 0;flex-wrap:wrap;}
 .rating-pill{padding:4px 14px;border-radius:999px;background:rgba(255,255,255,0.07);font-family:var(--font-display);font-size:0.88rem;font-weight:600;letter-spacing:0.06em;}
 .rating-pill .label{color:var(--text-mute);font-weight:400;margin-right:4px;font-size:0.72rem;}
 .bid-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-hi),transparent);margin:16px 0;}
+.live-mobile-bidbar{display:grid;grid-template-columns:1fr;gap:4px;justify-items:center;}
+.mobile-bid-label{display:none;font-family:var(--font-ui);font-size:0.65rem;color:var(--text-mute);letter-spacing:0.12em;text-transform:uppercase;}
+.mobile-bidder-badge{display:none;align-items:center;justify-content:center;min-width:46px;height:46px;padding:0 9px;border-radius:12px;background:linear-gradient(135deg,#612c91,#2a124c);font-family:var(--font-display);font-size:0.74rem;color:white;letter-spacing:0.04em;}
+.mobile-purse-row{display:none;font-family:var(--font-ui);font-size:0.78rem;color:var(--text-mute);}
+.mobile-purse-row strong{color:var(--green);}
 .bid-amount{font-family:var(--font-display);font-size:clamp(2.2rem,6vw,3.2rem);font-weight:700;color:var(--green);letter-spacing:0.04em;transition:transform 0.2s,color 0.2s;margin-bottom:6px;}
 .bid-amount.flash{transform:scale(1.1);color:var(--gold);}
 .highest-bidder.flash,.timer.flash{transform:scale(1.06);color:var(--gold);}
@@ -271,6 +282,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 @keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
 .auction-message{min-height:22px;font-family:var(--font-body);font-size:0.88rem;color:var(--gold-soft);margin-bottom:16px;letter-spacing:0.04em;}
 .auction-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:14px 0 4px;border-top:1px solid var(--border);margin-top:4px;}
+.auction-mobile-history{display:none;}
 .speed-group{display:flex;gap:4px;align-items:center;}
 .team-status{display:grid;gap:8px;max-height:90vh;overflow-y:auto;}
 .team-status::-webkit-scrollbar{width:4px;}
@@ -539,13 +551,106 @@ html,body{width:100%;max-width:100%;}
   .team-card-select{font-size:0.66rem;min-height:0;height:100%;padding:6px 6px;}
   #auctionScreen{padding:10px;}
   #auctionScreen.active{display:flex;flex-direction:column;gap:10px;}
-  .auction-panel{position:static;width:100%;padding:12px;}
-  .auction-main{width:100%;}
-  .auction-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-  .auction-controls .speed-group{grid-column:1/-1;justify-content:center;}
-  .player-list,.team-status{height:auto;max-height:42svh;}
-  .live-card{min-height:auto;padding:14px;}
-  .player-avatar{width:76px;height:76px;font-size:26px;}
+  #auctionScreen>.auction-panel:first-of-type{display:none;}
+  .auction-panel{position:static;width:100%;padding:12px;border-radius:14px;}
+  .auction-main-panel{padding:0;background:transparent;border:0;backdrop-filter:none;gap:10px;}
+  .auction-room-bar{position:sticky;top:0;z-index:35;width:100%;padding:8px;background:#151515;border-radius:0;border-left:0;border-right:0;box-shadow:0 10px 24px rgba(0,0,0,0.35);overflow-x:auto;justify-content:flex-start;scrollbar-width:none;}
+  .auction-room-bar::-webkit-scrollbar{display:none;}
+  .auction-room-left,.auction-room-controls{flex-wrap:nowrap;gap:7px;min-width:max-content;}
+  .auction-room-label{display:none;}
+  .auction-room-code{font-size:1rem;color:#ffb21d;min-width:88px;}
+  .auction-pill{height:34px;padding:0 10px;background:#242424;border:0;color:#d0d0d0;}
+  .auction-room-controls .btn,.auction-room-left .btn{width:auto;min-width:38px;height:38px;padding:0 10px;border-radius:11px;font-size:0.72rem;}
+  #auctionCopyRoomBtn,#auctionPauseBtn,#auctionEndBtn{display:none!important;}
+  #auctionShareBtn{font-size:0;color:#fff;background:#00b85b;border-color:#00b85b;}
+  #auctionShareBtn::before{content:"WA";font-size:0.72rem;font-family:var(--font-display);}
+  #auctionSoundBtn{font-size:0;background:#202020;border-color:#272727;color:#ffd64a;}
+  #auctionSoundBtn::before{content:"SND";font-size:0.68rem;font-family:var(--font-display);}
+  #auctionPlaySimBtn{min-width:78px!important;background:linear-gradient(135deg,#50206b,#7d2fa0);border-color:#8e3db5;box-shadow:0 0 18px rgba(142,61,181,0.26);}
+  #auctionPlaySimBtn::after{content:"";}
+  #auctionSupportBtn{font-size:0;min-width:42px!important;background:rgba(171,33,93,0.18);border-color:rgba(255,68,142,0.34);}
+  #auctionSupportBtn::before{content:"SUP";font-size:0.66rem;font-family:var(--font-display);}
+  #auctionHomeBtn{font-size:0;min-width:42px!important;background:#242424;border:0;}
+  #auctionHomeBtn::before{content:"HM";font-size:0.66rem;font-family:var(--font-display);}
+  .auction-topbar{display:none;}
+  .live-card{position:relative;min-height:auto;padding:0;text-align:left;background:#151515;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
+  .player-stage{padding:26px 16px 16px;}
+  .auction-timer-progress{display:block;position:absolute;left:0;top:0;width:100%;height:6px;border-radius:0;}
+  .player-avatar{display:none;}
+  .player-tags-live{justify-content:flex-start;margin-bottom:8px;}
+  .player-tags-live .role-badge{font-size:0.72rem;padding:7px 10px;border-radius:7px;background:#47236e;color:#d9b8ff;}
+  .player-country-live{font-size:0.86rem;line-height:1.2;max-width:130px;}
+  .player-name-live{font-size:1.3rem;letter-spacing:0;margin-bottom:10px;line-height:1.08;}
+  .player-stats-live{font-size:0.76rem;line-height:2;color:#858585;margin-bottom:8px;}
+  .ratings-row{display:none;}
+  .bid-divider{margin:12px 0;border-top:1px solid rgba(255,255,255,0.08);background:none;}
+  .live-mobile-bidbar{grid-template-columns:auto minmax(96px,1fr) auto auto;align-items:center;justify-items:start;gap:9px;margin-top:-2px;}
+  .mobile-bid-label{display:block;}
+  .bid-amount{font-size:1.65rem;line-height:1;margin:0;color:#00d978;white-space:nowrap;}
+  .mobile-bidder-badge{display:flex;}
+  .highest-bidder{display:none;}
+  .timer-wrap{margin:0;justify-self:end;}
+  .timer{width:52px;height:52px;border-radius:12px;border:1px solid rgba(255,69,86,0.55);background:rgba(232,48,48,0.16);color:#ff5a6b;font-size:1.55rem;line-height:1;position:relative;}
+  .timer::after{content:"SEC";position:absolute;bottom:7px;font-family:var(--font-ui);font-size:0.52rem;color:#d88990;letter-spacing:0.08em;}
+  .timer.danger{animation:none;box-shadow:0 0 20px rgba(232,48,48,0.35);}
+  .mobile-purse-row{display:block;margin-top:12px;}
+  .auction-message{display:none;}
+  .auction-actions{display:grid;grid-template-columns:minmax(0,1fr) 48px;gap:10px;padding:0 16px 16px;border:0;margin:0;background:#151515;border:1px solid rgba(255,255,255,0.08);border-top:0;border-radius:0 0 16px 16px;}
+  .auction-actions .btn{width:100%;height:50px;border-radius:10px;font-size:0.82rem;}
+  #auctionScreen[data-lot-active="1"] #startAuctionBtn{display:none!important;}
+  #auctionScreen[data-lot-active="0"] #userBidBtn{display:none!important;}
+  #auctionScreen[data-lot-active="0"] #startAuctionBtn{display:inline-flex!important;background:linear-gradient(180deg,#ffa31b,#ff5b00);border:0;color:#fff;font-size:1.02rem;}
+  #userBidBtn{grid-column:1/2;background:linear-gradient(180deg,#ff9d16,#ff5b00);border:0;color:#fff;font-size:1.05rem!important;box-shadow:0 14px 30px rgba(255,91,0,0.22);}
+  #startAuctionBtn{grid-column:1/2;}
+  #auctionMobileHistoryBtn{display:inline-flex!important;grid-column:2/3;grid-row:1;width:48px!important;height:50px!important;font-size:0!important;background:#242424;border:0;}
+  #auctionMobileHistoryBtn::before{content:"MENU";font-size:0.62rem;color:#b8b8b8;font-family:var(--font-display);}
+  #passBidBtn,#autoAuctionBtn,#skipAuctionBtn,#backToTeamsBtn,.speed-group{display:none!important;}
+  .auction-promo{min-height:78px;padding:12px 14px;border-radius:14px;background:linear-gradient(135deg,rgba(77,18,82,0.92),rgba(24,8,28,0.98));}
+  .promo-title{font-size:0.92rem;line-height:1.2;}
+  .promo-copy{font-size:0.72rem;line-height:1.35;}
+  .promo-kicker{font-size:0.56rem;background:rgba(0,191,99,0.22);border-radius:999px;padding:3px 6px;}
+  .auction-promo .btn{width:auto;height:38px;font-size:0!important;min-width:38px;border-radius:10px;}
+  .auction-promo .btn::before{content:"GO";font-size:0.72rem;font-family:var(--font-display);}
+  .auction-room-hub{border-radius:14px;background:#151515;border-color:rgba(255,255,255,0.08);}
+  .auction-tabs{grid-template-columns:repeat(4,1fr);height:64px;background:#121212;}
+  .auction-tab-btn{position:relative;font-size:0;color:#aaa;padding:0;border-right:0;}
+  .auction-tab-btn::before{display:block;font-size:1.28rem;line-height:1;}
+  .auction-tab-btn[data-auction-tab="activity"]::before{content:"ACT";}
+  .auction-tab-btn[data-auction-tab="squad"]::before{content:"SQD";}
+  .auction-tab-btn[data-auction-tab="community"]::before{content:"COM";}
+  .auction-tab-btn[data-auction-tab="settings"]::before{content:"SET";}
+  .auction-tab-btn::after{content:"";display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;margin-left:5px;border-radius:6px;background:#2b2b2b;color:#999;font-family:var(--font-ui);font-size:0.64rem;vertical-align:middle;}
+  .auction-tab-btn[data-auction-tab="activity"]::after{content:"50";}
+  .auction-tab-btn[data-auction-tab="squad"]::after{content:"4";}
+  .auction-tab-btn[data-auction-tab="community"]::after,.auction-tab-btn[data-auction-tab="settings"]::after{display:none;}
+  .auction-tab-btn.active{background:rgba(0,189,100,0.18);color:#00d978;}
+  .auction-tab-btn.active[data-auction-tab="activity"]{background:rgba(255,168,0,0.22);color:#ffc04d;}
+  .auction-hub-body{min-height:330px;max-height:calc(100svh - 475px);padding:16px;overflow:auto;}
+  .auction-feed{gap:12px;}
+  .auction-feed-row,.auction-event-card{border-radius:13px;background:#202020;border-color:rgba(255,255,255,0.09);padding:13px;}
+  .auction-event-main{align-items:flex-start;}
+  .auction-event-name{font-size:0.96rem;}
+  .auction-event-main>strong{color:#00d978;}
+  .auction-chat-bar{grid-template-columns:64px 1fr 54px;gap:8px;margin:12px -16px -16px;padding:8px 16px;background:rgba(10,10,10,0.98);}
+  .auction-chat-bar::before{content:"GIF";display:grid;place-items:center;border-radius:10px;background:#252525;color:#c7c7c7;font-family:var(--font-display);font-size:0.84rem;}
+  .auction-chat-bar input{height:52px;border-radius:10px;background:#1c1c1c;font-size:0.92rem;}
+  #auctionChatSendBtn{width:54px;height:52px;font-size:0!important;background:#252525;border:0;}
+  #auctionChatSendBtn::before{content:"➤";font-size:1rem;color:#999;}
+  .squad-hub-summary{grid-template-columns:repeat(3,1fr);}
+  .squad-hub-stat{padding:9px;background:#202020;}
+  .squad-hub-stat b{font-size:0.9rem;}
+  .team-status{height:auto;max-height:none;gap:14px;}
+  .tsc{border-radius:16px;background:#1b1b1b;border:1px solid rgba(255,255,255,0.12);border-left:0;padding:16px;}
+  .tsc.leading{border-color:rgba(0,217,120,0.42);background:#1b1b1b;}
+  .tsc .t-name{font-size:1rem;margin-bottom:10px;}
+  .t-pills{gap:8px;}
+  .t-pill{font-size:0.68rem;background:#202020;padding:6px 9px;border-radius:9px;}
+  .t-pill.hi{color:#00d978;}
+  .squad-list{max-height:none;margin-top:14px;padding-top:12px;}
+  .squad-player{font-size:0.82rem;padding:11px 12px;border-radius:10px;background:#242424;}
+  .sp-price{color:#00d978;}
+  .community-grid{grid-template-columns:1fr;}
+  .timer-options{grid-template-columns:repeat(4,1fr);}
   #xiScreen{padding:10px;}
   #xiScreen.active{display:flex;flex-direction:column;gap:10px;}
   .xi-header{flex-direction:column;align-items:stretch;gap:10px;}
@@ -569,6 +674,11 @@ html,body{width:100%;max-width:100%;}
 @media(max-width:420px){
   .team-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   .btn{width:100%;padding:12px 14px;font-size:0.92rem;}
+  #auctionScreen .auction-room-bar .btn,
+  #auctionScreen .auction-promo .btn,
+  #auctionScreen #auctionMobileHistoryBtn{width:auto!important;padding:0 10px;}
+  #auctionScreen .auction-actions .btn{width:100%;}
+  #auctionScreen #auctionMobileHistoryBtn{width:48px!important;padding:0!important;}
   .auction-controls{grid-template-columns:1fr;}
   .xi-player-card{grid-template-columns:36px minmax(0,1fr) auto auto;padding:8px;}
   .xi-player-name,.pitch-slot-name{white-space:normal;}
@@ -2080,6 +2190,7 @@ setInterval(syncFriendsRoom, 1000);
       <div class="auction-actions">
         <button class="btn btn-primary btn-sm" id="startAuctionBtn">START</button>
         <button class="btn btn-green btn-sm"   id="userBidBtn">BID</button>
+        <button class="btn btn-ghost btn-sm auction-mobile-history" id="auctionMobileHistoryBtn">HISTORY</button>
         <button class="btn btn-ghost btn-sm"   id="passBidBtn">? PASS</button>
         <button class="btn btn-secondary btn-sm" id="autoAuctionBtn">AUTO</button>
         <button class="btn btn-gold btn-sm" id="skipAuctionBtn">SKIP</button>
@@ -2233,6 +2344,7 @@ setInterval(syncFriendsRoom, 1000);
   document.getElementById("countryFilter").addEventListener("change", renderPlayers);
   document.getElementById("auctionSettingsBtn").onclick = () => { state.auctionRoomTab = "settings"; renderAuctionRoomHub(); };
   document.getElementById("auctionHistoryBtn").onclick = openAuctionHistory;
+  document.getElementById("auctionMobileHistoryBtn").onclick = openAuctionHistory;
   document.getElementById("closeHistoryBtn").onclick = closeAuctionHistory;
   document.getElementById("historySearch").addEventListener("input", renderAuctionHistory);
   document.getElementById("historyTeamFilter").addEventListener("change", renderAuctionHistory);
@@ -4629,6 +4741,15 @@ setInterval(syncFriendsRoom, 1000);
     }
     return "1/" + Math.max(1, activeAuctionTeams().length) + " solo";
   }
+  function teamShortCode(teamName) {
+    const overrides = {
+      "Mumbai Mavericks":"MM", "Delhi Strikers":"DS", "Bengaluru Blazers":"BB", "Chennai Chargers":"CC",
+      "Kolkata Knightsmen":"KK", "Rajasthan Riders":"RR", "Hyderabad Hawks":"HH", "Punjab Panthers":"PP",
+      "Gujarat Gladiators":"GG", "Lucknow Lions":"LL"
+    };
+    if (overrides[teamName]) return overrides[teamName];
+    return String(teamName || "UCM").split(/\s+/).map(part => part[0]).join("").slice(0, 3).toUpperCase();
+  }
   function renderAuctionRoomHeader() {
     const codeEl = document.getElementById("auctionRoomCode");
     const usersEl = document.getElementById("auctionRoomUsers");
@@ -5004,20 +5125,40 @@ setInterval(syncFriendsRoom, 1000);
     const samePlayer = el.dataset.livePlayerId === player.id && el.querySelector(".player-stage");
     if (!samePlayer) {
       const initials = player.name.split(" ").map(x => x[0]).join("").slice(0, 2);
+      const batSkill = Math.round(playerBatSkill(player));
+      const bowlSkill = Math.round(playerBowlSkill(player));
+      const avgHint = Math.max(18, Math.round((Number(player.rating || 70) + Number(player.form || 70)) / 5));
+      const econHint = Math.max(6.2, Math.min(10.5, 10.4 - (bowlSkill - 45) * 0.035)).toFixed(2);
+      const osText = player.overseas ? "OS" : "DOM";
       el.dataset.livePlayerId = player.id;
       el.innerHTML = `<div class="player-stage">
+        <div id="auctionTimerProgress" class="auction-timer-progress"></div>
         <div class="player-avatar">${initials}</div>
+        <div class="player-tags-live">
+          <span class="role-badge ${"role-"+player.role.replace(/[\s-]+/g,"-").replace(/[^a-zA-Z-]/g,"")}">${player.role}</span>
+          <span class="role-badge role-All-Rounder">${osText}</span>
+          <span class="player-country-live">${player.country}</span>
+        </div>
         <div class="player-name-live">${player.name}</div>
-        <div class="player-stats-live">${player.age||"?"}y  -  ${player.country}  -  ${player.role}<br>${player.battingStyle}  -  ${player.bowlingStyle}<br>UCM ${player.debutSeason}-${player.finalSeason}</div>
+        <div class="player-stats-live">
+          M: <span class="live-stat-value">${player.matches || 0}</span> &nbsp; - &nbsp; R: <span class="live-stat-good">${batSkill}</span> &nbsp; - &nbsp; Avg: <span class="live-stat-value">${avgHint}</span><br>
+          SR: <span class="live-stat-good">${Math.max(95, Math.round(90 + batSkill * 0.72))}</span> &nbsp; | &nbsp; M: <span class="live-stat-value">${player.matches || 0}</span> &nbsp; - &nbsp; W: <span class="live-stat-hot">${bowlSkill}</span><br>
+          Econ: <span class="live-stat-value">${econHint}</span> &nbsp; - &nbsp; ${player.battingStyle} &nbsp; - &nbsp; ${player.bowlingStyle}
+        </div>
         <div class="ratings-row">
           <span class="rating-pill"><span class="label">Rating</span>${player.rating}</span>
           <span class="rating-pill"><span class="label">Form</span>${player.form}</span>
           <span class="rating-pill"><span class="label">Matches</span>${player.matches}</span>
         </div>
         <div class="bid-divider"></div>
-        <div id="bidAmount" class="bid-amount"></div>
+        <div class="live-mobile-bidbar">
+          <span class="mobile-bid-label">BID</span>
+          <div id="bidAmount" class="bid-amount"></div>
+          <span id="mobileBidderBadge" class="mobile-bidder-badge">-</span>
+          <div class="timer-wrap"><div id="auctionTimer" class="timer"></div></div>
+        </div>
         <div id="highestBidderLine" class="highest-bidder"></div>
-        <div class="timer-wrap"><div id="auctionTimer" class="timer"></div></div>
+        <div class="mobile-purse-row">Purse: <strong id="mobileUserPurse">-</strong></div>
         <p id="auctionMessage" class="auction-message"></p>
       </div>`;
     }
@@ -5037,6 +5178,12 @@ setInterval(syncFriendsRoom, 1000);
       bidderEl.innerHTML = bidderHtml;
       flashLiveNode(bidderEl);
     }
+    const mobileBidder = el.querySelector("#mobileBidderBadge");
+    const mobileBidderText = state.highestBidder ? teamShortCode(state.highestBidder.name) : "-";
+    if (mobileBidder && mobileBidder.textContent !== mobileBidderText) {
+      mobileBidder.textContent = mobileBidderText;
+      flashLiveNode(mobileBidder);
+    }
 
     const timerText = state.currentPlayer ? String(state.timer) : "-";
     const timerEl = el.querySelector("#auctionTimer");
@@ -5047,6 +5194,15 @@ setInterval(syncFriendsRoom, 1000);
         flashLiveNode(timerEl);
       }
     }
+    const progressEl = el.querySelector("#auctionTimerProgress");
+    if (progressEl) {
+      const total = Math.max(1, Number(state.bidTimer || getStoredBidTimerSetting() || 5));
+      const pct = state.currentPlayer ? Math.max(0, Math.min(100, (Number(state.timer || 0) / total) * 100)) : 100;
+      progressEl.style.width = pct + "%";
+    }
+    const purseEl = el.querySelector("#mobileUserPurse");
+    const userTeam = auctionTeams.find(t => t.name === selectedTeam);
+    if (purseEl) purseEl.textContent = userTeam ? money(userTeam.purse).replace("Rs ", "") : "-";
 
     const msgEl = el.querySelector("#auctionMessage");
     const msg = message || state.lastMessage || "";
@@ -5085,6 +5241,11 @@ setInterval(syncFriendsRoom, 1000);
   function startAuction() {
     sendAnalytics("game_action", "start_auction_lot");
     if (roomClientActive()) { alert("The room creator starts each auction lot so everyone stays synced."); return; }
+    if (!state.selectedPlayer && !state.currentPlayer) {
+      state.selectedPlayer = state.players
+        .filter(p => !state.sold.has(p.id) && !state.unsold.has(p.id))
+        .sort((a,b)=>Number(b.rating||b.overallRating||0)-Number(a.rating||a.overallRating||0))[0] || null;
+    }
     if (!state.selectedPlayer||state.currentPlayer) return;
     state.currentPlayer=state.selectedPlayer;
     state.currentBid=state.currentPlayer.basePrice;
@@ -5429,12 +5590,20 @@ setInterval(syncFriendsRoom, 1000);
 
   function updateControls() {
     renderAuctionRoomHeader();
+    const auctionScreen = document.getElementById("auctionScreen");
+    if (auctionScreen) auctionScreen.dataset.lotActive = state.currentPlayer ? "1" : "0";
     const autoBtn = document.getElementById("autoAuctionBtn");
     const passBtn = document.getElementById("passBidBtn");
     const skipBtn = document.getElementById("skipAuctionBtn");
     const startBtn = document.getElementById("startAuctionBtn");
+    const bidBtn = document.getElementById("userBidBtn");
     const clientLocked = roomClientActive();
     const passed = state.passedTeams && state.passedTeams.has(selectedTeam);
+    if (bidBtn) {
+      const inc = state.currentPlayer ? (state.highestBidder ? bidIncrement(state.currentBid) : state.currentBid) : 0;
+      bidBtn.textContent = state.currentPlayer && inc ? "BID (+" + money(inc).replace("Rs ", "") + ")" : "BID";
+      bidBtn.disabled = !state.currentPlayer || !!state.userPassed || !!passed;
+    }
     if (autoBtn) {
       autoBtn.classList.toggle("active-control", state.auto);
       autoBtn.classList.toggle("locked", clientLocked);
