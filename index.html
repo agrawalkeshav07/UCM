@@ -156,8 +156,15 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 
 /* AUCTION SCREEN */
 #auctionScreen{display:none;min-height:100vh;padding:16px;background:var(--bg-deep);position:relative;z-index:1;}
-#auctionScreen.active{display:grid;grid-template-columns:320px 1fr 300px;gap:14px;align-items:start;}
+#auctionScreen.active{display:grid;grid-template-columns:300px minmax(0,1fr);gap:14px;align-items:start;}
 .auction-panel{background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;backdrop-filter:blur(16px);position:sticky;top:16px;}
+.auction-room-bar{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;background:rgba(12,18,24,0.94);border:1px solid var(--border);border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,0.32);position:sticky;top:8px;z-index:10;}
+.auction-room-left,.auction-room-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.auction-room-label{font-family:var(--font-ui);font-size:0.76rem;color:var(--text-mute);}
+.auction-room-code{font-family:var(--font-display);font-size:1.05rem;letter-spacing:0.12em;color:var(--gold);}
+.auction-pill{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:999px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.09);font-family:var(--font-ui);font-size:0.72rem;color:var(--text-dim);}
+.auction-pill.live{color:var(--green);background:rgba(56,239,125,0.1);border-color:rgba(56,239,125,0.22);}
+.auction-main-panel{position:relative!important;top:auto!important;padding:12px;display:grid;gap:10px;}
 .panel-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 .panel-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,215,0,0.3),transparent);}
 .auction-search,.auction-filter{width:100%;padding:9px 12px;margin-bottom:8px;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:var(--font-ui);font-size:0.78rem;outline:none;transition:border-color 0.2s;}
@@ -220,6 +227,41 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .history-status.unsold .history-price{color:var(--red);}
 .bid-trail{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;}
 .bid-chip{font-family:var(--font-ui);font-size:0.62rem;padding:4px 6px;border-radius:999px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.08);color:var(--text-dim);}
+.auction-promo{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border-radius:14px;border:1px solid rgba(202,108,255,0.35);background:linear-gradient(135deg,rgba(80,10,86,0.72),rgba(26,10,36,0.9));text-decoration:none;color:var(--text);box-shadow:0 14px 36px rgba(0,0,0,0.28);transition:transform 0.18s,border-color 0.18s;}
+.auction-promo:hover{transform:translateY(-1px);border-color:rgba(202,108,255,0.72);}
+.promo-kicker{font-family:var(--font-ui);font-size:0.64rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-left:7px;}
+.promo-title{font-family:var(--font-display);font-size:1rem;color:var(--text);}
+.promo-copy{font-family:var(--font-ui);font-size:0.74rem;color:var(--text-dim);margin-top:3px;}
+.auction-room-hub{border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,0.035);overflow:hidden;}
+.auction-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--border);background:rgba(0,0,0,0.16);}
+.auction-tab-btn{appearance:none;border:0;border-right:1px solid var(--border);background:transparent;color:var(--text-dim);padding:12px 10px;font-family:var(--font-ui);font-size:0.78rem;cursor:pointer;transition:0.18s;}
+.auction-tab-btn:last-child{border-right:0;}
+.auction-tab-btn.active{background:rgba(255,215,0,0.12);color:var(--gold);}
+.auction-hub-body{min-height:280px;max-height:390px;overflow:auto;padding:12px;}
+.auction-feed{display:grid;gap:8px;}
+.auction-feed-row{display:flex;align-items:flex-start;gap:9px;padding:9px 10px;border-radius:12px;background:rgba(255,255,255,0.045);border:1px solid rgba(255,255,255,0.065);font-family:var(--font-ui);font-size:0.76rem;color:var(--text-dim);}
+.auction-feed-row strong{font-family:var(--font-display);color:var(--text);font-size:0.84rem;}
+.auction-feed-time{margin-left:auto;color:var(--text-mute);font-size:0.64rem;white-space:nowrap;}
+.auction-event-card{padding:12px;border-radius:12px;border:1px solid rgba(255,215,0,0.2);background:rgba(255,215,0,0.07);}
+.auction-event-card.unsold{border-color:rgba(232,48,48,0.24);background:rgba(232,48,48,0.08);}
+.auction-event-main{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.auction-event-name{font-family:var(--font-display);font-size:0.96rem;color:var(--text);}
+.auction-event-meta{font-family:var(--font-ui);font-size:0.7rem;color:var(--text-dim);margin-top:4px;}
+.auction-chat-bar{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:10px;position:sticky;bottom:0;background:linear-gradient(180deg,transparent,rgba(12,18,24,0.98) 24%);padding-top:12px;}
+.auction-chat-bar input{width:100%;padding:11px 12px;border-radius:10px;background:rgba(0,0,0,0.34);border:1px solid var(--border);color:var(--text);font-family:var(--font-ui);outline:none;}
+.auction-chat-bar input:focus{border-color:rgba(255,215,0,0.38);}
+.squad-hub-list{display:grid;gap:8px;}
+.squad-hub-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:10px;}
+.squad-hub-stat{padding:10px;border-radius:12px;background:rgba(255,255,255,0.055);border:1px solid var(--border);}
+.squad-hub-stat b{display:block;font-family:var(--font-display);color:var(--gold);font-size:1.05rem;}
+.squad-hub-stat span{font-family:var(--font-ui);font-size:0.66rem;color:var(--text-mute);}
+.community-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
+.community-tile{display:block;text-decoration:none;color:var(--text);padding:14px;border-radius:14px;background:rgba(255,255,255,0.055);border:1px solid var(--border);transition:0.18s;}
+.community-tile:hover{transform:translateY(-1px);border-color:rgba(255,215,0,0.32);}
+.community-tile strong{display:block;font-family:var(--font-display);color:var(--gold);margin-bottom:5px;}
+.community-tile span{font-family:var(--font-ui);font-size:0.7rem;color:var(--text-dim);}
+.auction-rules{display:grid;gap:8px;}
+.auction-rule{padding:10px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid var(--border);font-family:var(--font-ui);font-size:0.75rem;color:var(--text-dim);line-height:1.45;}
 @media(max-width:560px){.timer-options{grid-template-columns:repeat(2,minmax(0,1fr));}.auction-history-panel{left:10px;right:10px;top:10px;bottom:10px;width:auto;padding:12px;}.history-controls{grid-template-columns:1fr;}.auction-topbar{align-items:flex-start;flex-direction:column;}.auction-toolbar{justify-content:flex-start;}}
 .highest-bidder{font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);margin-bottom:10px;}
 .bidder-name{color:var(--gold);font-weight:600;}
@@ -469,7 +511,6 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 /* RESPONSIVE */
 @media(max-width:1100px){
   #auctionScreen.active{grid-template-columns:280px 1fr;}
-  #auctionScreen.active aside:last-child{grid-column:1/-1;}
   #xiScreen.active{grid-template-columns:1fr;}
   .xi-pitch-panel{position:static;}
 }
@@ -1608,7 +1649,9 @@ setInterval(syncFriendsRoom, 1000);
     userPassed:false, openedTeam:null,
     lastMessage:'', auto:false, speed:1, bidTimer:getStoredBidTimerSetting(),
     sold:new Set(), unsold:new Set(), passedTeams:new Set(), auctionSummaryShown:false,
-    auctionHistory:[], bidTrail:[]
+    auctionHistory:[], bidTrail:[],
+    auctionRoomTab:"activity", activityFeed:[], chatMessages:[],
+    auctionPaused:false, soundOn:true
   };
 
   // ==================== MULTUCMAYER GAME SYNC ====================
@@ -1691,12 +1734,16 @@ setInterval(syncFriendsRoom, 1000);
         bidTimer: state.bidTimer || getStoredBidTimerSetting(),
         auto: !!state.auto,
         speed: state.speed || 1,
+        paused: !!state.auctionPaused,
+        soundOn: state.soundOn !== false,
         lastMessage: state.lastMessage || "",
         soldIds: Array.from(state.sold),
         unsoldIds: Array.from(state.unsold),
         passedTeams: Array.from(state.passedTeams || []),
         history: state.auctionHistory || [],
-        bidTrail: state.bidTrail || []
+        bidTrail: state.bidTrail || [],
+        activityFeed: state.activityFeed || [],
+        chatMessages: state.chatMessages || []
       },
       teams: auctionTeams.map(snapshotTeam),
       tournament: JSON.parse(JSON.stringify(tournState || {}))
@@ -1741,12 +1788,16 @@ setInterval(syncFriendsRoom, 1000);
       setStoredBidTimerSetting(state.bidTimer);
       state.auto = !!a.auto;
       state.speed = Number(a.speed || 1);
+      state.auctionPaused = !!a.paused;
+      state.soundOn = a.soundOn !== false;
       state.lastMessage = a.lastMessage || "";
       state.sold = new Set(a.soldIds || []);
       state.unsold = new Set(a.unsoldIds || []);
       state.passedTeams = new Set(a.passedTeams || []);
       state.auctionHistory = Array.isArray(a.history) ? a.history : [];
       state.bidTrail = Array.isArray(a.bidTrail) ? a.bidTrail : [];
+      state.activityFeed = Array.isArray(a.activityFeed) ? a.activityFeed : [];
+      state.chatMessages = Array.isArray(a.chatMessages) ? a.chatMessages : [];
       state.userPassed = state.passedTeams.has(selectedTeam);
       if (typeof renderSettingsTimerOptions === "function") renderSettingsTimerOptions();
       const teamMap = new Map((game.teams || []).map(t => [t.name, t]));
@@ -1815,7 +1866,11 @@ setInterval(syncFriendsRoom, 1000);
       if (!team || !state.currentPlayer) return false;
       state.passedTeams.add(team.name);
       state.lastMessage = team.name + " passed on " + state.currentPlayer.name;
-      renderLive(state.lastMessage); renderTeams(); updateControls();
+      renderLive(state.lastMessage); renderTeams(); renderAuctionRoomHub(); updateControls();
+      return true;
+    }
+    if (action.type === "chat") {
+      addAuctionChat(action.payload || {}, false);
       return true;
     }
     if (action.type === "xi") {
@@ -1870,6 +1925,11 @@ setInterval(syncFriendsRoom, 1000);
     state.passedTeams.clear();
     state.auctionHistory = [];
     state.bidTrail = [];
+    state.activityFeed = [];
+    state.chatMessages = [];
+    state.auctionRoomTab = "activity";
+    state.auctionPaused = false;
+    state.soundOn = true;
     state.auctionSummaryShown = false;
   }
   function resetSoloGameState() {
@@ -1971,6 +2031,23 @@ setInterval(syncFriendsRoom, 1000);
   // ---- Inject Auction Screen ----
   document.body.insertAdjacentHTML("beforeend", `
   <div id="auctionScreen">
+    <div class="auction-room-bar">
+      <div class="auction-room-left">
+        <span class="auction-room-label">Room:</span>
+        <span id="auctionRoomCode" class="auction-room-code">SOLO</span>
+        <span id="auctionRoomUsers" class="auction-pill live">1/10 active</span>
+        <button class="btn btn-green btn-sm" id="auctionShareBtn" title="Share room link">SHARE</button>
+        <button class="btn btn-ghost btn-sm" id="auctionCopyRoomBtn" title="Copy room code">COPY</button>
+      </div>
+      <div class="auction-room-controls">
+        <button class="btn btn-gold btn-sm auction-host-control" id="auctionPauseBtn">PAUSE</button>
+        <button class="btn btn-secondary btn-sm auction-host-control" id="auctionEndBtn">END</button>
+        <button class="btn btn-ghost btn-sm" id="auctionSoundBtn">SOUND ON</button>
+        <button class="btn btn-primary btn-sm auction-host-control" id="auctionPlaySimBtn">PLAY SIM</button>
+        <button class="btn btn-ghost btn-sm" id="auctionSupportBtn">SUPPORT</button>
+        <button class="btn btn-ghost btn-sm" id="auctionHomeBtn">HOME</button>
+      </div>
+    </div>
     <aside class="auction-panel">
       <h2 class="panel-title">Auction Pool</h2>
       <input id="playerSearch" class="auction-search" placeholder="Search player">
@@ -1991,9 +2068,9 @@ setInterval(syncFriendsRoom, 1000);
       <div class="pool-stats" id="poolStats"></div>
       <div id="playerList" class="player-list"></div>
     </aside>
-    <main class="auction-panel" style="position:sticky;top:16px;">
+    <main class="auction-panel auction-main-panel">
       <div class="auction-topbar">
-        <h2 class="panel-title">Live Mega Auction</h2>
+        <h2 class="panel-title">Live UCM Auction</h2>
         <div class="auction-toolbar">
           <button class="btn btn-ghost btn-sm" id="auctionSettingsBtn">SETTINGS</button>
           <button class="btn btn-ghost btn-sm" id="auctionHistoryBtn">HISTORY</button>
@@ -2013,11 +2090,23 @@ setInterval(syncFriendsRoom, 1000);
         </div>
         <button class="btn btn-ghost btn-sm" id="backToTeamsBtn">BACK</button>
       </div>
+      <a class="auction-promo" href="https://frameogram.onrender.com/" target="_blank" rel="noopener">
+        <div>
+          <div class="promo-title">Play UCM Simulation Game <span class="promo-kicker">LIVE</span></div>
+          <div class="promo-copy">Fast cricket rooms, fantasy auctions, and community play at Frameogram.</div>
+        </div>
+        <span class="btn btn-primary btn-sm">OPEN</span>
+      </a>
+      <section class="auction-room-hub">
+        <div class="auction-tabs">
+          <button class="auction-tab-btn active" data-auction-tab="activity">Activity</button>
+          <button class="auction-tab-btn" data-auction-tab="squad">Squad</button>
+          <button class="auction-tab-btn" data-auction-tab="community">Community</button>
+          <button class="auction-tab-btn" data-auction-tab="settings">Settings</button>
+        </div>
+        <div id="auctionRoomHubBody" class="auction-hub-body"></div>
+      </section>
     </main>
-    <aside class="auction-panel">
-      <h2 class="panel-title">Team Status</h2>
-      <div id="teamStatus" class="team-status"></div>
-    </aside>
     <section id="auctionHistoryPanel" class="auction-history-panel" aria-live="polite">
       <div class="history-head">
         <div class="history-title">Auction History</div>
@@ -2142,13 +2231,44 @@ setInterval(syncFriendsRoom, 1000);
   document.getElementById("playerSearch").addEventListener("input", renderPlayers);
   document.getElementById("roleFilter").addEventListener("change", renderPlayers);
   document.getElementById("countryFilter").addEventListener("change", renderPlayers);
-  document.getElementById("auctionSettingsBtn").onclick = () => showInfoModal("settings");
+  document.getElementById("auctionSettingsBtn").onclick = () => { state.auctionRoomTab = "settings"; renderAuctionRoomHub(); };
   document.getElementById("auctionHistoryBtn").onclick = openAuctionHistory;
   document.getElementById("closeHistoryBtn").onclick = closeAuctionHistory;
   document.getElementById("historySearch").addEventListener("input", renderAuctionHistory);
   document.getElementById("historyTeamFilter").addEventListener("change", renderAuctionHistory);
   document.getElementById("historyRoleFilter").addEventListener("change", renderAuctionHistory);
   document.getElementById("historyStatusFilter").addEventListener("change", renderAuctionHistory);
+  document.getElementById("auctionPauseBtn").onclick = toggleAuctionPause;
+  document.getElementById("auctionEndBtn").onclick = endAuctionRoom;
+  document.getElementById("auctionPlaySimBtn").onclick = playAuctionSim;
+  document.getElementById("auctionSoundBtn").onclick = toggleAuctionSound;
+  document.getElementById("auctionShareBtn").onclick = shareAuctionRoom;
+  document.getElementById("auctionCopyRoomBtn").onclick = copyAuctionRoomCode;
+  document.getElementById("auctionSupportBtn").onclick = () => window.open("https://frameogram.onrender.com/", "_blank", "noopener");
+  document.getElementById("auctionHomeBtn").onclick = goAuctionHome;
+  document.querySelectorAll("[data-auction-tab]").forEach(btn => {
+    btn.onclick = function () {
+      state.auctionRoomTab = btn.dataset.auctionTab || "activity";
+      renderAuctionRoomHub();
+    };
+  });
+  document.getElementById("auctionRoomHubBody").addEventListener("click", async function (event) {
+    if (event.target && event.target.id === "auctionChatSendBtn") {
+      await sendAuctionChat();
+      return;
+    }
+    const timerBtn = event.target && event.target.closest ? event.target.closest("[data-auction-timer]") : null;
+    if (timerBtn) {
+      const seconds = Number(timerBtn.dataset.auctionTimer);
+      if (window.applyAuctionTimerSetting(seconds)) renderAuctionRoomHub();
+    }
+  });
+  document.getElementById("auctionRoomHubBody").addEventListener("keydown", async function (event) {
+    if (event.target && event.target.id === "auctionChatInput" && event.key === "Enter") {
+      event.preventDefault();
+      await sendAuctionChat();
+    }
+  });
   document.getElementById("startAuctionBtn").onclick = startAuction;
   document.getElementById("userBidBtn").onclick = userBid;
 
@@ -4469,7 +4589,15 @@ setInterval(syncFriendsRoom, 1000);
     autoSelectAIXI(team);
     return team.xi && team.xi.length === 11 ? team.xi : team.squad.filter(p => !isPlayerInjured(p)).sort((a,b)=>b.rating-a.rating).slice(0,11);
   }
-  function renderAll() { renderPlayers(); renderLive(); renderTeams(); renderPoolStats(); updateControls(); }
+  function renderAll() {
+    renderAuctionRoomHeader();
+    renderPlayers();
+    renderLive();
+    renderAuctionRoomHub();
+    renderTeams();
+    renderPoolStats();
+    updateControls();
+  }
 
   function renderPoolStats() {
     const el = document.getElementById("poolStats");
@@ -4478,6 +4606,230 @@ setInterval(syncFriendsRoom, 1000);
     el.innerHTML = `<span class="pool-stat av">${state.players.length-s-u} Available</span>
       <span class="pool-stat sol">${s} Sold</span>
       <span class="pool-stat uns">${u} Unsold</span>`;
+  }
+
+  function auctionModeLabel() {
+    return isAiTournamentMode() ? "AI Mode 2027" : "Historical Mode";
+  }
+  function canControlAuctionRoom() {
+    return !roomClientActive();
+  }
+  function guardAuctionHostControl(actionText) {
+    if (canControlAuctionRoom()) return true;
+    showToast("Only the room creator can " + actionText + ".");
+    return false;
+  }
+  function auctionTimeLabel(at) {
+    return at ? new Date(at).toLocaleTimeString([], { hour:"2-digit", minute:"2-digit" }) : "";
+  }
+  function auctionParticipantLabel() {
+    if (playMode === "friends") {
+      const joined = currentRoomPlayers().length || activeAuctionTeams().length || 1;
+      return joined + "/" + Math.max(joined, activeAuctionTeams().length || joined) + " active";
+    }
+    return "1/" + Math.max(1, activeAuctionTeams().length) + " solo";
+  }
+  function renderAuctionRoomHeader() {
+    const codeEl = document.getElementById("auctionRoomCode");
+    const usersEl = document.getElementById("auctionRoomUsers");
+    if (codeEl) codeEl.textContent = roomModeActive() ? currentRoomCode : "SOLO";
+    if (usersEl) usersEl.textContent = auctionParticipantLabel();
+    const locked = !canControlAuctionRoom();
+    ["auctionPauseBtn","auctionEndBtn","auctionPlaySimBtn"].forEach(id => {
+      const btn = document.getElementById(id);
+      if (!btn) return;
+      btn.disabled = locked;
+      btn.classList.toggle("locked", locked);
+      btn.classList.toggle("auction-host-only", locked);
+      btn.title = locked ? "Only the room creator can use this control." : "";
+    });
+    const pauseBtn = document.getElementById("auctionPauseBtn");
+    if (pauseBtn) pauseBtn.textContent = state.auctionPaused ? "RESUME" : "PAUSE";
+    const soundBtn = document.getElementById("auctionSoundBtn");
+    if (soundBtn) soundBtn.textContent = state.soundOn === false ? "SOUND OFF" : "SOUND ON";
+  }
+  function pushAuctionActivity(kind, text, meta = {}) {
+    const id = meta.id || [kind, meta.playerId || meta.playerName || "", meta.team || "", meta.amount || "", meta.at || Date.now()].join("|");
+    if (state.activityFeed.some(item => item.id === id)) return;
+    state.activityFeed.unshift({
+      id,
+      kind,
+      text,
+      team:meta.team || "",
+      name:meta.name || "",
+      message:meta.message || text,
+      playerName:meta.playerName || "",
+      amount:Number(meta.amount || 0),
+      status:meta.status || "",
+      at:meta.at || Date.now(),
+      playerId:meta.playerId || ""
+    });
+    state.activityFeed = state.activityFeed.slice(0, 100);
+    renderAuctionRoomHub();
+  }
+  function addAuctionChat(payload = {}, publish = true) {
+    const message = String(payload.message || "").trim().slice(0, 220);
+    if (!message) return false;
+    const item = {
+      id:payload.id || ("chat-" + Date.now() + "-" + Math.random().toString(36).slice(2, 7)),
+      name:String(payload.name || currentPlayerName || "Manager").trim().slice(0, 32),
+      team:String(payload.team || selectedTeam || "").trim(),
+      message,
+      at:payload.at || Date.now()
+    };
+    if (state.chatMessages.some(chat => chat.id === item.id)) return false;
+    state.chatMessages.push(item);
+    state.chatMessages = state.chatMessages.slice(-80);
+    pushAuctionActivity("chat", item.message, item);
+    if (publish && roomHostActive()) publishRoomGameSnapshot("auction");
+    return true;
+  }
+  async function sendAuctionChat() {
+    const input = document.getElementById("auctionChatInput");
+    const message = String(input ? input.value : "").trim();
+    if (!message) return;
+    const payload = {
+      id:"chat-" + Date.now() + "-" + Math.random().toString(36).slice(2, 7),
+      name:currentPlayerName || "Manager",
+      team:selectedTeam || "",
+      message,
+      at:Date.now()
+    };
+    if (input) input.value = "";
+    addAuctionChat(payload, !roomClientActive());
+    if (roomClientActive()) await sendRoomAction("chat", payload);
+  }
+  function renderAuctionActivityItem(item) {
+    const time = auctionTimeLabel(item.at);
+    if (item.kind === "sold" || item.status === "Sold") {
+      return `<div class="auction-event-card"><div class="auction-event-main"><div><div class="auction-event-name">${escapeRoomHtml(item.playerName || "Player sold")}</div><div class="auction-event-meta">${teamLogoImgHtml(item.team, "team-logo-mini")} ${escapeRoomHtml(item.team)} bought for ${money(item.amount)}</div></div><strong>${money(item.amount)}</strong></div></div>`;
+    }
+    if (item.kind === "unsold" || item.status === "Unsold") {
+      return `<div class="auction-event-card unsold"><div class="auction-event-main"><div><div class="auction-event-name">${escapeRoomHtml(item.playerName || "Player")}</div><div class="auction-event-meta">Went unsold</div></div><strong>UNSOLD</strong></div></div>`;
+    }
+    if (item.kind === "chat") {
+      return `<div class="auction-feed-row"><strong>${escapeRoomHtml(item.name || "Manager")}</strong><span>${escapeRoomHtml(item.text || item.message || "")}</span><span class="auction-feed-time">${time}</span></div>`;
+    }
+    return `<div class="auction-feed-row">${item.team ? teamLogoImgHtml(item.team, "team-logo-mini") : ""}<span>${escapeRoomHtml(item.text || "")}</span><span class="auction-feed-time">${time}</span></div>`;
+  }
+  function renderAuctionActivityTab() {
+    const feed = (state.activityFeed || []).slice(0, 80);
+    const feedHtml = feed.length
+      ? feed.map(renderAuctionActivityItem).join("")
+      : `<div class="live-empty">Auction moves and chat will appear here.</div>`;
+    return `<div class="auction-feed">${feedHtml}</div>
+      <div class="auction-chat-bar">
+        <input id="auctionChatInput" maxlength="220" placeholder="Send a message to the room">
+        <button class="btn btn-primary btn-sm" id="auctionChatSendBtn">SEND</button>
+      </div>`;
+  }
+  function renderAuctionSquadTab() {
+    const teams = activeAuctionTeams();
+    const totalPlayers = teams.reduce((sum, team) => sum + team.squad.length, 0);
+    const totalSpent = teams.reduce((sum, team) => sum + ((120 * CRORE) - team.purse), 0);
+    return `<div class="squad-hub-summary">
+        <div class="squad-hub-stat"><b>${teams.length}</b><span>Teams</span></div>
+        <div class="squad-hub-stat"><b>${totalPlayers}</b><span>Players bought</span></div>
+        <div class="squad-hub-stat"><b>${money(totalSpent)}</b><span>Total spent</span></div>
+        <div class="squad-hub-stat"><b>${money(teams.reduce((sum, team) => sum + team.purse, 0))}</b><span>Purse left</span></div>
+      </div>
+      <div id="teamStatus" class="team-status squad-hub-list"></div>`;
+  }
+  function renderAuctionCommunityTab() {
+    return `<div class="community-grid">
+      <a class="community-tile" href="https://frameogram.onrender.com/" target="_blank" rel="noopener"><strong>Frameogram</strong><span>Play, share, and support the UCM community.</span></a>
+      <a class="community-tile" href="https://wa.me/?text=Join%20my%20UCM%20auction%20room" target="_blank" rel="noopener"><strong>WhatsApp Channel</strong><span>Share room codes with friends.</span></a>
+      <a class="community-tile" href="https://www.instagram.com/" target="_blank" rel="noopener"><strong>Instagram</strong><span>Community updates and clips.</span></a>
+      <a class="community-tile" href="https://www.linkedin.com/in/keshav-agrawal-122b43159/" target="_blank" rel="noopener"><strong>LinkedIn</strong><span>Creator profile and updates.</span></a>
+    </div>`;
+  }
+  function renderAuctionSettingsTab() {
+    const canEdit = canControlAuctionRoom();
+    const timerButtons = [3,4,5,6,7,8,9,10].map(sec =>
+      `<button class="timer-option ${state.bidTimer === sec ? "active" : ""}" data-auction-timer="${sec}" ${canEdit ? "" : "disabled"}>${sec}s</button>`
+    ).join("");
+    return `<div class="auction-rules">
+      <div class="auction-rule"><strong>Game Mode:</strong> ${auctionModeLabel()}</div>
+      <div class="auction-rule"><strong>Bid Timer:</strong><div class="timer-options">${timerButtons}</div><div class="settings-note">${canEdit ? "Creator changes apply to the next bid immediately." : "Only the room creator can edit the timer."}</div></div>
+      <div class="auction-rule"><strong>Bidding Rule:</strong> Any human manager can bid, but the current highest bidder cannot raise again until another team raises.</div>
+      <div class="auction-rule"><strong>Squad Rule:</strong> Build 18-25 players. Playing XI needs one keeper and at least five bowlers/all-rounders.</div>
+      <div class="auction-rule"><strong>Room Control:</strong> Pause, End, Auto, Skip, and Play Sim stay with the creator so every screen remains synced.</div>
+    </div>`;
+  }
+  function renderAuctionRoomHub() {
+    const body = document.getElementById("auctionRoomHubBody");
+    if (!body) return;
+    document.querySelectorAll("[data-auction-tab]").forEach(btn => btn.classList.toggle("active", btn.dataset.auctionTab === state.auctionRoomTab));
+    if (state.auctionRoomTab === "squad") body.innerHTML = renderAuctionSquadTab();
+    else if (state.auctionRoomTab === "community") body.innerHTML = renderAuctionCommunityTab();
+    else if (state.auctionRoomTab === "settings") body.innerHTML = renderAuctionSettingsTab();
+    else body.innerHTML = renderAuctionActivityTab();
+    if (state.auctionRoomTab === "squad") renderTeams();
+  }
+  async function toggleAuctionPause() {
+    if (!guardAuctionHostControl("pause or resume the auction")) return;
+    if (!state.currentPlayer) { showToast("Start an auction lot before pausing."); return; }
+    state.auctionPaused = !state.auctionPaused;
+    state.lastMessage = state.auctionPaused ? "Auction paused" : "Auction resumed";
+    pushAuctionActivity("system", state.lastMessage, { id:"auction-pause-" + Date.now(), at:Date.now() });
+    renderLive(state.lastMessage);
+    updateControls();
+    if (roomHostActive()) await publishRoomGameSnapshot("auction");
+  }
+  async function endAuctionRoom() {
+    if (!guardAuctionHostControl("end the auction")) return;
+    if (!confirm("End the auction now? Remaining available players will be marked unsold.")) return;
+    stopTimer();
+    state.auto = false;
+    state.auctionPaused = false;
+    state.currentPlayer = null;
+    state.selectedPlayer = null;
+    state.currentBid = 0;
+    state.highestBidder = null;
+    state.userPassed = false;
+    state.passedTeams.clear();
+    state.bidTrail = [];
+    const remaining = state.players.filter(p => !state.sold.has(p.id) && !state.unsold.has(p.id));
+    if (remaining.length) bulkMarkAuctionUnsold(remaining, "Room ended");
+    state.lastMessage = "Auction ended by room creator.";
+    pushAuctionActivity("system", state.lastMessage, { id:"auction-ended-" + Date.now(), at:Date.now() });
+    renderAll();
+    if (roomHostActive()) await publishRoomGameSnapshot("auction");
+    showAuctionSummary();
+  }
+  async function playAuctionSim() {
+    if (!guardAuctionHostControl("run Play Sim")) return;
+    await skipAuction();
+  }
+  function toggleAuctionSound() {
+    state.soundOn = state.soundOn === false;
+    showToast(state.soundOn ? "Auction sound enabled." : "Auction sound muted.");
+    renderAuctionRoomHeader();
+    if (roomHostActive()) publishRoomGameSnapshot("auction");
+  }
+  function auctionShareMessage() {
+    const code = roomModeActive() ? currentRoomCode : "SOLO";
+    const link = (typeof location !== "undefined" && location.href) ? location.href.split("#")[0] : "";
+    return roomModeActive()
+      ? "Join my UCM auction room " + code + ": " + link
+      : "Play UCM - Ultimate Cricket Manager: " + link;
+  }
+  function shareAuctionRoom() {
+    window.open("https://wa.me/?text=" + encodeURIComponent(auctionShareMessage()), "_blank", "noopener");
+  }
+  async function copyAuctionRoomCode() {
+    const text = roomModeActive() ? currentRoomCode : auctionShareMessage();
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(text);
+      showToast(roomModeActive() ? "Room code copied." : "Game link copied.");
+    } catch (e) {
+      showToast(roomModeActive() ? "Room code: " + currentRoomCode : "Copy from the address bar.");
+    }
+  }
+  function goAuctionHome() {
+    if (!confirm("Leave the auction screen and return home?")) return;
+    stopTimer();
+    showOnlyScreen("homeScreen");
   }
 
   function renderPlayers() {
@@ -4525,6 +4877,13 @@ setInterval(syncFriendsRoom, 1000);
     if (!team || !state.currentPlayer) return;
     state.bidTrail.push({ team:team.name, amount:Number(amount || 0), at:Date.now(), purseAfter:Math.max(0, Number(team.purse || 0) - Number(amount || 0)) });
     if (state.bidTrail.length > 80) state.bidTrail = state.bidTrail.slice(-80);
+    pushAuctionActivity("bid", team.name + " bid " + money(amount) + " for " + state.currentPlayer.name, {
+      team:team.name,
+      playerId:state.currentPlayer.id,
+      playerName:state.currentPlayer.name,
+      amount,
+      at:Date.now()
+    });
     renderAuctionHistory();
   }
   function recordAuctionOutcome(player, status, team = null, amount = 0, purseAfter = null, trail = null, method = "Live") {
@@ -4544,6 +4903,15 @@ setInterval(syncFriendsRoom, 1000);
       bidCount:bids.length
     });
     if (state.auctionHistory.length > 1200) state.auctionHistory = state.auctionHistory.slice(-1000);
+    pushAuctionActivity(status === "Sold" ? "sold" : "unsold", status === "Sold" ? player.name + " sold to " + team.name : player.name + " went unsold", {
+      id:"auction-outcome-" + player.id + "-" + status,
+      playerId:player.id,
+      playerName:player.name,
+      status,
+      team:team ? team.name : "",
+      amount:Number(amount || 0),
+      at:Date.now()
+    });
     renderAuctionHistory();
   }
   function markAuctionUnsold(player, method = "Live") {
@@ -4573,6 +4941,12 @@ setInterval(syncFriendsRoom, 1000);
       summary:true
     });
     if (state.auctionHistory.length > 1200) state.auctionHistory = state.auctionHistory.slice(-1000);
+    pushAuctionActivity("unsold", fresh.length + " remaining players marked unsold", {
+      id:"bulk-unsold-" + Date.now(),
+      status:"Unsold",
+      playerName:fresh.length + " remaining players",
+      at:Date.now()
+    });
     return fresh.length;
   }
   function openAuctionHistory() {
@@ -4680,12 +5054,19 @@ setInterval(syncFriendsRoom, 1000);
   }
 
   function renderTeams() {
-    document.getElementById("teamStatus").innerHTML = activeAuctionTeams().map(team => {
+    const statusEl = document.getElementById("teamStatus");
+    if (!statusEl) return;
+    statusEl.innerHTML = activeAuctionTeams().map(team => {
       const isOpen=state.openedTeam===team.name;
+      const roomPlayer = roomPlayerForTeam(team.name);
+      const spent = (120 * CRORE) - Number(team.purse || 0);
+      const statusText = roomPlayer ? "Active - " + roomPlayer.name : (playMode === "friends" ? "Inactive / AI fill" : (team.name === selectedTeam ? "Active - You" : "Active - AI"));
       return `<div class="tsc ${state.highestBidder===team?"leading":""} ${team.squad.length>=25?"full":""} ${team.name===selectedTeam?"user-t":""} ${isOpen?"open":""}" data-team="${team.name}">
         <div class="t-name"><span class="t-name-left">${teamLogoImgHtml(team.name, "team-logo-mini")}<span class="t-name-text">${team.name}</span></span>${team.name===selectedTeam?'<span class="you-tag">YOU</span>':''}</div>
         <div class="t-pills">
+          <span class="t-pill">${escapeRoomHtml(statusText)}</span>
           <span class="t-pill hi">Rs ${((team.purse/CRORE).toFixed(1))}Cr left</span>
+          <span class="t-pill">${money(spent)} spent</span>
           <span class="t-pill">${team.squad.length}/25</span>
           <span class="t-pill">${team.overseas}/8 OS</span>
         </div>
@@ -4695,7 +5076,7 @@ setInterval(syncFriendsRoom, 1000);
         </div>
       </div>`;
     }).join("");
-    document.getElementById("teamStatus").querySelectorAll(".tsc").forEach(card=>{
+    statusEl.querySelectorAll(".tsc").forEach(card=>{
       card.onclick=()=>{state.openedTeam=state.openedTeam===card.dataset.team?null:card.dataset.team;renderTeams();};
     });
   }
@@ -4708,7 +5089,14 @@ setInterval(syncFriendsRoom, 1000);
     state.currentPlayer=state.selectedPlayer;
     state.currentBid=state.currentPlayer.basePrice;
     state.highestBidder=null; state.timer=state.bidTimer; state.userPassed=false; state.passedTeams.clear(); state.bidTrail=[];
+    state.auctionPaused = false;
     state.lastMessage="Auction started for "+state.currentPlayer.name;
+    pushAuctionActivity("system", "Auction started for " + state.currentPlayer.name, {
+      id:"lot-start-" + state.currentPlayer.id + "-" + Date.now(),
+      playerId:state.currentPlayer.id,
+      playerName:state.currentPlayer.name,
+      at:Date.now()
+    });
     updateControls(); startTimer(); renderAll();
     if (roomHostActive()) publishRoomGameSnapshot("auction");
   }
@@ -4717,6 +5105,7 @@ setInterval(syncFriendsRoom, 1000);
     stopTimer();
     if (roomClientActive()) return;
     state.interval=setInterval(async()=>{
+      if (state.auctionPaused) { renderLive("Auction paused"); return; }
       if (roomHostActive()) await processRoomActions();
       aiBidRound(); state.timer-=1; renderLive();
       if(state.timer<=0) finishAuction();
@@ -4784,6 +5173,7 @@ setInterval(syncFriendsRoom, 1000);
 
   function finishAuction() {
     stopTimer();
+    state.auctionPaused = false;
     const player=state.currentPlayer;
     if (state.highestBidder){
       state.highestBidder.purse-=state.currentBid;
@@ -4862,6 +5252,7 @@ setInterval(syncFriendsRoom, 1000);
     state.auctionSummaryShown = false;
     stopTimer();
     state.auto = false;
+    state.auctionPaused = false;
     state.currentPlayer = null;
     state.selectedPlayer = null;
     state.currentBid = 0;
@@ -5037,6 +5428,7 @@ setInterval(syncFriendsRoom, 1000);
   }
 
   function updateControls() {
+    renderAuctionRoomHeader();
     const autoBtn = document.getElementById("autoAuctionBtn");
     const passBtn = document.getElementById("passBidBtn");
     const skipBtn = document.getElementById("skipAuctionBtn");
@@ -5064,6 +5456,12 @@ setInterval(syncFriendsRoom, 1000);
       startBtn.disabled = clientLocked;
       startBtn.title = clientLocked ? "Only the room creator can start each auction lot." : "";
     }
+    const simBtn = document.getElementById("auctionPlaySimBtn");
+    if (simBtn) simBtn.disabled = clientLocked || !!state.skipInProgress;
+    const endBtn = document.getElementById("auctionEndBtn");
+    if (endBtn) endBtn.disabled = clientLocked;
+    const pauseBtn = document.getElementById("auctionPauseBtn");
+    if (pauseBtn) pauseBtn.disabled = clientLocked || !state.currentPlayer;
   }
 
   // ==================== AI HELPERS ====================
