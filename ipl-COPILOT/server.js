@@ -15,6 +15,7 @@ const ANALYTICS_ADMIN_TOKEN = process.env.ANALYTICS_ADMIN_TOKEN || 'keshav199507
 const AI_PROVIDER = 'gemini';
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+const GEMINI_TIMEOUT_MS = Number(process.env.GEMINI_TIMEOUT_MS || 12000);
 const HOST_TIMEOUT_MS = Number(process.env.HOST_TIMEOUT_MS || 2 * 60 * 1000);
 const TEAM_NAMES = [
   'Mumbai Mavericks', 'Delhi Strikers', 'Bengaluru Blazers', 'Chennai Chargers', 'Kolkata Knightsmen',
@@ -28,7 +29,7 @@ const AI_SIMULATION_RULEBOOK = [
   'Include natural collapses, comebacks, momentum swings, tactical decisions, nervous starts, clutch performances, fielding pressure, and realistic human behaviour.',
   'Venue and pitch must matter: boundary size, pace/spin support, dew, humidity, chasing advantage, and pitch deterioration should influence scoring.',
   'Playing XI means 11 players plus optional impact player context. Respect wicketkeeper, bowling balance, overseas balance, and all-rounder value.',
-  'Return a complete JSON match result with toss, venue, innings, batting scorecards, bowling scorecards, highlights, tactical analysis, player of the match, and result text.'
+  'Return a compact JSON match result with toss, venue, innings, batting scorecards, bowling scorecards, short highlights, player of the match, and result text.'
 ].join(' ');
 const rooms = new Map();
 const clients = new Map();
@@ -282,7 +283,7 @@ function canViewAnalytics(query) {
   return String(query.token || '') === ANALYTICS_ADMIN_TOKEN;
 }
 
-function safeJsonText(value, max = 200000) {
+function safeJsonText(value, max = 60000) {
   return JSON.stringify(value || {}).slice(0, max);
 }
 function extractGeminiText(data) {
@@ -299,21 +300,50 @@ function aiSimulationSystemPrompt() {
   return [
     'You are the UCM 2027 AI match simulation engine.',
     'You must obey this rulebook: ' + AI_SIMULATION_RULEBOOK,
-    'Return only valid JSON. Do not include markdown.',
+    'Return only valid compact JSON. Do not include markdown, comments, trailing commas, or extra text.',
     'Use the team names and player names exactly as provided.',
     'Do not use historical score extraction. This is a fictional 2027 simulation.',
     'The response schema is:',
-    '{"venue":{"name":"","pitch":""},"dew":true,"tossWinner":"Team Name","tossDecision":"bat","innings":[{"teamName":"Team Name","runs":170,"wickets":7,"balls":120,"batting":[{"name":"Player","runs":45,"balls":31,"fours":4,"sixes":2,"dismissal":"c fielder b bowler"}],"bowling":[{"name":"Bowler","balls":24,"runs":32,"wickets":2,"dots":9,"foursConceded":3,"sixesConceded":1}],"commentary":["short highlight"],"recentBalls":["1","4","0","W"]}],"winner":"Team Name","resultText":"Team won by ...","playerOfMatch":"Player","tacticalAnalysis":["short point"],"commentary":["six to eight broadcast-style lines"]}'
+    '{"venue":{"name":"","pitch":""},"dew":true,"tossWinner":"Team Name","tossDecision":"bat","innings":[{"teamName":"Team Name","runs":170,"wickets":7,"balls":120,"batting":[{"name":"Player","runs":45,"balls":31,"fours":4,"sixes":2,"dismissal":"c fielder b bowler"}],"bowling":[{"name":"Bowler","balls":24,"runs":32,"wickets":2,"dots":9,"foursConceded":3,"sixesConceded":1}],"commentary":["short highlight"],"recentBalls":["1","4","0","W"]}],"winner":"Team Name","resultText":"Team won by ...","playerOfMatch":"Player","tacticalAnalysis":["short point"],"commentary":["four broadcast-style lines"]}'
   ].join('\n');
 }
 function stripJsonFence(text) {
   return String(text || '').replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
 }
+function extractFirstJsonObject(text) {
+  const value = stripJsonFence(text);
+  if (!value) return '';
+  if (value[0] === '{' && value[value.length - 1] === '}') return value;
+  const start = value.indexOf('{');
+  if (start < 0) return value;
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  for (let i = start; i < value.length; i++) {
+    const ch = value[i];
+    if (inString) {
+      if (escaped) escaped = false;
+      else if (ch === '\\') escaped = true;
+      else if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') inString = true;
+    else if (ch === '{') depth++;
+    else if (ch === '}') {
+      depth--;
+      if (depth === 0) return value.slice(start, i + 1);
+    }
+  }
+  return value.slice(start);
+}
 async function runGeminiMatchSimulation(payload) {
   if (!GEMINI_API_KEY) throw new Error('Gemini API key is not configured. Set GEMINI_API_KEY on the server.');
   const endpoint = 'https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(GEMINI_MODEL) + ':generateContent';
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), GEMINI_TIMEOUT_MS);
   const response = await fetch(endpoint, {
     method: 'POST',
+    signal: controller.signal,
     headers: {
       'x-goog-api-key': GEMINI_API_KEY,
       'Content-Type': 'application/json'
@@ -322,21 +352,24 @@ async function runGeminiMatchSimulation(payload) {
       system_instruction: { parts: [{ text: aiSimulationSystemPrompt() }] },
       contents: [{
         role: 'user',
-        parts: [{ text: 'Simulate this UCM 2027 match. Return JSON only.\n' + safeJsonText(payload) }]
+        parts: [{ text: 'Simulate this UCM 2027 match. Return compact valid JSON only. Keep commentary short.\n' + safeJsonText(payload) }]
       }],
       generationConfig: {
-        temperature: 0.72,
-        maxOutputTokens: 6500,
+        temperature: 0.55,
+        maxOutputTokens: 4200,
         responseMimeType: 'application/json'
       }
     })
-  });
+  }).catch(err => {
+    if (err && err.name === 'AbortError') throw new Error('Gemini timed out after ' + Math.round(GEMINI_TIMEOUT_MS / 1000) + ' seconds.');
+    throw err;
+  }).finally(() => clearTimeout(timeout));
   const data = await response.json().catch(() => ({}));
   if (!response.ok) {
     const message = data.error && data.error.message ? data.error.message : 'Gemini simulation failed';
     throw new Error(message);
   }
-  const text = stripJsonFence(extractGeminiText(data));
+  const text = extractFirstJsonObject(extractGeminiText(data));
   if (!text) throw new Error('Gemini returned an empty simulation.');
   try {
     return JSON.parse(text);
