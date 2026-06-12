@@ -764,7 +764,7 @@ html,body{width:100%;max-width:100%;}
       <button class="mode-card" id="aiModeBtn" type="button">
         <div>
           <h3>AI Mode</h3>
-          <p>Same auction system, then dynamic Gemini-assisted match simulation using tactical rules, player roles, venue conditions, pressure, form, and team balance, with local fallback.</p>
+          <p>Same auction system, then enhanced local 2027 match simulation using tactical rules, recent embedded data, player roles, venue conditions, pressure, form, and team balance.</p>
         </div>
         <div class="mode-tags"><span>2027 Season</span><span>AI Match Engine</span><span>No Historical Draw</span></div>
       </button>
@@ -3189,6 +3189,88 @@ setInterval(syncFriendsRoom, 1000);
     }
   }
 
+  const recentPerformanceCache = new Map();
+  function ensureLocalStatsDB() {
+    if (STATS_DB) return true;
+    const inline = document.getElementById("ucmStatsDbInline");
+    if (!inline || !inline.textContent.trim()) return false;
+    try {
+      return hydrateStatsDB(JSON.parse(inline.textContent));
+    } catch (e) {
+      console.warn("Embedded UCM stats DB could not be parsed for local simulation", e);
+      return false;
+    }
+  }
+  function latestAvailableStatsYear() {
+    ensureLocalStatsDB();
+    const years = Object.keys(YEARS_MATCHES || {}).map(Number).filter(Number.isFinite);
+    return years.length ? Math.max(...years) : 2025;
+  }
+  function localStatsNameCandidates(player) {
+    const raw = String(player && player.name || "").trim();
+    const stripped = raw.replace(/\s+A$/i, "").trim();
+    const candidates = new Set([raw, stripped]);
+    if (REVERSE_MAP) {
+      if (REVERSE_MAP[raw]) candidates.add(REVERSE_MAP[raw]);
+      if (REVERSE_MAP[stripped]) candidates.add(REVERSE_MAP[stripped]);
+    }
+    return [...candidates].filter(Boolean);
+  }
+  function clampBoost(value, min, max) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return 0;
+    return Math.max(min, Math.min(max, n));
+  }
+  function recentPlayerPerformance(player) {
+    const cacheKey = player ? (player.id || player.name || "") : "";
+    if (cacheKey && recentPerformanceCache.has(cacheKey)) return recentPerformanceCache.get(cacheKey);
+    const fallback = { battingBoost:0, bowlingBoost:0, confidence:1, matches:0, latestYear:latestAvailableStatsYear() };
+    ensureLocalStatsDB();
+    const key = localStatsNameCandidates(player).find(name => STATS_DB && STATS_DB[name]);
+    const seasons = key && STATS_DB ? STATS_DB[key] : null;
+    if (!seasons) {
+      if (cacheKey) recentPerformanceCache.set(cacheKey, fallback);
+      return fallback;
+    }
+    const latestYear = latestAvailableStatsYear();
+    const recentYears = Object.keys(seasons)
+      .map(Number)
+      .filter(year => Number.isFinite(year) && year <= latestYear)
+      .sort((a,b) => b - a)
+      .slice(0, 4);
+    let weightedRuns = 0, weightedBalls = 0, weightedWickets = 0, weightedBatInnings = 0, weightedMatches = 0, totalWeight = 0;
+    recentYears.forEach((year, index) => {
+      const weight = Math.max(0.45, 1 - index * 0.16);
+      Object.values(seasons[String(year)] || {}).forEach(row => {
+        if (!row) return;
+        const runs = Number(row.r || 0);
+        const balls = Number(row.b || 0);
+        const wickets = Number(row.w || 0);
+        weightedMatches += weight;
+        totalWeight += weight;
+        if (runs > 0 || balls > 0) {
+          weightedRuns += runs * weight;
+          weightedBalls += Math.max(1, balls || estimateHistoricalBalls(runs, player)) * weight;
+          weightedBatInnings += weight;
+        }
+        weightedWickets += wickets * weight;
+      });
+    });
+    if (!totalWeight) {
+      if (cacheKey) recentPerformanceCache.set(cacheKey, fallback);
+      return fallback;
+    }
+    const avg = weightedBatInnings ? weightedRuns / weightedBatInnings : 0;
+    const strikeRate = weightedBalls ? weightedRuns * 100 / weightedBalls : 120;
+    const wicketsPerMatch = weightedMatches ? weightedWickets / weightedMatches : 0;
+    const battingBoost = clampBoost((avg - 22) * 0.16 + (strikeRate - 130) * 0.035 + Math.min(3, weightedRuns / 260), -7, 10);
+    const bowlingBoost = clampBoost((wicketsPerMatch - 0.55) * 6.2 + Math.min(2.5, weightedWickets / 18), -6, 10);
+    const confidence = Math.max(0.96, Math.min(1.055, 1 + clampBoost((avg - 24) / 850 + (wicketsPerMatch - 0.55) / 95, -0.04, 0.055)));
+    const result = { battingBoost, bowlingBoost, confidence, matches:Math.round(weightedMatches), latestYear };
+    if (cacheKey) recentPerformanceCache.set(cacheKey, result);
+    return result;
+  }
+
   // Tournament state
   const tournState = {
     matchNo: 0,          // league match number, 1-based while phase is league
@@ -3443,7 +3525,7 @@ setInterval(syncFriendsRoom, 1000);
         ydEl.textContent = "2027";
       }
       const ydSub = yearCard.querySelector(".year-draw-sub");
-      if (ydSub) ydSub.textContent = "Gemini/local match simulation uses the rulebook, squads, XI, pitch, pressure, and team balance";
+      if (ydSub) ydSub.textContent = "Enhanced local 2027 simulation uses the rulebook, recent embedded data, squads, XI, pitch, pressure, and team balance";
       return;
     }
     const validYears = getAvailableHistoricalYears();
@@ -4097,7 +4179,7 @@ setInterval(syncFriendsRoom, 1000);
 
     if (isAiTournamentMode()) {
       mhYear.textContent = "Match Year: 2027";
-      mhMatchNum.textContent = "AI Simulation: Gemini + Local Rulebook";
+      mhMatchNum.textContent = "AI Simulation: Enhanced Local Rulebook";
     } else {
       mhYear.textContent = `Match Year: ${tournState.drawnYear || "-"}`;
       mhMatchNum.textContent = `Historical Match Ref: ${tournState.drawnYear ? currentTournamentMatchNumber() : "-"}`;
@@ -4299,27 +4381,7 @@ setInterval(syncFriendsRoom, 1000);
       ]
     };
   }
-  async function requestAISimulation(payload) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 14000);
-    const res = await fetch("/api/ai/simulate-match", {
-      method:"POST",
-      signal:controller.signal,
-      headers:{ "Content-Type":"application/json" },
-      body:JSON.stringify(payload)
-    }).catch(err => {
-      if (err && err.name === "AbortError") throw new Error("Gemini request timed out. Local simulation is faster for this match.");
-      throw err;
-    }).finally(() => clearTimeout(timeout));
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok || !data.match) {
-      const err = new Error(data.error || "Gemini simulation unavailable");
-      err.code = data.code || "";
-      err.status = res.status;
-      throw err;
-    }
-    return data;
-  }
+  // AI Mode is now fully local, so match simulation never waits for an external API.
   function clampNumber(value, min, max, fallback) {
     const n = Number(value);
     if (!Number.isFinite(n)) return fallback;
@@ -4429,9 +4491,9 @@ setInterval(syncFriendsRoom, 1000);
       winner,
       resultText: finalResultText,
       playerOfMatch: raw.playerOfMatch || "",
-      aiEngine: "Gemini 2027",
+      aiEngine: "Enhanced Local 2027",
       commentary:[
-        "AI Simulation Tournament 2027: Gemini rulebook engine applied.",
+        "AI Simulation Tournament 2027: enhanced local rulebook engine applied.",
         `${tossWinner.name} won the toss and chose to ${tossDecision}.`,
         ...aiNotes.slice(0, 8),
         finalResultText
@@ -4444,30 +4506,31 @@ setInterval(syncFriendsRoom, 1000);
     const dew = Math.random() < venue.dew;
     const tossWinner = Math.random() < 0.5 ? teamA : teamB;
     const tossDecision = chooseTossDecision(tossWinner, venue, dew);
-    const payload = buildAISimulationPayload(teamA, teamB, xiA, xiB, fixture, matchNo, venue, dew, tossWinner, tossDecision);
-    try {
-      const data = await requestAISimulation(payload);
-      return normalizeAIMatchResponse(data.match, { teamA, teamB, xiA, xiB, venue, dew, tossWinner, tossDecision });
-    } catch (e) {
-      console.warn("Gemini match simulation unavailable; using local 2027 fallback.", e);
-      const reason = e && e.message ? String(e.message) : "Gemini simulation is unavailable.";
-      const prefix = e && e.code === "GEMINI_NOT_CONFIGURED" ? "AI Mode setup needed: " : "Gemini simulation unavailable: ";
-      showToast(prefix + reason + " Using local 2027 simulation fallback.");
-      const fallback = simulateT20Match(teamA, teamB, xiA, xiB, { year:2027, matchNoInYear:null, useHistorical:false, teamAppearances:{}, applyWicketBonus:false });
-      fallback.aiEngine = "Local 2027 fallback";
-      fallback.commentary = [
-        "AI Simulation Tournament 2027 fallback: local rule-based engine used because Gemini is unavailable.",
-        ...fallback.commentary
-      ];
-      return fallback;
-    }
+    const match = simulateT20Match(teamA, teamB, xiA, xiB, {
+      year:2027,
+      matchNoInYear:null,
+      useHistorical:false,
+      teamAppearances:{},
+      applyWicketBonus:false,
+      venue,
+      dew,
+      tossWinner,
+      tossDecision,
+      enhancedLocal2027:true
+    });
+    match.aiEngine = "Enhanced Local 2027";
+    match.commentary = [
+      "AI Simulation Tournament 2027: enhanced local engine used recent embedded performance trends, player roles, venue, pressure, and team balance.",
+      ...match.commentary
+    ];
+    return match;
   }
 
   function simulateT20Match(teamA, teamB, xiA, xiB, historyContext = {}) {
-    const venue = UCM_VENUES[Math.floor(Math.random() * UCM_VENUES.length)];
-    const dew = Math.random() < venue.dew;
-    const tossWinner = Math.random() < 0.5 ? teamA : teamB;
-    const tossDecision = chooseTossDecision(tossWinner, venue, dew);
+    const venue = historyContext.venue || UCM_VENUES[Math.floor(Math.random() * UCM_VENUES.length)];
+    const dew = typeof historyContext.dew === "boolean" ? historyContext.dew : Math.random() < venue.dew;
+    const tossWinner = historyContext.tossWinner || (Math.random() < 0.5 ? teamA : teamB);
+    const tossDecision = historyContext.tossDecision || chooseTossDecision(tossWinner, venue, dew);
     const tossLoser = tossWinner === teamA ? teamB : teamA;
     const battingFirstTeam = tossDecision === "bat" ? tossWinner : tossLoser;
     const bowlingFirstTeam = battingFirstTeam === teamA ? teamB : teamA;
@@ -4995,22 +5058,24 @@ setInterval(syncFriendsRoom, 1000);
     const fitness = Number(player && (player.fitness || 82));
     const fatigue = Number(player && (player.fatigue || 0));
     const pressureTemper = Number(player && (player.temperament || player.experience || player.rating || 65));
+    const recent = context && context.useHistorical === false ? recentPlayerPerformance(player) : { battingBoost:0, confidence:1 };
     const venue = context.venue || { batting:1 };
     const wicketCalm = wickets >= 5 ? (pressureTemper - 60) * 0.08 : 0;
-    return (base * 0.72 + form * 0.16 + pressureTemper * 0.08 + fitness * 0.04 + wicketCalm - fatigue * 0.045) *
-      moraleModifier(team) * battingRolePhaseFit(player, over) * Number(venue.batting || 1);
+    return (base * 0.72 + form * 0.16 + pressureTemper * 0.08 + fitness * 0.04 + recent.battingBoost + wicketCalm - fatigue * 0.045) *
+      moraleModifier(team) * battingRolePhaseFit(player, over) * Number(venue.batting || 1) * recent.confidence;
   }
   function effectiveBowlingSkill(player, team, context, over) {
     const base = playerBowlSkill(player);
     const form = Number(player && (player.recentForm || player.form || 60));
     const fitness = Number(player && (player.fitness || 82));
     const fatigue = Number(player && (player.fatigue || 0));
+    const recent = context && context.useHistorical === false ? recentPlayerPerformance(player) : { bowlingBoost:0, confidence:1 };
     const venueFit = bowlingStyleVenueFit(player, context.venue);
     const phaseFit = bowlingPhaseFit(player, over);
     const dewPenalty = context.dew && context.inningsNo === 2 ? 0.94 : 1;
     const partTimePenalty = isRealBowlingOption(player) ? 1 : 0.78;
-    return (base * 0.76 + form * 0.12 + fitness * 0.06 + Number(player && player.experience || 60) * 0.06 - fatigue * 0.04) *
-      moraleModifier(team) * venueFit * phaseFit * dewPenalty * partTimePenalty;
+    return (base * 0.76 + form * 0.12 + fitness * 0.06 + Number(player && player.experience || 60) * 0.06 + recent.bowlingBoost - fatigue * 0.04) *
+      moraleModifier(team) * venueFit * phaseFit * dewPenalty * partTimePenalty * recent.confidence;
   }
 
   function playerBatSkill(p) { return Number(p.battingRating || p.battingSkill || p.rating || p.overallRating || 55); }

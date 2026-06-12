@@ -47,29 +47,19 @@ Build Command: npm install
 Start Command: npm start
 ```
 
-For **AI Simulation Tournament 2027**, add these Render environment variables:
+For **AI Simulation Tournament 2027**, no external AI key is required.
 
-```text
-GEMINI_API_KEY=your_gemini_api_key
-GEMINI_MODEL=gemini-2.5-flash
-GEMINI_TIMEOUT_MS=12000
-```
+AI Mode now uses the enhanced local 2027 simulation engine in the browser. It uses the embedded player data, recent available season trends, player roles, venue conditions, pressure, form, fatigue, and team balance. This keeps matches fast and avoids quota or timeout errors.
 
-If `GEMINI_API_KEY` is missing or Gemini quota is unavailable, the game stays playable and uses the improved local 2027 fallback simulation.
-
-If you see this in AI Mode:
-
-```text
-Gemini simulation unavailable / Using local 2027 simulation fallback
-```
-
-open Render -> your Web Service -> Environment, add `GEMINI_API_KEY`, save changes, then redeploy or restart the service. You can verify server-side AI setup at:
+You can verify the AI setup at:
 
 ```text
 https://your-domain.onrender.com/api/ai/status
 ```
 
-It should return `"configured": true`.
+It should return `"provider": "enhanced-local"` and `"configured": true`.
+
+To improve "latest data" later, update the embedded UCM player/stat database in the app and redeploy. The local engine will automatically use the latest seasons available in that data.
 
 ## Multiplayer Storage
 
