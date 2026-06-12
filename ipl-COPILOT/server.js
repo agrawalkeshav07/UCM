@@ -12,10 +12,8 @@ const ROOT = __dirname;
 const ROOM_DB_FILE = process.env.ROOM_DB_FILE || path.join(ROOT, 'ucm_rooms_db.json');
 const ANALYTICS_DB_FILE = process.env.ANALYTICS_DB_FILE || path.join(ROOT, 'ucm_analytics_db.json');
 const ANALYTICS_ADMIN_TOKEN = process.env.ANALYTICS_ADMIN_TOKEN || 'keshav199507';
-const AI_PROVIDER = 'gemini';
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
-const GEMINI_TIMEOUT_MS = Number(process.env.GEMINI_TIMEOUT_MS || 12000);
+const AI_PROVIDER = 'enhanced-local';
+const AI_MODEL = 'ucm-local-2027';
 const HOST_TIMEOUT_MS = Number(process.env.HOST_TIMEOUT_MS || 2 * 60 * 1000);
 const TEAM_NAMES = [
   'Mumbai Mavericks', 'Delhi Strikers', 'Bengaluru Blazers', 'Chennai Chargers', 'Kolkata Knightsmen',
@@ -283,101 +281,6 @@ function canViewAnalytics(query) {
   return String(query.token || '') === ANALYTICS_ADMIN_TOKEN;
 }
 
-function safeJsonText(value, max = 60000) {
-  return JSON.stringify(value || {}).slice(0, max);
-}
-function extractGeminiText(data) {
-  if (!data) return '';
-  const chunks = [];
-  for (const candidate of data.candidates || []) {
-    for (const part of (candidate.content && candidate.content.parts) || []) {
-      if (typeof part.text === 'string') chunks.push(part.text);
-    }
-  }
-  return chunks.join('\n').trim();
-}
-function aiSimulationSystemPrompt() {
-  return [
-    'You are the UCM 2027 AI match simulation engine.',
-    'You must obey this rulebook: ' + AI_SIMULATION_RULEBOOK,
-    'Return only valid compact JSON. Do not include markdown, comments, trailing commas, or extra text.',
-    'Use the team names and player names exactly as provided.',
-    'Do not use historical score extraction. This is a fictional 2027 simulation.',
-    'The response schema is:',
-    '{"venue":{"name":"","pitch":""},"dew":true,"tossWinner":"Team Name","tossDecision":"bat","innings":[{"teamName":"Team Name","runs":170,"wickets":7,"balls":120,"batting":[{"name":"Player","runs":45,"balls":31,"fours":4,"sixes":2,"dismissal":"c fielder b bowler"}],"bowling":[{"name":"Bowler","balls":24,"runs":32,"wickets":2,"dots":9,"foursConceded":3,"sixesConceded":1}],"commentary":["short highlight"],"recentBalls":["1","4","0","W"]}],"winner":"Team Name","resultText":"Team won by ...","playerOfMatch":"Player","tacticalAnalysis":["short point"],"commentary":["four broadcast-style lines"]}'
-  ].join('\n');
-}
-function stripJsonFence(text) {
-  return String(text || '').replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
-}
-function extractFirstJsonObject(text) {
-  const value = stripJsonFence(text);
-  if (!value) return '';
-  if (value[0] === '{' && value[value.length - 1] === '}') return value;
-  const start = value.indexOf('{');
-  if (start < 0) return value;
-  let depth = 0;
-  let inString = false;
-  let escaped = false;
-  for (let i = start; i < value.length; i++) {
-    const ch = value[i];
-    if (inString) {
-      if (escaped) escaped = false;
-      else if (ch === '\\') escaped = true;
-      else if (ch === '"') inString = false;
-      continue;
-    }
-    if (ch === '"') inString = true;
-    else if (ch === '{') depth++;
-    else if (ch === '}') {
-      depth--;
-      if (depth === 0) return value.slice(start, i + 1);
-    }
-  }
-  return value.slice(start);
-}
-async function runGeminiMatchSimulation(payload) {
-  if (!GEMINI_API_KEY) throw new Error('Gemini API key is not configured. Set GEMINI_API_KEY on the server.');
-  const endpoint = 'https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(GEMINI_MODEL) + ':generateContent';
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), GEMINI_TIMEOUT_MS);
-  const response = await fetch(endpoint, {
-    method: 'POST',
-    signal: controller.signal,
-    headers: {
-      'x-goog-api-key': GEMINI_API_KEY,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      system_instruction: { parts: [{ text: aiSimulationSystemPrompt() }] },
-      contents: [{
-        role: 'user',
-        parts: [{ text: 'Simulate this UCM 2027 match. Return compact valid JSON only. Keep commentary short.\n' + safeJsonText(payload) }]
-      }],
-      generationConfig: {
-        temperature: 0.55,
-        maxOutputTokens: 4200,
-        responseMimeType: 'application/json'
-      }
-    })
-  }).catch(err => {
-    if (err && err.name === 'AbortError') throw new Error('Gemini timed out after ' + Math.round(GEMINI_TIMEOUT_MS / 1000) + ' seconds.');
-    throw err;
-  }).finally(() => clearTimeout(timeout));
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    const message = data.error && data.error.message ? data.error.message : 'Gemini simulation failed';
-    throw new Error(message);
-  }
-  const text = extractFirstJsonObject(extractGeminiText(data));
-  if (!text) throw new Error('Gemini returned an empty simulation.');
-  try {
-    return JSON.parse(text);
-  } catch (e) {
-    throw new Error('Gemini returned invalid simulation JSON.');
-  }
-}
-
 function sendJson(res, status, data) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
   res.end(JSON.stringify(data));
@@ -523,34 +426,20 @@ async function handleApi(req, res, pathname, query) {
     return sendJson(res, 200, {
       ok:true,
       provider:AI_PROVIDER,
-      configured:!!GEMINI_API_KEY,
-      model:GEMINI_MODEL
+      configured:true,
+      model:AI_MODEL,
+      message:'AI Mode uses enhanced local 2027 simulation in the browser. No external AI key is required.'
     });
   }
   if (pathname === '/api/ai/simulate-match' && req.method === 'POST') {
     if (!checkRate(req, res, 'ai-simulate-match', 24, 60_000)) return;
-    const body = await readBody(req);
-    if (String(body.mode || '') !== 'ai2027') return sendJson(res, 400, { error:'Invalid AI simulation mode' });
-    if (!body.fixture || !Array.isArray(body.teams) || body.teams.length !== 2) return sendJson(res, 400, { error:'Match fixture and two teams are required' });
-    try {
-      const match = await runGeminiMatchSimulation(body);
-      return sendJson(res, 200, { ok:true, source:'gemini', model:GEMINI_MODEL, match });
-    } catch (err) {
-      const message = err && err.message ? err.message : 'Gemini simulation failed';
-      const missingKey = /api key is not configured/i.test(message);
-      const status = missingKey ? 503 : 502;
-      const code = missingKey ? 'GEMINI_NOT_CONFIGURED' : 'GEMINI_SIMULATION_FAILED';
-      console.warn('[ai-simulate-match]', code, message);
-      return sendJson(res, status, {
-        ok:false,
-        source:'gemini',
-        model:GEMINI_MODEL,
-        code,
-        error: missingKey
-          ? 'Gemini API key is not configured. Add GEMINI_API_KEY in Render Environment, then redeploy/restart the service.'
-          : message
-      });
-    }
+    return sendJson(res, 410, {
+      ok:false,
+      source:'enhanced-local',
+      model:AI_MODEL,
+      code:'LOCAL_SIMULATION_ONLY',
+      error:'Hosted AI simulation is disabled. AI Mode now uses the enhanced local 2027 simulation engine.'
+    });
   }
   if (pathname === '/api/analytics/event' && req.method === 'POST') {
     if (!checkRate(req, res, 'analytics-event', 240, 60_000)) return;
