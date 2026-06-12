@@ -61,6 +61,20 @@ OPENAI_MODEL=gpt-4.1-mini
 
 If `OPENAI_API_KEY` is missing, the game stays playable and uses the local 2027 fallback simulation.
 
+If you see this in AI Mode:
+
+```text
+OpenAI simulation unavailable / Using local 2027 simulation fallback
+```
+
+open Render -> your Web Service -> Environment, add `OPENAI_API_KEY`, save changes, then redeploy or restart the service. You can verify server-side AI setup at:
+
+```text
+https://your-domain.onrender.com/api/ai/status
+```
+
+It should return `"configured": true`.
+
 ## Multiplayer Storage
 
 Rooms are persisted to `ucm_rooms_db.json` by default. This prevents normal restarts from immediately erasing rooms on the same server instance. For production-grade long-term multiplayer, move room storage to PostgreSQL using `DATABASE_URL`.

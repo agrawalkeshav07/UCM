@@ -481,13 +481,37 @@ function serveStatic(req, res, pathname) {
   });
 }
 async function handleApi(req, res, pathname, query) {
+  if (pathname === '/api/ai/status' && req.method === 'GET') {
+    return sendJson(res, 200, {
+      ok:true,
+      configured:!!OPENAI_API_KEY,
+      model:OPENAI_MODEL
+    });
+  }
   if (pathname === '/api/ai/simulate-match' && req.method === 'POST') {
     if (!checkRate(req, res, 'ai-simulate-match', 24, 60_000)) return;
     const body = await readBody(req);
     if (String(body.mode || '') !== 'ai2027') return sendJson(res, 400, { error:'Invalid AI simulation mode' });
     if (!body.fixture || !Array.isArray(body.teams) || body.teams.length !== 2) return sendJson(res, 400, { error:'Match fixture and two teams are required' });
-    const match = await runOpenAIMatchSimulation(body);
-    return sendJson(res, 200, { ok:true, source:'openai', model:OPENAI_MODEL, match });
+    try {
+      const match = await runOpenAIMatchSimulation(body);
+      return sendJson(res, 200, { ok:true, source:'openai', model:OPENAI_MODEL, match });
+    } catch (err) {
+      const message = err && err.message ? err.message : 'OpenAI simulation failed';
+      const missingKey = /api key is not configured/i.test(message);
+      const status = missingKey ? 503 : 502;
+      const code = missingKey ? 'OPENAI_NOT_CONFIGURED' : 'OPENAI_SIMULATION_FAILED';
+      console.warn('[ai-simulate-match]', code, message);
+      return sendJson(res, status, {
+        ok:false,
+        source:'openai',
+        model:OPENAI_MODEL,
+        code,
+        error: missingKey
+          ? 'OpenAI API key is not configured. Add OPENAI_API_KEY in Render Environment, then redeploy/restart the service.'
+          : message
+      });
+    }
   }
   if (pathname === '/api/analytics/event' && req.method === 'POST') {
     if (!checkRate(req, res, 'analytics-event', 240, 60_000)) return;
