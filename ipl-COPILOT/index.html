@@ -4292,7 +4292,12 @@ setInterval(syncFriendsRoom, 1000);
       body:JSON.stringify(payload)
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok || !data.match) throw new Error(data.error || "OpenAI simulation unavailable");
+    if (!res.ok || !data.match) {
+      const err = new Error(data.error || "OpenAI simulation unavailable");
+      err.code = data.code || "";
+      err.status = res.status;
+      throw err;
+    }
     return data;
   }
   function clampNumber(value, min, max, fallback) {
@@ -4423,7 +4428,9 @@ setInterval(syncFriendsRoom, 1000);
       return normalizeAIMatchResponse(data.match, { teamA, teamB, xiA, xiB, venue, dew, tossWinner, tossDecision });
     } catch (e) {
       console.warn("OpenAI match simulation unavailable; using local 2027 fallback.", e);
-      showToast("OpenAI simulation is unavailable. Using local 2027 simulation fallback.");
+      const reason = e && e.message ? String(e.message) : "OpenAI simulation is unavailable.";
+      const prefix = e && e.code === "OPENAI_NOT_CONFIGURED" ? "AI Mode setup needed: " : "OpenAI simulation unavailable: ";
+      showToast(prefix + reason + " Using local 2027 simulation fallback.");
       const fallback = simulateT20Match(teamA, teamB, xiA, xiB, { year:2027, matchNoInYear:null, useHistorical:false, teamAppearances:{}, applyWicketBonus:false });
       fallback.aiEngine = "Local 2027 fallback";
       fallback.commentary = [
