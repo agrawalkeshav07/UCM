@@ -12,8 +12,9 @@ const ROOT = __dirname;
 const ROOM_DB_FILE = process.env.ROOM_DB_FILE || path.join(ROOT, 'ucm_rooms_db.json');
 const ANALYTICS_DB_FILE = process.env.ANALYTICS_DB_FILE || path.join(ROOT, 'ucm_analytics_db.json');
 const ANALYTICS_ADMIN_TOKEN = process.env.ANALYTICS_ADMIN_TOKEN || 'keshav199507';
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
-const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4.1-mini';
+const AI_PROVIDER = 'gemini';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 const HOST_TIMEOUT_MS = Number(process.env.HOST_TIMEOUT_MS || 2 * 60 * 1000);
 const TEAM_NAMES = [
   'Mumbai Mavericks', 'Delhi Strikers', 'Bengaluru Blazers', 'Chennai Chargers', 'Kolkata Knightsmen',
@@ -284,14 +285,12 @@ function canViewAnalytics(query) {
 function safeJsonText(value, max = 200000) {
   return JSON.stringify(value || {}).slice(0, max);
 }
-function extractOpenAIText(data) {
+function extractGeminiText(data) {
   if (!data) return '';
-  if (typeof data.output_text === 'string') return data.output_text;
   const chunks = [];
-  for (const item of data.output || []) {
-    for (const content of item.content || []) {
-      if (typeof content.text === 'string') chunks.push(content.text);
-      else if (typeof content.output_text === 'string') chunks.push(content.output_text);
+  for (const candidate of data.candidates || []) {
+    for (const part of (candidate.content && candidate.content.parts) || []) {
+      if (typeof part.text === 'string') chunks.push(part.text);
     }
   }
   return chunks.join('\n').trim();
@@ -307,36 +306,42 @@ function aiSimulationSystemPrompt() {
     '{"venue":{"name":"","pitch":""},"dew":true,"tossWinner":"Team Name","tossDecision":"bat","innings":[{"teamName":"Team Name","runs":170,"wickets":7,"balls":120,"batting":[{"name":"Player","runs":45,"balls":31,"fours":4,"sixes":2,"dismissal":"c fielder b bowler"}],"bowling":[{"name":"Bowler","balls":24,"runs":32,"wickets":2,"dots":9,"foursConceded":3,"sixesConceded":1}],"commentary":["short highlight"],"recentBalls":["1","4","0","W"]}],"winner":"Team Name","resultText":"Team won by ...","playerOfMatch":"Player","tacticalAnalysis":["short point"],"commentary":["six to eight broadcast-style lines"]}'
   ].join('\n');
 }
-async function runOpenAIMatchSimulation(payload) {
-  if (!OPENAI_API_KEY) throw new Error('OpenAI API key is not configured. Set OPENAI_API_KEY on the server.');
-  const response = await fetch('https://api.openai.com/v1/responses', {
+function stripJsonFence(text) {
+  return String(text || '').replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
+}
+async function runGeminiMatchSimulation(payload) {
+  if (!GEMINI_API_KEY) throw new Error('Gemini API key is not configured. Set GEMINI_API_KEY on the server.');
+  const endpoint = 'https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(GEMINI_MODEL) + ':generateContent';
+  const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
-      'Authorization': 'Bearer ' + OPENAI_API_KEY,
+      'x-goog-api-key': GEMINI_API_KEY,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      model: OPENAI_MODEL,
-      temperature: 0.72,
-      max_output_tokens: 6500,
-      text: { format: { type: 'json_object' } },
-      input: [
-        { role: 'system', content: aiSimulationSystemPrompt() },
-        { role: 'user', content: 'Simulate this UCM 2027 match. Return JSON only.\n' + safeJsonText(payload) }
-      ]
+      system_instruction: { parts: [{ text: aiSimulationSystemPrompt() }] },
+      contents: [{
+        role: 'user',
+        parts: [{ text: 'Simulate this UCM 2027 match. Return JSON only.\n' + safeJsonText(payload) }]
+      }],
+      generationConfig: {
+        temperature: 0.72,
+        maxOutputTokens: 6500,
+        responseMimeType: 'application/json'
+      }
     })
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) {
-    const message = data.error && data.error.message ? data.error.message : 'OpenAI simulation failed';
+    const message = data.error && data.error.message ? data.error.message : 'Gemini simulation failed';
     throw new Error(message);
   }
-  const text = extractOpenAIText(data);
-  if (!text) throw new Error('OpenAI returned an empty simulation.');
+  const text = stripJsonFence(extractGeminiText(data));
+  if (!text) throw new Error('Gemini returned an empty simulation.');
   try {
     return JSON.parse(text);
   } catch (e) {
-    throw new Error('OpenAI returned invalid simulation JSON.');
+    throw new Error('Gemini returned invalid simulation JSON.');
   }
 }
 
@@ -484,8 +489,9 @@ async function handleApi(req, res, pathname, query) {
   if (pathname === '/api/ai/status' && req.method === 'GET') {
     return sendJson(res, 200, {
       ok:true,
-      configured:!!OPENAI_API_KEY,
-      model:OPENAI_MODEL
+      provider:AI_PROVIDER,
+      configured:!!GEMINI_API_KEY,
+      model:GEMINI_MODEL
     });
   }
   if (pathname === '/api/ai/simulate-match' && req.method === 'POST') {
@@ -494,21 +500,21 @@ async function handleApi(req, res, pathname, query) {
     if (String(body.mode || '') !== 'ai2027') return sendJson(res, 400, { error:'Invalid AI simulation mode' });
     if (!body.fixture || !Array.isArray(body.teams) || body.teams.length !== 2) return sendJson(res, 400, { error:'Match fixture and two teams are required' });
     try {
-      const match = await runOpenAIMatchSimulation(body);
-      return sendJson(res, 200, { ok:true, source:'openai', model:OPENAI_MODEL, match });
+      const match = await runGeminiMatchSimulation(body);
+      return sendJson(res, 200, { ok:true, source:'gemini', model:GEMINI_MODEL, match });
     } catch (err) {
-      const message = err && err.message ? err.message : 'OpenAI simulation failed';
+      const message = err && err.message ? err.message : 'Gemini simulation failed';
       const missingKey = /api key is not configured/i.test(message);
       const status = missingKey ? 503 : 502;
-      const code = missingKey ? 'OPENAI_NOT_CONFIGURED' : 'OPENAI_SIMULATION_FAILED';
+      const code = missingKey ? 'GEMINI_NOT_CONFIGURED' : 'GEMINI_SIMULATION_FAILED';
       console.warn('[ai-simulate-match]', code, message);
       return sendJson(res, status, {
         ok:false,
-        source:'openai',
-        model:OPENAI_MODEL,
+        source:'gemini',
+        model:GEMINI_MODEL,
         code,
         error: missingKey
-          ? 'OpenAI API key is not configured. Add OPENAI_API_KEY in Render Environment, then redeploy/restart the service.'
+          ? 'Gemini API key is not configured. Add GEMINI_API_KEY in Render Environment, then redeploy/restart the service.'
           : message
       });
     }
