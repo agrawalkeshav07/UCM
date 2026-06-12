@@ -47,27 +47,22 @@ Build Command: npm install
 Start Command: npm start
 ```
 
-For **AI Simulation Tournament 2027**, add this Render environment variable:
+For **AI Simulation Tournament 2027**, add these Render environment variables:
 
 ```text
-OPENAI_API_KEY=your_openai_api_key
+GEMINI_API_KEY=your_gemini_api_key
+GEMINI_MODEL=gemini-2.5-flash
 ```
 
-Optional:
-
-```text
-OPENAI_MODEL=gpt-4.1-mini
-```
-
-If `OPENAI_API_KEY` is missing, the game stays playable and uses the local 2027 fallback simulation.
+If `GEMINI_API_KEY` is missing or Gemini quota is unavailable, the game stays playable and uses the improved local 2027 fallback simulation.
 
 If you see this in AI Mode:
 
 ```text
-OpenAI simulation unavailable / Using local 2027 simulation fallback
+Gemini simulation unavailable / Using local 2027 simulation fallback
 ```
 
-open Render -> your Web Service -> Environment, add `OPENAI_API_KEY`, save changes, then redeploy or restart the service. You can verify server-side AI setup at:
+open Render -> your Web Service -> Environment, add `GEMINI_API_KEY`, save changes, then redeploy or restart the service. You can verify server-side AI setup at:
 
 ```text
 https://your-domain.onrender.com/api/ai/status

@@ -764,7 +764,7 @@ html,body{width:100%;max-width:100%;}
       <button class="mode-card" id="aiModeBtn" type="button">
         <div>
           <h3>AI Mode</h3>
-          <p>Same auction system, then dynamic OpenAI-based match simulation using tactical rules, player roles, venue conditions, pressure, form, and team balance.</p>
+          <p>Same auction system, then dynamic Gemini-assisted match simulation using tactical rules, player roles, venue conditions, pressure, form, and team balance, with local fallback.</p>
         </div>
         <div class="mode-tags"><span>2027 Season</span><span>AI Match Engine</span><span>No Historical Draw</span></div>
       </button>
@@ -2920,18 +2920,19 @@ setInterval(syncFriendsRoom, 1000);
     const age = Number(player.age || 30);
     const fitness = Number(player.fitness || 82);
     const fatigue = Number(player.fatigue || 0);
-    let risk = 0.012;
-    risk += Math.min(0.028, workload.battingBalls / 180);
-    risk += Math.min(0.044, workload.bowlingBalls / 105);
-    if (role === "Bowler") risk += 0.012;
-    if (role === "All-Rounder" && workload.bowlingBalls > 0 && workload.battingBalls > 10) risk += 0.016;
-    if (bowlingStyle.includes("fast") || bowlingStyle.includes("medium")) risk += workload.bowlingBalls >= 18 ? 0.022 : 0.009;
+    let risk = 0.018;
+    risk += Math.min(0.038, workload.battingBalls / 150);
+    risk += Math.min(0.06, workload.bowlingBalls / 92);
+    if (role === "Bowler") risk += 0.016;
+    if (role === "All-Rounder" && workload.bowlingBalls > 0 && workload.battingBalls > 10) risk += 0.022;
+    if (bowlingStyle.includes("fast") || bowlingStyle.includes("medium")) risk += workload.bowlingBalls >= 18 ? 0.032 : 0.014;
     if (age >= 35) risk += 0.012;
     if (fitness < 76) risk += 0.015;
     if (fitness < 64) risk += 0.018;
-    if (fatigue >= 45) risk += 0.014;
-    if (fatigue >= 70) risk += 0.02;
-    return Math.max(0.006, Math.min(0.16, risk));
+    if (fatigue >= 35) risk += 0.014;
+    if (fatigue >= 55) risk += 0.018;
+    if (fatigue >= 75) risk += 0.026;
+    return Math.max(0.01, Math.min(0.22, risk));
   }
 
   function chooseInjuryType(player, workload) {
@@ -2979,7 +2980,7 @@ setInterval(syncFriendsRoom, 1000);
   }
 
   function forceFirstSeasonInjuryIfNeeded(match, fixture, teamsWithXi) {
-    if ((tournState.injuryLog || []).length || currentTournamentMatchNumber() < 5) return [];
+    if ((tournState.injuryLog || []).length || currentTournamentMatchNumber() < 2) return [];
     const pool = teamsWithXi.flatMap(({ team, xi }) => (xi || []).map(xiPlayer => {
       const player = resolveSquadPlayer(team, xiPlayer.id) || xiPlayer;
       const workload = workloadForPlayer(match, team, player);
@@ -3039,11 +3040,32 @@ setInterval(syncFriendsRoom, 1000);
   }
 
   function sortAIBattingOrder(xi) {
-    return [...xi].sort((a,b) => {
-      const roleBoost = p => p.role === "Batsman" ? 18 : p.role === "Wicketkeeper" ? 16 : p.role === "All-Rounder" ? 6 : -22;
-      return (playerBatSkill(b) + roleBoost(b) + Number(b.rating || 0) * 0.08) -
-             (playerBatSkill(a) + roleBoost(a) + Number(a.rating || 0) * 0.08);
+    const pool = [...xi];
+    const picked = [];
+    const take = (filter, scoreFn) => {
+      const idx = pool
+        .map((p, index) => ({ p, index, score:scoreFn(p) }))
+        .filter(item => filter(item.p))
+        .sort((a,b) => b.score - a.score)[0]?.index;
+      if (idx == null) return null;
+      const [player] = pool.splice(idx, 1);
+      picked.push(player);
+      return player;
+    };
+    const takeAny = scoreFn => take(() => true, scoreFn);
+    const topOrderScore = p => playerBatSkill(p) + Number(p.form || p.recentForm || 70) * 0.18 + (p.role === "Wicketkeeper" ? 7 : 0) + (p.role === "Batsman" ? 9 : 0);
+    const anchorScore = p => playerBatSkill(p) + Number(p.experience || p.matches || 60) * 0.05 + Number(p.rating || 0) * 0.12;
+    const finisherScore = p => playerBatSkill(p) + (p.role === "All-Rounder" ? 14 : 0) + Number(p.rating || 0) * 0.15;
+
+    while (picked.length < 2 && pool.length) take(p => p.role === "Batsman" || p.role === "Wicketkeeper", topOrderScore) || takeAny(topOrderScore);
+    take(p => p.role === "Batsman" || p.role === "Wicketkeeper" || p.role === "All-Rounder", anchorScore) || takeAny(anchorScore);
+    while (picked.length < 5 && pool.length) take(p => p.role === "Batsman" || p.role === "Wicketkeeper" || p.role === "All-Rounder", anchorScore) || takeAny(anchorScore);
+    while (picked.length < 7 && pool.length) take(p => p.role === "All-Rounder" || p.role === "Wicketkeeper" || p.role === "Batsman", finisherScore) || takeAny(finisherScore);
+    pool.sort((a,b) => {
+      const rolePenalty = p => p.role === "Bowler" ? -26 : p.role === "All-Rounder" ? 8 : p.role === "Wicketkeeper" ? 10 : 12;
+      return (playerBatSkill(b) + rolePenalty(b)) - (playerBatSkill(a) + rolePenalty(a));
     });
+    return [...picked, ...pool].slice(0, 11);
   }
 
   function autoSelectAIXI(team) {
@@ -3421,7 +3443,7 @@ setInterval(syncFriendsRoom, 1000);
         ydEl.textContent = "2027";
       }
       const ydSub = yearCard.querySelector(".year-draw-sub");
-      if (ydSub) ydSub.textContent = "OpenAI match simulation uses the rulebook, squads, XI, pitch, pressure, and team balance";
+      if (ydSub) ydSub.textContent = "Gemini/local match simulation uses the rulebook, squads, XI, pitch, pressure, and team balance";
       return;
     }
     const validYears = getAvailableHistoricalYears();
@@ -4075,7 +4097,7 @@ setInterval(syncFriendsRoom, 1000);
 
     if (isAiTournamentMode()) {
       mhYear.textContent = "Match Year: 2027";
-      mhMatchNum.textContent = "AI Simulation: OpenAI Rulebook";
+      mhMatchNum.textContent = "AI Simulation: Gemini + Local Rulebook";
     } else {
       mhYear.textContent = `Match Year: ${tournState.drawnYear || "-"}`;
       mhMatchNum.textContent = `Historical Match Ref: ${tournState.drawnYear ? currentTournamentMatchNumber() : "-"}`;
@@ -4293,7 +4315,7 @@ setInterval(syncFriendsRoom, 1000);
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok || !data.match) {
-      const err = new Error(data.error || "OpenAI simulation unavailable");
+      const err = new Error(data.error || "Gemini simulation unavailable");
       err.code = data.code || "";
       err.status = res.status;
       throw err;
@@ -4407,9 +4429,9 @@ setInterval(syncFriendsRoom, 1000);
       winner,
       resultText: finalResultText,
       playerOfMatch: raw.playerOfMatch || "",
-      aiEngine: "OpenAI 2027",
+      aiEngine: "Gemini 2027",
       commentary:[
-        "AI Simulation Tournament 2027: OpenAI rulebook engine applied.",
+        "AI Simulation Tournament 2027: Gemini rulebook engine applied.",
         `${tossWinner.name} won the toss and chose to ${tossDecision}.`,
         ...aiNotes.slice(0, 8),
         finalResultText
@@ -4427,14 +4449,14 @@ setInterval(syncFriendsRoom, 1000);
       const data = await requestAISimulation(payload);
       return normalizeAIMatchResponse(data.match, { teamA, teamB, xiA, xiB, venue, dew, tossWinner, tossDecision });
     } catch (e) {
-      console.warn("OpenAI match simulation unavailable; using local 2027 fallback.", e);
-      const reason = e && e.message ? String(e.message) : "OpenAI simulation is unavailable.";
-      const prefix = e && e.code === "OPENAI_NOT_CONFIGURED" ? "AI Mode setup needed: " : "OpenAI simulation unavailable: ";
+      console.warn("Gemini match simulation unavailable; using local 2027 fallback.", e);
+      const reason = e && e.message ? String(e.message) : "Gemini simulation is unavailable.";
+      const prefix = e && e.code === "GEMINI_NOT_CONFIGURED" ? "AI Mode setup needed: " : "Gemini simulation unavailable: ";
       showToast(prefix + reason + " Using local 2027 simulation fallback.");
       const fallback = simulateT20Match(teamA, teamB, xiA, xiB, { year:2027, matchNoInYear:null, useHistorical:false, teamAppearances:{}, applyWicketBonus:false });
       fallback.aiEngine = "Local 2027 fallback";
       fallback.commentary = [
-        "AI Simulation Tournament 2027 fallback: local rule-based engine used because OpenAI is unavailable.",
+        "AI Simulation Tournament 2027 fallback: local rule-based engine used because Gemini is unavailable.",
         ...fallback.commentary
       ];
       return fallback;
@@ -4528,18 +4550,28 @@ setInterval(syncFriendsRoom, 1000);
   function simulateInnings(battingTeam, bowlingTeam, battingXI, bowlingXI, context) {
     const batStats = battingXI.map(p => ({...p, runs:0, balls:0, fours:0, sixes:0, dismissal:""}));
     const bowlingOptions = getBowlingOptions(bowlingXI);
+    if (!bowlingOptions.length) bowlingOptions.push({ id:"emergency-bowler", name:"Emergency Bowler", role:"Bowler", rating:45, bowlingStyle:"Right-arm medium" });
     const bowlStats = bowlingOptions.map(p => ({id:p.id, name:p.name, role:p.role, balls:0, runs:0, wickets:0, dots:0, foursConceded:0, sixesConceded:0}));
     const commentary = [];
     const recentBalls = [];
     let striker = 0, nonStriker = 1, nextBatter = 2;
     let runs = 0, wickets = 0, balls = 0;
+    let overBowler = null;
+    let overNo = -1;
 
     while (balls < 120 && wickets < 10) {
       if (context.target && runs >= context.target) break;
       const over = Math.floor(balls / 6);
-      const legalInOver = balls % 6;
-      const bowler = chooseBowlerForOver(bowlingOptions, bowlStats, over, context);
-      const bowlerStats = bowlStats.find(b => b.id === bowler.id);
+      if (over !== overNo || !overBowler) {
+        overBowler = chooseBowlerForOver(bowlingOptions, bowlStats, over, context);
+        overNo = over;
+      }
+      const bowler = overBowler;
+      let bowlerStats = bowlStats.find(b => b.id === bowler.id);
+      if (!bowlerStats) {
+        bowlerStats = {id:bowler.id, name:bowler.name, role:bowler.role, balls:0, runs:0, wickets:0, dots:0, foursConceded:0, sixesConceded:0};
+        bowlStats.push(bowlerStats);
+      }
       const batter = batStats[striker];
       const ball = simulateBall(batter, bowler, battingTeam, bowlingTeam, context, over, runs, wickets);
 
@@ -4584,6 +4616,7 @@ setInterval(syncFriendsRoom, 1000);
       historicalApplied: false
     };
     applyHistoricalStatsToInnings(innings, context.year, context.matchNoInYear, context.useHistorical, context.battingAppearanceNo, context.bowlingAppearanceNo);
+    reconcileLocalInningsScorecard(innings);
     return innings;
   }
 
@@ -4648,6 +4681,38 @@ setInterval(syncFriendsRoom, 1000);
     innings.commentary.push(`Fully historical UCM ${year} match ${matchNoInYear}: ${battingHits} batting record${battingHits === 1 ? "" : "s"} and ${bowlingHits} bowling record${bowlingHits === 1 ? "" : "s"} found. Players without a record for this appearance number in the drawn year are shown as DNP, not simulated.`);
   }
 
+  function reconcileLocalInningsScorecard(innings) {
+    if (!innings || innings.historicalApplied) return innings;
+    const batting = innings.batting || [];
+    const bowling = innings.bowling || [];
+    const battingRuns = batting.reduce((sum, p) => sum + Number(p.runs || 0), 0);
+    innings.runs = Math.max(0, Math.round(battingRuns));
+    innings.wickets = Math.min(10, batting.filter(p => p.dismissal).length);
+    innings.balls = Math.max(0, Math.min(120, Number(innings.balls || batting.reduce((sum, p) => sum + Number(p.balls || 0), 0))));
+    innings.oversText = ballsToOvers(innings.balls);
+    innings.runRate = innings.balls ? (innings.runs / (innings.balls / 6)).toFixed(2) : "0.00";
+
+    const bowlingRuns = bowling.reduce((sum, b) => sum + Number(b.runs || 0), 0);
+    if (bowling.length && bowlingRuns !== innings.runs) {
+      const target = bowling[bowling.length - 1];
+      target.runs = Math.max(0, Number(target.runs || 0) + innings.runs - bowlingRuns);
+    }
+    const bowlingWickets = bowling.reduce((sum, b) => sum + Number(b.wickets || 0), 0);
+    if (bowling.length && bowlingWickets !== innings.wickets) {
+      const target = bowling.slice().sort((a,b) => Number(b.wickets || 0) - Number(a.wickets || 0))[0] || bowling[0];
+      target.wickets = Math.max(0, Number(target.wickets || 0) + innings.wickets - bowlingWickets);
+    }
+    bowling.forEach(b => {
+      b.balls = Math.max(0, Math.min(24, Number(b.balls || 0)));
+      b.runs = Math.max(0, Math.round(Number(b.runs || 0)));
+      b.wickets = Math.max(0, Math.min(10, Math.round(Number(b.wickets || 0))));
+      b.dots = Math.max(0, Math.min(b.balls, Math.round(Number(b.dots || 0))));
+      b.foursConceded = Math.max(0, Math.round(Number(b.foursConceded || 0)));
+      b.sixesConceded = Math.max(0, Math.round(Number(b.sixesConceded || 0)));
+    });
+    return innings;
+  }
+
   function getPlayerHistoricalForContext(fullName, year, matchNoInYear, appearanceNo = 1) {
     if (!STATS_DB) return { r: 0, w: 0, found: false };
     const csvName = (REVERSE_MAP && REVERSE_MAP[fullName]) || fullName;
@@ -4696,37 +4761,56 @@ setInterval(syncFriendsRoom, 1000);
   }
 
   function getBowlingOptions(xi) {
-    const preferred = xi.filter(p => p.role === "Bowler" || p.role === "All-Rounder").sort((a,b) => playerBowlSkill(b) - playerBowlSkill(a));
-    const backup = xi.filter(p => !preferred.some(x => x.id === p.id)).sort((a,b) => playerBowlSkill(b) - playerBowlSkill(a));
+    const preferred = xi.filter(isRealBowlingOption).sort((a,b) => playerBowlSkill(b) - playerBowlSkill(a));
+    if (preferred.length >= 5) return preferred.slice(0, 7);
+    const backup = xi
+      .filter(p => !preferred.some(x => x.id === p.id) && canEmergencyBowl(p))
+      .sort((a,b) => playerBowlSkill(b) - playerBowlSkill(a));
     return [...preferred, ...backup].slice(0, 7);
   }
 
   function chooseBowlerForOver(options, stats, over, context) {
-    const phaseBoost = over >= 16 ? 1.12 : over < 6 ? 1.06 : 1;
+    const safeOptions = options && options.length ? options : [{id:"emergency-bowler", name:"Emergency Bowler", role:"Bowler", rating:45, bowlingStyle:"Right-arm medium"}];
     const eligible = options.filter(p => (stats.find(b => b.id === p.id)?.balls || 0) < 24);
-    const pool = eligible.length ? eligible : options;
+    const pool = eligible.length ? eligible : safeOptions;
     return pool
-      .map(p => ({p, score: playerBowlSkill(p) * phaseBoost - (stats.find(b => b.id === p.id)?.balls || 0) * 0.8 + Math.random() * 18}))
+      .map(p => {
+        const usedBalls = stats.find(b => b.id === p.id)?.balls || 0;
+        const styleFit = bowlingStyleVenueFit(p, context.venue);
+        const phaseFit = bowlingPhaseFit(p, over);
+        const workloadPenalty = usedBalls * (over >= 16 ? 0.95 : 0.72);
+        const partTimePenalty = isRealBowlingOption(p) ? 0 : 34;
+        const deathNeed = over >= 16 && isPaceBowler(p) ? 7 : 0;
+        const middleSpin = over >= 7 && over <= 14 && isSpinBowler(p) ? 8 : 0;
+        const score = playerBowlSkill(p) * styleFit * phaseFit + deathNeed + middleSpin - workloadPenalty - partTimePenalty + Math.random() * 9;
+        return { p, score };
+      })
       .sort((a,b) => b.score - a.score)[0].p;
   }
 
   function simulateBall(batter, bowler, battingTeam, bowlingTeam, context, over, runs, wickets) {
     const phase = over < 6 ? "powerplay" : over >= 16 ? "death" : "middle";
-    const bat = (playerBatSkill(batter) + (Number(batter.recentForm || batter.form || 60) - 60) * 0.18) * moraleModifier(battingTeam);
-    const bowl = playerBowlSkill(bowler) * moraleModifier(bowlingTeam);
-    const pitchBat = context.venue.batting;
-    const pitchBowl = (bowler.role === "Bowler" || bowler.role === "All-Rounder") ? (context.venue.pace + context.venue.spin) / 2 : 0.94;
-    const pressure = context.target ? Math.max(-0.08, Math.min(0.12, ((context.target - runs) / Math.max(1, 120 - over * 6)) / 10)) : 0;
-    const advantage = (bat - bowl) / 100;
+    const bat = effectiveBattingSkill(batter, battingTeam, context, over, runs, wickets);
+    const bowl = effectiveBowlingSkill(bowler, bowlingTeam, context, over);
+    const venue = context.venue || { batting:1, pace:1, spin:1, avg:170, chase:1 };
+    const ballsLeft = Math.max(1, 120 - over * 6);
+    const requiredRate = context.target ? ((context.target - runs) / ballsLeft) * 6 : 0;
+    const parRate = Number(venue.avg || 170) / 20;
+    const chasePressure = context.target ? Math.max(-0.08, Math.min(0.16, (requiredRate - parRate) / 34)) : 0;
+    const wicketPressure = wickets >= 6 ? -0.016 : wickets <= 2 && phase === "death" ? 0.012 : 0;
+    const advantage = (bat - bowl) / 115;
+    const dewBoost = context.dew && context.inningsNo === 2 ? 0.014 : 0;
+    const pitchBat = Number(venue.batting || 1);
+    const pitchBowl = bowlingStyleVenueFit(bowler, venue);
 
-    let wicketP = 0.045 - advantage * 0.035 + (phase === "death" ? 0.012 : 0) + (context.venue.batting < 1 ? 0.008 : 0);
-    let sixP = 0.045 + advantage * 0.05 + (phase === "death" ? 0.035 : phase === "powerplay" ? 0.018 : 0) + (pitchBat - 1) * 0.05;
-    let fourP = 0.105 + advantage * 0.06 + (phase === "powerplay" ? 0.032 : 0) + (pitchBat - 1) * 0.06;
-    let dotP = 0.31 - advantage * 0.08 + (pitchBowl - 1) * 0.04 - pressure;
+    let wicketP = 0.038 - advantage * 0.034 + (phase === "death" ? 0.014 : 0) + (pitchBowl - 1) * 0.035 - dewBoost + chasePressure * 0.32 + (wickets >= 7 ? -0.012 : 0);
+    let sixP = 0.038 + advantage * 0.052 + (phase === "death" ? 0.044 : phase === "powerplay" ? 0.02 : 0) + (pitchBat - 1) * 0.07 + chasePressure * 0.45 + wicketPressure;
+    let fourP = 0.095 + advantage * 0.062 + (phase === "powerplay" ? 0.034 : phase === "death" ? 0.018 : 0) + (pitchBat - 1) * 0.065 + chasePressure * 0.25;
+    let dotP = 0.315 - advantage * 0.09 + (pitchBowl - 1) * 0.055 - chasePressure * 0.45 + (phase === "middle" && isSpinBowler(bowler) ? 0.022 : 0);
     wicketP = Math.max(0.018, Math.min(0.09, wicketP));
-    sixP = Math.max(0.015, Math.min(0.12, sixP));
-    fourP = Math.max(0.06, Math.min(0.18, fourP));
-    dotP = Math.max(0.18, Math.min(0.42, dotP));
+    sixP = Math.max(0.012, Math.min(0.135, sixP));
+    fourP = Math.max(0.055, Math.min(0.19, fourP));
+    dotP = Math.max(0.16, Math.min(0.45, dotP));
 
     const r = Math.random();
     if (r < wicketP) return {runs:0, batRuns:0, wicket:true, label:"W", kind:"wicket"};
@@ -4737,6 +4821,65 @@ setInterval(syncFriendsRoom, 1000);
     if (runRoll < 0.58) return {runs:1, batRuns:1, wicket:false, label:"1", kind:"single"};
     if (runRoll < 0.9) return {runs:2, batRuns:2, wicket:false, label:"2", kind:"two"};
     return {runs:3, batRuns:3, wicket:false, label:"3", kind:"three"};
+  }
+
+  function isRealBowlingOption(p) {
+    if (!p) return false;
+    if (p.role === "Bowler" || p.role === "All-Rounder") return true;
+    const style = String(p.bowlingStyle || "").toLowerCase();
+    return !!style && style !== "none" && Number(p.bowlingRating || p.bowlingSkill || 0) >= 55;
+  }
+  function canEmergencyBowl(p) {
+    const style = String(p && p.bowlingStyle || "").toLowerCase();
+    return !!style && style !== "none" && !style.includes("unknown");
+  }
+  function isPaceBowler(p) {
+    const style = String(p && p.bowlingStyle || "").toLowerCase();
+    return style.includes("fast") || style.includes("medium") || style.includes("pace") || style.includes("seam");
+  }
+  function isSpinBowler(p) {
+    const style = String(p && p.bowlingStyle || "").toLowerCase();
+    return style.includes("spin") || style.includes("break") || style.includes("orthodox") || style.includes("leg") || style.includes("off");
+  }
+  function bowlingStyleVenueFit(bowler, venue) {
+    if (isSpinBowler(bowler)) return Number(venue && venue.spin || 1);
+    if (isPaceBowler(bowler)) return Number(venue && venue.pace || 1);
+    return 0.92;
+  }
+  function bowlingPhaseFit(bowler, over) {
+    if (over < 6) return isPaceBowler(bowler) ? 1.08 : isSpinBowler(bowler) ? 0.96 : 0.9;
+    if (over >= 16) return isPaceBowler(bowler) ? 1.1 : isSpinBowler(bowler) ? 0.98 : 0.86;
+    return isSpinBowler(bowler) ? 1.09 : 1;
+  }
+  function battingRolePhaseFit(player, over) {
+    const role = String(player && player.role || "");
+    const pos = Number(player && player.preferredBattingPosition || 0);
+    if (over < 6) return pos <= 2 || role === "Wicketkeeper" ? 1.06 : 1;
+    if (over >= 16) return role === "All-Rounder" || pos >= 5 ? 1.08 : 1.02;
+    return role === "Batsman" || role === "Wicketkeeper" ? 1.04 : 1;
+  }
+  function effectiveBattingSkill(player, team, context, over, runs, wickets) {
+    const base = playerBatSkill(player);
+    const form = Number(player && (player.recentForm || player.form || 60));
+    const fitness = Number(player && (player.fitness || 82));
+    const fatigue = Number(player && (player.fatigue || 0));
+    const pressureTemper = Number(player && (player.temperament || player.experience || player.rating || 65));
+    const venue = context.venue || { batting:1 };
+    const wicketCalm = wickets >= 5 ? (pressureTemper - 60) * 0.08 : 0;
+    return (base * 0.72 + form * 0.16 + pressureTemper * 0.08 + fitness * 0.04 + wicketCalm - fatigue * 0.045) *
+      moraleModifier(team) * battingRolePhaseFit(player, over) * Number(venue.batting || 1);
+  }
+  function effectiveBowlingSkill(player, team, context, over) {
+    const base = playerBowlSkill(player);
+    const form = Number(player && (player.recentForm || player.form || 60));
+    const fitness = Number(player && (player.fitness || 82));
+    const fatigue = Number(player && (player.fatigue || 0));
+    const venueFit = bowlingStyleVenueFit(player, context.venue);
+    const phaseFit = bowlingPhaseFit(player, over);
+    const dewPenalty = context.dew && context.inningsNo === 2 ? 0.94 : 1;
+    const partTimePenalty = isRealBowlingOption(player) ? 1 : 0.78;
+    return (base * 0.76 + form * 0.12 + fitness * 0.06 + Number(player && player.experience || 60) * 0.06 - fatigue * 0.04) *
+      moraleModifier(team) * venueFit * phaseFit * dewPenalty * partTimePenalty;
   }
 
   function playerBatSkill(p) { return Number(p.battingRating || p.battingSkill || p.rating || p.overallRating || 55); }
