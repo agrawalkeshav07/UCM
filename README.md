@@ -52,6 +52,7 @@ For **AI Simulation Tournament 2027**, add these Render environment variables:
 ```text
 GEMINI_API_KEY=your_gemini_api_key
 GEMINI_MODEL=gemini-2.5-flash
+GEMINI_TIMEOUT_MS=12000
 ```
 
 If `GEMINI_API_KEY` is missing or Gemini quota is unavailable, the game stays playable and uses the improved local 2027 fallback simulation.
